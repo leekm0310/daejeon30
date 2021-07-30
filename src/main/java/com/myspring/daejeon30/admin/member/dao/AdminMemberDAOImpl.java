@@ -1,0 +1,33 @@
+package com.myspring.daejeon30.admin.member.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Repository;
+
+import com.myspring.daejeon30.member.vo.MemberVO;
+
+@Repository("adminMemberDAO")
+public class AdminMemberDAOImpl implements AdminMemberDAO{
+	@Autowired
+	private SqlSession sqlSession;
+	
+	@Override
+	public List selectAllMember() throws DataAccessException{
+		List memberList = sqlSession.selectList("mapper.admin.member.allMember");
+		return memberList;
+	}
+	
+	@Override
+	public void deleteMember(String id) throws DataAccessException{
+		sqlSession.delete("mapper.admin.member.deleteMember", id);
+	}
+	
+	@Override
+	public MemberVO oneMem(String id) throws DataAccessException{
+		MemberVO mem = sqlSession.selectOne("mapper.admin.member.memDetail", id);
+		return mem;
+	}
+}

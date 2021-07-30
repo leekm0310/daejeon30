@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="localmenu" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+	</definition>
+	
+	<definition name="board2" extends="baseLayout">
+		<put-attribute name="title" value="추천게시판" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/boardMenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/board/board2.jsp" />
+	</definition>
+	
+	<definition name="/board/writeform" extends="baseLayout">
+		<put-attribute name="title" value="글쓰기" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/boardMenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/board/writeform.jsp" />
+	</definition>
+	
+	<definition name="/board/view_r" extends="baseLayout">
+		<put-attribute name="title" value="글상세창" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/boardMenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/board/view_r.jsp" />
+	</definition>
+	
+	<!-- 제목이 title 에 나올 수 있도록 설정하는게 좋을 것 같다. -->
+	
+	
+	
+</tiles-definitions>

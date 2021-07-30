@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.rsvMember">
+	<resultMap id="rsvResult" type="rsvMemberVO">
+		<result property="rsvNum" column="rsvNum" />
+		<result property="resName" column="resName" />
+		<result property="name" column="name" />
+		<result property="phone" column="phone" />
+		<result property="addInfo" column="addInfo" />
+		<result property="rsvDate" column="rsvDate"/>
+		<result property="rsvTime" column="rsvTime"/>
+		<result property="rsvGuestNum" column="rsvGuestNum" />
+	</resultMap>
+
+ 	<insert id="insertRsvMember" parameterType="rsvMemberVO">
+		<![CDATA[ 
+			insert into rsvMember(id, addInfo, rsvDate,rsvTime,guestNum, name,phone, resName) 
+			values(#{id},#{addInfo},#{rsvDate},#{rsvTime},#{guestNum}, #{name}, #{phone}, #{resName})
+		]]>
+	</insert>
+	
+	<select id="selectRsv" parameterType="String" resultType="rsvMemberVO">
+	<![CDATA[
+		select * from rsvmember
+		where id=#{id}
+	]]>
+	</select>
+	
+	<update id="updateRsvCancel" parameterType="String">
+	<![CDATA[
+	update rsvmember set status='취소요청중'
+	where rsvNum=#{rsvNum}
+	]]>
+	</update>
+	
+	<select id ="selectOneRsv" parameterType="int" resultType="rsvMemberVO">
+	<![CDATA[
+		select * from rsvmember 
+		where rsvNum=#{rsvNum}
+	]]>
+	</select>
+	
+	<update id="updateRsv" parameterType="int">
+	<![CDATA[
+		update rsvmember 
+		set phone=#{phone}, addInfo=#{addInfo}, rsvDate=#{rsvDate}, rsvTime=#{rsvTime}, guestNum=#{guestNum}
+		where rsvNum=#{rsvNum}
+	]]>
+	</update>
+ 	
+ 
+</mapper>

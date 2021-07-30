@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="mapper.admin.restaurants">
+	<resultMap id="resResult" type="restaurantVO">
+		<result property="resNum" column="resNum" />
+		<result property="resName" column="resName" />
+		<result property="resOpen" column="resOpen" />
+		<result property="resPhone" column="resPhone" />
+		<result property="resMenu" column="resMenu" />
+		<result property="resLocation" column="resLocation"/>
+		<result property="resCapacity" column="resCapacity"/>
+		<result property="resIngredient" column="resIngredient" />
+		<result property="likeNum" column="likeNum" />
+		<result property="resCategory" column="resCategory" />
+		<result property="mapLocation" column="mapLocation" />
+		<result property="openYear" column="openYear" />
+		<result property="resImageFileName" column="resImageFileName" />
+		<result property="resSort" column="resSort" />
+	</resultMap>
+	
+	<resultMap id="resImage" type="resImageVO">
+		<result property="resImageNum" column="resImageNum"/>
+		<result property="resNum" column="resNum"/>
+		<result property="resImageFileName" column="resImageFileName"/>
+	</resultMap>
+	
+	<select id="selectAll" resultMap="resResult">
+	<![CDATA[
+	select restaurants.resNum, restaurants.resSort, restaurants.resName, resimage.resImageFileName from restaurants inner join resimage
+	on restaurants.resNum = resimage.resNum
+	where resimage.resImageNum = 1;
+	]]>
+	</select>
+	
+	<select id="selectAllResList" resultMap="resResult">
+	<![CDATA[
+		select * from restaurants
+	]]>
+	</select>
+	
+	<select id ="selectRes" resultType="restaurantVO" parameterType="String">
+	<![CDATA[
+		select * from restaurants
+		where resNum=#{resNum}
+	]]>
+	</select>
+	
+	<select id ="selectResNum" resultType="int" parameterType="java.util.Map">
+	<![CDATA[
+		select resNum from restaurants where resName=#{resMap.resName}
+	]]>
+	</select>
+	
+	<update id="updateRes" parameterType="java.util.Map">
+	<![CDATA[
+		update restaurants set resName=#{resName}, resOpen=#{resOpen}, resMenu=#{resMenu}, resLocation=#{resLocation}, resCapacity=#{resCapacity}, 
+		resIngredient=#{resIngredient} where resNum = #{resNum}
+	]]>
+	</update>
+	
+	  <!--
+	<select id ="selectResNum" resultType="int" parameterType="restaurantVO">
+	<![CDATA[
+		select resNum from restaurants where resName=#{resName}
+	]]>
+	</select>
+	
+	<insert id="insertNewRes" parameterType="java.util.Map">
+	<![CDATA[
+		insert into restaurants (resNum, resName, resOpen, resPhone, resMenu, resLocation, resCapacity, resIngredient, resCategory, resSort, resImageFileName)
+		values(#{resNum}, #{resName}, #{resOpen}, #{resPhone}, #{resMenu}, #{resLocation}, #{resCapacity}, #{resIngredient}, #{resCategory}, #{resSort}, null)
+		
+	]]>
+	</insert>
+	-->
+	
+	<insert id="insertNewRes" parameterType="java.util.Map">
+	<![CDATA[
+		call insert_res(#{resName}, #{resOpen}, #{resPhone}, #{resMenu}, #{resLocation}, #{resCapacity}, #{resIngredient}, #{resCategory}, #{resSort});
+	]]>
+	</insert>
+	
+	<insert id="insertNewImage" parameterType="java.util.Map">
+	insert into resImage(resImageNum, resNum, resImageFileName) 
+	values
+	<foreach collection="list" item="item" separator=",">
+	(
+	#{item.resImageNum}, #{item.resNum}, #{item.resImageFileName})
+	</foreach>
+	</insert>
+	
+	<select id="selectNewImageFileNO" resultType="int">
+	<![CDATA[
+	select ifnull(max(resImageNum),0) from resImage
+	]]>
+	</select>
+	
+	<select id="selectImageFileList" resultMap="resImage" parameterType="int">
+	<![CDATA[
+	select * from resImage
+	where resNum=#{resNum}
+	]]>
+	</select>
+	
+	<delete id="deleteRes" parameterType="int">
+	<![CDATA[
+		delete from restaurants where resNum = #{resNum}
+	]]>
+	</delete>
+	
+</mapper>

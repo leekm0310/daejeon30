@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.board2">
+	<resultMap id="board2Result" type="board2VO">
+		<result property="rb_num" column="rb_num" />
+		<result property="rb_title" column="rb_title" />
+		<result property="rb_content" column="rb_content" />
+		<result property="id" column="id" />
+		<result property="rb_date" column="rb_date" />
+		<result property="rb_views" column="rb_views" />
+		<result property="imageFileName" column="imageFileName" />
+	</resultMap>
+
+	<resultMap id="imgResult" type="imageVO">
+		<result property="rb_ImageNum" column="rb_ImageNum" />
+		<result property="rb_num" column="rb_num" />
+		<result property="rb_imageFileName" column="rb_imageFileName" />
+		<result property="date" column="date" />
+	</resultMap>
+	
+	<!-- 글 목록 -->
+	<select id="selectAllBoard2List" resultMap="board2Result">
+	 	<![CDATA[
+	 	select * from recboard
+	 	]]>
+	</select>
+	
+	<!-- 글쓰기 -->
+	<insert id="insertNewBoard" parameterType="java.util.Map">
+	 	<![CDATA[
+	 	insert into recboard(rb_num, rb_title, rb_content, imageFileName, id)
+	 	values(#{rb_num}, #{rb_title}, #{rb_content}, #{imageFileName}, #{id})
+	 	]]>
+	</insert>
+	
+	<!-- 글번호 -->
+	<select id="selectNewBoardNO" resultType="int">
+	 	<![CDATA[
+	 	select max(rb_num)+1 
+	 	from recboard
+	 	]]>
+	</select>
+	
+	<!-- 게시물의 총 갯수 -->
+	<select id="count" resultType="int">
+		select count(rb_num) from recboard
+	</select>
+	
+	<!-- 게시물 목록 + 페이징 -->
+	<select id="listPage" parameterType="hashMap" resultType="com.myspring.daejeon30.board.vo.Board2VO">
+		select
+			rb_num, rb_title, rb_content, rb_date, rb_views
+		from recboard
+		order by rb_num desc
+			limit #{displayPost}, #{postNum}
+	</select>
+	
+	
+	<!-- 조회수 -->
+	<update id="updateBoardView" parameterType="int">
+	 	<![CDATA[
+	 	update recboard
+	 	set rb_views = rb_views+1
+	 	where rb_num = #{rb_num}
+	 	]]>
+	</update>
+	
+	<!-- 페이징 -->
+	<!-- <select id="listCriteria" resultType="board2VO">
+		<![CDATA[
+			select *
+			from recboard
+			where rb_num > 0
+			order by rb_num desc, rb_date desc
+			limit #{pageStart}, #{perPageNum}
+		]]>
+	</select> -->
+	
+	<!-- 새로운 방식의 페이징 -->
+	<select id="getListPaging" resultType="com.myspring.daejeon30.board.vo.Board2VO">
+		select * from (
+			select rb_num, rb_title, rb_content, rb_date, id, rb_views
+			from recboard order by rb_num desc) as T1
+		limit #{skip},#{amount}
+	</select>
+	
+	
+
+
+	
+	<select id="selectBoard" resultType="board2VO" parameterType="int">
+	 	<![CDATA[
+	 	select *
+	 	from recboard
+	 	where rb_num = #{rb_num}
+	 	]]>
+	</select>
+	
+	<!-- 글 수정 --><!-- if 구문은 이미지 수정한 경우에만 파일 이름 수정하기 -->
+	<update id="updateBoard" parameterType="java.util.Map">
+		update recboard
+		set rb_title = #{rb_title}, rb_content = #{rb_content}
+		
+		<if test="imageFileName != '' and imageFileName != null">
+			, imageFileName=#{imageFileName}
+		</if>
+		where rb_num = #{boardNO}
+		
+	</update>
+	
+	<!-- 글삭제 -->
+	<delete id="deleteBoard" parameterType="int">
+
+		delete from recboard
+		where rb_num = #{rb_num}
+		
+	</delete>
+	
+	
+	<select id="selectNewImageFileNO" resultType="int">
+	 	<![CDATA[
+	 	select ifnull(max(rb_ImageNum),0) from recboardimage
+	 	]]>
+	</select>
+
+	<select id="selectImageFileList" resultMap="imgResult" parameterType="int">
+	 	<![CDATA[
+	 	select *
+	 	from recboardimage
+	 	where rb_num = #{rb_num}
+	 	]]>
+	</select>
+
+
+</mapper>

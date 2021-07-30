@@ -1,0 +1,22 @@
+package com.myspring.daejeon30.board.service;
+
+import java.util.List;
+import java.util.Map;
+
+import com.myspring.daejeon30.board.vo.Board2VO;
+
+public interface Board2Service {
+
+	public List listboard2() throws Exception;
+	public int addNewBoard(Map boardMap) throws Exception;
+	public Board2VO view_r(int rb_num) throws Exception;
+	
+	
+	public void modBoard(Map boardMap) throws Exception;
+	public void removeBoard(int rb_num) throws Exception;
+	public int boardView(int boardNO) throws Exception;
+	public int count() throws Exception;
+	public List listPage(int displayPost, int postNum) throws Exception;
+
+
+}

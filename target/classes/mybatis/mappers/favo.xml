@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	
+<mapper namespace="mapper.favo">
+	<resultMap id="favoResult" type="favoVO">
+		<result property="favNum" column="favNum" />
+		<result property="id" column="id" />
+		<result property="resNum" column="resNum" />
+	</resultMap>
+	<resultMap id="resResult" type="restaurantVO">
+		<result property="resNum" column="resNum" />
+		<result property="resName" column="resName" />
+		<result property="resOpen" column="resOpen" />
+		<result property="resPhone" column="resPhone" />
+		<result property="resMenu" column="resMenu" />
+		<result property="resLocation" column="resLocation"/>
+		<result property="resCapacity" column="resCapacity"/>
+		<result property="resIngredient" column="resIngredient" />
+		<result property="likeNum" column="likeNum" />
+		<result property="resCategory" column="resCategory" />
+		<result property="mapLocation" column="mapLocation" />
+		<result property="openYear" column="openYear" />
+		<result property="resImageFileName" column="resImageFileName" />
+		<result property="resSort" column="resSort" />
+	</resultMap>
+	<resultMap id="resImage" type="resImageVO">
+		<result property="resImageNum" column="resImageNum"/>
+		<result property="resNum" column="resNum"/>
+		<result property="resImageFileName" column="resImageFileName"/>
+	</resultMap>
+	
+	<insert id="insertFavo" parameterType="favoVO">
+	<![CDATA[
+		insert into favlist(id, resNum)
+		values(#{id}, #{resNum})
+	]]>
+	</insert>
+	
+	<update id ="addLikeNum" parameterType="favoVO">
+	<![CDATA[
+		update restaurants set likeNum=likeNum+1
+		where resNum=#{resNum}
+	]]>
+	</update>
+	
+	<delete id="deleteFavo" parameterType="favoVO">
+	<![CDATA[
+		delete from favlist where id=#{id} and resNum=#{resNum}
+	]]>
+	</delete>
+	
+	<update id ="fallLikeNum" parameterType="favoVO">
+	<![CDATA[
+		update restaurants set likeNum=likeNum-1
+		where resNum=#{resNum}
+	]]>
+	</update>
+	
+	<!-- 좋아요 개수 선택 -->
+	<select id="countLikeNum" parameterType="favoVO" resultMap="favoResult">
+	<![CDATA[
+		select favlist.resNum, restaurants.likeNum
+		from favlist inner join restaurants on restaurants.resNum = favlist.resNum
+		where favlist.resNum=#{resNum} and favlist.id=#{id}
+	]]>
+	</select>
+	
+	<select id ="selectFavo" parameterType="favoVO" resultMap="favoResult">
+	<![CDATA[
+	select favlist.id, favlist.resNum, restaurants.resName, 
+	restaurants.resPhone, resimage.resImageFileName 
+	from favlist left join restaurants on restaurants.resNum = favlist.resNum
+	join resimage on resimage.resNum = favlist.resNum
+	where id=#{id}
+	
+	]]>
+	</select>
+	
+	<select id ="favoCount" parameterType="favoVO" resultType="int">
+	<![CDATA[
+	select count(*) from favlist where id=#{id} and resNum=#{resNum}
+	]]>
+	</select>
+	
+
+
+</mapper>

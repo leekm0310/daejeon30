@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="mapper.restaurant">
+	<resultMap id="resResult" type="restaurantVO">
+		<result property="resNum" column="resNum" />
+		<result property="resName" column="resName" />
+		<result property="resOpen" column="resOpen" />
+		<result property="resPhone" column="resPhone" />
+		<result property="resMenu" column="resMenu" />
+		<result property="resLocation" column="resLocation"/>
+		<result property="resCapacity" column="resCapacity"/>
+		<result property="resIngredient" column="resIngredient" />
+		<result property="likeNum" column="likeNum" />
+		<result property="resCategory" column="resCategory" />
+		<result property="mapLocation" column="mapLocation" />
+		<result property="openYear" column="openYear" />
+		<result property="resImageFileName" column="resImageFileName" />
+		<result property="resSort" column="resSort" />
+		
+	</resultMap>
+	
+	<resultMap id="resImage" type="resImageVO">
+		<result property="resImageNum" column="resImageNum"/>
+		<result property="resNum" column="resNum"/>
+		<result property="resImageFileName" column="resImageFileName"/>
+	</resultMap>
+ 	
+ 	<select id="selectAll" resultMap="resResult">
+	<![CDATA[
+	select restaurants.resNum, restaurants.resName, resimage.resImageFileName from restaurants inner join resimage
+	on restaurants.resNum = resimage.resNum
+	where resimage.resImageNum = 1;
+	]]>
+	</select>
+ 	
+ 	<select id="selectAllResList" resultType="restaurantVO" parameterType="restaurantVO">
+ 	<![CDATA[
+ 	select resNum, resName, resMenu from restaurants
+ 	]]>
+ 	</select>
+ 	
+ 	<select id="selectRest" resultType="restaurantVO" parameterType="int">
+ 	<![CDATA[
+ 	select resNum, resName, resOpen, resPhone, resMenu, resLocation, resCapacity, resCategory, resSort from restaurants where resNum =#{resNum}
+ 	]]>
+ 	</select>
+ 	
+ 	<select id="selectRestImg" resultMap="resImage" parameterType="int">
+ 	<![CDATA[
+ 	select * from resimage where resNum=#{resNum}
+ 	]]>
+ 	</select>
+ 	
+ 	<select id="selectAllImg" resultType="java.util.Map">
+ 	<![CDATA[
+ 	select * from resimage
+ 	]]>
+ 	</select>
+ 	
+ 	<select id="sortRes" resultMap="resResult">
+ 	<![CDATA[
+ 	select restaurants.resNum, restaurants.resName, resimage.resImageFileName from restaurants inner join resimage
+	on restaurants.resNum = resimage.resNum
+	where resimage.resImageNum = 1 and resSort=#{resSort}
+	]]>
+ 	</select>
+ 	
+ 	<select id="sortfoods" resultMap="resResult">
+ 	<![CDATA[
+ 	select restaurants.resNum, restaurants.resName, resimage.resImageFileName from restaurants inner join resimage
+	on restaurants.resNum = resimage.resNum
+	where resimage.resImageNum = 1 and restaurants.resCategory=#{resCategory}
+	]]>
+ 	</select>
+ 	
+
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.myspring.daejeon30.member.vo.MemberVO" alias="memberVO" />
+		<typeAlias type="com.myspring.daejeon30.restaurant.vo.RestaurantVO" alias="restaurantVO"/>
+		<typeAlias type="com.myspring.daejeon30.restaurant.vo.ResImageVO" alias="resImageVO"/>
+		<typeAlias type="com.myspring.daejeon30.rsvnon.vo.RsvnonVO" alias="rsvnonVO" />
+		<typeAlias type="com.myspring.daejeon30.rsvmember.vo.RsvMemberVO" alias="rsvMemberVO" />
+		<typeAlias type="com.myspring.daejeon30.board.vo.Board2VO" alias="board2VO" />
+		<typeAlias type="com.myspring.daejeon30.board.vo.ImageVO" alias="imageVO" />
+		<typeAlias type="com.myspring.daejeon30.board.vo.PagingVO" alias="PagingVO" />
+		<typeAlias type="com.myspring.daejeon30.favo.vo.FavoVO" alias="favoVO" />
+	</typeAliases>
+</configuration>

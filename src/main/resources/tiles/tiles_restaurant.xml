@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="localmenu" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+	</definition>
+	
+		<definition name="rlist1" extends="baseLayout">
+		<put-attribute name="rlist1" value="식당리스트" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/resmenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/restaurant/rlist1.jsp" />
+	</definition>
+	<definition name="rlist2" extends="baseLayout">
+		<put-attribute name="rlist2" value="식당상세" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/resmenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/restaurant/rlist2.jsp" />
+	</definition>
+	<definition name="login2" extends="baseLayout">
+		<put-attribute name="login2" value="예약로그인하기" />
+		<put-attribute name="body" value="/WEB-INF/views/login2.jsp" />
+	</definition>
+	<!-- 아래 회원예약 rsv2 -->
+	<definition name="rsv2" extends="baseLayout">
+		<put-attribute name="rsv2" value="예약하기" />
+		<put-attribute name="body" value="/WEB-INF/views/rsv2.jsp" />
+	</definition>
+	<definition name="result1" extends="baseLayout">
+		<put-attribute name="result1" value="회원예약완료" />
+		<put-attribute name="body" value="/WEB-INF/views/result1.jsp" />
+	</definition>
+	
+	<definition name="rsv3" extends="baseLayout">
+		<put-attribute name="rsv3" value="예약하기" />
+		<put-attribute name="body" value="/WEB-INF/views/rsv3.jsp" />
+	</definition>
+	<definition name="result2" extends="baseLayout">
+		<put-attribute name="result2" value="비회원예약완료" />
+		<put-attribute name="body" value="/WEB-INF/views/result2.jsp" />
+	</definition>
+	<definition name="trackorder" extends="baseLayout">
+		<put-attribute name="result2" value="예약확인로그인" />
+		<put-attribute name="body" value="/WEB-INF/views/trackorder.jsp" />
+	</definition>
+	<!-- 추가부 -->
+	<definition name="result1" extends="baseLayout">
+		<put-attribute name="title" value="예약결과" />
+		<put-attribute name="body" value="/WEB-INF/views/result1.jsp" />
+	</definition>
+	<definition name="modifyRsv" extends="baseLayout">
+		<put-attribute name="title" value="예약내역" />
+		<put-attribute name="body" value="/WEB-INF/views/modifyRsv.jsp" />
+	</definition>
+	<definition name="rsvnonView" extends="baseLayout">
+		<put-attribute name="title" value="예약내역상세" />
+		<put-attribute name="body" value="/WEB-INF/views/rsvnonView.jsp" />
+	</definition>
+	<definition name="like1" extends="baseLayout">
+		<put-attribute name="title" value="찜한 리스트" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/myMenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/like1.jsp" />
+	</definition>
+</tiles-definitions>
