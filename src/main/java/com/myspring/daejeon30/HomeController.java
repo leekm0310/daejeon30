@@ -132,6 +132,11 @@ public class HomeController {
 	public String adminrsv(Locale locale, Model model) {
 		return "adminrsv";
 	}
+	
+	@RequestMapping(value="/modifymem.do", method=RequestMethod.GET)
+	public String modifyMem(Locale locale, Model model) {
+		return "modifyMem";
+	}
 
 	/**
 	 * Simply selects the home view to render by returning its name.

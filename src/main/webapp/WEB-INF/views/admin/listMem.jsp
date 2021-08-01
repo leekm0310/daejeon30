@@ -33,14 +33,23 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <!-- 본문 내용 -->
 <h3>회원 관리</h3>
 <br>
+<div class="btn-group" role="group" aria-label="Basic outlined example">
+  <button type="button" class="btn btn-outline-primary" onclick="location.href='${contextPath}/admin/listMem.do'">모든회원보기</button>
+  <button type="button" class="btn btn-outline-dark" onclick="location.href='${contextPath}/admin/selectMemType.do?memType=일반회원'">일반회원</button>
+  <button type="button" class="btn btn-outline-dark" onclick="location.href='${contextPath}/admin/selectMemType.do?memType=우수회원'">우수회원</button>
+  <button type="button" class="btn btn-outline-dark" onclick="location.href='${contextPath}/admin/selectMemType.do?memType=블랙리스트'">블랙리스트</button>
+</div>
+<br><br>
 	<table class="table table-hover">
 	<thead>
 	<tr>
 		<th><input type="checkbox" id="checkall" onclick="checkAll();" style="width:20px;height:20px;"/></th>
+		<th>구분</th>
 		<th>아이디</th>
 		<th>이름</th>
 		<th>전화번호</th>
 		<th>이메일</th>
+		<th>가입일</th>
 		<th></th>
 	</tr>
 	</thead>
@@ -51,10 +60,12 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	<tr>
 
 		<td><input type="checkbox" id="chk" name="chk" style="width:20px;height:20px;"/></td>
+		<td>${mem.memType }</td>
 		<td>${mem.id }</td>
 		<td>${mem.name }</td>
 		<td>${mem.phone}</td>
 		<td>${mem.email }</td>
+		<td>${mem.joindate}</td>
 		<td width="200"><button class="btn btn-outline-success btn-sm" onclick="location.href='${contextPath}/admin/memDetail.do?id=${mem.id}'">수정</button>
 		<button class="btn btn-outline-danger btn-sm" onclick="location.href='${contextPath}/admin/deleteMem.do?id=${mem.id}'">탈퇴</button></td>
 	</c:forEach>

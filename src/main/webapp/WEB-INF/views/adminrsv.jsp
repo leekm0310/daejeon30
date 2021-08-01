@@ -169,15 +169,15 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		<td>${r.guestNum}</td>
 		<td>${r.status }</td>
 		
-	
+		
 		
 		<c:if test="${r.status == '예약요청중' }">
-		<td class="button"><a href="#" onclick="location.href='${contextPath}/admin/acceptres.do?rsvNum=${r.rsvNum}'" class="btn btn-outline-success">예약요청수락</a><td><br>
-		
+		<td width="200"><button onclick="location.href='${contextPath}/admin/acceptres.do?rsvNum=${r.rsvNum}'" class="btn btn-outline-success">예약요청수락</button><td>
 		</c:if>
 		<c:if test="${r.status == '취소요청중' }">
-		<td><a href="${contextPath}/admin/cancelres.do?rsvNum=${r.rsvNum}" class="btn btn-outline-danger">취소요청수락</a></td>
+		<td width="200"><button onclick="location.href='${contextPath}/admin/cancelres.do?rsvNum=${r.rsvNum}'" class="btn btn-outline-danger">취소요청수락</button></td>
 		</c:if>
+
 	
 		
 	

@@ -30,4 +30,15 @@ public class AdminMemberDAOImpl implements AdminMemberDAO{
 		MemberVO mem = sqlSession.selectOne("mapper.admin.member.memDetail", id);
 		return mem;
 	}
+	
+	@Override
+	public void updateMem(MemberVO mem) throws DataAccessException{
+		sqlSession.update("mapper.admin.member.updateMember", mem);
+	}
+	
+	@Override
+	public List selectMemType(String memType)throws DataAccessException{
+		List memTypeList = sqlSession.selectList("mapper.admin.member.selectMemType", memType);
+		return memTypeList;
+	}
 }

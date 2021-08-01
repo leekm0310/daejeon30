@@ -29,4 +29,15 @@ public class AdminMemberServiceImpl implements AdminMemberService{
 		MemberVO mem = adminMemberDAO.oneMem(id);
 		return mem;
 	}
+	
+	@Override
+	public void updateMem(MemberVO mem) throws Exception{
+		adminMemberDAO.updateMem(mem);
+	}
+	
+	@Override
+	public List selectMemType(String memType)throws Exception{
+		List memTypeList = adminMemberDAO.selectMemType(memType);
+		return memTypeList;
+	}
 }

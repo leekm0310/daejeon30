@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,9 +49,31 @@ public class AdminMemberControllerImpl implements AdminMemberController{
 	public ModelAndView memDetail(@RequestParam("id") String id,HttpServletRequest request, HttpServletResponse response) throws Exception{
 		MemberVO mem = adminMemberService.oneMem(id);
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("member", mem);
-		mav.setViewName("modify");
+		mav.addObject("mem", mem);
+		mav.setViewName("modifyMem");
 		return mav;
 	}
 	
+	@Override
+	@RequestMapping(value="/admin/modifyMem.do", method=RequestMethod.POST)
+	public ModelAndView modifyMem(@ModelAttribute("mem") MemberVO mem,
+			HttpServletRequest request, HttpServletResponse response)throws Exception{
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("html/text; charset=utf-8");
+		ModelAndView mav = new ModelAndView();
+		adminMemberService.updateMem(mem);
+		mav.setViewName("listMem");
+		return mav;
+	}
+	
+	@Override
+	@RequestMapping(value="/admin/selectMemType.do", method=RequestMethod.GET)
+	public ModelAndView selectMemType(@RequestParam("memType") String memType, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		List memList = adminMemberService.selectMemType(memType);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("memList", memList);
+		mav.setViewName("listMem");
+		return mav;
+		
+	}
 }

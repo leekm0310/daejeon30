@@ -194,8 +194,19 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		<td>${r.guestNum}</td>
 		<td>${r.status }</td>
 		
+		
+		<c:if test="${r.status == '예약요청중' }">
+		<td width="200"><button onclick="location.href='${contextPath}/rsv/cancelRsv.do?rsvNum=${r.rsvNum}'" class="btn btn-outline-danger btn-sm">취소하기</button></td>
+		</c:if>
+	
+		<c:if test="${r.status == '예약완료' }">
 		<td width="200"><button onclick="location.href='${contextPath}/rsv/selectOne.do?rsvNum=${r.rsvNum}'" class="btn btn-outline-success btn-sm">변경하기</button>
 		<button onclick="location.href='${contextPath}/rsv/cancelRsv.do?rsvNum=${r.rsvNum}'" class="btn btn-outline-danger btn-sm">취소하기</button></td>
+		</c:if>
+		<c:if test="${r.status == '취소완료' }">
+		</c:if>
+		
+		
 	</tr>  
 	</c:forEach>
 </c:when>
