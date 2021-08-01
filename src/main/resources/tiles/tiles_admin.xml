@@ -41,7 +41,7 @@
 	<definition name="listMem" extends="baseLayout">
 		<put-attribute name="title" value="회원관리" />
 		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/adminMenubar.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/listMem.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/listMem.jsp" />
 	</definition>
 	
 		<definition name="adminrsv" extends="baseLayout">
