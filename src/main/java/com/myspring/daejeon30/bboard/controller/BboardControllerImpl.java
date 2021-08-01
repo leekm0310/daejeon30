@@ -19,11 +19,11 @@ public class BboardControllerImpl implements BboardController{
 	private BboardService bboardService;
 	
 	@Override
-	@RequestMapping(value="/bboard/nboard.do", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/bboard/notice.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView nList(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		List notice = bboardService.nboardList();
+		List noticeList = bboardService.nboardList();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("noticeList", notice);
+		mav.addObject("noticeList", noticeList);
 		mav.setViewName("notice");
 		return mav;
 	}

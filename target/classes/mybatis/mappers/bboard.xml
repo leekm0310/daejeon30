@@ -15,7 +15,7 @@
 	</resultMap>
 	
 	
-	<select id="selectnboard" resultType="bboardVO">
+	<select id="selectnboard" resultMap="bboardResult">
 	<![CDATA[
 		select * from bboard
 	]]>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 pageEncoding="utf-8" isELIgnored="false" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <%
@@ -62,19 +63,18 @@ pageEncoding="utf-8" isELIgnored="false" %>
 				</tr>
 			</thead>
 			<tbody>
-			<c:choose>
-			<c:when test="${!empty noticeList }">
-			<c:forEach var="notice" items="${noticeList }">
-			<tr>
-			<td>${notice.num }</td>
-			<td>${notice.title }</td>
-			<td>${notice.id }</td>
-			<td>${notice.date }</td>
-			</tr>
+			<!-- 
+			<c:when test=${!empty noticeList }>
+			<c:forEach var="n" items="${noticeList }">
+				<tr>
+					<td>1</td>
+					<td>${n.title }</td>
+					<td>${n.id }</td>
+					<td>${n.date }</td>
+					<td>0</td>
+				</tr>
 			</c:forEach>
-			</c:when>
-			</c:choose>
-		
+			</c:when> -->
 			</tbody>
 		</table>
 	<br>
