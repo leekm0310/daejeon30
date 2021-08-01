@@ -18,10 +18,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 </head>
 <body>
 
-	<!-- 헤더입니다 -->
-	<%@ include file="header.jsp" %>
-	 
-	 
 	
 	<div class="container" style=margin-bottom:300px;>
 	
@@ -121,10 +117,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	</div>
 	
 	
-	<!-- 푸터입니다 -->
-	<div class="footer">
-	<%@ include file="footer.jsp" %>
-	</div>
 	 
 </body>
 </html>

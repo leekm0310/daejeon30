@@ -43,6 +43,23 @@
 	]]>
 	</select>
 	
+	<!-- 비회원 예약 관리 관련 
+	<update id ="acceptresnon" parameterType="int">
+	<![CDATA[
+		update rsvnonmember set status ='예약완료'
+		where rsvNum = #{rsvNum}
+	]]>
+	</update>
+	
+	<update id ="cancelresnon" parameterType="int">
+	<![CDATA[
+		update rsvnonmember set status ='취소완료'
+		where rsvNum = #{rsvNum}
+	]]>
+	</update>
+	 -->
+	
+	<!-- 회원 예약 관리 -->
 	<update id ="acceptres" parameterType="int">
 	<![CDATA[
 		update rsvmember set status ='예약완료'

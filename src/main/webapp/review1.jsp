@@ -63,8 +63,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
  <!-- 메인코드부 -->
  <div class="wrap">
  
-<!-- 헤더입니다 -->
-<%@ include file="header.jsp" %>
   
   <div class="main-content">
 	<div class="container">
@@ -249,10 +247,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     
     
- <!-- 푸터입니다 -->
-	<div class="footer">
-		 <%@ include file="footer.jsp" %>
-	 </div>  
+
 	 </div>
 	 </div>
   </body>

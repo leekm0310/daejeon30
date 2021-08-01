@@ -41,9 +41,7 @@
 <body>
  <!-- 메인코드부 -->
 	 <div class="wrap">
-	 
-	 <!-- 헤더-->
-		<%@ include file="header.jsp" %>
+
 		<hr>
 	 		<div class="main-content">
 				<div class="container">
@@ -93,9 +91,6 @@
 		</div>
 	</div>
 </div>
-<!-- 푸터입니다 -->
-<div class="footer">
-	<%@ include file="footer.jsp" %>
-</div>
+
 </body>
 </html>

@@ -81,8 +81,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 
  
 </head>
- <!-- 헤더입니다 -->
- <%@ include file="header.jsp" %>
+
 <body>
 <div class="wrapper">
 	<form  name="form" method="post">
@@ -184,10 +183,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	
 	 
 	
-<!-- 푸터입니다 -->
-<div class="footer">
-	<%@ include file="footer.jsp" %>
-</div>
+
 	
 </body>
 </html>

@@ -51,8 +51,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
  <!-- 메인코드부 -->
  <div class="wrap">
  
-<!-- 헤더입니다 -->
-<%@ include file="header.jsp" %>
  
 
  	<div class="main-content">
@@ -164,10 +162,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 </div>
 </div>
 	</div>
-		<!-- 푸터입니다 -->
-			<div class="footer">
-			<%@ include file="footer.jsp" %>
-			</div>
+
 	    
 
 </body>
