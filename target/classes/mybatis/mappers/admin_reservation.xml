@@ -29,9 +29,17 @@
 		<result property="rsvGuestNum" column="rsvGuestNum" />
 	</resultMap>
 	
+	<!-- 회원 예약 -->
 	<select id ="selectResMem" resultMap="rsvResult">
 	<![CDATA[
 		select * from rsvmember
+	]]>
+	</select>
+	
+	<!-- 비회원 예약건 -->
+	<select id="selectResNon" resultMap="resResult">
+	<![CDATA[
+		select * from rsvnonmember
 	]]>
 	</select>
 	

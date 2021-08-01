@@ -26,10 +26,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
  	<div class="main-content">
 	<div class="container" >
 
-<br>
-<br>
-
-
 <!-- 본문 내용 -->
 <h3>회원 관리</h3>
 <br>
