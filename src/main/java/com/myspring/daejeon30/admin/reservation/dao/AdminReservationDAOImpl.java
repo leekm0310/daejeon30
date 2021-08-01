@@ -27,4 +27,10 @@ public class AdminReservationDAOImpl implements AdminReservationDAO{
 	public void cancelRes(int rsvNum) throws DataAccessException{
 		sqlSession.update("mapper.admin.rsv.cancelres", rsvNum);
 	}
+	
+	@Override
+	public List selectResNon() throws DataAccessException{
+		List nonAll = sqlSession.selectList("mapper.admin.rsv.selectResNon");
+		return nonAll;
+	}
 }

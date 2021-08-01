@@ -13,5 +13,6 @@
 		<typeAlias type="com.myspring.daejeon30.board.vo.ImageVO" alias="imageVO" />
 		<typeAlias type="com.myspring.daejeon30.board.vo.PagingVO" alias="PagingVO" />
 		<typeAlias type="com.myspring.daejeon30.favo.vo.FavoVO" alias="favoVO" />
+		<typeAlias type="com.myspring.daejeon30.bboard.vo.BboardVO" alias="BboardVO" />
 	</typeAliases>
 </configuration>

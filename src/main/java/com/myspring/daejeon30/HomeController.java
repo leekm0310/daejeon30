@@ -137,6 +137,11 @@ public class HomeController {
 	public String modifyMem(Locale locale, Model model) {
 		return "modifyMem";
 	}
+	
+	@RequestMapping(value="/notice.do", method=RequestMethod.GET)
+	public String notice(Locale locale, Model model) {
+		return "notice";
+	}
 
 	/**
 	 * Simply selects the home view to render by returning its name.

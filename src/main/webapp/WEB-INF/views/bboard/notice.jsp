@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 pageEncoding="utf-8" isELIgnored="false" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,37 +14,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<title>공지사항</title>
-	<style type="text/css">
-
-		.html, .body {
-		
-			margin: 0;
-		
-			padding: 0;
-		
-			height: 100%;
-		}	
-		
-		.wrap {
-		min-height: 100%;
-		position: relative;
-		}
-		
-		.main-content {
-		
-			min-height: 100%;
-
-		}	
-		.container {
-		
-			padding:0 0 2% 0;	
-		} 
-		.footer{
-		position:fixed;
-		bottom: 0;
-		width:100%;
-		}
-	</style>
 </head>
 <body>
  
@@ -88,27 +63,17 @@ pageEncoding="utf-8" isELIgnored="false" %>
 				</tr>
 			</thead>
 			<tbody>
+			<c:when test=${!empty noticeList }>
+			<c:forEach var="n" items="${noticeList }">
 				<tr>
 					<td>1</td>
-					<td>테스트입니다</td>
-					<td>테스트</td>
-					<td>2021.06.07</td>
+					<td>${n.title }</td>
+					<td>${n.id }</td>
+					<td>${n.date }</td>
 					<td>0</td>
 				</tr>
-				<tr>
-					<td>2</td>
-					<td>테스트입니다2</td>
-					<td>테스트</td>
-					<td>2021.06.07</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>테스트입니다3</td>
-					<td>테스트</td>
-					<td>2021.06.07</td>
-					<td>0</td>
-				</tr>
+			</c:forEach>
+			</c:when>
 			</tbody>
 		</table>
 	<br>

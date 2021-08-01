@@ -112,7 +112,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 							<li>
-								<a class="dropdown-item" href="./board3.do">공지사항</a>
+								<a class="dropdown-item" href="${contextPath}/bboard/nboard.do">공지사항</a>
 							</li>
 							<li>
 								<a class="dropdown-item" href="./review1.do">리뷰게시판</a>

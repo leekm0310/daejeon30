@@ -27,4 +27,10 @@ public class AdminReservationServiceImpl implements AdminReservationService{
 	public void cancelRsv(int rsvNum) throws Exception{
 		adminReservationDAO.cancelRes(rsvNum);
 	}
+	
+	@Override
+	public List Allnon() throws Exception{
+		List nonRsvAll = adminReservationDAO.selectResNon();
+		return nonRsvAll;
+	}
 }

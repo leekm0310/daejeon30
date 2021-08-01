@@ -8,4 +8,5 @@ public interface AdminReservationDAO{
 	public List selectAll() throws DataAccessException;
 	public void acceptRes(int rsvNum) throws DataAccessException;
 	public void cancelRes(int rsvNum) throws DataAccessException;
+	public List selectResNon() throws DataAccessException;
 }

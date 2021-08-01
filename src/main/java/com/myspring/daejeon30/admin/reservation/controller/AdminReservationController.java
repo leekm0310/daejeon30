@@ -7,4 +7,5 @@ import org.springframework.web.servlet.ModelAndView;
 
 public interface AdminReservationController{
 	public ModelAndView allRsv(HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ModelAndView allNonRsv (HttpServletRequest request, HttpServletResponse response) throws Exception;
 }

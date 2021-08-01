@@ -63,7 +63,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 </div>
 <div class="btn-group" role="group" aria-label="Basic outlined example">
   <button type="button" class="btn btn-outline-primary" onclick="location.href='#'">회원예약건</button>
-  <button type="button" class="btn btn-outline-dark" onclick="location.href='#'">비회원예약건</button>
+  <button type="button" class="btn btn-outline-dark" onclick="location.href='${contextPath}/admin/nonRsv.do'">비회원예약건</button>
 </div>
 <br><br>
 <!-- 기간별 검색 -->
