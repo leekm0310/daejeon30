@@ -36,20 +36,28 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		<div class="dark border"><!-- 테두리 안 -->
 			<div class="col g-0 position-relative"> <!-- 간격조절 -->		
 				<div class="col md-0 p-md-4"><!-- 간격조절 -->
-					<p class="fs-3">${bbo.title}</p>
-					<hr>			 				
+				<form action="${contextPath}/bboard/updateOneNo.do?num=${bbo.num }" method="post">
+					<div class="mb-3">
+					<p class="fs-3">
+					<input name = title value="${bbo.title}" style="border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px;">
+					</p></div>
+					<hr>
+					작성자: ${bbo.id}		
+					<hr>	 				
 					
-					<figcaption class="figure-caption">${bbo.content }</figcaption>
+					<div class="mb-3">
+  					<textarea class="form-control" name="content" rows="20">${bbo.content }</textarea>
+					</div>
 					<br>
 					<p> </p>
 					<hr>
 									
 					<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-					<form name="del" method="post" action="/bboard/deleteOneNo.do">
-					 <input type="hidden" id="num" name="num" value="${bbo.num }"> 
-						<button class="btn btn-danger me-md-2" type="button" onclick="location.href='./writeform1.jsp'">수정</button>
-						<button class="btn btn-danger" type="button" onclick="del();">삭제</button>
-						</form>
+						<c:if test="${isLogOn==true && member.id =='admin' }">
+						<input class="btn btn-danger me-md-2" type="submit" value="수정"></button>
+						<button class="btn btn-danger" type="button" onclick="location.href='${contextPath}/bboard/deleteOneNo.do?num=${bbo.num }'">삭제</button>
+						</c:if>
+				</form>
 					</div>
 					<br>					
 									
@@ -61,7 +69,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	<!-- 글쓰기 버튼 -->
 	<br>
 	<div class="row justify-content-end">
-		<button type="button" class="btn btn-danger" style="width:100px;" onclick="location.href='./review1.jsp'">글목록</button>
+		<button type="button" class="btn btn-danger" style="width:100px;" onclick="location.href='${contextPath}/bboard/notice.do'">글목록</button>
 	</div>							
 </div>
 <br>

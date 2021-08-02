@@ -38,7 +38,12 @@ public class BboardServiceImpl implements BboardService{
 	}
 	
 	@Override
-	public void deleteOneNo(String num)throws Exception{
+	public void deleteOneNo(int num)throws Exception{
 		bboardDAO.deleteOne(num);
+	}
+	
+	@Override
+	public void updateOneNo(BboardVO bboardVO)throws Exception{
+		bboardDAO.updateOne(bboardVO);
 	}
 }

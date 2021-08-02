@@ -115,7 +115,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 								<a class="dropdown-item" href="${contextPath}/bboard/notice.do">공지사항</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="#">리뷰게시판</a>
+								<a class="dropdown-item" href="${contextPath}/boardr/rblist.do">리뷰게시판</a>
 							</li>
 							<li>
 								<a class="dropdown-item" href="${contextPath}/board2.do">추천게시판</a>

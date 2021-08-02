@@ -38,7 +38,12 @@ public class BboardDAOImpl implements BboardDAO{
 	}
 	
 	@Override
-	public void deleteOne(String num) throws Exception{
+	public void deleteOne(int num) throws Exception{
 		sqlSession.delete("mapper.bboard.deleteOneNo", num);
+	}
+	
+	@Override
+	public void updateOne(BboardVO bboardVO) throws DataAccessException{
+		sqlSession.update("mapper.bboard.updateOneNo", bboardVO);
 	}
 }

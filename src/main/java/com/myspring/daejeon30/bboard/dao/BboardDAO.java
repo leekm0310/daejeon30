@@ -11,6 +11,7 @@ public interface BboardDAO{
 	public int addNotice(BboardVO bboardVO) throws Exception;
 	public List selectbboard(String sort)throws DataAccessException;
 	public BboardVO oneNo(String num)throws DataAccessException;
-	public void deleteOne(String num) throws Exception;
+	public void deleteOne(int num) throws Exception;
+	public void updateOne(BboardVO bboardVO) throws DataAccessException;
 	
 }

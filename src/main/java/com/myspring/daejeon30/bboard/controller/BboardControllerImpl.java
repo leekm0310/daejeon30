@@ -69,8 +69,14 @@ public class BboardControllerImpl implements BboardController{
 	
 	
 	@RequestMapping(value="/bboard/deleteOneNo.do", method=RequestMethod.GET)
-	public String deleteOneNo(@RequestParam("num") String num, HttpServletRequest request, HttpServletResponse response) throws Exception{
+	public String deleteOneNo(@RequestParam("num") int num, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		bboardService.deleteOneNo(num);
+		return "redirect:/bboard/notice.do";
+	}
+	
+	@RequestMapping(value="/bboard/updateOneNo.do", method=RequestMethod.POST)
+	public String updateOneNo(@ModelAttribute("bboardVO") BboardVO bboardVO, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		bboardService.updateOneNo(bboardVO);
 		return "redirect:/bboard/notice.do";
 	}
 	

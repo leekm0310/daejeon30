@@ -40,10 +40,17 @@
 	]]>
 	</select>
 	
-	<delete id="deleteOneNo" parameterType="String">
+	<delete id="deleteOneNo" parameterType="int">
 	<![CDATA[
-		delete * from bboard where num=#{num}
+		delete from bboard where num=#{num}
 	]]>
 	</delete>
+	
+	<update id="updateOneNo" parameterType="bboardVO">
+	<![CDATA[
+		update bboard set title=#{title}, content=#{content}
+		where num=#{num}
+	]]>
+	</update>
 	
 </mapper>

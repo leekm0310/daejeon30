@@ -32,5 +32,7 @@
 		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/boardMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/bboard/viewOne.jsp" />
 	</definition>
+	
+
 
 </tiles-definitions>

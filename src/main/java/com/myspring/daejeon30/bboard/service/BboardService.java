@@ -11,5 +11,6 @@ public interface BboardService{
 	public int addNotice(BboardVO bboardVO)throws Exception;
 	public List bboardList(String sort)throws Exception;
 	public BboardVO oneNo(String num)throws Exception;
-	public void deleteOneNo(String num)throws Exception;
+	public void deleteOneNo(int num)throws Exception;
+	public void updateOneNo(BboardVO bboardVO)throws Exception;
 }
