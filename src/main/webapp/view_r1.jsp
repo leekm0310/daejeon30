@@ -8,41 +8,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 	
 	<!-- 전체 레이아웃 -->
-	<style type="text/css">
-
-		.html, .body {
 		
-			margin: 0;
-		
-			padding: 0;
-		
-			height: 100%;
-		}	
-		
-		.wrap {
-		min-height: 100%;
-		position: relative;
-		padding-bottom: 19px; /* footer height */
-		}
-		
-		.main-content {
-		
-			min-height: 100%;
-
-		}	
-		.container {
-		
-			padding:0 0 2% 0;	
-		} 
-		.header {
-		
-		}
-		.footer {
-		
-		}
-		
-		</style>
-	
 	<!-- 삭제 경고창 -->
 	<script text="text/javascript">
 		function del() {
@@ -66,10 +32,10 @@
 				<div class="col md-0 p-md-4"><!-- 간격조절 -->
 					<p class="fs-3">새우 일가족 냠냠사건</p>
 					<hr>			 				
-					<img src="http://image14.hanatour.com/uploads/2019/12/%EC%A0%9C%EC%A3%BC%EB%A1%9C%EC%BB%AC%EB%A7%9B%EC%A7%91_%EB%8B%BB_(2)_88121031.jpg" class="img-thumbnail" width="500px" height="500px">
-					<figcaption class="figure-caption">새우를 애껴욧 !</figcaption>
+					
+					<figcaption class="figure-caption">!</figcaption>
 					<br>
-					<p> 우리는 한때 바다에서 살았었습니다. 우리는 무엇이였을까요? 저도 잘 모르겠습니다. 하지만 한가지는 알고 있습니다 바로 새우는 맛있다는 사실이지요. 새우란 무엇인가 그렇습니다 새우는 맛있는 녀석. 전생이라는 것이 존재한다면 저는 어쩌면 고래였을지도 모릅니다 새우를 좋아하기 때문이죠 바닷가에 조난당하게 된다면 저는 고래를 만나면 살 수 있을지도 모를 일입니다. 고래와 저는 새우로 통할게 분명했으니까요. 어쩌면 저는 사람으로 변신한 고래가 아닐까요 마녀의 저주를 받아서 기억을 잃어버려서 기억하진 못하는 것일 수도 있지요. 저는 바다를 좋아합니다 그리고 새우도 좋아해요. 이 두가지면 고래라고 하기에 충분합니다. 하지만 제 기름은 별로 좋지 않습니다. 이걸 보면 어쩌면 저는 고래가 아닐 수도 있겠군요. 고래 기름은 비싸니까요. 기름은 피부에 있어서 정말 중요한 역할을 합니다. 세수를 하고 나오면 얼굴이 푸석푸석 해지죠. 지용성 피부가 아니여서 그렇습니다. 이럴때에는 스킨을 바른 뒤에 에센스를 바르는데 저는 말 에센스를 바릅니다 말에게서 나오는 무언가를 활용한 기름입니다. 고래 기름은 바르지 않아요 말 기름을 바릅니다. 그렇습니다 저는 말고래입니다 말은이히힝 하고 우는데 고래는 어떻게 울까요 ? 뿌우우? 말고래인 제가 마지막 말을 남기며 떠납니다 이히힝뿌우우 ~</p>
+					<p> </p>
 					<hr>
 									
 					<div class="d-grid gap-2 d-md-flex justify-content-md-end">

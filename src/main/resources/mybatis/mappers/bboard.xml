@@ -17,9 +17,33 @@
 	
 	<select id="selectnboard" resultMap="bboardResult">
 	<![CDATA[
-		select * from bboard
+		select * from bboard where sort='notice'
 	]]>
 	</select>
 	
+	<insert id ="addNotice" parameterType="bboardVO">
+	<![CDATA[
+		insert into bboard(title, content, id, sort)
+		values (#{title}, #{content}, #{id}, #{sort})
+	]]>
+	</insert>
+	
+	<select id="selectbboard" resultMap="bboardResult" parameterType="String">
+	<![CDATA[
+		select * from bboard where sort=#{sort}
+	]]>
+	</select>
+	
+	<select id="selectOneNo" parameterType="String" resultType="bboardVO">
+	<![CDATA[
+		select * from bboard where num=#{num}
+	]]>
+	</select>
+	
+	<delete id="deleteOneNo" parameterType="String">
+	<![CDATA[
+		delete * from bboard where num=#{num}
+	]]>
+	</delete>
 	
 </mapper>

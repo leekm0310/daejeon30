@@ -115,10 +115,10 @@ pageEncoding="utf-8" isELIgnored="false" %>
 								<a class="dropdown-item" href="${contextPath}/bboard/notice.do">공지사항</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="./review1.do">리뷰게시판</a>
+								<a class="dropdown-item" href="#">리뷰게시판</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="./board2.do">추천게시판</a>
+								<a class="dropdown-item" href="${contextPath}/board2.do">추천게시판</a>
 							</li>
 						</ul>
 					</div>&nbsp;
@@ -127,7 +127,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
    							고객센터
   						</a>
 					  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-					    <li><a class="dropdown-item" href="./faq.jsp">FAQ</a></li>
+					    <li><a class="dropdown-item" href="${contextPath}/bboard/faq.do">FAQ</a></li>
 					    <li><a class="dropdown-item" href="./qna.jsp">문의게시판</a></li>
 					    </ul>
 					</div>&nbsp;

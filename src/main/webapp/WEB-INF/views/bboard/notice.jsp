@@ -24,28 +24,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	
 	<div class="container">
 	
-	
-		<!-- 로컬네비게이션 -->
-		<hr>
-		<div class="btn-group">
-			<button class="btn btn-outline-danger" type="button" id="defaultDropdown" onclick="location.href='./board3.jsp'"aria-expanded="false">
-				공지사항
-			</button>
-		</div>
-		
-		<div class="btn-group">
-			<button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./board2.jsp'" aria-expanded="false">
-				추천게시판
-			</button>
-		</div>
-		
-		<div class="btn-group">
-			<button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./review1.jsp'" aria-expanded="false">
-				리뷰게시판
-			</button>
-		</div>
-		
-		<hr>
 		<br>
 		<H1>공지사항</H1>
 		<br>
@@ -67,7 +45,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			<c:forEach var="notice" items="${noticeList }">
 			<tr>
 			<td>${notice.num }</td>
-			<td>${notice.title }</td>
+			<td><a href="${contextPath}/bboard/oneNo.do?num=${notice.num }">${notice.title }</a></td>
 			<td>${notice.id }</td>
 			<td>${notice.date }</td>
 			</tr>
@@ -78,6 +56,9 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			</tbody>
 		</table>
 	<br>
+	<c:if test="${isLogOn==true && member.id =='admin' }">
+	<button class="btn btn-danger" type="button" onclick='location.href="${contextPath}/writeform1.do"'>글쓰기</button>
+	</c:if>
 		<!-- 검색바 -->
 		<div class="row justify-content-center">
 			<div class="container-fluid" style="width:450px">

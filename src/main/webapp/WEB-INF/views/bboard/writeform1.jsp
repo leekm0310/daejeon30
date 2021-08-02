@@ -24,36 +24,36 @@
 	<!-- 게시판 등록 -->
 	<div class="row">
 		 <div class="col-sm-2"></div>
-	
+	<form action="${contextPath}/daejeon30/bboard/addNotice.do" method="post" >
 	 <div class="col-sm-8">
 	
 		<!-- select box -->
 
 			<div class="col g-0 bg-light position-relative">
 			<div class="input-group">
-			  <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+			  <select name="sort" class="form-select">
 			    <option selected>게시판을 선택해주세요.</option>
 			    <option value="notice">공지사항</option>
 			    <option value="faq">FAQ</option>
 			  </select>
-			  <button class="btn btn-danger" type="button">등록하기</button>
+			  <input type="submit" value="등록하기">
 			</div>
 		<br>
 		
 		<!-- 제목 입력  -->
-			<input class="form-control" type="text" placeholder="제목을 입력해주세요." aria-label="default input example">
+			<input class="form-control" name="title" type="text" placeholder="제목을 입력해주세요.">
 		
 		<!-- 글 작성 -->
 		
 		  <label for="exampleFormControlInput1" class="form-label"></label>
-		  <textarea class="form-control" id="exampleFormControlTextarea1" rows="15" placeholder="내용을 입력해주세요."></textarea>
+		  <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="15" placeholder="내용을 입력해주세요."></textarea>
 		<!--  파일 업로드  -->
 		
 		  <label for="formFile" class="form-label"></label>
 		  <input class="form-control" type="file" id="formFile">
 				</div>
 					</div>
-					
+			</form>		
 						</div>
 					<div class="col-sm-2"></div>
 				<br>

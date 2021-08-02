@@ -142,6 +142,21 @@ public class HomeController {
 	public String notice(Locale locale, Model model) {
 		return "notice";
 	}
+	
+	@RequestMapping(value="/writeform1.do", method=RequestMethod.GET)
+	public String writeform1(Locale locale, Model model) {
+		return "writeform1";
+	}
+	
+	@RequestMapping(value="/faq.do", method=RequestMethod.GET)
+	public String faq(Locale locale, Model model) {
+		return "faq";
+	}
+	
+	@RequestMapping(value="/viewOne.do", method=RequestMethod.GET)
+	public String viewOne(Locale locale, Model model) {
+		return "viewOne";
+	}
 
 	/**
 	 * Simply selects the home view to render by returning its name.

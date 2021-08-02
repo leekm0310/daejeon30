@@ -12,7 +12,25 @@
 	
 	<definition name="notice" extends="baseLayout">
 		<put-attribute name="title" value="공지사항" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/boardMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/bboard/notice.jsp" />
+	</definition>
+	
+	<definition name="writeform1" extends="baseLayout">
+		<put-attribute name="title" value="글쓰기" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/boardMenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/bboard/writeform1.jsp" />
+	</definition>
+	
+	<definition name="faq" extends="baseLayout">
+		<put-attribute name="title" value="FAQ" />
+		<put-attribute name="body" value="/WEB-INF/views/bboard/faq.jsp" />
+	</definition>
+	
+	<definition name="viewOne" extends="baseLayout">
+		<put-attribute name="title" value="상세보기" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/boardMenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/bboard/viewOne.jsp" />
 	</definition>
 
 </tiles-definitions>
