@@ -14,6 +14,7 @@
 	 <result property="date" column="date" />
 	 <result property="views" column="views" />
 	 <result property="password" column="password" />
+	  <result property="sort" column="sort" />
 	</resultMap>
 	
 	<select id="selectAllqna" resultMap="boardqResult">
@@ -21,5 +22,13 @@
 		select * from qboard
 	]]>
 	</select>
+
+	
+	<insert id="addQna" parameterType="boardqVO">
+	<![CDATA[
+		insert into qboard(title, name, id, content, password, sort)
+		values(#{title}, #{name}, #{id}, #{content}, #{password}, #{sort})
+	]]>
+	</insert>
 	
 </mapper>

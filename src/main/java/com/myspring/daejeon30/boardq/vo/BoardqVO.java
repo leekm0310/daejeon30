@@ -14,6 +14,7 @@ public class BoardqVO{
 	private Date date;
 	private int views;
 	private String password;
+	private String sort;
 	
 	public BoardqVO() {
 		
@@ -82,6 +83,15 @@ public class BoardqVO{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String getSort() {
+		return sort;
+	}
+
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
+
 	
 	
 }

@@ -167,6 +167,11 @@ public class HomeController {
 	public String qna(Locale locale, Model model) {
 		return "qna";
 	}
+	
+	@RequestMapping(value="/writeformQ.do", method=RequestMethod.GET)
+	public String writeformQ(Locale locale, Model model) {
+		return "writeformQ";
+	}
 
 	/**
 	 * Simply selects the home view to render by returning its name.

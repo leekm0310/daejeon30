@@ -57,7 +57,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		</table>
 	<br>
 	
-	<button class="btn btn-danger" type="button" onclick='location.href="${contextPath}/writeform1.do"'>글쓰기</button>
+	<button class="btn btn-danger" type="button" onclick='location.href="${contextPath}/boardq/writeformq.do"'>글쓰기</button>
 
 		<!-- 검색바 -->
 		<div class="row justify-content-center">

@@ -43,6 +43,11 @@
 		<put-attribute name="title" value="문의게시판" />
 		<put-attribute name="body" value="/WEB-INF/views/boardq/qna.jsp" />
 	</definition>
+	
+		<definition name="writeformQ" extends="baseLayout">
+		<put-attribute name="title" value="문의글쓰기" />
+		<put-attribute name="body" value="/WEB-INF/views/boardq/writeformQ.jsp" />
+	</definition>
 
 
 </tiles-definitions>
