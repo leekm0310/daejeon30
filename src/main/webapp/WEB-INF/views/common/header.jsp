@@ -115,7 +115,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 								<a class="dropdown-item" href="${contextPath}/bboard/notice.do">공지사항</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="${contextPath}/boardr/rblist.do">리뷰게시판</a>
+				  				<a class="dropdown-item" href="${contextPath}/bboard2/reviewList.do">리뷰게시판</a>
 							</li>
 							<li>
 								<a class="dropdown-item" href="${contextPath}/board2.do">추천게시판</a>
@@ -128,7 +128,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
   						</a>
 					  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					    <li><a class="dropdown-item" href="${contextPath}/bboard/faq.do">FAQ</a></li>
-					    <li><a class="dropdown-item" href="./qna.jsp">문의게시판</a></li>
+					    <li><a class="dropdown-item" href="${contextPath}/boardq/qna.do">문의게시판</a></li>
 					    </ul>
 					</div>&nbsp;
 					<c:if test="${isLogOn == true && member != null}">

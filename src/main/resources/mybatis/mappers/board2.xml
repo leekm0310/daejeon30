@@ -46,16 +46,20 @@
 	
 	<!-- 게시물의 총 갯수 -->
 	<select id="count" resultType="int">
+	<![CDATA[
 		select count(rb_num) from recboard
+		]]>
 	</select>
 	
 	<!-- 게시물 목록 + 페이징 -->
 	<select id="listPage" parameterType="hashMap" resultType="com.myspring.daejeon30.board.vo.Board2VO">
+	<![CDATA[
 		select
 			rb_num, rb_title, rb_content, rb_date, rb_views
 		from recboard
 		order by rb_num desc
 			limit #{displayPost}, #{postNum}
+	]]>
 	</select>
 	
 	
@@ -81,10 +85,12 @@
 	
 	<!-- 새로운 방식의 페이징 -->
 	<select id="getListPaging" resultType="com.myspring.daejeon30.board.vo.Board2VO">
+	<![CDATA[
 		select * from (
 			select rb_num, rb_title, rb_content, rb_date, id, rb_views
 			from recboard order by rb_num desc) as T1
 		limit #{skip},#{amount}
+		]]>
 	</select>
 	
 	
@@ -101,6 +107,7 @@
 	
 	<!-- 글 수정 --><!-- if 구문은 이미지 수정한 경우에만 파일 이름 수정하기 -->
 	<update id="updateBoard" parameterType="java.util.Map">
+	<![CDATA[
 		update recboard
 		set rb_title = #{rb_title}, rb_content = #{rb_content}
 		
@@ -108,15 +115,15 @@
 			, imageFileName=#{imageFileName}
 		</if>
 		where rb_num = #{boardNO}
-		
+	]]>
 	</update>
 	
 	<!-- 글삭제 -->
 	<delete id="deleteBoard" parameterType="int">
-
+	<![CDATA[
 		delete from recboard
 		where rb_num = #{rb_num}
-		
+		]]>
 	</delete>
 	
 	

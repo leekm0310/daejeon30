@@ -158,9 +158,14 @@ public class HomeController {
 		return "viewOne";
 	}
 	
-	@RequestMapping(value="/review.do", method=RequestMethod.GET)
-	public String review(Locale locale, Model model) {
-		return "review";
+	@RequestMapping(value="/reviewlist.do", method=RequestMethod.GET)
+	public String reviewlist(Locale locale, Model model) {
+		return "reviewlist";
+	}
+	
+	@RequestMapping(value="/qna.do", method=RequestMethod.GET)
+	public String qna(Locale locale, Model model) {
+		return "qna";
 	}
 
 	/**

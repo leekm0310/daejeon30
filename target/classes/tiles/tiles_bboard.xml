@@ -33,6 +33,16 @@
 		<put-attribute name="body" value="/WEB-INF/views/bboard/viewOne.jsp" />
 	</definition>
 	
+	<definition name="reviewlist" extends="baseLayout">
+		<put-attribute name="title" value="리뷰게시판" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/boardMenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/bboard2/reviewlist.jsp" />
+	</definition>
+	
+	<definition name="qna" extends="baseLayout">
+		<put-attribute name="title" value="문의게시판" />
+		<put-attribute name="body" value="/WEB-INF/views/boardq/qna.jsp" />
+	</definition>
 
 
 </tiles-definitions>
