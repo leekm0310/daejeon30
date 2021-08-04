@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.myspring.daejeon30.boardq.service.BoardqService;
 import com.myspring.daejeon30.boardq.vo.BoardqVO;
 import com.myspring.daejeon30.member.vo.MemberVO;
+import com.myspring.daejeon30.qcomment.service.QcommentService;
 
 @Controller("boardqController")
 public class BoardqControllerImpl implements BoardqController{
@@ -25,6 +26,8 @@ public class BoardqControllerImpl implements BoardqController{
 	private BoardqService boardqService;
 	@Autowired
 	private BoardqVO boardqVO;
+	@Autowired
+	private QcommentService qcommnetService;
 	
 	@Override
 	@RequestMapping(value="/boardq/qna.do", method = {RequestMethod.GET, RequestMethod.POST})
@@ -61,7 +64,11 @@ public class BoardqControllerImpl implements BoardqController{
 	public ModelAndView adminQna(@RequestParam("num") int num, 
 			HttpServletRequest request, HttpServletResponse response) throws Exception{
 		BoardqVO bVO = boardqService.adminQna(num);
+		
+		List qcList = qcommnetService.qcomments(num);
+		
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("comment", qcList);
 		mav.addObject("bVO", bVO);
 		mav.setViewName("viewQna");
 		return mav;

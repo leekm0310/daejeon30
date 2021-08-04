@@ -56,9 +56,38 @@ pageEncoding="utf-8" isELIgnored="false" %>
 						
 						<input class="btn btn-danger me-md-2" type="submit" value="수정"></button>
 						<button class="btn btn-danger" type="button" onclick="location.href='${contextPath}/boardq/deleteQna.do?num=${bVO.num }'">삭제</button>
-					
+				
 				</form>
+				<br>
 					</div>
+					<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>작성자</th>
+					<th>내용</th>
+					<th>날짜</th>
+				</tr>
+			</thead>
+			<tbody>
+			<c:choose>
+			<c:when test="${!empty comment }">
+			<c:forEach var="c" items="${comment }">
+			<tr>
+			<td>${c.id }</td>
+			<td>${c.content }</a></td>
+			<td>${c.date }</a></td>
+			</tr>
+			</c:forEach>
+			</c:when>
+			</c:choose>
+		
+			</tbody>
+		</table>
+		
+		<textarea class="form-control" name="content" rows="2" placeholder="댓글란 입니다"></textarea>
+		
+		<input class="btn btn-danger me-md-2" type="#" value="등록"></button>
+			
 					<br>					
 									
 				

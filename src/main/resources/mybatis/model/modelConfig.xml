@@ -16,6 +16,7 @@
 		<typeAlias type="com.myspring.daejeon30.bboard.vo.BboardVO" alias="BboardVO" />
 		<typeAlias type="com.myspring.daejeon30.bboard2.vo.Bboard2VO" alias="Bboard2VO" />
 		<typeAlias type="com.myspring.daejeon30.boardq.vo.BoardqVO" alias="boardqVO" />
+		<typeAlias type="com.myspring.daejeon30.qcomment.vo.QcommentVO" alias="qcommentVO" />
 		
 	</typeAliases>
 </configuration>
