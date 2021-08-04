@@ -24,6 +24,7 @@
 	
 	<definition name="faq" extends="baseLayout">
 		<put-attribute name="title" value="FAQ" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/csMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/bboard/faq.jsp" />
 	</definition>
 	
@@ -41,12 +42,26 @@
 	
 	<definition name="qna" extends="baseLayout">
 		<put-attribute name="title" value="문의게시판" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/csMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/boardq/qna.jsp" />
 	</definition>
 	
-		<definition name="writeformQ" extends="baseLayout">
+	<definition name="writeformQ" extends="baseLayout">
 		<put-attribute name="title" value="문의글쓰기" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/csMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/boardq/writeformQ.jsp" />
+	</definition>
+	
+	<definition name="viewQna" extends="baseLayout">
+		<put-attribute name="title" value="문의글보기" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/csMenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/boardq/viewQna.jsp" />
+	</definition>
+	
+	<definition name="passthro" extends="baseLayout">
+		<put-attribute name="title" value="비밀번호확인" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/csMenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/boardq/passthro.jsp" />
 	</definition>
 
 

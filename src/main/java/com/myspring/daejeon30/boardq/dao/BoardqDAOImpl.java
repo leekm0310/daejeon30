@@ -24,4 +24,26 @@ public class BoardqDAOImpl implements BoardqDAO{
 	public int addQna(BoardqVO boardqVO) throws DataAccessException{
 		return sqlSession.insert("mapper.boardq.addQna", boardqVO);	
 	}
+	
+	@Override
+	public BoardqVO adminQna(int num)throws DataAccessException{
+		BoardqVO bVO = sqlSession.selectOne("mapper.boardq.adminQna", num);
+		return bVO;
+	}
+	
+	@Override
+	public void updateQna(BoardqVO boardqVO) throws DataAccessException{
+		sqlSession.update("mapper.boardq.updateQna", boardqVO);
+	}
+	
+	@Override
+	public void deleteQna(int num) throws DataAccessException{
+		sqlSession.delete("mapper.boardq.deleteQna", num);
+	}
+	
+	@Override
+	public BoardqVO passthro(BoardqVO boardqVO) throws DataAccessException{
+		BoardqVO bb = sqlSession.selectOne("mapper.boardq.passthro",boardqVO);
+		return bb;
+	}
 }

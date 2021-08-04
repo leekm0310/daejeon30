@@ -8,9 +8,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myspring.daejeon30.boardq.service.BoardqService;
@@ -54,6 +56,52 @@ public class BoardqControllerImpl implements BoardqController{
 		return mav;
 	}
 	
+	@Override
+	@RequestMapping(value="/boardq/adminQna.do", method=RequestMethod.GET)
+	public ModelAndView adminQna(@RequestParam("num") int num, 
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		BoardqVO bVO = boardqService.adminQna(num);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("bVO", bVO);
+		mav.setViewName("viewQna");
+		return mav;
+	}
+	
+
+	
+	@RequestMapping(value="/boardq/passthro.do", method= RequestMethod.POST)
+	public ModelAndView passthro(@ModelAttribute("boardqVO") BoardqVO boardqVO, 
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		ModelAndView mav = new ModelAndView();
+		String referer = (String)request.getHeader("REFERER");
+		BoardqVO bVO = boardqService.passthrow(boardqVO);
+		mav.setViewName("redirect:"+referer);
+		
+		if (bVO == null) {
+			mav.addObject("check", 1);
+			
+		} else {
+			mav.addObject("check", 0);
+			mav.setViewName("redirect:/boardq/adminQna.do?num=" + bVO.getNum());
+		} return mav;
+
+	}
+	
+	
+	
+	@RequestMapping(value="/boardq/updateQna.do", method=RequestMethod.POST)
+	public String updateQna(@ModelAttribute("boardqVO") BoardqVO boardqVO, 
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		boardqService.updateQna(boardqVO);
+		return "redirect:/boardq/qna.do";
+	}
+	
+	@RequestMapping(value="/boardq/deleteQna.do", method=RequestMethod.GET)
+	public String deleteQna(@RequestParam("num") int num, 
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		boardqService.deleteQna(num);
+		return "redirect:/boardq/qna.do";
+	}
 	
 	
 }

@@ -11,7 +11,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- Bootstrap CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	
 	<title>문의게시판</title>
 </head>
 <body>
@@ -45,8 +45,8 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			<c:forEach var="qna" items="${qnaList }">
 			<tr>
 			<td>${qna.num }</td>
-			<td><a href="#">${qna.title }</a></td>
-			<td>${qna.name }</td>
+			<td><a href="${contextPath}/passthro.do?num=${qna.num }">${qna.title }</a></td>
+			<td>${qna.name }</a></td>
 			<td>${qna.date }</td>
 			</tr>
 			</c:forEach>

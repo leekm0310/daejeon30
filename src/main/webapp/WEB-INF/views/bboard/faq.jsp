@@ -12,37 +12,13 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-	<title>공지사항</title>
-	<style>
-	.footer{
-		position:fixed;
-		bottom: 0;
-		width:100%;
-		}
-	</style>
+	
 </head>
 <body>
 
 	
 	<div class="container" style=margin-bottom:300px;>
 	
-	
-		<!-- 로컬네비게이션 -->
-		<hr>
-		<div class="btn-group">
-			<button class="btn btn-outline-danger" type="button" id="defaultDropdown" onclick="location.href='./faq.jsp'"aria-expanded="false">
-				FAQ
-			</button>
-		</div>
-		
-		<div class="btn-group">
-			<button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./qna.jsp'" aria-expanded="false">
-				문의게시판
-			</button>
-		</div>
-	
-		
-		<hr>
 		<H1>FAQ</H1>
 		<BR><BR>
 		
@@ -53,7 +29,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 					<th>제목</th>
 					<th>작성자</th>
 					<th>날짜</th>
-					<th>조회수</th>
+					
 				</tr>
 			</thead>
 			<tbody>

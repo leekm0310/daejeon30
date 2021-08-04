@@ -31,4 +31,33 @@
 	]]>
 	</insert>
 	
+	<!-- 비번없이글보기 -->
+	<select id="adminQna" parameterType="int" resultType="boardqVO">
+	<![CDATA[
+	 select * from qboard where num = #{num}
+	 ]]>
+	</select>
+	
+	<!-- 비번체크 -->
+	<select id="passthro" parameterType="boardqVO" resultType="boardqVO">
+	<![CDATA[
+	 select * from qboard where num=#{num} and password=#{password}
+	]]>
+	</select>
+	
+	
+	<update id="updateQna" parameterType="boardqVO">
+	<![CDATA[
+	 update qboard set content=#{content} where num=#{num}
+	]]>
+	</update>
+	
+	<delete id="deleteQna" parameterType="int">
+	<![CDATA[
+	 delete from qboard where num = #{num}
+	]]>
+	</delete>
+	
+	
+	
 </mapper>

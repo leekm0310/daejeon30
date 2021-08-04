@@ -23,4 +23,26 @@ public class BoardqServiceImpl implements BoardqService{
 	public int addQna(BoardqVO boardqVO) throws Exception{
 		return boardqDAO.addQna(boardqVO);
 	}
+	
+	@Override
+	public BoardqVO adminQna(int num) throws Exception{
+		BoardqVO bVO = boardqDAO.adminQna(num);
+		return bVO;
+	}
+	
+	@Override
+	public void updateQna(BoardqVO boardqVO) throws Exception{
+		boardqDAO.updateQna(boardqVO);
+	}
+	
+	@Override
+	public void deleteQna(int num) throws Exception{
+		boardqDAO.deleteQna(num);
+	}
+	
+	@Override
+	public BoardqVO passthrow(BoardqVO boardqVO) throws Exception{
+		BoardqVO bb = boardqDAO.passthro(boardqVO);
+		return bb;
+	}
 }
