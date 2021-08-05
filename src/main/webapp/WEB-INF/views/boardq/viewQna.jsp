@@ -8,8 +8,10 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <!doctype html>
 <html lang="UTF-8">
 <head>
-	
-	<!-- 전체 레이아웃 -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 		
 	<!-- 삭제 경고창 -->
 	<script text="text/javascript">
@@ -17,6 +19,65 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		if (confirm("삭제 하시겠습니까?"))
 		form.submit();
 		}
+		
+		$(function(){
+				$("#id").attr("readonly",true);
+				$("#id").val("${member.id}");
+		});	
+		function addQC(){
+			
+			$.ajax({
+				type:"post",
+				async:false,
+				url: "${contextPath}/boardq/addqcomment.do",
+				dataType:"text",
+				data:$("#addform").serialize(),
+				success:function(data,textStatus){
+					if("1"==data){
+						$("#addform").submit();
+					}
+				},
+				error:function(data,textStatus){
+					alert("에러가 발생했습니다.");
+				},
+				complete:function(data,textStatus){
+					listQC();
+				}
+			});
+			
+		}
+		
+		function listQC(){
+			
+			$.ajax({
+				type: "get",
+				contentType: "application/json",
+				url: "${contextPath}/boardq/listQcomment.do?num=${bVO.num}",
+				success: function(result){
+					 var output="<table>";
+			            for(var i in result){
+			            	 var repl=result[i].content;
+			                 repl = repl.replace(/  /gi,"&nbsp;&nbsp;");//공백처리
+			                 repl = repl.replace(/</gi,"&lt;"); //태그문자 처리
+			                 repl = repl.replace(/>/gi,"&gt;");
+			                 repl = repl.replace(/\n/gi,"<br>"); //줄바꿈 처리
+			                 
+			                 output += "<tr><td>"+result[i].id;
+			                 date = changeDate(result[i].date);
+			                 output += "("+date+")";
+			                 output += "<br>"+repl+"</td></tr>";
+			            }
+			            output+="</table>";
+		                $("#listqcomment").html(output);
+				}
+			});
+		}
+				
+			
+		
+		
+		
+		
 	</script>
 
 </head>
@@ -84,12 +145,15 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			</tbody>
 		</table>
 		
-		<textarea class="form-control" name="content" rows="2" placeholder="댓글란 입니다"></textarea>
+		<form name="addform" id="addform" method="post">
+		<input type="hidden" name="boardnum" value="${bVO.num }">
+		<input type="hidden" name="id" id="id">
+ 		<textarea class="form-control" name="content" rows="2" placeholder="댓글란 입니다"></textarea>
 		
-		<input class="btn btn-danger me-md-2" type="#" value="등록"></button>
-			
+		<button type="button" class="btn btn-danger me-md-2" onclick="javascript:addQC()" value="등록"></button>
+			</form>
 					<br>					
-									
+					<div id="listqcomment"></div>				
 				
 							
 			</div>

@@ -17,6 +17,13 @@
 		select * from qnacomment where boardnum = #{num}
 	]]>
 	</select>
+	
+	<insert id="writeQcomment" parameterType="qcommentVO">
+	<![CDATA[
+		insert into qnacomment(boardnum, id, content)
+		values(#{boardnum}, #{id}, #{content})
+	]]>
+	</insert>
 
 
 </mapper>

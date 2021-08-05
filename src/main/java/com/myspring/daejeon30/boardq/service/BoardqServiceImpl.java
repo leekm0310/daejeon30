@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.myspring.daejeon30.boardq.dao.BoardqDAO;
 import com.myspring.daejeon30.boardq.vo.BoardqVO;
+import com.myspring.daejeon30.qcomment.vo.QcommentVO;
 
 @Service("boardqService")
 public class BoardqServiceImpl implements BoardqService{
@@ -44,5 +45,11 @@ public class BoardqServiceImpl implements BoardqService{
 	public BoardqVO passthrow(BoardqVO boardqVO) throws Exception{
 		BoardqVO bb = boardqDAO.passthro(boardqVO);
 		return bb;
+	}
+	
+	//´ñ±Û
+	@Override
+	public List<QcommentVO> allcomments(int num) throws Exception{
+		return boardqDAO.allcomments(num);
 	}
 }

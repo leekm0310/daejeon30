@@ -1,5 +1,7 @@
 package com.myspring.daejeon30.boardq.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,18 +9,23 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myspring.daejeon30.boardq.service.BoardqService;
 import com.myspring.daejeon30.boardq.vo.BoardqVO;
 import com.myspring.daejeon30.member.vo.MemberVO;
 import com.myspring.daejeon30.qcomment.service.QcommentService;
+import com.myspring.daejeon30.qcomment.vo.QcommentVO;
 
 @Controller("boardqController")
 public class BoardqControllerImpl implements BoardqController{
@@ -27,7 +34,7 @@ public class BoardqControllerImpl implements BoardqController{
 	@Autowired
 	private BoardqVO boardqVO;
 	@Autowired
-	private QcommentService qcommnetService;
+	private QcommentService qcommentService;
 	
 	@Override
 	@RequestMapping(value="/boardq/qna.do", method = {RequestMethod.GET, RequestMethod.POST})
@@ -65,7 +72,7 @@ public class BoardqControllerImpl implements BoardqController{
 			HttpServletRequest request, HttpServletResponse response) throws Exception{
 		BoardqVO bVO = boardqService.adminQna(num);
 		
-		List qcList = qcommnetService.qcomments(num);
+		List qcList = qcommentService.qcomments(num);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("comment", qcList);
@@ -109,6 +116,25 @@ public class BoardqControllerImpl implements BoardqController{
 		boardqService.deleteQna(num);
 		return "redirect:/boardq/qna.do";
 	}
+	
+
+	//¥Ò±€µÓ∑œ
+	@RequestMapping(value="boardq/addqcomment.do")
+	public ResponseEntity addqcomment(QcommentVO qcommentVO,
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		ResponseEntity resEntity = null;
+		qcommentService.writeQComment(qcommentVO);
+		resEntity = new ResponseEntity(HttpStatus.OK);
+		return resEntity;
+	}
+	
+	//¥Ò±€¡∂»∏
+	@RequestMapping(value="/boardq/listQcomment.do")
+	public List listJson(int num) throws Exception{
+		return qcommentService.qcomments(num);
+		
+	}
+
 	
 	
 }

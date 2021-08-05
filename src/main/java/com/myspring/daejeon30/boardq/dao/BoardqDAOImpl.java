@@ -8,6 +8,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.myspring.daejeon30.boardq.vo.BoardqVO;
+import com.myspring.daejeon30.qcomment.vo.QcommentVO;
 
 @Repository("boardqDAO")
 public class BoardqDAOImpl implements BoardqDAO{
@@ -45,5 +46,11 @@ public class BoardqDAOImpl implements BoardqDAO{
 	public BoardqVO passthro(BoardqVO boardqVO) throws DataAccessException{
 		BoardqVO bb = sqlSession.selectOne("mapper.boardq.passthro",boardqVO);
 		return bb;
+	}
+	
+	//´ñ±Û
+	@Override
+	public List<QcommentVO> allcomments(int num) throws Exception{
+		return sqlSession.selectList("mapper.qcomment.selectQcomment", num);
 	}
 }
