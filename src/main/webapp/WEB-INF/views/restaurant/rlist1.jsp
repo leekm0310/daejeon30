@@ -14,7 +14,6 @@ request.setCharacterEncoding("utf-8");
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="http://resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -34,18 +33,28 @@ request.setCharacterEncoding("utf-8");
 <!-- 찜하기 버튼 경고창  -->
 
 	<script type="text/javascript">
+	
+	$(function(){
+		$("#id").attr("readonly",true);
+		$("#id").val("${member.id}");
+});	
  
-    function addlike(resNum){
+    function addlike(value){
     	$.ajax({
 			url:"${contextPath}/favo/addfavo.do",
 			type:"POST",
-			data: {resNum : resNum},
-			success: function(fav){
+			data:"text",
+			data:$("#bb").serialize(),
+			success: function(data,textStatus){
+				if("1"==data){
+					$("#addform").submit();
+				}
+			},
+			error:function(data,textStatus){
+				alert("에러가 발생했습니다.");
+			},
+			complete:function(data){
 				alert("성공");
-				console.log(fav);
-				
-				let heart = fav.likeNum;
-				$(".rec_count").text(heart);
 				
 				}
 			});
@@ -64,10 +73,7 @@ request.setCharacterEncoding("utf-8");
 		<div class="container" style="margin-bottom: 300px;">
 			
 				<br> <br>
-<!-- 
-${resList }
-	<div>--------------------------------------------</div>
-	${fav } -->
+
 
 	<!--  <div class="row row-cols-1 row-cols-md-4 g-6">-->
 	<!--  <div class="d-flex bd-highlight flex-wrap mb-3">-->
@@ -118,9 +124,14 @@ ${resList }
 						<span class="rec_count"></span>
 						</c:if>
 						<c:if test="${ member.id != null }">
-						<button class="w3-button w3-black w3-round" onclick="javascript:addlike('${res.resNum}')">
+						<!-- <button class="w3-button w3-black w3-round" onclick="javascript:addlike('${res.resNum}')">테스트 -->
+						<form name="bb" id="bb" method="post">
+						<input type="hidden" name="resNum" value="${res.resNum}">
+						<input type="hidden" name="id" id="id">
+						<button class="w3-button w3-black w3-round" id="bb" onclick="javascript:addlike()">테스트
 						<i class="fa fa-heart" style="font-size: 16px; color: red"></i> &nbsp;
 						<span class="rec_count"></span></button>
+						</form>
 						</c:if>
 						</div>
 						</div>

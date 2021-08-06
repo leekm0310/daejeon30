@@ -68,7 +68,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			                 output += "<tr><td>"+result[i].id+"</td>";
 			                 output += "<td width='400'>"+result[i].content;+"</td>";
 			                 output += "<td>"+result[i].date+"</td>";
-			                 output += "<td width='200'><button class='btn btn-outline-primary btn-sm'>수정</button> "
+			                 output += "<td width='200'><button class='btn btn-outline-primary btn-sm' onclick='editc()'>수정</button> "
 			                 output +="<button class='btn btn-outline-secondary btn-sm' id='delb' onclick='delc(this.value)' value="+result[i].num+">삭제</button></td></tr>"
 			                
 			            }
@@ -91,6 +91,16 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			});
 		}
 		
+		//수정창 바뀌는 것 관련 작업중
+		function editc(){
+			var output="";
+			output +="<tr><td></td>"
+			output +="<td width='400'><textarea class='form-control' name='content' rows='2'></textarea>"
+			output +="<td></td>"
+			output +="<td width='200'><button class='btn btn-outline-primary btn-sm'>수정</button> "
+			output +="<button class='btn btn-outline-secondary btn-sm' id='delb' onclick='delc(this.value)' value=+result[i].num+>삭제</button></td></tr>"
+			output +="</tr>";
+		}
 		
 	</script>
 
@@ -154,7 +164,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			<td>${c.id }</td>
 			<td width="400">${c.content }</td>
 			<td>${c.date }</td>
-			<td width="200"><button class="btn btn-outline-primary btn-sm">수정</button>
+			<td width="200"><button class="btn btn-outline-primary btn-sm" onclick="editc()">수정</button>
 			<button class="btn btn-outline-secondary btn-sm" onclick ="location.href='${contextPath}/boardq/deleteQC.do?num=${c.num }'">삭제</button></td>
 			</tr>
 			</c:forEach>
