@@ -9,4 +9,6 @@ import com.myspring.daejeon30.qcomment.vo.QcommentVO;
 public interface QcommentDAO{
 	public List selectQcomment(int num) throws DataAccessException;
 	public void writeQcomment(QcommentVO qcommentVO) throws DataAccessException;
+	public void updateQcomment(QcommentVO qcommentVO) throws DataAccessException;
+	public void deleteQcomment(int num) throws DataAccessException;
 }

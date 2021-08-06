@@ -23,4 +23,14 @@ public class QcommentServiceImpl implements QcommentService{
 	public void writeQComment(QcommentVO qcommentVO) throws Exception{
 		qcommentDAO.writeQcomment(qcommentVO);
 	}
+	
+	@Override
+	public void updateQcomment(QcommentVO qcommentVO) throws Exception{
+		qcommentDAO.updateQcomment(qcommentVO);
+	}
+	
+	@Override
+	public void deleteQcomment(int num) throws Exception{
+		qcommentDAO.deleteQcomment(num);
+	}
 }

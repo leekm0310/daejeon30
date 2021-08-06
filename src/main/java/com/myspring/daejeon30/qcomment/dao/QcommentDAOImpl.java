@@ -24,4 +24,15 @@ public class QcommentDAOImpl implements QcommentDAO{
 	public void writeQcomment(QcommentVO qcommentVO) throws DataAccessException{
 		sqlSession.insert("mapper.qcomment.writeQcomment", qcommentVO);
 	}
+	
+	@Override
+	public void updateQcomment(QcommentVO qcommentVO) throws DataAccessException{
+		sqlSession.update("mapper.qcomment.updateQcomment", qcommentVO);
+	}
+	
+	@Override
+	public void deleteQcomment(int num) throws DataAccessException{
+		sqlSession.delete("mapper.qcomment.deleteQcomment", num);	
+	}
+	
 }

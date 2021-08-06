@@ -24,6 +24,18 @@
 		values(#{boardnum}, #{id}, #{content})
 	]]>
 	</insert>
+	
+	<update id="updateQcomment" parameterType="qcommentVO">
+	<![CDATA[
+		update qnacomment set content=#{content} where num = #{num} and id=#{id}
+	]]>
+	</update>
+	
+	<delete id ="deleteQcomment" parameterType="int">
+	<![CDATA[
+		delete from qnacomment where num = #{num}
+	]]>
+	</delete>
 
 
 </mapper>

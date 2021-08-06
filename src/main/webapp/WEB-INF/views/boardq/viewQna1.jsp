@@ -15,15 +15,17 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		
 	<!-- 삭제 경고창 -->
 	<script text="text/javascript">
-		function del() {
-		if (confirm("삭제 하시겠습니까?"))
-		form.submit();
+
+		function del(value) {
+			location.href='${contextPath}/boardq/deleteQC.do?num='+value;
+			listQC();
 		}
 		
 		$(function(){
 				$("#id").attr("readonly",true);
 				$("#id").val("${member.id}");
 		});	
+		
 		function addQC(){
 			
 			$.ajax({
@@ -40,7 +42,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 				error:function(data,textStatus){
 					alert("에러가 발생했습니다.");
 				},
-				complete:function(data,textStatus){
+				complete:function(data){
 					listQC();
 				}
 			});
@@ -52,22 +54,25 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			$.ajax({
 				type: "get",
 				contentType: "application/json",
-				url: "${contextPath}/boardq/listQcomment.do?num=${bVO.num}",
+				url: "${contextPath}/boardq/listQC.do?num=${map.bVO.num}",
 				success: function(result){
-					 var output="<table>";
+					 
+					 console.log(result);
+					 const last = result[result.length -1];
+					 console.log(last)
+					 var output="<tr>";
 			            for(var i in result){
+			            	
 			            	 var repl=result[i].content;
-			                 repl = repl.replace(/  /gi,"&nbsp;&nbsp;");//공백처리
-			                 repl = repl.replace(/</gi,"&lt;"); //태그문자 처리
-			                 repl = repl.replace(/>/gi,"&gt;");
-			                 repl = repl.replace(/\n/gi,"<br>"); //줄바꿈 처리
-			                 
-			                 output += "<tr><td>"+result[i].id;
-			                 date = changeDate(result[i].date);
-			                 output += "("+date+")";
-			                 output += "<br>"+repl+"</td></tr>";
+			             
+			                 output += "<tr><td>"+result[i].id+"</td>";
+			                 output += "<td width='400'>"+result[i].content;+"</td>";
+			                 output += "<td>"+result[i].date+"</td>";
+			                 output += "<td width='200'><button class='btn btn-outline-primary btn-sm'>수정</button> "
+			                 output +="<button class='btn btn-outline-secondary btn-sm' id='delb' onclick='delc(this.value)' value="+result[i].num+">삭제</button></td></tr>"
+			                
 			            }
-			            output+="</table>";
+			            output+="</tr>";
 		                $("#listqcomment").html(output);
 				}
 			});
@@ -75,7 +80,16 @@ pageEncoding="utf-8" isELIgnored="false" %>
 				
 			
 		
-		
+		function delc(value){
+			$.ajax({
+				type: "post",
+				url: "${contextPath}/boardq/deleteQC.do?num="+value,
+				dataType: "text",
+				success:function(result){
+					listQC();
+				}
+			});
+		}
 		
 		
 	</script>
@@ -95,21 +109,21 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		<div class="dark border"><!-- 테두리 안 -->
 			<div class="col g-0 position-relative"> <!-- 간격조절 -->		
 				<div class="col md-0 p-md-4"><!-- 간격조절 -->
-				<form action="${contextPath}/boardq/updateQna.do?num=${bVO.num }" method="post">
+				<form action="${contextPath}/boardq/updateQna.do?num=${map.bVO.num }" method="post">
 					<div class="mb-3">
 					<p class="fs-3">
-					<input name = title value="${bVO.title}" style="border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px;">
+					<input name = title value="${map.bVO.title}" style="border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px;">
 					</p>
-					작성일: ${bVO.date}
+					작성일: ${map.bVO.date}
 					</div>
 					<hr>
-					문의종류: ${bVO.sort}
-					작성자: ${bVO.name}
+					문의종류: ${map.bVO.sort}
+					작성자: ${map.bVO.name}
 						
 					<hr>	 				
 					
 					<div class="mb-3">
-  					<textarea class="form-control" name="content" rows="20">${bVO.content }</textarea>
+  					<textarea class="form-control" name="content" rows="20">${map.bVO.content }</textarea>
 					</div>
 					<br>
 					<p> </p>
@@ -118,7 +132,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 					<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 						
 						<input class="btn btn-danger me-md-2" type="submit" value="수정"></button>
-						<button class="btn btn-danger" type="button" onclick="location.href='${contextPath}/boardq/deleteQna.do?num=${bVO.num }'">삭제</button>
+						<button class="btn btn-danger" type="button" id="delb" onclick="location.href='${contextPath}/boardq/deleteQna.do?num=${bVO.num }'">삭제</button>
 				
 				</form>
 				<br>
@@ -129,33 +143,37 @@ pageEncoding="utf-8" isELIgnored="false" %>
 					<th>작성자</th>
 					<th>내용</th>
 					<th>날짜</th>
+					<th></th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="listqcomment">
 			<c:choose>
-			<c:when test="${!empty comment }">
-			<c:forEach var="c" items="${comment }">
+			<c:when test="${!empty map.qcList }">
+			<c:forEach var="c" items="${map.qcList }">
 			<tr>
 			<td>${c.id }</td>
-			<td>${c.content }</a></td>
-			<td>${c.date }</a></td>
+			<td width="400">${c.content }</td>
+			<td>${c.date }</td>
+			<td width="200"><button class="btn btn-outline-primary btn-sm">수정</button>
+			<button class="btn btn-outline-secondary btn-sm" onclick ="location.href='${contextPath}/boardq/deleteQC.do?num=${c.num }'">삭제</button></td>
 			</tr>
 			</c:forEach>
 			</c:when>
 			</c:choose>
-		
+				
 			</tbody>
 		</table>
+	
 		
 		<form name="addform" id="addform" method="post">
-		<input type="hidden" name="boardnum" value="${bVO.num }">
+		<input type="hidden" name="boardnum" value="${map.bVO.num }">
 		<input type="hidden" name="id" id="id">
  		<textarea class="form-control" name="content" rows="2" placeholder="댓글란 입니다"></textarea>
 		
-		<button type="button" class="btn btn-danger me-md-2" onclick="javascript:addQC()" value="등록"></button>
+		<button type="button" class="btn btn-danger me-md-2" onclick="javascript:addQC()">등록</button>
 			</form>
 					<br>					
-					<div id="listqcomment"></div>				
+								
 				
 							
 			</div>

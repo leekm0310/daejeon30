@@ -36,7 +36,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 					<th>제목</th>
 					<th>작성자</th>
 					<th>날짜</th>
-					<th>조회수</th>
+			
 				</tr>
 			</thead>
 			<tbody>
@@ -46,7 +46,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			<tr>
 			<td>${qna.num }</td>
 			<td><a href="${contextPath}/passthro.do?num=${qna.num }">${qna.title }</a></td>
-			<td>${qna.name }</a></td>
+			<td><a href="${contextPath}/boardq/viewQna.do?num=${qna.num }">${qna.name }</a></td>
 			<td>${qna.date }</td>
 			</tr>
 			</c:forEach>

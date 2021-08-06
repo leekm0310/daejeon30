@@ -182,6 +182,11 @@ public class HomeController {
 	public String passthro(Locale locale, Model model) {
 		return "passthro";
 	}
+	
+	@RequestMapping(value="/viewQna1.do", method=RequestMethod.GET)
+	public String viewQna1(Locale locale, Model model) {
+		return "viewQna1";
+	}
 
 	/**
 	 * Simply selects the home view to render by returning its name.

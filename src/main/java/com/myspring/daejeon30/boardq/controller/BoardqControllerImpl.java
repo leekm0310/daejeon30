@@ -3,6 +3,7 @@ package com.myspring.daejeon30.boardq.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -96,7 +97,8 @@ public class BoardqControllerImpl implements BoardqController{
 			
 		} else {
 			mav.addObject("check", 0);
-			mav.setViewName("redirect:/boardq/adminQna.do?num=" + bVO.getNum());
+			//mav.setViewName("redirect:/boardq/adminQna.do?num=" + bVO.getNum());
+			mav.setViewName("redirect:/boardq/viewQna.do?num="+ bVO.getNum());
 		} return mav;
 
 	}
@@ -128,12 +130,64 @@ public class BoardqControllerImpl implements BoardqController{
 		return resEntity;
 	}
 	
+	
 	//¥Ò±€¡∂»∏
-	@RequestMapping(value="/boardq/listQcomment.do")
-	public List listJson(int num) throws Exception{
-		return qcommentService.qcomments(num);
+	@RequestMapping(value="/boardq/listQC.do")
+	public ResponseEntity listQC(int num, 
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		ResponseEntity resEntity = null;
+		List qc = qcommentService.qcomments(num);
+		resEntity = new ResponseEntity(qc, HttpStatus.OK);
+		return resEntity;
+	}
+	
+	
+	//¥Ò±€ ºˆ¡§
+	@RequestMapping(value="/boardq/updateQC.do")
+	public ResponseEntity updateQC(QcommentVO qcommentVO,
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		ResponseEntity resEntity = null;
+		qcommentService.updateQcomment(qcommentVO);
+		resEntity = new ResponseEntity(HttpStatus.OK);
+		return resEntity;
+	}
+	
+	//¥Ò±€ ªË¡¶
+	//@RequestMapping(value="/boardq/deleteQC.do")
+	//public String deleteQC(int num, 
+	//		HttpServletRequest request, HttpServletResponse response) throws Exception{
+	//	String referer = (String)request.getHeader("REFERER");
+	//	qcommentService.deleteQcomment(num);
+	//	return "redirect:" + referer;
+	//}
+	
+	@RequestMapping(value="/boardq/deleteQC.do")
+	public ResponseEntity deleteQC(int num, 
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		ResponseEntity resEntity = null;
+		qcommentService.deleteQcomment(num);
+		resEntity = new ResponseEntity(HttpStatus.OK);
+		return resEntity;
+	}
+	
+	
+	
+	//¥Ò±€ + ±€∫∏±‚ 2
+	@RequestMapping(value="/boardq/viewQna.do")
+	public ModelAndView viewQna(@RequestParam("num") int num, 
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		BoardqVO bVO = boardqService.adminQna(num);
+		List qcList = qcommentService.qcomments(num);
+		Map map = new HashMap();
+		map.put("bVO", bVO);
+		map.put("qcList", qcList);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("map",map);
+		mav.setViewName("viewQna1");
+		return mav;
 		
 	}
+	
 
 	
 	

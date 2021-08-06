@@ -63,6 +63,12 @@
 		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/csMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/boardq/passthro.jsp" />
 	</definition>
+	
+	<definition name="viewQna1" extends="baseLayout">
+		<put-attribute name="title" value="문의글보기test" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/csMenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/boardq/viewQna1.jsp" />
+	</definition>
 
 
 </tiles-definitions>
