@@ -21,11 +21,10 @@ request.setCharacterEncoding("utf-8");
 
 <!-- 카드 내부 BUTTON STYLE -->
 <style>
-#test_btn2 {border-radius: 5px; border-radius: 5px; margin-left: -3px;}
 
-#btn_group button {border: 1px solid grey; background-color: rgba(0, 0, 0, 0); color: grey; padding: 5px;}
+#likeoff button {border: 1px solid grey; background-color: rgba(0, 0, 0, 0); color: grey; padding: 5px; border-radius: 5px; border-radius: 5px; margin-left: -3px;}
 
-#btn_group button:hover {color: red; background-color: white;}
+#likeon button {border: 1px solid grey; background-color: white; color: red; padding: 5px; border-radius: 5px; border-radius: 5px; margin-left: -3px;}
 
 .like-btn {	color: #fff;}
 </style>
@@ -39,12 +38,11 @@ request.setCharacterEncoding("utf-8");
 		$("#id").val("${member.id}");
 });	
  
-    function addlike(value){
+    function addlike(){
     	$.ajax({
 			url:"${contextPath}/favo/addfavo.do",
 			type:"POST",
-			data:"text",
-			data:$("#bb").serialize(),
+			data:$("#addform").serialize(),
 			success: function(data,textStatus){
 				if("1"==data){
 					$("#addform").submit();
@@ -60,6 +58,30 @@ request.setCharacterEncoding("utf-8");
 			});
     	
  		   }
+    
+    function like(value){
+    	$.ajax({
+    		url:"${contextPath}/favo/addfavo.do",
+			type:"POST",
+			data:
+				{
+				resNum: value
+				},
+			dataType:"text",
+			success:function(result){
+				if(result==0){
+					alert("에러");
+				} else{
+					console.log(event.currentTarget.firstElementChild);
+					alert("성공");
+					
+				}
+				
+				
+			}
+			
+    	});
+    }
 	  </script>
 
 </head>
@@ -96,11 +118,14 @@ request.setCharacterEncoding("utf-8");
 								<a href="${contextPath}/res/rlist2.do?resNum=${res.resNum}" class="btn btn-danger" align=left>상세>></a> 
 								&ensp;&ensp;&ensp;&ensp; 
 								<input type="hidden" name="resNum" value="${res.resNum }">
-													<!--   <div id="btn_group" align=right><button id="like" name="like" style="width:40px">♥</button>
-						  </div>  <button id="like" name="like" style="width:40px">♥</button>
+								
+								
+					<div class="bb">	
+					<div id="likeoff" align=right><button style="width:40px">♥</button>  </div> </div>		
 												</form>
-					<div id="btn_group" align=right><button id="test_btn2" style="width:40px" onclick="like()">♥</button></div>-->
-
+										
+												
+					<div id="likeon" align=right><button  style="width:40px">♥</button></div>
 
 						<!-- 1 -->
 						<form name="fav" method="post" action="${contextPath}/favo/addfavo.do">
@@ -108,30 +133,23 @@ request.setCharacterEncoding("utf-8");
 							<input type="submit" value="찜하기">
 						</form>
 
-												<!-- 2	   
-						 <form name="FavoForm" method="post">
-						 <input type="hidden" id="resNum1" name="resNum" value="${res.resNum }">
-						 <input type="hidden" id="id" name="id" value="${member.id}">
-						   <input type="button" value="♥1" onclick="javascript:like1()">
-						   </form> -->
-
 						<!-- 3 -->
 						<div>
 						<div class="w3-border w3-center w3-padding">
 						<c:if test="${ member.id == null }">
-					.<br/>
+						.<br/>
 						<i class="fa fa-heart" style="font-size: 16px; color: red"></i>
 						<span class="rec_count"></span>
 						</c:if>
 						<c:if test="${ member.id != null }">
 						<!-- <button class="w3-button w3-black w3-round" onclick="javascript:addlike('${res.resNum}')">테스트 -->
-						<form name="bb" id="bb" method="post">
-						<input type="hidden" name="resNum" value="${res.resNum}">
-						<input type="hidden" name="id" id="id">
-						<button class="w3-button w3-black w3-round" id="bb" onclick="javascript:addlike()">테스트
-						<i class="fa fa-heart" style="font-size: 16px; color: red"></i> &nbsp;
-						<span class="rec_count"></span></button>
-						</form>
+						<!--  <form name="addform" id="addform" method="post">
+						<input type="hidden" name="resNum" id="resNum" value="${res.resNum}">
+						<input type="hidden" name="id" id="id">-->
+						
+						<button id="likebutton" name="resNum" value="${res.resNum}" onclick="javascript:like(this.value)">♥
+						</button>
+					
 						</c:if>
 						</div>
 						</div>
