@@ -69,6 +69,12 @@
 		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/csMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/boardq/viewQna1.jsp" />
 	</definition>
+	
+	<definition name="reviewform" extends="baseLayout">
+		<put-attribute name="title" value="리뷰글쓰기" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/boardMenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/bboard2/reviewform.jsp" />
+	</definition>
 
 
 </tiles-definitions>

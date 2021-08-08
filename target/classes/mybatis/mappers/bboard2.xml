@@ -19,6 +19,13 @@
 		select * from reviewboard
 	]]>	
 	</select>
+	
+	<insert id="addreview" parameterType="bboard2Result">
+	<![CDATA[
+		insert into reviewboard(title, content, id, imageFileName)
+		values(#{title}, #{content}, #{id}, #{imageFileName})
+	]]>
+	</insert>
 
 
 

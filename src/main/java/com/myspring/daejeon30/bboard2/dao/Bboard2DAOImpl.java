@@ -1,6 +1,7 @@
 package com.myspring.daejeon30.bboard2.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +17,10 @@ public class Bboard2DAOImpl implements Bboard2DAO{
 	public List selectAllReview() throws DataAccessException{
 		List reviewList = sqlSession.selectList("mapper.bboard2.selectAllReview");
 		return reviewList;
+	}
+	
+	@Override
+	public void addreview(Map reviewMap) throws DataAccessException{
+		sqlSession.insert("mapper.bboard2.addreview", reviewMap);
 	}
 }
