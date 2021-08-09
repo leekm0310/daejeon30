@@ -14,4 +14,5 @@ public interface Bboard2Controller{
 			HttpServletResponse response) throws Exception;
 	public ModelAndView oneReview(@RequestParam("num") int num, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ResponseEntity deleteReview(@RequestParam("num") int num, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	
 }

@@ -20,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -89,8 +90,6 @@ public class Bboard2ControllerImpl implements Bboard2Controller{
 	}
 	
 	
-	
-	
 	@Override
 	@RequestMapping(value="/bboard2/addreview.do", method = RequestMethod.POST)
 	public ResponseEntity addreview(MultipartHttpServletRequest multipartRequest,
@@ -142,6 +141,66 @@ public class Bboard2ControllerImpl implements Bboard2Controller{
 		}
 		return resEnt;
 	}
+	
+	
+	
+	
+	@RequestMapping(value="/bboard2/updateReview.do", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity updateReview(MultipartHttpServletRequest multipartRequest,
+									HttpServletResponse response) throws Exception{
+		multipartRequest.setCharacterEncoding("utf-8");
+		Map<String,Object> reviewMap = new HashMap<String, Object>();
+		Enumeration enu = multipartRequest.getParameterNames();
+		while(enu.hasMoreElements()) {
+			String name = (String)enu.nextElement();
+			String value = multipartRequest.getParameter(name);
+			reviewMap.put(name, value);
+		}
+		
+		String imageFileName = upload(multipartRequest);
+		reviewMap.put("imageFileName",imageFileName);
+		
+		
+		String num = (String)reviewMap.get("num");
+		String message;
+		ResponseEntity resEnt = null;
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+		try {
+			bboard2Service.updateReview(reviewMap);
+			if(imageFileName != null && imageFileName.length() != 0) {
+				File srcFile = new File(REVIEW_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
+				File destDir = new File(REVIEW_IMAGE_REPO + "\\" + num);
+				FileUtils.moveFileToDirectory(srcFile, destDir, true);
+				
+				String originalFileName = (String)reviewMap.get("originalFileName");
+				File oldFile = new File(REVIEW_IMAGE_REPO + "\\" + num + "\\" + originalFileName);
+				oldFile.delete();
+			}
+			message = "<script>";
+			message += "alert('글을 수정했습니다.');";
+			message += "location.href='" + multipartRequest.getContextPath() + "/bboard2/oneReview.do?num=" + num +"';";
+			message += "</script>";
+			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
+		} catch(Exception e) {
+			File srcFile = new File(REVIEW_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
+			srcFile.delete();
+			message = "<script>";
+			message += "alert('오류가 발생했습니다. 다시 수정해주세요');";
+			message += "location.href='"+multipartRequest.getContextPath()+"/bboard2/oneReview.do?num=" + num +"';";
+			message += "</script>";
+			resEnt = new ResponseEntity(message,responseHeaders,HttpStatus.CREATED);
+		}
+		return resEnt;
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	private String upload(MultipartHttpServletRequest multipartRequest) throws Exception{

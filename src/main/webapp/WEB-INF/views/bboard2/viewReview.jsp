@@ -56,7 +56,7 @@
 						<!-- 간격조절 -->
 						<div class="col md-0 p-md-4">
 							<!-- 간격조절 -->
-							<form name="#" method="post" action="#" enctype="multipart/form-data">
+							<form method="post" action="${contextPath}/bboard2/updateReview.do" enctype="multipart/form-data">
 							
 							<input type="hidden" name="num" value="${review.num}"/>
 							<p class="fs-3" ><input type=title value="${review.title}" name="title" id="title" style="border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px;"/></p>
@@ -87,7 +87,7 @@
 							
 									<td colspan="2" align="center">
 									<c:if test="${member.id == review.id}">
-										<input type=button class="btn btn-outline-danger" value="수정하기" onClick="#">
+										<input class="btn btn-outline-danger" type="submit" value="수정하기">
 										<button class="btn btn-outline-danger" type="button" onclick="del('${review.num}')">삭제</button>
 										<tr id="tr_btn_modify">
 											<td colspan="2" align="center">

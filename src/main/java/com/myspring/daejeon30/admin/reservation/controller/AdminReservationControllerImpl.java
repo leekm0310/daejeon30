@@ -47,9 +47,9 @@ public class AdminReservationControllerImpl implements AdminReservationControlle
 	@Override
 	@RequestMapping(value="/admin/nonRsv.do", method={RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView allNonRsv (HttpServletRequest request, HttpServletResponse response) throws Exception{
-		List rsvAll = adminReservationService.Allnon();
+		List nonAll = adminReservationService.Allnon();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("rsv1", rsvAll);
+		mav.addObject("rsv1", nonAll);
 		mav.setViewName("adminrsv");
 		return mav;
 	}

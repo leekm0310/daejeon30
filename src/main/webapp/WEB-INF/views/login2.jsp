@@ -47,15 +47,15 @@
 					<div class="form-floating" style="width:500px;">
 						<input type="password" class="form-control" name="password" id="password" placeholder="Password">
 						<label for="floatingPassword">비밀번호</label>
-					</div>   
+					</div>  
 					<br>
 					<button class="w-30 btn btn-lg btn-danger" style="width:300px;" onclick="checklogin()">로그인</button><p></p>
+					</form>
 					<button class="w-30 btn btn-lg btn-danger" style="width:300px;" onclick="location.href='${contextPath}/res/rsv3.do'">비회원예약</button>    
 					<div class="container" style="margin-bottom:150px">  
 						<div class="p-3 bg-white btn btn-link text-dark" onclick="location.href='./find1.jsp'">아이디/비밀번호 찾기</div>    
 						<div class="p-3 bg-white btn btn-link text-dark" onclick="location.href='./join1.jsp'">회원 가입</div>
 				</div>
-				</form>
 			</div>
 			<div class="col-sm-2"></div>
 		</div>

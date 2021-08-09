@@ -12,4 +12,5 @@ public interface Bboard2DAO{
 	public int addreview(Map reviewMap) throws DataAccessException;
 	public Bboard2VO selectReview(int num) throws DataAccessException;
 	public void deleteReview(int num) throws DataAccessException;
+	public void updateReview(Map reviewMap) throws DataAccessException;
 }

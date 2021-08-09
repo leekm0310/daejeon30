@@ -13,6 +13,16 @@ request.setCharacterEncoding("utf-8");
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<style>
+	.ellipsis {
+  width: form-control;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+	</style>
     
 		<!-- 전체 레이아웃 -->
 
@@ -39,10 +49,10 @@ request.setCharacterEncoding("utf-8");
 <c:forEach var="review" items="${revlist }">
  <div class="col">
     <div class="card h-100">
-      <img src="${contextPath}/downloadreview.do?num=${review.num}&imageFileName=${review.imageFileName}" class="card-img-top" alt="${review.imageFileName}">
+      <img src="${contextPath}/downloadreview.do?num=${review.num}&imageFileName=${review.imageFileName}" class="card-img-top" width="310" height="310" alt="${review.imageFileName}">
       <div class="card-body">
         <h5 class="card-title">${review.title }</h5>
-        <p class="card-text">너무 맛있어요 최고~ 무야호~~ 그만큼 맛있으시다는거지~~</p>
+        <p class="card-text ellipsis">${review.content }</p>
      	<button type="button" class="btn btn-danger" onclick="location.href='${contextPath}/bboard2/oneReview.do?num=${review.num}'">읽기</button>
       </div>
     </div>

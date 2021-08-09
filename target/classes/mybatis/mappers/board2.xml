@@ -107,22 +107,17 @@
 	
 	<!-- 글 수정 --><!-- if 구문은 이미지 수정한 경우에만 파일 이름 수정하기 -->
 	<update id="updateBoard" parameterType="java.util.Map">
-	<![CDATA[
-		update recboard
-		set rb_title = #{rb_title}, rb_content = #{rb_content}, imageFileName=#{imageFileName}
-		where rb_num = #{boardNO}
-	]]>
-	</update>
-	<!-- 
 	
-update recboard
+		update recboard
 		set rb_title = #{rb_title}, rb_content = #{rb_content}
 		
 		<if test= "imageFileName != '' and imageFileName != null">
-			, imageFileName=#{imageFileName}
+			,imageFileName=#{imageFileName}
 		</if>
 		where rb_num = #{boardNO}
-	 -->
+	
+	</update>
+
 	
 	<!-- 글삭제 -->
 	<delete id="deleteBoard" parameterType="int">

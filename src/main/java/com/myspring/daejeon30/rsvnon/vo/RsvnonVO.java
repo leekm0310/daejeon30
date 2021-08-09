@@ -12,14 +12,15 @@ public class RsvnonVO{
 	private String addInfo;
 	private String rsvDate;
 	private String rsvTime;
-	private String rsvGuestNum;
+	private String guestNum;
+	private String status;
 
 	public RsvnonVO() {
 	
 	}
 	
 	public RsvnonVO(int rsvNum, String resName, String name, String phone, String password, String addInfo, String rsvDate,
-			String rsvTime, String rsvGuestNum) {
+			String rsvTime, String guestNum, String status) {
 		this.rsvNum=rsvNum;
 		this.resName=resName;
 		this.name=name;
@@ -28,7 +29,8 @@ public class RsvnonVO{
 		this.addInfo=addInfo;
 		this.rsvDate=rsvDate;
 		this.rsvTime=rsvTime;
-		this.rsvGuestNum=rsvGuestNum;
+		this.guestNum=guestNum;
+		this.status = status;
 	}
 
 	public int getRsvNum() {
@@ -95,12 +97,20 @@ public class RsvnonVO{
 		this.rsvTime = rsvTime;
 	}
 
-	public String getRsvGuestNum() {
-		return rsvGuestNum;
+	public String getGuestNum() {
+		return guestNum;
 	}
 
-	public void setRsvGuestNum(String rsvGuestNum) {
-		this.rsvGuestNum = rsvGuestNum;
+	public void setGuestNum(String guestNum) {
+		this.guestNum = guestNum;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+	
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 

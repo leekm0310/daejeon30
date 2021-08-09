@@ -34,4 +34,9 @@ public class Bboard2ServiceImpl implements Bboard2Service{
 	public void deleteReview(int num) throws Exception{
 		bboard2DAO.deleteReview(num);
 	}
+	
+	@Override
+	public void updateReview(Map reviewMap) throws Exception{
+		bboard2DAO.updateReview(reviewMap);
+	}
 }

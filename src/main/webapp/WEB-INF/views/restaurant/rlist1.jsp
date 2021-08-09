@@ -107,7 +107,7 @@ request.setCharacterEncoding("utf-8");
 
 					<div class="p-2 bd-highlight">
 						<div class="card h-100">
-							<img src="${contextPath}/download.do?resNum=${res.resNum}&resImageFileName=${res.resImageFileName}" width="250" height="250" alt="${res.resImageFileName}">
+							<img src="${contextPath}/download.do?resNum=${res.resNum}&resImageFileName=${res.resImageFileName}"  width="310" height="310" alt="${res.resImageFileName}">
 								<div class="card-body">${res.resNum}
 									<h5 class="card-title">${res.resName}</h5>
 									<p class="card-text">${res.resMenu}</p>

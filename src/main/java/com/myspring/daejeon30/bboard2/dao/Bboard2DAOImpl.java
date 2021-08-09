@@ -39,6 +39,10 @@ public class Bboard2DAOImpl implements Bboard2DAO{
 		sqlSession.delete("mapper.bboard2.deleteReview", num);
 	}
 	
+	@Override
+	public void updateReview(Map reviewMap) throws DataAccessException{
+		sqlSession.update("mapper.bboard2.updateReview", reviewMap);
+	}
 	
 	//게시물 번호
 	private int selectNewNo() throws DataAccessException{

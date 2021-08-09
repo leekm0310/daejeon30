@@ -95,6 +95,7 @@
 </head>
 <body>
  <!-- 메인코드부 -->
+ <hr>
  <div class="wrap">
  	<form id="rsv2Form" method="post" action="${contextPath}/rsvMember/result1.do">
  		 <!--<input id="resNum" name="resNum" type="hidden" value="${resNum}">-->
@@ -106,6 +107,7 @@
 				</div>
 				<div class="col-sm-8" align=center>
 					<br>
+					
 						<h1>예약 페이지</h1>
 						<br>
 						<div class="shadow p-3 mb-4 bg-body rounded" style="width:700px;">

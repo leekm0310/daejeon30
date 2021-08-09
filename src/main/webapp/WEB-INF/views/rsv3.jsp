@@ -164,7 +164,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			  </select>
 		  
 		  	<label class="input-group-text" for="inputGroupSelect01" style="width:100px;">인원</label>
-			  <select class="form-select" id="rsvGuestNum" name="rsvGuestNum">
+			  <select class="form-select" id="guestNum" name="guestNum">
 				 <option value="2">2</option>
 				 <option value="3">3</option>
 				 <option value="4">4</option>

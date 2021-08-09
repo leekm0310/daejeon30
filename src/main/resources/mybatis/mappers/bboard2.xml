@@ -40,9 +40,15 @@
 	</delete>
 	
 	<update id="updateReview" parameterType="bboard2VO">
-	<![CDATA[
-		update 
-	]]>
+	
+		update reviewboard
+		set title = #{title}, content = #{content}
+		
+		<if test= "imageFileName != '' and imageFileName != null">
+			,imageFileName=#{imageFileName}
+		</if>
+		where num = #{num}
+	
 	</update>
 	
 	

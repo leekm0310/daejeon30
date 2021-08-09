@@ -20,7 +20,7 @@
 	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
 	crossorigin="anonymous">
 
-<title>추천 게시판 일거같아?</title>
+<title>추천 게시판</title>
 
 <script>
 	function fn_writeform(isLogOn,writeform,login){//3개의 값들도 관련된 것과 연결해야하는것 같은데, 나중에 합칠때 수정하자
@@ -138,11 +138,12 @@
 
 				<!-- 글쓰기 버튼 -->
 				<div class="row justify-content-end ">
-					<button type="button" class="btn btn-danger " style="width: 100px;"><a class="nav-link link-light px-2 py-1" href="javascript:fn_writeform('${isLogOn}','${contextPath}/board/writeform.do','${contextPath}/login.do')">글쓰기</a>
+					<button type="button" class="btn btn-danger " style="width: 100px;" onclick="javascript:fn_writeform('${isLogOn}','${contextPath}/board/writeform.do','${contextPath}/member/login.do')">
+					글쓰기
 				</button>
 				</div>
 				
-				<a class="cls1" href="javascript:fn_writeform('${isLogOn}','${contextPath}/board/writeform.do','${contextPath}/member/login.do')"><p class="cls2">글쓰기</p></a>
+				<input class="btn btn-danger " href="javascript:fn_writeform('${isLogOn}','${contextPath}/board/writeform.do','${contextPath}/member/login.do')">글쓰기</a>
 				
 
 

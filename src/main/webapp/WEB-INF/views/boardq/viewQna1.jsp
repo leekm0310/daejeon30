@@ -178,9 +178,10 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		<form name="addform" id="addform" method="post">
 		<input type="hidden" name="boardnum" value="${map.bVO.num }">
 		<input type="hidden" name="id" id="id">
- 		<textarea class="form-control" name="content" rows="2" placeholder="댓글란 입니다"></textarea>
-		
+ 		<textarea class="form-control" name="content" rows="2" placeholder="댓글은 관리자만 작성 가능합니다"></textarea>
+		<c:if test="${isLogOn==true && member.id =='admin' }">
 		<button type="button" class="btn btn-danger me-md-2" onclick="javascript:addQC()">등록</button>
+		</c:if>
 			</form>
 					<br>					
 								

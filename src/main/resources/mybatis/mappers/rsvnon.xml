@@ -14,14 +14,15 @@
 		<result property="addInfo" column="addInfo" />
 		<result property="rsvDate" column="rsvDate"/>
 		<result property="rsvTime" column="rsvTime"/>
-		<result property="rsvGuestNum" column="rsvGuestNum" />
+		<result property="guestNum" column="guestNum" />
+		<result property="status" column="status" />
 
 	</resultMap>
 	
 	<insert id="insertNewNon" parameterType="rsvnonVO">
 	<![CDATA[
-		insert into rsvnonmember(resName, name, phone, password, addInfo, rsvDate, rsvTime, rsvGuestNum)
-		values(#{resName}, #{name}, #{phone}, #{password}, #{addInfo}, #{rsvDate}, #{rsvTime}, #{rsvGuestNum})
+		insert into rsvnonmember(resName, name, phone, password, addInfo, rsvDate, rsvTime, guestNum)
+		values(#{resName}, #{name}, #{phone}, #{password}, #{addInfo}, #{rsvDate}, #{rsvTime}, #{guestNum})
 	
 	]]>
 	</insert>

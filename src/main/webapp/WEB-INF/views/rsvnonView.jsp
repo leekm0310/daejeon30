@@ -45,7 +45,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 					시간
 					<div class="shadow-none p-1 mb-3 bg-light rounded">${rsvOne.rsvTime }</div>
 					인원
-					<div class="shadow-none p-1 mb-3 bg-light rounded">${rsvOne.rsvGuestNum }</div>
+					<div class="shadow-none p-1 mb-3 bg-light rounded">${rsvOne.guestNum }</div>
 					추가사항
 					<div class="shadow-none p-1 mb-3 bg-light rounded">${rsvOne.addInfo }</div>
 					<br>

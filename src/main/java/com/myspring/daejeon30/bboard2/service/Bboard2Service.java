@@ -10,4 +10,5 @@ public interface Bboard2Service{
 	public int addreivew(Map reviewMap) throws Exception;
 	public Bboard2VO selectReview(int num) throws Exception;
 	public void deleteReview(int num) throws Exception;
+	public void updateReview(Map reviewMap) throws Exception;
 }
