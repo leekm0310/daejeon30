@@ -179,7 +179,7 @@ public class Board2ControllerImpl implements Board2Controller {
 		while(enu.hasMoreElements()) {
 			String name = (String)enu.nextElement();
 			String value = multipartRequest.getParameter(name);
-			System.out.println("값확인1 = "+name +value);
+			System.out.println("값확인1 = "+name +""+value);
 			boardMap.put(name, value);
 		}
 		

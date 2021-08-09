@@ -20,12 +20,42 @@
 	]]>	
 	</select>
 	
-	<insert id="addreview" parameterType="bboard2Result">
+	<insert id="addreview" parameterType="java.util.Map">
 	<![CDATA[
-		insert into reviewboard(title, content, id, imageFileName)
-		values(#{title}, #{content}, #{id}, #{imageFileName})
+		insert into reviewboard(num, title, content, id, imageFileName)
+		values(#{num}, #{title}, #{content}, #{id}, #{imageFileName})
 	]]>
 	</insert>
+	
+	<select id="selectReview" parameterType="int" resultType="bboard2VO">
+	<![CDATA[
+		select * from reviewboard where num = #{num}
+	]]>
+	</select>
+	
+	<delete id="deleteReview" parameterType="int">
+	<![CDATA[
+		delete from reviewboard where num=#{num}
+	]]>
+	</delete>
+	
+	<update id="updateReview" parameterType="bboard2VO">
+	<![CDATA[
+		update 
+	]]>
+	</update>
+	
+	
+	
+	
+	
+	
+	<!-- 게시물 번호 -->
+	<select id="selectNewNo" resultType="int">
+	<![CDATA[
+		select ifnull(max(num), 0)+1 from reviewboard
+	]]>
+	</select>
 
 
 

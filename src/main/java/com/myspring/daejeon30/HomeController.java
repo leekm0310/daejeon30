@@ -192,6 +192,11 @@ public class HomeController {
 	public String reviewform(Locale locale, Model model) {
 		return "reviewform";
 	}
+	
+	@RequestMapping(value="/viewReview.do", method=RequestMethod.GET)
+	public String viewReview(Locale locale, Model model) {
+		return "viewReview";
+	}
 
 	/**
 	 * Simply selects the home view to render by returning its name.
