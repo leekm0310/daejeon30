@@ -8,6 +8,31 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+table.type05 {
+  border-collapse: separate;
+  border-spacing: 1px;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  margin: 20px 10px;
+}
+table.type05 th {
+  width: 150px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #efefef;
+}
+table.type05 td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+</style>
+
+
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
    function readURL(input) {
@@ -30,38 +55,39 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <body>
     <form action="${contextPath}/admin/addNewRes.do" method="post" enctype="multipart/form-data">
 		<h4>식당 등록</h4>
-		<hr>
-<div class="tab_container">
+
+
 	<!-- 내용 들어 가는 곳 -->
 	<div class="tab_container" id="container">
 	
 		<div class="tab_container">
-			<div class="tab_content" id="tab1">
-				<table>
+		
+			<table class="type05">
 			<tr>	
-				<td >식당이름</td>
-				<td><input name="resName" type="text" size="40" /></td>
+				<th scope="row">상호명</th>
+				<td><input class="form-control" name="resName" type="text" size="40" /></td>
+				<td></td><td></td>
 			</tr>
 			<tr>
-				<td >운영시간</td>
-				<td><input name="resOpen" type="text" size="40" /></td>
+				<th scope="row">운영시간</th>
+				<td><input class="form-control" name="resOpen" type="text" size="40" /></td>
 			</tr>
 			<tr>
-				<td >전화번호</td>
-				<td><input name="resPhone" type="text" size="40" /></td>
+				<th scope="row">전화번호</th>
+				<td><input class="form-control" name="resPhone" type="text" size="40" /></td>
 			</tr>
 			<tr>
-				<td >대표메뉴</td>
-				<td><input name="resMenu" type="text" size="40" /></td>
+				<th scope="row">대표메뉴</th>
+				<td><input class="form-control" name="resMenu" type="text" size="40" /></td>
 			</tr>
 			
 			<tr>
-				<td >주소</td>
-				<td><input name="resLocation" type="text" size="40" /></td>
+				<th scope="row">주소</th>
+				<td><input class="form-control" name="resLocation" type="text" size="40" /></td>
 			</tr>
 			<tr>
-				<td >수용인원수</td>
-				<td><input name="resCapacity" type="text" size="40" /></td>
+				<th scope="row">수용인원수</th>
+				<td><input class="form-control" name="resCapacity" type="text" size="40" /></td>
 			</tr>
 			
 			<!--<tr>
@@ -69,13 +95,13 @@ pageEncoding="utf-8" isELIgnored="false" %>
 				<td><input  name="#"  type="date" size="40" /></td>
 			</tr>-->
 			<tr>
-				<td >재료</td>
-				<td><input name="resIngredient" type="text" size="40" /></td>
+				<th scope="row">재료</th>
+				<td><input class="form-control" name="resIngredient" type="text" size="40" /></td>
 			</tr>
 			<tr>
-				<td >음식분류</td>
+				<th scope="row">분류</th>
 				<td>
-				<select name="resCategory">
+				<select class="form-control" name="resCategory">
 				  <option value="한식"  >한식</option>
 				  <option value="일식" >일식</option>
 				  <option value="중식" selected>중식</option>
@@ -86,15 +112,15 @@ pageEncoding="utf-8" isELIgnored="false" %>
 				</td>
 			</tr>
 			
-			<tr>
-				<td >위치</td>
-				<td><input name="mapLocation" type="text" size="40" /></td>
+			<tr><!--  
+				<th scope="row">위치</th>
+				<td><input class="form-control" name="mapLocation" type="text" size="40" /></td>-->
 			</tr>
 			
 			<tr>
-				<td >분류</td>
+				<th scope="row">지역분류</th>
 				<td>
-				<select name="resSort">
+				<select class="form-control" name="resSort">
 				  <option value="1"  >서구</option>
 				  <option value="2" >중구</option>
 				  <option value="3" selected>동구</option>
@@ -107,12 +133,13 @@ pageEncoding="utf-8" isELIgnored="false" %>
 				</td>
 			</tr>
 			<tr>
+			 <th scope="row">상세설명</th>
 			 <td>
-			   <br>
+			 <textarea class="form-control" id="detailInfo" name="detailInfo" rows="5" placeholder="내용을 입력해주세요."></textarea>
 			 </td>
 			</tr>
 				</table>	
-			</div>
+			
 		<hr>
 			
 			<div class="tab_content" id="tab7">
@@ -123,9 +150,14 @@ pageEncoding="utf-8" isELIgnored="false" %>
 					<tr>
 			            <td align="right">이미지파일 첨부</td>
 			            <td> <input type="file" name="resImageFileName" onchange="readURL(this);"></td>
-			            <td><img  id="preview" src="#"   width=200 height=200/></td>
+			        </tr>
+			        <tr>
+			            <td><img  id="preview" src="#" width=200 height=200/></td>
+			         </tr>
+			         <tr>
 			            <td align="right">이미지파일 첨부</td>
 			            <td align="left"><input type="button" value="파일 추가" onClick="fn_addFile()"/></td>
+			            <td><img  id="preview" src="#" width=200 height=200/></td>
 			        </tr>
 			         <tr>
 	      			<td colspan="4"><div id="d_file"></div></td>
@@ -137,7 +169,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			        </tr>
                     <tr>
                         <td colspan="2" align="center">
-                            <input type="submit" value="등록"/>
+                            <input type="submit" class="btn btn-danger" value="등록"/>
                         </td>
 					</tr>
 				</table>
@@ -145,6 +177,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		</div>
 	</div>
 	<div class="clear"></div>
-</div>
+
 </form>	 
 </body>

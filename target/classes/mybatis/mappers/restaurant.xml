@@ -19,6 +19,7 @@
 		<result property="openYear" column="openYear" />
 		<result property="resImageFileName" column="resImageFileName" />
 		<result property="resSort" column="resSort" />
+		<result property="detailInfo" column="datailInfo" />
 		
 	</resultMap>
 	
@@ -44,19 +45,19 @@
  	
  	<select id="selectRest" resultType="restaurantVO" parameterType="int">
  	<![CDATA[
- 	select resNum, resName, resOpen, resPhone, resMenu, resLocation, resCapacity, resCategory, resSort from restaurants where resNum =#{resNum}
+ 	select resNum, resName, resOpen, resPhone, resMenu, resLocation, resCapacity, resIngredient, detailInfo, mapLocation from restaurants where resNum =#{resNum}
  	]]>
  	</select>
  	
  	<select id="selectRestImg" resultMap="resImage" parameterType="int">
  	<![CDATA[
- 	select * from resimage where resNum=#{resNum}
+ 	select * from resimage where resNum=#{resNum} order by resImageNum
  	]]>
  	</select>
  	
  	<select id="selectAllImg" resultType="java.util.Map">
  	<![CDATA[
- 	select * from resimage
+ 	select * from resimage order by resImageNum
  	]]>
  	</select>
  	

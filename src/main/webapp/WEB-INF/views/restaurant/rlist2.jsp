@@ -150,21 +150,22 @@ pageEncoding="utf-8" isELIgnored="false" %>
 
 			<div class="col g-0 bg-light" style="width:300px;">
 				<table align=left>
-			<tr>	
-				<td >식당이름</td>
-				<td><input name="resName" type="hidden" size="40" /></td>
-			</tr>
+			
 			<tr>
 				<td >위치</td>
-				<td><input name="mapLocation" type="hidden" size="40" /></td>
+				<td>${res.resLocation }</td>
 			</tr>
 			<tr>
 				<td >수용인원수</td>
-				<td><input name="resCapacity" type="hidden" size="40" /></td>
+				<td>${res.resCapacity }</td>
 			</tr>
 			<tr>
-				<td >재료</td>
-				<td><input name="resIngredient" type="hidden" size="40" /></td>
+				<td >주재료</td>
+				<td>${res.resIngredient }</td>
+			</tr>
+			<tr>	
+				<td >상세설명</td>
+				<td>${res.detailInfo }${res.mapLocation}</td>
 			</tr>
 			
 			
@@ -191,11 +192,16 @@ pageEncoding="utf-8" isELIgnored="false" %>
 									<script>
 										var container = document.getElementById('map');
 										var options = {
-											center: new kakao.maps.LatLng(33.450701, 126.570667),
+											center: new kakao.maps.LatLng(${res.mapLocation}),
 											level: 3
 											};
 								
 										var map = new kakao.maps.Map(container, options);
+										var markerPosition  = new kakao.maps.LatLng(${res.mapLocation}); 
+										var marker = new kakao.maps.Marker({
+										    position: markerPosition
+										});
+										marker.setMap(map);
 									</script>
 			 			</div>
 					</div> 

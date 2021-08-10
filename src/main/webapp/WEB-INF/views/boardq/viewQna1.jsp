@@ -62,9 +62,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 					 console.log(last)
 					 var output="<tr>";
 			            for(var i in result){
-			            	
-			            	 var repl=result[i].content;
-			             
+			        
 			                 output += "<tr><td>"+result[i].id+"</td>";
 			                 output += "<td width='400'>"+result[i].content;+"</td>";
 			                 output += "<td>"+result[i].date+"</td>";

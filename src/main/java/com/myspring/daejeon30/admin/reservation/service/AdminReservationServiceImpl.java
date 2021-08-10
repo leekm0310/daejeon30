@@ -33,4 +33,26 @@ public class AdminReservationServiceImpl implements AdminReservationService{
 		List nonRsvAll = adminReservationDAO.selectResNon();
 		return nonRsvAll;
 	}
+	
+	@Override
+	public List selectStatus(String status) throws Exception{
+		List sorted = adminReservationDAO.selectStatus(status);
+		return sorted;
+	}
+	
+	@Override
+	public void acceptnonRsv(int rsvNum) throws Exception{
+		adminReservationDAO.acceptnonRes(rsvNum);
+	}
+	
+	@Override
+	public void cancelnonRsv(int rsvNum) throws Exception{
+		adminReservationDAO.cancelnonRes(rsvNum);
+	}
+	
+	@Override
+	public List selectnonStatus(String status) throws Exception{
+		List sorted = adminReservationDAO.selectnonStatus(status);
+		return sorted;
+	}
 }

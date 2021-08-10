@@ -15,13 +15,13 @@ request.setCharacterEncoding("utf-8");
 
 	<style>
 	.ellipsis {
-  width: form-control;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
+	  width: form-control;
+ 	 overflow: hidden;
+ 	 text-overflow: ellipsis;
+ 	 display: -webkit-box;
+ 	 -webkit-line-clamp: 2;
+ 	 -webkit-box-orient: vertical;
+	}
 	</style>
     
 		<!-- 전체 레이아웃 -->

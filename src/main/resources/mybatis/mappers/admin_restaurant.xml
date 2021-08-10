@@ -19,6 +19,7 @@
 		<result property="openYear" column="openYear" />
 		<result property="resImageFileName" column="resImageFileName" />
 		<result property="resSort" column="resSort" />
+		<result property="detailInfo" column="datailInfo" />
 	</resultMap>
 	
 	<resultMap id="resImage" type="resImageVO">
@@ -57,7 +58,7 @@
 	<update id="updateRes" parameterType="java.util.Map">
 	<![CDATA[
 		update restaurants set resName=#{resName}, resOpen=#{resOpen}, resMenu=#{resMenu}, resLocation=#{resLocation}, resCapacity=#{resCapacity}, 
-		resIngredient=#{resIngredient} where resNum = #{resNum}
+		resIngredient=#{resIngredient}, detailInfo=#{detailInfo} where resNum = #{resNum}
 	]]>
 	</update>
 	
@@ -79,7 +80,7 @@
 	
 	<insert id="insertNewRes" parameterType="java.util.Map">
 	<![CDATA[
-		call insert_res(#{resName}, #{resOpen}, #{resPhone}, #{resMenu}, #{resLocation}, #{resCapacity}, #{resIngredient}, #{resCategory}, #{resSort});
+		call insert_res(#{resName}, #{resOpen}, #{resPhone}, #{resMenu}, #{resLocation}, #{resCapacity}, #{resIngredient}, #{resCategory}, #{resSort}, #{detailInfo});
 	]]>
 	</insert>
 	

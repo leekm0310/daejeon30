@@ -43,7 +43,7 @@
 	]]>
 	</select>
 	
-	<!-- 비회원 예약 관리 관련 
+	<!-- 비회원 예약 관리 -->
 	<update id ="acceptresnon" parameterType="int">
 	<![CDATA[
 		update rsvnonmember set status ='예약완료'
@@ -57,7 +57,7 @@
 		where rsvNum = #{rsvNum}
 	]]>
 	</update>
-	 -->
+	
 	
 	<!-- 회원 예약 관리 -->
 	<update id ="acceptres" parameterType="int">
@@ -73,4 +73,19 @@
 		where rsvNum = #{rsvNum}
 	]]>
 	</update>
+	
+	<!-- 회원 상태별 보기 -->
+	<select id="selectStatus" parameterType="String" resultMap="rsvResult">
+	<![CDATA[
+		select * from rsvmember where status =#{status}
+	]]>
+	</select>
+	
+	<!-- 비회원 상태별 보기 -->
+	<select id="selectnonStatus" parameterType="String" resultMap="resResult">
+	<![CDATA[
+		select * from rsvnonmember where status =#{status}
+	]]>
+	</select>
+	
 </mapper>

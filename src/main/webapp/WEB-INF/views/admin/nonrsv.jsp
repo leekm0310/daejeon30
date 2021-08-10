@@ -41,18 +41,18 @@ pageEncoding="utf-8" isELIgnored="false" %>
     
 <script type="text/javascript">
 	function cancel(value) {
-		location.href='${contextPath}/admin/cancelres.do?rsvNum='+value;
+		location.href='${contextPath}/admin/cancelnonres.do?rsvNum='+value;
 	}
 	
 	function accept(value) {
-		location.href='${contextPath}/admin/acceptres.do?rsvNum='+value;
+		location.href='${contextPath}/admin/acceptnonres.do?rsvNum='+value;
 		}
 	
     function listStatus(value){
     	$.ajax({
     		type:"post",
     		contentType:"application/json",
-    		url:"${contextPath}/admin/memStatus.do?status="+value,
+    		url:"${contextPath}/admin/nonStatus.do?status="+value,
     		success: function(result){
     			console.log(result);
     			var output="<tr>";
@@ -120,12 +120,12 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <br><br>
 <!-- 기간별 검색 -->
 <div class="row">
-	 <div class='col-8 col-md-5'>
+	 <div class='col-8 col-md-6'>
     	 <div class="form-group">
-			<button type="button" class="btn btn-light" value="예약요청중" onclick="listStatus(this.value)">예약요청건</button>
-			<button type="button" class="btn btn-light" value="취소요청중" onclick="listStatus(this.value)">취소요청건</button>
-			<button type="button" class="btn btn-light" value="예약완료" onclick="listStatus(this.value)">예약완료건</button>
-			<button type="button" class="btn btn-light" value="취소완료" onclick="listStatus(this.value)">취소완료건</button>
+			<button type="button" class="btn btn-light" value="예약요청중" onclick="listStatus(this.value)">(비)예약요청건</button>
+			<button type="button" class="btn btn-light" value="취소요청중" onclick="listStatus(this.value)">(비)취소요청건</button>
+			<button type="button" class="btn btn-light" value="예약완료" onclick="listStatus(this.value)">(비)예약완료건</button>
+			<button type="button" class="btn btn-light" value="취소완료" onclick="listStatus(this.value)">(비)취소완료건</button>
          </div>
      </div>
     
@@ -191,10 +191,10 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		
 		
 		<c:if test="${r.status == '예약요청중' }">
-		<td width="200"><button onclick="location.href='${contextPath}/admin/acceptres.do?rsvNum=${r.rsvNum}'" class="btn btn-outline-success">예약요청수락</button><td>
+		<td width="200"><button onclick="location.href='${contextPath}/admin/acceptnonres.do?rsvNum=${r.rsvNum}'" class="btn btn-outline-success">예약요청수락</button><td>
 		</c:if>
 		<c:if test="${r.status == '취소요청중' }">
-		<td width="200"><button onclick="location.href='${contextPath}/admin/cancelres.do?rsvNum=${r.rsvNum}'" class="btn btn-outline-danger">취소요청수락</button></td>
+		<td width="200"><button onclick="location.href='${contextPath}/admin/cancelnonres.do?rsvNum=${r.rsvNum}'" class="btn btn-outline-danger">취소요청수락</button></td>
 		</c:if>
 	
 	</tr>  

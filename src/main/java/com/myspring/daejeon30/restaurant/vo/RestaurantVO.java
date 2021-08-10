@@ -22,6 +22,8 @@ public class RestaurantVO{
 	private int openYear;
 	private String resImageFileName;
 	private int resSort;
+	private String detailInfo;
+	
 
 
 	public RestaurantVO() {
@@ -30,7 +32,7 @@ public class RestaurantVO{
 	
 	public RestaurantVO(int resNum, String resName, int resOpen, String resPhone, String resMenu, String resLocation,
 			int resCapacity, String resIngredient, int likeNum, String resCategory, String mapLocation, int openYear,
-			String resImageFileName, int resSort) {
+			String resImageFileName, int resSort, String detailInfo) {
 		this.resNum=resNum;
 		this.resName=resName;
 		this.resOpen=resOpen;
@@ -45,6 +47,7 @@ public class RestaurantVO{
 		this.openYear=openYear;
 		this.resImageFileName=resImageFileName;
 		this.resSort=resSort;
+		this.detailInfo=detailInfo;
 	}
 
 	public int getResNum() {
@@ -151,6 +154,13 @@ public class RestaurantVO{
 		this.resSort = resSort;
 	}
 	
+	public String getDetailInfo() {
+		return detailInfo;
+	}
+	
+	public void setDetailInfo(String detailInfo) {
+		this.detailInfo=detailInfo;
+	}
 	
 	public String getResImageFileName() {
 		try {

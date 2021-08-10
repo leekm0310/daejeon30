@@ -115,6 +115,7 @@ public class RestaurantControllerImpl implements RestaurantController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("resMap", resMap);
 		mav.setViewName("rlist2");
+		System.out.print(resMap);
 		return mav;
 		
 		}

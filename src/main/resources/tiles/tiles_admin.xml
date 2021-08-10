@@ -55,4 +55,10 @@
 		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/adminMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/admin/adminrsv.jsp" />
 	</definition>
+	
+	<definition name="nonrsv" extends="baseLayout">
+		<put-attribute name="title" value="비회원예약관리" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/adminMenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/nonrsv.jsp" />
+	</definition>
 </tiles-definitions>

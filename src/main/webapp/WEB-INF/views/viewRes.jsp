@@ -49,13 +49,13 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <body>
     <form name="frmRes" action="#" method="post" enctype="multipart/form-data">
 		<h6>식당 상세창</h6>
-<div class="tab_container">
+
 	<!-- 내용 들어 가는 곳 -->
-	<div class="tab_container" id="container">
+	
 	 <div class="col-sm-8">
 	 <img src="${contextPath}/download.do?resNum=${res.resNum}&resImageFileName=${resImageFileList[0].resImageFileName}" id="preview" height="200" width="200" /><br>
 	 </div>
-		<div class="tab_container">
+	
 			<div class="tab_content" id="tab1">
 				<table>
 			<tr >
@@ -100,11 +100,9 @@ pageEncoding="utf-8" isELIgnored="false" %>
 				<td >위치</td>
 				<td><input name="mapLocation" type="text" size="40" /></td>
 			</tr>
-			
 			<tr>
-			 <td>
-			   <br>
-			 </td>
+			 <td>상세 설명</td>
+			 <td><input name="detailInfo" type="text" value="${res.detailInfo }"/></td>
 			</tr>
 				</table>	
 			</div>

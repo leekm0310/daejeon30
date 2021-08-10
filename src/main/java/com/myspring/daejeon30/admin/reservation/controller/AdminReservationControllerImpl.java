@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -50,8 +52,43 @@ public class AdminReservationControllerImpl implements AdminReservationControlle
 		List nonAll = adminReservationService.Allnon();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("rsv1", nonAll);
-		mav.setViewName("adminrsv");
+		mav.setViewName("nonrsv");
 		return mav;
 	}
 	
+	@RequestMapping(value="/admin/acceptnonres.do", method=RequestMethod.GET)
+	public String acceptnonRes(@RequestParam("rsvNum") int rsvNum, 
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		adminReservationService.acceptnonRsv(rsvNum);
+		return "redirect:/admin/nonRsv.do";
+	}
+	
+	@RequestMapping(value="/admin/cancelnonres.do", method=RequestMethod.GET)
+	public String cancelnonRes(@RequestParam("rsvNum") int rsvNum, 
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		adminReservationService.cancelnonRsv(rsvNum);
+		return "redirect:/admin/nonRsv.do";
+	}
+	
+	
+	//회원
+	@RequestMapping(value="/admin/memStatus.do")
+	public ResponseEntity memStatus(String status,
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		ResponseEntity resEntity = null;
+		List ss = adminReservationService.selectStatus(status);
+		resEntity = new ResponseEntity(ss, HttpStatus.OK);
+		return resEntity;
+	}
+	
+	//비회원
+	@RequestMapping(value="/admin/nonStatus.do")
+	public ResponseEntity nonStatus(String status,
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		ResponseEntity resEntity = null;
+		List ss = adminReservationService.selectnonStatus(status);
+		resEntity = new ResponseEntity(ss, HttpStatus.OK);
+		return resEntity;
+	}
+
 }

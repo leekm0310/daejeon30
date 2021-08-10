@@ -33,4 +33,26 @@ public class AdminReservationDAOImpl implements AdminReservationDAO{
 		List nonAll = sqlSession.selectList("mapper.admin.rsv.selectResNon");
 		return nonAll;
 	}
+	
+	@Override
+	public List selectStatus(String status) throws DataAccessException{
+		List sorted = sqlSession.selectList("mapper.admin.rsv.selectStatus", status);
+		return sorted;
+	}
+	
+	@Override
+	public void acceptnonRes(int rsvNum) throws DataAccessException{
+		sqlSession.update("mapper.admin.rsv.acceptresnon", rsvNum);
+	}
+	
+	@Override
+	public void cancelnonRes(int rsvNum) throws DataAccessException{
+		sqlSession.update("mapper.admin.rsv.cancelresnon", rsvNum);
+	}
+	
+	@Override
+	public List selectnonStatus(String status) throws DataAccessException{
+		List sorted = sqlSession.selectList("mapper.admin.rsv.selectnonStatus", status);
+		return sorted;
+	}
 }
