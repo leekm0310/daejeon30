@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 pageEncoding="utf-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,33 +19,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <title>마이페이지메인</title>
  
  <!-- 전체 레이아웃 -->
-	<style type="text/css">
-
-		.html, .body {
-		
-			margin: 0;
-		
-			padding: 0;
-		
-			height: 100%;
-		}	
-		
-		.wrap {
-		min-height: 100%;
-		position: relative;
-		
-		}
-		.main-content{
-			min-height: 100%;
-
-		}	
-		.container {
-		
-			padding:0 0 2% 0;	
-		} 
-		
-		</style>
-  	
   		<style>
   		
 		 .information{
@@ -54,63 +32,25 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	 	margin-top:50px
 	 	}
 	 	
-	 	.footer{
-		position:fixed;
-		bottom: 0;
-		width:100%;
-		}
+	
  		</style>
  
  
 </head>
 
 <body>
- <!-- 메인코드부 -->
+
  <div class="wrap">
 
 	<div class="main-content">
 	<div class="container">
 
-<!-- 로컬네비게이션 -->
-<hr>
-  <div class="btn-group">
-  <button class="btn btn-outline-danger" type="button" id="defaultDropdown" onclick="location.href='./mymain1.jsp'"aria-expanded="false">
-    마이페이지
-  </button>
-</div>
-
-<div class="btn-group">
-  <button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./modify1.jsp'" aria-expanded="false">
-   회원정보수정
-  </button>
-</div>
-
-<div class="btn-group">
-  <button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./res1.jsp'" aria-expanded="false">
-    예약내역
-  </button>
-</div>
-
-<div class="btn-group">
-  <button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./like1.jsp'" aria-expanded="false">
-    찜한리스트
-  </button>
-</div>
-
-<div class="btn-group">
-  <button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./myboard1.jsp'" aria-expanded="false">
-    내 게시판
-  </button>
-</div>
-<hr>
-
-<!-- 본문 내용 -->
 <div class="row">
 <h3>마이 페이지</h3>
 	<br>
 	<br>
 	<div class="information">
-	저희 사이트를 이용해주셔서 감사합니다. 000님의 마이페이지 입니다.
+	저희 사이트를 이용해주셔서 감사합니다. ${member.name}님의 마이페이지 입니다.
 	</div>
 </div>
 <br>
@@ -119,10 +59,14 @@ pageEncoding="utf-8" isELIgnored="false" %>
       <h6>나의 예약 현황 (최근 <em>3개월</em> 기준)</h6>
      
       <ul class="list-group list-group-horizontal" style="font-size:25px">
+    	<li class="list-group-item" style="width:50%; height:120%"><p class="text-center" style="margin-top:50px"><strong>예약요청중</strong><br> 
+      	<a href="${contextPath}/rsv/res1.do" class="count">${requestR }</a></p></li>
       	<li class="list-group-item" style="width:50%; height:120%"><p class="text-center" style="margin-top:50px"><strong>예약완료</strong><br> 
-      	<a href="./res1.jsp" class="count">0</a></p></li>
+      	<a href="${contextPath}/rsv/res1.do" class="count">${confirm }</a></p></li>
+      	<li class="list-group-item" style="width:50%; height:120%"><p class="text-center" style="margin-top:50px"><strong>취소요청중</strong><br>
+        <a href="${contextPath}/rsv/res1.do" class="count">${requestC }</a></p></li>
      	 <li class="list-group-item" style="width:50%; height:120%"><p class="text-center" style="margin-top:50px"><strong>취소</strong><br>
-        <a href="./res1.jsp" class="count">0</a></p></li>
+        <a href="${contextPath}/rsv/res1.do" class="count">${cancel }</a></p></li>
      	 <li class="list-group-item" style="width:50%; height:120%"><p class="text-center"  style="margin-top:50px"><strong>찜한곳</strong><br>
         <a href="./like1.jsp" class="count">0</a></p></li>
       </ul>

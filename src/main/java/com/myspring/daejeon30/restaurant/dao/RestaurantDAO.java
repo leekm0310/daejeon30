@@ -24,4 +24,7 @@ public interface RestaurantDAO{
 	
 	public List sortRes(int resSort)throws DataAccessException;
 	public List sortfoods(String resCategory) throws DataAccessException;
+	
+	//°Ë»ö
+	public List searchRes(String word) throws DataAccessException;
 }

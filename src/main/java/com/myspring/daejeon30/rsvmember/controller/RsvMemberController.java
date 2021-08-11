@@ -20,4 +20,5 @@ public interface RsvMemberController{
 	public ModelAndView viewOneRsv(@RequestParam("rsvNum") int rsvNum, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	//public ModelAndView updateRsvOne(@RequestParam("rsvNum") String rsvNum, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView updateRsvOne(@ModelAttribute("rsvMemberVO") RsvMemberVO rsvMemberVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ModelAndView myPageMain(HttpServletRequest request, HttpServletResponse response) throws Exception;
 }

@@ -27,6 +27,7 @@
 	
 	<definition name="res1" extends="baseLayout">
 		<put-attribute name="title" value="예약 내역 조회" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/myMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/res1.jsp" />
 	</definition>
 	
@@ -39,6 +40,12 @@
 	<definition name="find" extends="baseLayout">
 		<put-attribute name="title" value="아이디/비밀번호 찾기" />
 		<put-attribute name="body" value="/WEB-INF/views/find1.jsp" />
+	</definition>
+	
+	<definition name="mymain1" extends="baseLayout">
+		<put-attribute name="title" value="마이페이지 메인" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/myMenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/mymain1.jsp" />
 	</definition>
 	
 </tiles-definitions>

@@ -51,5 +51,10 @@
 	]]>
 	</update>
  	
+ 	<select id="countStatus" parameterType="java.util.Map" resultType="int">
+ 	<![CDATA[
+ 		select count(*) from rsvmember where status = #{status} and id=#{id};
+ 	]]>
+ 	</select>
  
 </mapper>

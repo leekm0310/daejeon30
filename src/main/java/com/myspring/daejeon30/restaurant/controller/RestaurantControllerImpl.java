@@ -179,4 +179,18 @@ public class RestaurantControllerImpl implements RestaurantController {
 		mav.setViewName("rlist1");
 		return mav;
 	}
+	
+	//°Ë»ö
+	@RequestMapping(value="res/searchRes.do", method=RequestMethod.POST)
+	public ModelAndView searchRes(String word1, 
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String word = "%"+word1+"%";
+		System.out.print(word);
+		List search = restaurantService.searchRes(word);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("resList", search);
+		mav.setViewName("rlist1");
+		return mav;
+		
+	}
 }

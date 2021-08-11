@@ -11,8 +11,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-	
-	
+
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -41,10 +40,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 					<button type="button" class="btn btn-none btn-sm text-success">"${member.name}님!" 반갑습니다</button>
 					<button type="button" class="btn btn-none" onclick='location.href="${contextPath}/member/logout.do"'>로그아웃</button>
 					<button type="button" class="btn btn-none" onclick='location.href="${contextPath}/rsv/res1.do"'>예약내역</button>
-					
-				<!-- <li class="nav-item"><a href="${contextPath}/member/logout.do" class="nav-link link-dark px-3">로그아웃</a></li>
-					<li class="nav-item"><a href="${contextPath}/rsv/res1.do" class="nav-link link-dark px-3">예약내역조회</a></li>
-				 --><!--<li class="nav-item"><a href="${contextPath}/rsv/res1.do?id=${member.id}" class="nav-link link-dark px-3">예약내역조회</a></li>  -->
 					</c:when>
 					<c:otherwise>
 					<button type="button" class="btn btn-none" onclick='location.href="${contextPath}/login.do"'>로그인</button>
@@ -62,9 +57,9 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			 	</div>
 			 	<!-- 검색바 -->
 			 	<div class="col-md-4"  style="height:50px;">
-			 		<form class="d-flex justify-content-center py-3">
-						<input type="search" class="form-control" placeholder="검색어를 입력하세요" aria-label="Search" style="text-align:center; width:250px;">
-						&ensp;<button type="button" class="btn btn-danger">검색</button>
+			 		<form class="d-flex justify-content-center py-3" action="${contextPath}/res/searchRes.do" method="post">
+						<input type="text" class="form-control" name="word1" id="word1" placeholder="검색어를 입력하세요" style="text-align:center; width:250px;">
+						&ensp;<input type="submit" class="btn btn-danger" value="검색">
 					</form>
 			 	</div>
 			 	<div class="col-md-4" align=center  style="height:50px;">
@@ -138,7 +133,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 							<li>
-								<a class="dropdown-item" href="./mymain1.jsp">마이페이지</a>
+								<a class="dropdown-item" href="${contextPath}/mypage/mymain.do">마이페이지</a>
 							</li>
 							<li>
 								<a class="dropdown-item" href="${contextPath}/modify.do">회원정보수정</a>

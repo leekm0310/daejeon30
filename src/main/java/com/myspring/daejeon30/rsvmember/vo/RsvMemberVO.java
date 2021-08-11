@@ -12,13 +12,12 @@ public class RsvMemberVO{
 	private String rsvDate;
 	private String rsvTime; // -> 제거하고 rsvDate를DB에서 DATE형식으로 받게끔 해야함
 	private String guestNum;
-	private String id; // fk --> ??table join
+	private String id; 
 	private String status;
-	
-	// member table 컬럼.
 	private Integer resNum;
 	private String resPhone;
 	private String resName;
+
 	
 	public RsvMemberVO() {
 		

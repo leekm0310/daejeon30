@@ -1,6 +1,7 @@
 package com.myspring.daejeon30.rsvmember.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -48,5 +49,11 @@ public class RsvMemberServiceImpl implements RsvMemberService{
 	@Override
 	public int updateRsvOne(RsvMemberVO rsvMemberVO) throws DataAccessException{
 		return rsvMemberDAO.updateRsv(rsvMemberVO);
+	}
+	
+	@Override
+	public int countStatus(Map main)throws Exception{
+		int result = rsvMemberDAO.countStatus(main);
+		return result;
 	}
 }

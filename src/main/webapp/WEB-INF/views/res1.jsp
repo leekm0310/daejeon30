@@ -57,36 +57,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	<div class="container">
 
 
-<!-- 로컬네비게이션 -->
-<hr>
-  <div class="btn-group">
-  	<button class="btn btn-outline-danger" type="button" id="defaultDropdown" onclick="location.href='./mymain1.jsp'"aria-expanded="false">
-  	  마이페이지
-  	</button>
-  </div>
-  <div class="btn-group">
- 	 <button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./modify1.jsp'" aria-expanded="false">
- 	  회원정보수정
- 	 </button>
-  </div>
-  <div class="btn-group">
- 	 <button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./res1.jsp'" aria-expanded="false">
-    	예약내역
-  	</button>
-  </div>
-  <div class="btn-group">
-  	<button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./like1.jsp'" aria-expanded="false">
-    	찜한리스트
-    </button>
-  </div>
-  <div class="btn-group">
-  	<button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./myboard1.jsp'" aria-expanded="false">
-    	내 게시판
-  	</button>
-  </div>
-<hr>
-
-
 <!-- 본문 내용 -->
 <div class="row">
 	<h3>예약 내역</h3>

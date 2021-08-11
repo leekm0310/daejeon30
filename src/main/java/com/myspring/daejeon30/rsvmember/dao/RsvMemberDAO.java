@@ -1,6 +1,7 @@
 package com.myspring.daejeon30.rsvmember.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.dao.DataAccessException;
 
@@ -13,4 +14,8 @@ public interface RsvMemberDAO{
 	public RsvMemberVO selectOneRsv(int rsvNum) throws DataAccessException;
 	//public void updateRsv(String rsvNum)throws DataAccessException;
 	public int updateRsv(RsvMemberVO rsvMemberVO) throws DataAccessException;
+	
+	
+	public int countStatus(Map main)throws DataAccessException;
+	
 }

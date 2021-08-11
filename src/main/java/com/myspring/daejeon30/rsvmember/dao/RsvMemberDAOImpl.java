@@ -5,6 +5,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -46,6 +47,12 @@ public class RsvMemberDAOImpl implements RsvMemberDAO{
 	@Override
 	public int updateRsv(RsvMemberVO rsvMemberVO) throws DataAccessException{
 		int result = sqlSession.update("mapper.rsvMember.updateRsv", rsvMemberVO);
+		return result;
+	}
+	
+	@Override
+	public int countStatus(Map main)throws DataAccessException{
+		int result = sqlSession.selectOne("mapper.rsvMember.countStatus", main);
 		return result;
 	}
 }

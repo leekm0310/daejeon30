@@ -17,5 +17,5 @@ public interface RestaurantController {
 			HttpServletRequest request, HttpServletResponse response) throws Exception;
 	//public ModelAndView rsv3(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
-	
+
 }

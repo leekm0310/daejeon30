@@ -59,4 +59,10 @@ public class RestaurantDAOImpl implements RestaurantDAO{
 		List sortingF = sqlSession.selectList("mapper.restaurant.sortfoods", resCategory);
 		return sortingF;
 	}
+	
+	@Override
+	public List searchRes(String word) throws DataAccessException{
+		List search = sqlSession.selectList("mapper.restaurant.searchRes", word);
+		return search;
+	}
 }

@@ -3,6 +3,8 @@ package com.myspring.daejeon30.restaurant.service;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.dao.DataAccessException;
+
 import com.myspring.daejeon30.restaurant.vo.RestaurantVO;
 
 public interface RestaurantService {
@@ -20,4 +22,7 @@ public interface RestaurantService {
 	
 	public List sortview(int resSort) throws Exception;
 	public List sortf(String resCategory) throws Exception;
+	
+	//°Ë»ö
+	public List searchRes(String word) throws Exception;
 }

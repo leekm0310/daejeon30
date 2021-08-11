@@ -77,5 +77,13 @@
 	]]>
  	</select>
  	
+ 	<!-- 검색 -->
+ 	<select id="searchRes" resultMap="resResult" parameterType="String">
+ 	<![CDATA[
+ 	select restaurants.resNum, restaurants.resName, resimage.resImageFileName from restaurants inner join resimage
+	on restaurants.resNum = resimage.resNum
+	where resimage.resImageNum = 1 and restaurants.resName like #{word};
+ 	]]>
+ 	</select>
 
 </mapper>

@@ -202,6 +202,11 @@ public class HomeController {
 	public String nonrsv(Locale locale, Model model) {
 		return "nonrsv";
 	}
+	
+	@RequestMapping(value="/mymain1.do", method=RequestMethod.GET)
+	public String mymain1(Locale locale, Model model) {
+		return "mymain1";
+	}
 
 	/**
 	 * Simply selects the home view to render by returning its name.

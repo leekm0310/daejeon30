@@ -68,4 +68,10 @@ public class RestaurantServiceImpl implements RestaurantService {
 		List sortingF = restaurantDAO.sortfoods(resCategory);
 		return sortingF;
 	}
+	
+	@Override
+	public List searchRes(String word) throws Exception{
+		List search = restaurantDAO.searchRes(word);
+		return search;
+	}
 }

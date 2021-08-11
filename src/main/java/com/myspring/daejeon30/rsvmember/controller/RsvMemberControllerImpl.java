@@ -4,7 +4,9 @@ package com.myspring.daejeon30.rsvmember.controller;
 
 import org.springframework.ui.Model;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -138,6 +140,48 @@ public class RsvMemberControllerImpl implements RsvMemberController {
 			
 		mav.addObject("rsvlist", rsvlist);
 		mav.setViewName("res1");
+		return mav;
+		
+	}
+	
+	@Override
+	@RequestMapping(value="mypage/mymain.do", method= {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView myPageMain(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		
+		HttpSession session = request.getSession();
+		memberVO = (MemberVO)session.getAttribute("member");
+		String id = memberVO.getId();  
+		
+		Map confirm = new HashMap();
+		confirm.put("status","예약완료");
+		confirm.put("id", id);
+		
+		int resultConfirm = rsvMemberService.countStatus(confirm);
+		
+		Map cancel = new HashMap();
+		cancel.put("status", "취소완료");
+		cancel.put("id", id);
+		
+		int resultCancel = rsvMemberService.countStatus(cancel);
+		
+		Map requestR = new HashMap();
+		requestR.put("status", "예약요청중");
+		requestR.put("id", id);
+		
+		int resultBC = rsvMemberService.countStatus(requestR);
+		
+		Map requestC = new HashMap();
+		requestC.put("status", "취소요청중");
+		requestC.put("id", id);
+		
+		int resultRC = rsvMemberService.countStatus(requestC);
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("confirm", resultConfirm);
+		mav.addObject("cancel", resultCancel);
+		mav.addObject("requestR", resultBC);
+		mav.addObject("requestC", resultRC);
+		mav.setViewName("mymain1");
 		return mav;
 		
 	}
