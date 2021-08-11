@@ -33,8 +33,8 @@ request.setCharacterEncoding("utf-8");
 </div>
 
 <div class="btn-group">
-  <button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./like1.jsp'" aria-expanded="false">
-    #
+  <button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='${contextPath}/admin/noticeBoard.do'" aria-expanded="false">
+    게시판관리
   </button>
 </div>
 

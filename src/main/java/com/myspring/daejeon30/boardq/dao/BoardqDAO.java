@@ -1,6 +1,7 @@
 package com.myspring.daejeon30.boardq.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.dao.DataAccessException;
 
@@ -18,4 +19,6 @@ public interface BoardqDAO{
 	
 	//댓글
 	public List<QcommentVO> allcomments(int num) throws Exception;
+	//제목검색
+	public List searchTitle(Map map) throws DataAccessException;
 }

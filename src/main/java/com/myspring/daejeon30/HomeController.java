@@ -2,32 +2,69 @@ package com.myspring.daejeon30;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.myspring.daejeon30.bboard2.service.Bboard2Service;
+import com.myspring.daejeon30.restaurant.service.RestaurantService;
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	@RequestMapping(value={"/","/main.do"}, method=RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		return "main";
+	@Autowired
+	private Bboard2Service bboard2Service;
+	@Autowired
+	private RestaurantService restaurantService;
+	
+	//original one
+	//@RequestMapping(value={"/","/main.do"}, method=RequestMethod.GET)
+	//public String home(Locale locale, Model model) {
+	//	return "main";
+	//}
+	
+	//main
+	@RequestMapping(value="/main.do", method=RequestMethod.GET)
+	public ModelAndView main1(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		List listReview = bboard2Service.reviewList();
+		List resAll = restaurantService.allRes();
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("resList", resAll);
+		mav.addObject("revlist", listReview);
+		mav.setViewName("main");
+		return mav;
 	}
 	
+	//admin main
+	@RequestMapping(value="/adminMain.do", method=RequestMethod.GET)
+	public ModelAndView adminMain(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("adminMain");
+		return mav;
+	}
+	
+	
+	//로그인
 	@RequestMapping(value="/login.do", method=RequestMethod.GET)
 	public String login(Locale locale, Model model) {
 		return "login";
 	}
 	
+	//회원가입
 	@RequestMapping(value="/join.do", method=RequestMethod.GET)
 	public String join(Locale locale, Model model) {
 		return "join";
@@ -38,25 +75,18 @@ public class HomeController {
 		return "res";
 	}
 	
+	//회원정보수정
 	@RequestMapping(value="/modify.do", method=RequestMethod.GET)
 	public String modify(Locale locale, Model model) {
 		return "modify";
 	}
 	
+	//비번찾기
 	@RequestMapping(value="/find.do", method=RequestMethod.GET)
 	public String find(Locale locale, Model model) {
 		return "find";
 	}
 	
-	@RequestMapping(value="/rlist1.do", method=RequestMethod.GET)
-	public String rlist1(Locale locale, Model model) {
-		return "rlist1";	
-	}
-	
-	@RequestMapping(value="/rlist2.do", method=RequestMethod.GET)
-	public String rlist2(Locale locale, Model model) {
-		return "rlist2";
-	}
 	
 	@RequestMapping(value="/login2.do", method=RequestMethod.GET)
 	public String login2(Locale locale, Model model) {
@@ -78,6 +108,7 @@ public class HomeController {
 		return "result2";
 	}
 	
+	//예약내역조회
 	@RequestMapping(value="/trackorder.do", method=RequestMethod.GET)
 	public String trackorder(Locale locale, Model model) {
 		return "trackorder";
@@ -118,11 +149,6 @@ public class HomeController {
 		return "viewRes";
 	}
 	
-	@RequestMapping(value="/listMem.do", method=RequestMethod.GET)
-	public String listMem(Locale locale, Model model) {
-		return "listMem";
-	}
-	
 	@RequestMapping(value="/like1.do", method=RequestMethod.GET)
 	public String like1(Locale locale, Model model) {
 		return "like1";
@@ -138,10 +164,6 @@ public class HomeController {
 		return "modifyMem";
 	}
 	
-	@RequestMapping(value="/notice.do", method=RequestMethod.GET)
-	public String notice(Locale locale, Model model) {
-		return "notice";
-	}
 	
 	@RequestMapping(value="/writeform1.do", method=RequestMethod.GET)
 	public String writeform1(Locale locale, Model model) {
@@ -162,30 +184,11 @@ public class HomeController {
 	public String reviewlist(Locale locale, Model model) {
 		return "reviewlist";
 	}
-	
-	@RequestMapping(value="/qna.do", method=RequestMethod.GET)
-	public String qna(Locale locale, Model model) {
-		return "qna";
-	}
-	
-	@RequestMapping(value="/writeformQ.do", method=RequestMethod.GET)
-	public String writeformQ(Locale locale, Model model) {
-		return "writeformQ";
-	}
-	
-	@RequestMapping(value="/viewQna.do", method=RequestMethod.GET)
-	public String viewQna(Locale locale, Model model) {
-		return "viewQna";
-	}
-	
+
+	//문의게시판 비밀번호 확인
 	@RequestMapping(value="/passthro.do", method=RequestMethod.GET)
 	public String passthro(Locale locale, Model model) {
 		return "passthro";
-	}
-	
-	@RequestMapping(value="/viewQna1.do", method=RequestMethod.GET)
-	public String viewQna1(Locale locale, Model model) {
-		return "viewQna1";
 	}
 	
 	@RequestMapping(value="/reviewform.do", method=RequestMethod.GET)
@@ -203,10 +206,7 @@ public class HomeController {
 		return "nonrsv";
 	}
 	
-	@RequestMapping(value="/mymain1.do", method=RequestMethod.GET)
-	public String mymain1(Locale locale, Model model) {
-		return "mymain1";
-	}
+
 
 	/**
 	 * Simply selects the home view to render by returning its name.

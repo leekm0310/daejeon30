@@ -12,7 +12,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-		
+		<title>안씀</title>
 	<!-- 삭제 경고창 -->
 	<script text="text/javascript">
 		function del() {
@@ -117,8 +117,8 @@ pageEncoding="utf-8" isELIgnored="false" %>
 									
 					<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 						
-						<input class="btn btn-danger me-md-2" type="submit" value="수정"></button>
-						<button class="btn btn-danger" type="button" onclick="location.href='${contextPath}/boardq/deleteQna.do?num=${bVO.num }'">삭제</button>
+						<input class="btn btn-danger me-md-2" type="submit" value="수정"></button>${bVO.num }
+						<button class="btn btn-danger" type="button" value="${bVO.num }" onclick="location.href='${contextPath}/boardq/deleteQna.do?num='+'${bVO.num}'">삭제</button>
 				
 				</form>
 				<br>

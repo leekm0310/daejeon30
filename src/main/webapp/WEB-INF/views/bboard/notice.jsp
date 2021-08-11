@@ -44,7 +44,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			<c:when test="${!empty noticeList }">
 			<c:forEach var="notice" items="${noticeList }">
 			<tr>
-			<td>${notice.num }</td>
+			<td>공지</td>
 			<td><a href="${contextPath}/bboard/oneNo.do?num=${notice.num }">${notice.title }</a></td>
 			<td>${notice.id }</td>
 			<td>${notice.date }</td>

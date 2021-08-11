@@ -1,6 +1,7 @@
 package com.myspring.daejeon30.boardq.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +53,11 @@ public class BoardqDAOImpl implements BoardqDAO{
 	@Override
 	public List<QcommentVO> allcomments(int num) throws Exception{
 		return sqlSession.selectList("mapper.qcomment.selectQcomment", num);
+	}
+	
+	//제목검색
+	@Override
+	public List searchTitle(Map map) throws DataAccessException{
+		return sqlSession.selectList("mapper.boardq.searchTitle", map);
 	}
 }

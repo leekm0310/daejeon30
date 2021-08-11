@@ -13,40 +13,9 @@ pageEncoding="utf-8" isELIgnored="false" %>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  	
- 
- <!-- 체크박스 관련 제이쿼리문 전체선택/전체해제, 삭제경고창-->
- <script type="text/javascript">
- 	function checkAll(){
-		if($("#checkall").is(":checked")){
-			$("input[name=chk]").prop("checked",true);
-		}else{
-			$("input[name=chk]").prop("checked",false);
-		  }
-		}
- 	
- 	function del() {
-		  if (confirm("삭제 하시겠습니까?"))
-	    	list_ok.submit();
-		  }
- 	
- 	
-    function fn_remove(url,resNum){
- 	   var form = document.createElement("form");
- 	   form.setAttribute("method", "post");
- 	   form.setAttribute("action", url);
- 	   var resNumInput = document.createElement("input");
- 	   resNumInput.setAttribute("type", "hidden");
- 	   resNumInput.setAttribute("name", "resNum");
- 	   resNumInput.setAttribute("value", resNum);
- 	   
- 	   form.appendChild(resNumInput);
- 	   document.body.appendChild(form);
- 	   form.submit();
-    }
-    
-  </script>
   
+<title>회원관리</title>
+
  
 </head>
 
@@ -57,51 +26,42 @@ pageEncoding="utf-8" isELIgnored="false" %>
  	<div class="main-content">
 	<div class="container" >
 
-
 <!-- 본문 내용 -->
-<div class="row">
-	<div class="col-md-8">
-		<h3>식당 관리</h3>
-	</div>
-
-
-<!-- 검색바 -->
-	<div class="col-md-4">
-	<form class="d-flex justify-content-center py-3" action="${contextPath}/res/searchRes.do" method="post">
-	<input type="text" class="form-control" name="word1" id="word1" placeholder="검색어를 입력하세요" style="text-align:center; width:250px;">
-		&ensp;<input type="submit" class="btn btn-danger" value="검색">
-	</form>
-	</div>
+<h3>게시판 관리</h3>
+<br>
+<div class="btn-group" role="group" aria-label="Basic outlined example">
+  <button type="button" class="btn btn-outline-primary" onclick="location.href='${contextPath}/admin/reviewBoard.do'">리뷰게시판</button>
+  <button type="button" class="btn btn-outline-dark" onclick="location.href='${contextPath}/admin/recBoard.do'">추천게시판</button>
+  <button type="button" class="btn btn-outline-dark" onclick="location.href=''">문의게시판</button>
+  <button type="button" class="btn btn-outline-dark" onclick="location.href='#'">공지사항</button>
 </div>
-	
-	
-	<br>
+<br><br>
 	<table class="table table-hover">
 	<thead>
 	<tr>
 		<th><input type="checkbox" id="checkall" onclick="checkAll();" style="width:20px;height:20px;"/></th>
-		<th>등록번호</th>
-		<th>식당분류</th>
-		<th>식당사진</th>
-		<th>식당명</th>
-		<th>식당위치</th>
+		<th>구분</th>
+		<th>#</th>
+		<th>#</th>
+		<th>#</th>
+		<th>#</th>
 		<th></th>
 	</tr>
 	</thead>
 	<tbody>
 	   <c:choose>
-   <c:when test="${!empty resList}" >
-   <c:forEach  var="res" items="${resList}" >
+   <c:when test="${!empty result }" >
+   <c:forEach  var="result" items="${result }" >
 	<tr>
 
 		<td><input type="checkbox" id="chk" name="chk" style="width:20px;height:20px;"/></td>
-		<td>${res.resNum }</td>
-		<td>${res.resSort }</td>
-		<th><img src="${contextPath}/download.do?resNum=${res.resNum}&resImageFileName=${res.resImageFileName}" width="100" height="100"></th>
-		<td><a href="${contextPath}/admin/viewRes.do?resNum=${res.resNum}">${res.resName }</td>
-		<!--  <td>${res.resLocation }</td>-->
-		<td class="button"><a href="#" onclick="#" class="btn btn-outline-success">수정하기</a><br>
-		<a href="#" class="btn btn-outline-danger" onclick="fn_remove('${contextPath}/admin/removeRes.do', ${res.resNum})">삭제하기</a></td>
+		<td>#</td>
+		<td>${result.id }</td>
+		
+		<td>${result.title}</td>
+		<td>${result.date }</td>
+		<td width="200"><button class="btn btn-outline-success btn-sm" onclick="location.href='#''">수정</button>
+		<button class="btn btn-outline-secondary btn-sm" onclick="location.href='#'">삭제</button></td>
 	</c:forEach>
 	</c:when>
 	</c:choose>

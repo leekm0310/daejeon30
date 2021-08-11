@@ -140,7 +140,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 					<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 						
 						<input class="btn btn-danger me-md-2" type="submit" value="수정"></button>
-						<button class="btn btn-danger" type="button" id="delb" onclick="location.href='${contextPath}/boardq/deleteQna.do?num=${bVO.num }'">삭제</button>
+						<button class="btn btn-danger" type="button" id="delb" onclick="location.href='${contextPath}/boardq/deleteQna.do?num=${map.bVO.num }'">삭제</button>
 				
 				</form>
 				<br>

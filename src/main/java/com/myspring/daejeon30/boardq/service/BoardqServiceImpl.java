@@ -1,6 +1,7 @@
 package com.myspring.daejeon30.boardq.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,5 +52,10 @@ public class BoardqServiceImpl implements BoardqService{
 	@Override
 	public List<QcommentVO> allcomments(int num) throws Exception{
 		return boardqDAO.allcomments(num);
+	}
+	
+	//제목검색
+	public List searchTitle(Map map) throws Exception{
+		return boardqDAO.searchTitle(map);
 	}
 }
