@@ -189,15 +189,16 @@ public class BoardqControllerImpl implements BoardqController{
 	}
 	
 	
-	//검색
+	//검색 미완
 	@RequestMapping(value="/boardq/searchTitle.do")
 	public ModelAndView searchTitle(String word1, String sorting1,
 			HttpServletRequest request, HttpServletResponse response) throws Exception{
 		String word = "%"+word1+"%";
-		
+		System.out.print(sorting1);
 		Map map = new HashMap();
 		map.put("sorting", sorting1);
 		map.put("word", word);
+		System.out.print(map);
 		List search = boardqService.searchTitle(map);
 		System.out.print(search);
 		ModelAndView mav = new ModelAndView();

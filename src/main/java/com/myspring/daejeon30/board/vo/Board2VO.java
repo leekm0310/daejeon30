@@ -15,7 +15,7 @@ public class Board2VO {
 	private String rb_title;
 	private String rb_content;
 	private String id;
-	private Timestamp rb_date;
+	private Date rb_date;
 	private int rb_views;
 	private String imageFileName;
 
@@ -55,12 +55,12 @@ public class Board2VO {
 		this.id = id;
 	}
 
-	public Timestamp getRb_date() {
+	public Date getRb_date() {
 		return rb_date;
 	}
 
-	public void setRb_date(Timestamp string) {
-		this.rb_date = string;
+	public void setRb_date(Date rb_date) {
+		this.rb_date = rb_date;
 	}
 
 	public int getRb_views() {

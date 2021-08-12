@@ -76,7 +76,7 @@
 										
 										</td>
 										<td>${list.id}</td>
-										<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+										<td><fmt:formatDate pattern="yyyy-MM-dd"
 												value="${list.rb_date}" /></td>
 										<td>${list.rb_views}</td>
 									</tr>
@@ -85,6 +85,32 @@
 						</c:choose>
 					</tbody>
 				</table>
+				
+				
+				<c:if test="${prev}">
+					<span>[ <a href="/board/listPage.do?num=${startPageNum - 1}">이전</a>
+						]
+					</span>
+				</c:if>
+
+				<c:forEach begin="${startPageNum}" end="${endPageNum}" var="num">
+					<span> 
+						<c:if test="${select != num}">
+							<a href="/board/listPage.do?num=${num}">${num}</a>
+						</c:if>
+						
+						<c:if test="${select == num}">
+							<b>${num}</b>
+						</c:if>
+					</span>
+				</c:forEach>
+
+				<c:if test="${next}">
+					<span>[ <a href="/board/listPage.do?num=${endPageNum + 1}">다음</a>
+						]
+					</span>
+				</c:if>
+				
 
 				<!-- 글쓰기 버튼 -->
 				<div class="row justify-content-end ">
