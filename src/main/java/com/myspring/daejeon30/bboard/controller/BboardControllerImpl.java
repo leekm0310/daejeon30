@@ -52,8 +52,10 @@ public class BboardControllerImpl implements BboardController{
 		
 		int result =0;
 		result = bboardService.addNotice(bboardVO);
+		//return "redirect:/bboard/notice.do";
+		String referer =(String)request.getHeader("REFERER");
 		
-		return "redirect:/bboard/notice.do";
+		return "redirect:" + referer;
 	}
 	
 	
@@ -77,7 +79,9 @@ public class BboardControllerImpl implements BboardController{
 	@RequestMapping(value="/bboard/updateOneNo.do", method=RequestMethod.POST)
 	public String updateOneNo(@ModelAttribute("bboardVO") BboardVO bboardVO, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		bboardService.updateOneNo(bboardVO);
-		return "redirect:/bboard/notice.do";
+		String referer =(String)request.getHeader("REFERER");
+		//return "redirect:/bboard/notice.do";
+		return "redirect:" + referer;
 	}
 	
 	

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.myspring.daejeon30.board.vo.Board2VO;
+import com.myspring.daejeon30.paging.Criteria;
 
 public interface Board2Service {
 
@@ -17,6 +18,10 @@ public interface Board2Service {
 	public int boardView(int boardNO) throws Exception;
 	public int count() throws Exception;
 	public List listPage(int displayPost, int postNum) throws Exception;
+	
+	//페이지테스트
+	public List selectBoardList(Criteria cri) throws Exception;
+	public int countBoardListTotal() throws Exception;
 
 
 }

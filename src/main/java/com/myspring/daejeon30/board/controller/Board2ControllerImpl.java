@@ -31,6 +31,8 @@ import com.myspring.daejeon30.board.service.Board2Service;
 import com.myspring.daejeon30.board.vo.Board2VO;
 import com.myspring.daejeon30.member.service.MemberService;
 import com.myspring.daejeon30.member.vo.MemberVO;
+import com.myspring.daejeon30.paging.Criteria;
+import com.myspring.daejeon30.paging.PageMaker;
 
 import jdk.internal.org.jline.utils.Log;
 
@@ -49,7 +51,7 @@ public class Board2ControllerImpl implements Board2Controller {
 	@Autowired
 	MemberVO memberVO;
 	
-	//모든 글 조회
+	/*모든 글 조회
 	@Override
 	@RequestMapping(value = "/board2.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView listboard2(HttpServletRequest request, HttpServletResponse reponse) throws Exception {
@@ -58,7 +60,26 @@ public class Board2ControllerImpl implements Board2Controller {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("board2list", board2list);
 		return mav;
+	}*/
+	
+	
+	//모든글 조회 페이징 테스트
+
+	@RequestMapping(value = "/board2.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView listboard2(Criteria cri, HttpServletRequest request, HttpServletResponse reponse) throws Exception {
+		String viewName = (String) request.getAttribute("viewName");
+		List board2list = board2Service.selectBoardList(cri);// 모든 글 정보 조회
+		PageMaker pageMaker = new PageMaker();
+	    pageMaker.setCri(cri);
+	    pageMaker.setTotalCount(board2Service.countBoardListTotal());
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("board2list", board2list);
+		mav.addObject("pageMaker", pageMaker);
+
+		return mav;
 	}
+	
 
 	// 로그인과 연계해서 하려면 2_3의 500페이지 언저리를 뒤져보면 그거 세팅하는거 나옴
 	// 한 개 이미지 글쓰기

@@ -67,9 +67,15 @@ request.setCharacterEncoding("utf-8");
 
 
 <!-- 글쓰기 버튼 -->
-<div class="row justify-content-end">
-<button type="button" class="btn btn-danger" style="width:100px;" onclick="location.href='${contextPath}/reviewform.do'">글쓰기</button>
-</div>
+	<c:if test="${isLogOn==true }">
+		<div class="row justify-content-end">
+		<button type="button" class="btn btn-danger" style="width:100px;" onclick="location.href='${contextPath}/reviewform.do'">글쓰기</button>
+		</div>
+	</c:if>
+	<c:if test="${isLogOn==false }">
+	</c:if>
+		
+
 
 <!-- 검색바 -->
 <div class="row justify-content-center">

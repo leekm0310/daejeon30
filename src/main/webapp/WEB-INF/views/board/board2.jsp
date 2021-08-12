@@ -86,8 +86,44 @@
 					</tbody>
 				</table>
 				
+
 				
-				<c:if test="${prev}">
+				<ul class="btn-group pagination">
+    <c:if test="${pageMaker.prev }">
+    <li>
+        <a href='<c:url value="/board2.do?page=${pageMaker.startPage-1 }"/>'><i class="fa fa-chevron-left"></i></a>
+    </li>
+    </c:if>
+    
+    <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="pageNum">
+    <li>
+        <a href='<c:url value="/board2.do?page=${pageNum }"/>'><i class="fa">${pageNum }</i></a>
+    </li>
+    </c:forEach>
+    
+    <c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+    <li>
+     	<a href='<c:url value="/board2.do?page=${pageMaker.endPage+1 }"/>'><i class="fa fa-chevron-right"></i></a>
+       <!--  <a href='<c:url value="/board/boardList?page=${pageMaker.endPage+1 }"/>'><i class="fa fa-chevron-right"></i></a> -->
+    </li>
+    </c:if>
+</ul>
+
+			
+
+===============================================================
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<!--<c:if test="${prev}">
 					<span>[ <a href="/board/listPage.do?num=${startPageNum - 1}">이전</a>
 						]
 					</span>
@@ -109,7 +145,7 @@
 					<span>[ <a href="/board/listPage.do?num=${endPageNum + 1}">다음</a>
 						]
 					</span>
-				</c:if>
+				</c:if>-->
 				
 
 				<!-- 글쓰기 버튼 -->
@@ -145,18 +181,24 @@
 				<div class="row">
 					<nav aria-label="Page navigation example">
 						<ul class="pagination justify-content-center">
-							<li class="page-item"><a class="page-link" href="#"
+						<c:if test="${pageMaker.prev }">
+							<li class="page-item"><a class="page-link" href='<c:url value="/board2.do?page=${pageMaker.startPage-1 }"/>'
 								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 							</a></li>
-							<li class="page-item"><a class="page-link" href="#">1</a></li>
-							<li class="page-item"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
-							<li class="page-item"><a class="page-link" href="#"
+						</c:if>
+						<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="pageNum">	
+							<li class="page-item"><a class="page-link" href='<c:url value="/board2.do?page=${pageNum }"/>'>${pageNum }</a></li>
+						</c:forEach>
+						<c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+							<li class="page-item"><a class="page-link" href='<c:url value="/board2.do?page=${pageMaker.endPage+1 }"/>'
 								aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 							</a></li>
+						  </c:if>
 						</ul>
 					</nav>
 				</div>
+				
+				
 			</div>
 		</div>
 	</div>

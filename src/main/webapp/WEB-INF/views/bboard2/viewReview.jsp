@@ -85,17 +85,16 @@
 							<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 								
 							
-									<td colspan="2" align="center">
+									
 									<c:if test="${member.id == review.id}">
 										<input class="btn btn-outline-danger" type="submit" value="수정하기">
-										<button class="btn btn-outline-danger" type="button" onclick="del('${review.num}')">삭제</button>
-										<tr id="tr_btn_modify">
-											<td colspan="2" align="center">
-										
-											</td>
-										</tr>
+										<button class="btn btn-outline-danger" type="button" onclick="del('${review.num}')">삭제</button>	
 									</c:if>
-									</td>
+									<c:if test="${ member.id == 'admin' }">
+										<button class="btn btn-outline-danger" type="button" onclick="del('${review.num}')">삭제</button>
+									</c:if>
+								
+								
 							
 							</div>
 							</form>

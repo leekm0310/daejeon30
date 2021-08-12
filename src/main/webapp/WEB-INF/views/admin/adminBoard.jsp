@@ -15,6 +15,9 @@ pageEncoding="utf-8" isELIgnored="false" %>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   
   <script type="text/javascript">
+ 
+	  
+
   function addZero(data){
       return (data<10) ? "0"+data : data;
   }
@@ -22,12 +25,54 @@ pageEncoding="utf-8" isELIgnored="false" %>
       var date = new Date(timestamp);
       var chgTimestamp = date.getFullYear().toString()+"-"
           +addZero(date.getMonth()+1)+"-"
-          +addZero(date.getDate().toString())+" "
-          +addZero(date.getHours().toString())+":"
-          +addZero(date.getMinutes().toString())+":"
-          +addZero(date.getSeconds().toString())+".0";
+          +addZero(date.getDate().toString());
       return chgTimestamp;
   }
+  
+  function deleteQna(value) {
+		$.ajax({
+			type: "post",
+			url: "${contextPath}/admin/deleteQna.do?num="+value,
+			dataType: "text",
+			success:function(result){
+				allqna();
+			}
+		});
+	}
+  
+  function deleteNotice(value) {
+		$.ajax({
+			type: "post",
+			url: "${contextPath}/admin/deleteNotice.do?num="+value,
+			dataType: "text",
+			success:function(result){
+				location.href="${contextPath}/admin/noticeBoard.do";
+			}
+		});
+	}
+  
+  function deleteRec(value) {
+		$.ajax({
+			type: "post",
+			url: "${contextPath}/board/removeBoard.do?boardNO="+value,
+			dataType: "text",
+			success:function(result){
+				allrec();
+			}
+		});
+	}
+
+  function deleteReview(value) {
+		$.ajax({
+			type: "post",
+			url: "${contextPath}/bboard2/deleteReview.do?num="+value,
+			dataType: "text",
+			success:function(result){
+				allreview();
+			}
+		});
+	}
+  
   	function allreview(){
   		$.ajax({
   			type:"post",
@@ -42,7 +87,8 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			 		output +="<td>"+result[i].date+"</td>"
 			 		output +="<td>"+result[i].id+"</td>"
 			 		output +="<td width='200'>"
-			 		output +="<button class='btn btn-outline-success' value='"+result[i].num+"' onclick='accept(this.value)'>예약요청수락</button></td>";
+			 		output +="<button class='btn btn-outline-success btn-sm' value='"+result[i].num+"' onclick='accept(this.value)'>수정</button> "
+				 	output +="<button class='btn btn-outline-secondary btn-sm' value='"+result[i].num+"' onclick='deleteReview(this.value)'>삭제</button></td>";
 			 	}
 			 	output+="</tr>";
 			 	$("#list").html(output);
@@ -59,15 +105,15 @@ pageEncoding="utf-8" isELIgnored="false" %>
     			console.log(result);
     			var output="<tr>";
 			 	for(var i in result){
-			 		var date = result[i].rb_date;
+			 		var timestamp = result[i].rb_date;
 			 		
 			 		output += "<tr><td>"+result[i].rb_num+"</td>";
 			 		output +="<td>"+result[i].rb_title+"</td>"
-			 		output +="<td>"+date+"</td>"
-			 		
+			 		output +="<td>"+getTimestampToDate(timestamp)+"</td>"
 			 		output +="<td>"+result[i].id+"</td>"
 			 		output +="<td width='200'>"
-			 		output +="<button class='btn btn-outline-success' value='"+result[i].rb_num+"' onclick='accept(this.value)'>예약요청수락</button></td>";
+			 		output +="<button class='btn btn-outline-success btn-sm' value='"+result[i].rb_num+"' onclick='accept(this.value)'>수정</button> "
+				 	output +="<button class='btn btn-outline-secondary btn-sm' value='"+result[i].rb_num+"' onclick='deleteRec(this.value)'>삭제</button></td>";
 			 	}
 			 	output+="</tr>";
 			 	$("#list").html(output);
@@ -89,14 +135,16 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			 		output +="<td>"+result[i].date+"</td>"
 			 		output +="<td>"+result[i].name+"</td>"
 			 		output +="<td width='200'>"
-			 		output +="<button class='btn btn-outline-success' value='"+result[i].num+"' onclick='accept(this.value)'>예약요청수락</button></td>";
+			 		output +="<button class='btn btn-outline-success btn-sm' value='"+result[i].num+"' onclick='accept(this.value)'>수정</button> "
+			 		output +="<button class='btn btn-outline-secondary btn-sm' value='"+result[i].num+"' onclick='deleteQna(this.value)'>삭제</button></td>";
+			 	
 			 	}
 			 	output+="</tr>";
 			 	$("#list").html(output);
     		}
   		});
   	}
-  
+ 
   </script>
 
 
@@ -121,6 +169,8 @@ pageEncoding="utf-8" isELIgnored="false" %>
   <button type="button" class="btn btn-outline-dark" onclick="allqna()">문의게시판</button>
   <button type="button" class="btn btn-outline-dark" onclick="location.href='${contextPath}/admin/noticeBoard.do'">공지사항</button>
 </div>
+ <button type="button" class="btn btn-danger btn-sm" onclick="location.href='${contextPath}/writeform1.do'">관리자글쓰기</button>
+
 <br><br>
 	<table class="table table-hover">
 	<thead>
@@ -142,11 +192,11 @@ pageEncoding="utf-8" isELIgnored="false" %>
 
 		<td><input type="checkbox" id="chk" name="chk" style="width:20px;height:20px;"/></td>
 		<td>#</td>
-		<td>${result.id }</td>
 		<td>${result.title}</td>
-		<td>${result.date }</td>
-		<td width="200"><button class="btn btn-outline-success btn-sm" onclick="location.href='#''">수정</button>
-		<button class="btn btn-outline-secondary btn-sm" onclick="location.href='#'">삭제</button></td>
+		<td><fmt:formatDate pattern="yyyy-MM-dd" value="${result.date }" /></td>
+		<td>${result.id }</td>
+		<td width="200"><button class="btn btn-outline-success btn-sm" onclick="location.href='${contextPath}/bboard/oneNo.do?num=${result.num }'">수정</button>
+		<button class="btn btn-outline-secondary btn-sm" value="${result.num }" onclick="deleteNotice(this.value)">삭제</button></td>
 	</c:forEach>
 	</c:when>
 	</c:choose>
@@ -157,7 +207,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 
 <!-- 삭제하기버튼 -->
 <div class="row justify-content-end">
-<button type="button" class="btn btn-danger" style="width:100px;" onclick="location.href='${contextPath}/addRes.do'">등록하기</button>
+
 <button type="button" class="btn btn-danger" style="width:100px;" onclick="location.href='${contextPath}/admin/removeRes.do?resNum=${res.resNum }'">삭제하기</button>
 </div>
 

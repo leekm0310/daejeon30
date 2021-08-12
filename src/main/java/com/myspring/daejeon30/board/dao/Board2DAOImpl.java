@@ -91,6 +91,18 @@ public class Board2DAOImpl implements Board2DAO {
 	 return sqlSession.selectList("mapper.board2" + ".listPage", data);
 	}
 	
+	//페이지테스트
+	@Override
+	@SuppressWarnings("unchecked")
+	public List selectBoardList(Criteria cri) {
+	    return sqlSession.selectList("mapper.board2.getPage", cri);
+	}
+	@Override
+	public int countBoardList()throws Exception{
+		return (Integer)sqlSession.selectOne("mapper.board2.countBoardList");
+	}
+
+
 
 
 }

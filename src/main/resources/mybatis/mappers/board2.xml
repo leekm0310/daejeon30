@@ -51,7 +51,7 @@
 		]]>
 	</select>
 	
-	<!-- 게시물 목록 + 페이징 -->
+	<!-- 게시물 목록 + 페이징 
 	<select id="listPage" parameterType="hashMap" resultType="com.myspring.daejeon30.board.vo.Board2VO">
 	<![CDATA[
 		select
@@ -60,7 +60,7 @@
 		order by rb_num desc
 			limit #{displayPost}, #{postNum}
 	]]>
-	</select>
+	</select>-->
 	
 	
 	<!-- 조회수 -->
@@ -83,7 +83,7 @@
 		]]>
 	</select> -->
 	
-	<!-- 새로운 방식의 페이징 -->
+	<!-- 새로운 방식의 페이징 
 	<select id="getListPaging" resultType="com.myspring.daejeon30.board.vo.Board2VO">
 	<![CDATA[
 		select * from (
@@ -91,9 +91,20 @@
 			from recboard order by rb_num desc) as T1
 		limit #{skip},#{amount}
 		]]>
+	</select>-->
+	
+	<!-- 페이지 테스트 ing -->
+	<select id="getPage" resultType="java.util.Map" parameterType="java.util.Map">
+	<![CDATA[
+	select * from recboard order by rb_num desc limit #{pageStart}, #{perPageNum}
+	
+	]]>
 	</select>
-	
-	
+	<select id="countBoardList" resultType="Integer">
+    <![CDATA[
+        SELECT  count(*) FROM recboard
+    ]]>
+	</select>
 
 
 	

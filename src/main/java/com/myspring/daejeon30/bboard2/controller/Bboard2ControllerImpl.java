@@ -58,7 +58,7 @@ public class Bboard2ControllerImpl implements Bboard2Controller{
 	}
 	
 	@Override
-	@RequestMapping(value="/bboard2/deleteReview.do", method=RequestMethod.GET)
+	@RequestMapping(value="/bboard2/deleteReview.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public ResponseEntity deleteReview(@RequestParam("num") int num, 
 			HttpServletRequest request, HttpServletResponse response) throws Exception{
 		response.setContentType("text/html; charset=utf-8");

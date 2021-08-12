@@ -13,7 +13,7 @@ import com.myspring.daejeon30.board.vo.Board2VO;
 
 public interface Board2Controller {
 
-	public ModelAndView listboard2(HttpServletRequest request, HttpServletResponse reponse) throws Exception;
+	//public ModelAndView listboard2(HttpServletRequest request, HttpServletResponse reponse) throws Exception;
 
 	public ResponseEntity addNewBoard(MultipartHttpServletRequest multipartRequest, HttpServletResponse response)
 			throws Exception;

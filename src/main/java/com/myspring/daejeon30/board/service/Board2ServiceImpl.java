@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.myspring.daejeon30.board.dao.Board2DAO;
 import com.myspring.daejeon30.board.vo.Board2VO;
+import com.myspring.daejeon30.paging.Criteria;
 
 @Service("board2Service")
 public class Board2ServiceImpl implements Board2Service {
@@ -61,6 +62,17 @@ public class Board2ServiceImpl implements Board2Service {
 	@Override
 	public List listPage(int displayPost, int postNum) throws Exception {
 		return board2DAO.listPage(displayPost, postNum);
+	}
+	
+	
+	//페이지 테스트
+	@Override
+	public List<Map<String, Object>> selectBoardList(Criteria cri) throws Exception{
+	    return board2DAO.selectBoardList(cri);
+	}
+	@Override
+	public int countBoardListTotal() throws Exception{
+		return board2DAO.countBoardList();
 	}
 
 
