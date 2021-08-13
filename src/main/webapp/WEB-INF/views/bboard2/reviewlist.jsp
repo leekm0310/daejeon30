@@ -93,29 +93,27 @@ request.setCharacterEncoding("utf-8");
 <br>
 
 
-<!-- 페이지 번호 -->
-	<div class ="text-center">
-		<nav aria-label="Page navigation example">
-		  <ul class="pagination justify-content-center">
-		    <li class="page-item">
-		      <a class="page-link" href="#" aria-label="Previous">
-		        <span aria-hidden="true">&laquo;</span>
-		      </a>
-		    </li>
-		    <li class="page-item"><a class="page-link" href="#">1</a></li>
-		    <li class="page-item"><a class="page-link" href="#">2</a></li>
-		    <li class="page-item"><a class="page-link" href="#">3</a></li>
-		    <li class="page-item"><a class="page-link" href="#">4</a></li>
-		    <li class="page-item"><a class="page-link" href="#">5</a></li>
-		    <li class="page-item">
-		      <a class="page-link" href="#" aria-label="Next">
-		        <span aria-hidden="true">&raquo;</span>
-		      </a>
-		    </li>
-		  </ul>
-		</nav>
-	  <br>
-	</div>
+<!-- 페이지네이션 -->
+		
+	<div class="row">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-center">
+						<c:if test="${pageMaker.prev }">
+							<li class="page-item"><a class="page-link" href='<c:url value="/bboard2/reviewList.do?page=${pageMaker.startPage-1 }"/>'
+								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+							</a></li>
+						</c:if>
+						<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="pageNum">	
+							<li class="page-item"><a class="page-link" href='<c:url value="/bboard2/reviewList.do?page=${pageNum }"/>'>${pageNum }</a></li>
+						</c:forEach>
+						<c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+							<li class="page-item"><a class="page-link" href='<c:url value="/bboard2/reviewList.do?page=${pageMaker.endPage+1 }"/>' aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+							</a></li>
+						  </c:if>
+						</ul>
+					</nav>
+				</div>
+
 
 
 </div>

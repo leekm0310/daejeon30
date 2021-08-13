@@ -20,6 +20,28 @@
 	]]>	
 	</select>
 	
+	<!-- 식당 상세랑 연결할 리뷰 -->
+	<select id="selectedReview" resultMap="bboard2Result">
+	<![CDATA[
+		select * from reviewboard where resNum = #{resNum}
+	]]>
+	</select>
+	
+	
+	<!-- 페이지 성공 -->
+	<select id="getPage" resultType="java.util.Map" parameterType="java.util.Map">
+	<![CDATA[
+	select * from reviewboard order by num desc limit #{pageStart}, #{perPageNum}
+	
+	]]>
+	</select>
+	<select id="countreviewList" resultType="Integer">
+    <![CDATA[
+        SELECT count(*) FROM reviewboard
+    ]]>
+	</select>
+	
+	
 	<insert id="addreview" parameterType="java.util.Map">
 	<![CDATA[
 		insert into reviewboard(num, title, content, id, imageFileName, resNum)

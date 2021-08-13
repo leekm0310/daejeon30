@@ -18,10 +18,13 @@ pageEncoding="utf-8" isELIgnored="false" %>
 
 	
 	<div class="container" style=margin-bottom:300px;>
-	
-		<H1>FAQ</H1>
+	<div style="text-align: center;">
+		<H2>FAQ</H2>
+		<br>
+		<p>자주 묻는 질문들에 대한 답변을 모아둔 공간입니다.<br>
+		추가로 문의 사항이 있을 경우에는 문의 게시판을 이용해주세요.</p>
 		<BR><BR>
-		
+	</div>	
 
 		
 	<div class="accordion accordion-flush" id="accordionFlushExample">
@@ -32,7 +35,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			  <div class="accordion-item">
 			    <h2 class="accordion-header" id="flush-heading_${num.index }">
 			      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse_${num.index }" aria-expanded="false" aria-controls="flush-collapse_${num.index }">
-			        ${bboard.title }
+			        Q.${bboard.title }
 			      </button>
 			    </h2>
 			    <div id="flush-collapse_${num.index }" class="accordion-collapse collapse" aria-labelledby="flush-heading_${num.index }" data-bs-parent="#accordionFlushExample">

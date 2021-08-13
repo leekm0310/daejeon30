@@ -16,21 +16,21 @@ request.setCharacterEncoding("utf-8");
 				<hr>
 				<div class="btn-group">
 					<button class="btn btn-outline-danger" type="button"
-						id="defaultDropdown" onclick="location.href='./board3.jsp'"
+						id="defaultDropdown" onclick="location.href='${contextPath}/bboard/notice.do'"
 						aria-expanded="false">공지사항</button>
 				</div>
 
 				<div class="btn-group">
 					<button class="btn btn-outline-danger" type="button"
 						id="dropdownMenuClickableOutside"
-						onclick="location.href='./board2.jsp'" aria-expanded="false">
+						onclick="location.href='${contextPath}/board2.do'" aria-expanded="false">
 						추천게시판</button>
 				</div>
 
 				<div class="btn-group">
 					<button class="btn btn-outline-danger" type="button"
 						id="dropdownMenuClickableOutside"
-						onclick="location.href='./review1.jsp'" aria-expanded="false">
+						onclick="location.href='${contextPath}/bboard2/reviewList.do'" aria-expanded="false">
 						리뷰게시판</button>
 				</div>
 

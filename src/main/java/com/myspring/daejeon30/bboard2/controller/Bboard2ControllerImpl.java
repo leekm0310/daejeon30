@@ -28,6 +28,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.myspring.daejeon30.bboard2.service.Bboard2Service;
 import com.myspring.daejeon30.bboard2.vo.Bboard2VO;
 import com.myspring.daejeon30.member.vo.MemberVO;
+import com.myspring.daejeon30.paging.Criteria;
+import com.myspring.daejeon30.paging.PageMaker;
 
 @Controller("bboard2Controller")
 public class Bboard2ControllerImpl implements Bboard2Controller{
@@ -37,7 +39,7 @@ public class Bboard2ControllerImpl implements Bboard2Controller{
 	@Autowired
 	private Bboard2VO bboard2VO;
 	
-	@Override
+	/*@Override 원래쓰던 리스트 불러오기
 	@RequestMapping(value="/bboard2/reviewList.do" , method = {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView reviewList(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		List listReview = bboard2Service.reviewList();
@@ -45,7 +47,25 @@ public class Bboard2ControllerImpl implements Bboard2Controller{
 		mav.addObject("revlist", listReview);
 		mav.setViewName("reviewlist");
 		return mav;
+	}*/
+	
+	
+	//페이징해서 전체리스트 불러오기
+	@RequestMapping(value = "/bboard2/reviewList.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView reviewList(Criteria cri, HttpServletRequest request, HttpServletResponse reponse) throws Exception {
+		List listReview = bboard2Service.selectReviewList(cri);
+		PageMaker pageMaker = new PageMaker();
+	    pageMaker.setCri(cri);
+	    pageMaker.setTotalCount(bboard2Service.countReviewListTotal());
+	    ModelAndView mav = new ModelAndView();
+		mav.addObject("revlist", listReview);
+		mav.addObject("pageMaker", pageMaker);
+		mav.setViewName("reviewlist");
+		return mav;
+		
 	}
+	
+	
 	
 	@Override
 	@RequestMapping(value="/bboard2/oneReview.do", method=RequestMethod.GET)

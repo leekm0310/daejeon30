@@ -46,8 +46,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		<!-- select box -->
 
 			<div class="col g-0 bg-light position-relative">	
-		
-			
 		<br>
 		
 		<!-- 제목 입력  -->

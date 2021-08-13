@@ -28,6 +28,26 @@
 		<result property="resNum" column="resNum"/>
 		<result property="resImageFileName" column="resImageFileName"/>
 	</resultMap>
+	
+	
+	<!-- 페이지 성공 -->
+	<select id="getPage" resultType="java.util.Map" parameterType="java.util.Map">
+	<![CDATA[
+	select restaurants.resNum, restaurants.resName, resimage.resImageFileName from restaurants inner join resimage
+	on restaurants.resNum = resimage.resNum
+	where resimage.resImageNum = 1
+	limit #{pageStart}, #{perPageNum}
+	]]>
+	</select>
+	<select id="countresList" resultType="Integer">
+    <![CDATA[
+        SELECT count(*) FROM restaurants
+    ]]>
+	</select>
+	
+	
+	
+	
  	
  	<select id="selectAll" resultMap="resResult">
 	<![CDATA[

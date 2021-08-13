@@ -11,23 +11,23 @@ request.setCharacterEncoding("utf-8");
 <head>
 </head>
 <body>
-<localmenu class="localmenu">
+<div class="localmenu">
 <!-- 로컬네비게이션 -->
 				<hr>
 		<div class="btn-group">
-			<button class="btn btn-outline-danger" type="button" id="defaultDropdown" onclick="location.href='./faq.jsp'"aria-expanded="false">
+			<button class="btn btn-outline-danger" type="button" id="defaultDropdown" onclick="location.href='${contextPath}/bboard/faq.do'"aria-expanded="false">
 				FAQ
 			</button>
 		</div>
 		
 		<div class="btn-group">
-			<button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./qna.jsp'" aria-expanded="false">
+			<button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='${contextPath}/boardq/qna.do'" aria-expanded="false">
 				문의게시판
 			</button>
 		</div>
 
 				<hr>
 
-</localmenu>
+</div>
 </body>
 </html>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
+import com.myspring.daejeon30.paging.Criteria;
 import com.myspring.daejeon30.restaurant.vo.ResImageVO;
 import com.myspring.daejeon30.restaurant.vo.RestaurantVO;
 
@@ -65,4 +66,17 @@ public class RestaurantDAOImpl implements RestaurantDAO{
 		List search = sqlSession.selectList("mapper.restaurant.searchRes", word);
 		return search;
 	}
+	
+	
+	
+	//페이지테스트
+			@Override
+			@SuppressWarnings("unchecked")
+			public List selectResList(Criteria cri) {
+			    return sqlSession.selectList("mapper.restaurant.getPage", cri);
+			}
+			@Override
+			public int countResList()throws Exception{
+				return (Integer)sqlSession.selectOne("mapper.restaurant.countresList");
+			}
 }

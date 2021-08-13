@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 pageEncoding="utf-8" isELIgnored="false" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <%
 	request.setCharacterEncoding("utf-8");
 %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,11 +46,12 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			<c:choose>
 			<c:when test="${!empty noticeList }">
 			<c:forEach var="notice" items="${noticeList }">
+			<fmt:formatDate var="ndate" value="${notice.date }" pattern="yyyy-MM-dd"/>
 			<tr>
 			<td>공지</td>
 			<td><a href="${contextPath}/bboard/oneNo.do?num=${notice.num }">${notice.title }</a></td>
 			<td>${notice.id }</td>
-			<td>${notice.date }</td>
+			<td>${ndate }</td>
 			</tr>
 			</c:forEach>
 			</c:when>

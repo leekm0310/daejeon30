@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.myspring.daejeon30.bboard2.service.Bboard2Service;
+import com.myspring.daejeon30.paging.Criteria;
+import com.myspring.daejeon30.paging.PageMaker;
 import com.myspring.daejeon30.restaurant.service.RestaurantService;
 import com.myspring.daejeon30.restaurant.vo.RestaurantVO;
 
@@ -23,6 +26,8 @@ import com.myspring.daejeon30.restaurant.vo.RestaurantVO;
 public class RestaurantControllerImpl implements RestaurantController {
 	@Autowired
 	private RestaurantService restaurantService;
+	@Autowired
+	private Bboard2Service bboard2Service;
 	
 	@Override
 	@RequestMapping(value="/res/rlist.do", method= {RequestMethod.POST, RequestMethod.GET})
@@ -51,7 +56,7 @@ public class RestaurantControllerImpl implements RestaurantController {
 	}
 	
 	
-	@Override
+	/*@Override원래쓰던 리스트 불러오기
 	@RequestMapping(value="/res/rlist1.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView allRes(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		List resAll = restaurantService.allRes();
@@ -60,6 +65,18 @@ public class RestaurantControllerImpl implements RestaurantController {
 		mav.setViewName("rlist1");
 		return mav;
 		
+	}*/
+	@RequestMapping(value="/res/rlist1.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView allRes(Criteria cri, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		List resAll = restaurantService.selectResList(cri);
+		PageMaker pageMaker = new PageMaker();
+	    pageMaker.setCri(cri);
+	    pageMaker.setTotalCount(restaurantService.countResListTotal());
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("resList", resAll);
+		mav.addObject("pageMaker", pageMaker);
+		mav.setViewName("rlist1");
+		return mav;
 	}
 	
 	
@@ -113,9 +130,10 @@ public class RestaurantControllerImpl implements RestaurantController {
 		//String me = cookie.getValue();
 		//System.out.print(me);
 		
-		
+		List review = bboard2Service.selectedReview(resNum);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("resMap", resMap);
+		mav.addObject("review", review);
 		mav.setViewName("rlist2");
 		System.out.print(resMap);
 		return mav;

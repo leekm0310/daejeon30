@@ -11,7 +11,7 @@ import com.myspring.daejeon30.restaurant.vo.RestaurantVO;
 public interface RestaurantController {
 	public ModelAndView listRestaurant(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
-	public ModelAndView allRes(HttpServletRequest request, HttpServletResponse response) throws Exception;
+	//public ModelAndView allRes(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
 	public ModelAndView viewRestaurant(@RequestParam("resNum") int resNum,
 			HttpServletRequest request, HttpServletResponse response) throws Exception;

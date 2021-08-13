@@ -27,7 +27,7 @@ public interface Board2DAO {
 	// 게시물 목록 + 페이징
 	public List<Board2VO> listPage(int displayPost, int postNum) throws Exception;
 	
-	//페이지테스트
+	//페이지
 	public List selectBoardList(Criteria cri) throws Exception;
 	public int countBoardList()throws Exception;
 

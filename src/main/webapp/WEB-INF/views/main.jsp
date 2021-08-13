@@ -38,6 +38,8 @@ request.setCharacterEncoding("utf-8");
 		  -o-transform: scale(1.2);
 		}
 		.img {width:325px; height:280px; overflow:hidden } 
+		
+
 	</style>
 
 

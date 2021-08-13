@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.myspring.daejeon30.paging.Criteria;
 import com.myspring.daejeon30.restaurant.dao.RestaurantDAO;
 import com.myspring.daejeon30.restaurant.vo.ResImageVO;
 import com.myspring.daejeon30.restaurant.vo.RestaurantVO;
@@ -74,4 +75,14 @@ public class RestaurantServiceImpl implements RestaurantService {
 		List search = restaurantDAO.searchRes(word);
 		return search;
 	}
+	
+	//페이지 테스트
+			@Override
+			public List<Map<String, Object>> selectResList(Criteria cri) throws Exception{
+			    return restaurantDAO.selectResList(cri);
+			}
+			@Override
+			public int countResListTotal() throws Exception{
+				return restaurantDAO.countResList();
+			}
 }

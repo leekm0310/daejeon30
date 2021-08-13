@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.dao.DataAccessException;
 
+import com.myspring.daejeon30.paging.Criteria;
 import com.myspring.daejeon30.restaurant.vo.RestaurantVO;
 
 public interface RestaurantService {
@@ -25,4 +26,9 @@ public interface RestaurantService {
 	
 	//검색
 	public List searchRes(String word) throws Exception;
+	
+	//페이지테스트
+		public List selectResList(Criteria cri) throws Exception;
+		public int countResListTotal() throws Exception;
+
 }
