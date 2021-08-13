@@ -58,10 +58,10 @@
 	]]>
 	</delete>
 	
-	<!-- 제목으로 검색 -->
+	<!-- 검색 -->
 	<select id="searchTitle" parameterType="java.util.Map" resultMap="boardqResult">
 	<![CDATA[
-	select * from qboard where #{sorting} like #{word}
+	select * from qboard where ${sorting} like concat('%',#{word},'%')
 	]]>
 	</select>
 	

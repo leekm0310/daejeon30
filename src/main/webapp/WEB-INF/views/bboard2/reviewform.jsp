@@ -4,6 +4,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <%
 	request.setCharacterEncoding("utf-8");
+	String resNum = request.getParameter("resNum");
 %>
 <!doctype html>
 <html lang="UTF-8">
@@ -52,6 +53,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		<!-- 제목 입력  -->
 		
 			<input class="form-control" name="id" id ="id" type="hidden" value="${member.id }">
+			<input class="form-control" name="resNum" id ="resNum" type="hidden" value="<%=resNum%>">
 			<input class="form-control" name="title" type="text" placeholder="제목을 입력해주세요.">
 		
 		<!-- 글 작성 -->

@@ -4,6 +4,7 @@ package com.myspring.daejeon30.rsvmember.controller;
 
 import org.springframework.ui.Model;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,10 +73,16 @@ public class RsvMemberControllerImpl implements RsvMemberController {
 		HttpSession session = request.getSession();
 		memberVO = (MemberVO)session.getAttribute("member");
 		String id = memberVO.getId();               
-		
+		Date dd = new Date(new Date().getTime()+1000*60*60*24*7);
+		Date now = new Date();
 		List rsvlist = rsvMemberService.listrsv(id);
+		
+	
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("rsvlist", rsvlist);
+		mav.addObject("now", now);
+		mav.addObject("dd", dd);
+
 		//System.out.print(rsvlist);
 		mav.setViewName("res1");
 		return mav;

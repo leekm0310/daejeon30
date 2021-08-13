@@ -14,6 +14,7 @@ public class Bboard2VO {
 	private int views;
 	private String id;
 	private String imageFileName;
+	private int resNum;
 	
 	public Bboard2VO() {
 		
@@ -60,6 +61,14 @@ public class Bboard2VO {
 	}
 	public void setImageFileName(String imageFileName) {
 		this.imageFileName = imageFileName;
+	}
+	
+	public int getResNum() {
+		return resNum;
+	}
+	
+	public void setResNum(int resNum) {
+		this.resNum=resNum;
 	}
 	
 	

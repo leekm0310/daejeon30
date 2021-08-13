@@ -17,8 +17,8 @@
 
  	<insert id="insertRsvMember" parameterType="rsvMemberVO">
 		<![CDATA[ 
-			insert into rsvMember(id, addInfo, rsvDate,rsvTime,guestNum, name,phone, resName) 
-			values(#{id},#{addInfo},#{rsvDate},#{rsvTime},#{guestNum}, #{name}, #{phone}, #{resName})
+			insert into rsvmember(id, addInfo, rsvDate,rsvTime,guestNum, name,phone, resName, resNum) 
+			values(#{id},#{addInfo},#{rsvDate},#{rsvTime},#{guestNum}, #{name}, #{phone}, #{resName}, #{resNum})
 		]]>
 	</insert>
 	

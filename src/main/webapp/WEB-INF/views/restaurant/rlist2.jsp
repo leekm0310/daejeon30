@@ -49,7 +49,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		
 		function fn_rsvForm(){
 			if('${isLogOn}' != '' && '${isLogOn}' != 'false'){
-				location.href = "${contextPath}/res/rsv2.do";
+				location.href = "${contextPath}/res/rsv2.do?resNum="+${res.resNum};
 			}else{
 			location.href = "${contextPath}/login2.do";
 			}

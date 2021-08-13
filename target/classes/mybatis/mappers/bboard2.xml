@@ -22,8 +22,8 @@
 	
 	<insert id="addreview" parameterType="java.util.Map">
 	<![CDATA[
-		insert into reviewboard(num, title, content, id, imageFileName)
-		values(#{num}, #{title}, #{content}, #{id}, #{imageFileName})
+		insert into reviewboard(num, title, content, id, imageFileName, resNum)
+		values(#{num}, #{title}, #{content}, #{id}, #{imageFileName}, #{resNum})
 	]]>
 	</insert>
 	

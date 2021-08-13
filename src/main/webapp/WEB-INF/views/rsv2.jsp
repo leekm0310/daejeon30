@@ -3,6 +3,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <%
 	request.setCharacterEncoding("utf-8");
+	String resNum = request.getParameter("resNum");
 %>
 <!doctype html>
 <html lang="UTF-8">
@@ -34,12 +35,14 @@
     	$("#name").attr("readonly",true);
     	$("#phone").attr("readonly",true);
     	$("#resName").attr("readonly",true);
+    
     	
     	// 경미님이 세션에 넣어놓은 로그인회원정보 가져와서 세팅
     	$("#id").val("${member.id}");
     	$("#name").val("${member.name}");
     	$("#phone").val("${member.phone}");
     	$("#resName").val("${resName1}");
+    	
  		
      //input을 datepicker로 선언
      $("#rsvDate").datepicker({
@@ -98,7 +101,7 @@
  <hr>
  <div class="wrap">
  	<form id="rsv2Form" method="post" action="${contextPath}/rsvMember/result1.do">
- 		 <!--<input id="resNum" name="resNum" type="hidden" value="${resNum}">-->
+ 		 <input id="resNum" name="resNum" type="hidden" value="<%=resNum%>">
  	
 		<div class="main-content">
 			<div class="container">

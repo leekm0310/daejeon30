@@ -193,8 +193,8 @@ public class BoardqControllerImpl implements BoardqController{
 	@RequestMapping(value="/boardq/searchTitle.do")
 	public ModelAndView searchTitle(String word1, String sorting1,
 			HttpServletRequest request, HttpServletResponse response) throws Exception{
-		String word = "%"+word1+"%";
-		System.out.print(sorting1);
+		//String word = "%"+word1+"%";
+		String word = word1;
 		Map map = new HashMap();
 		map.put("sorting", sorting1);
 		map.put("word", word);

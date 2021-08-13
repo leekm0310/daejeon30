@@ -85,9 +85,11 @@ public class RestaurantControllerImpl implements RestaurantController {
 		
 		RestaurantVO mm = (RestaurantVO) resMap.get("res");
 		String mm2=mm.getResName();
+		int rnum = mm.getResNum();
 		//System.out.print(mm2);
 		
 		Cookie cookie = new Cookie ("resName", mm2);
+	
 		cookie.setPath("/");
 		cookie.setMaxAge(3600);
 		

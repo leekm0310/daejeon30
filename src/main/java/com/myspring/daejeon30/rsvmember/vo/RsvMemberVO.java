@@ -14,9 +14,10 @@ public class RsvMemberVO{
 	private String guestNum;
 	private String id; 
 	private String status;
-	private Integer resNum;
+	private int resNum;
 	private String resPhone;
 	private String resName;
+
 
 	
 	public RsvMemberVO() {
@@ -87,10 +88,10 @@ public class RsvMemberVO{
 	public void setId(String id) {
 		this.id = id;
 	}
-	public Integer getResNum() {
+	public int getResNum() {
 		return resNum;
 	}
-	public void setResNum(Integer resNum) {
+	public void setResNum(int resNum) {
 		this.resNum = resNum;
 	}
 	public String getResPhone() {

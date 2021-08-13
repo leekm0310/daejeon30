@@ -3,6 +3,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
+
 <%
 	request.setCharacterEncoding("utf-8");
 %>
@@ -149,6 +150,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		<th>인원</th>
 		<th>처리상태</th>
 		<th>선택</th>
+		
 	</tr>
 	</thead>
 	<tbody>
@@ -163,16 +165,25 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		<td>${r.resName }</td>
 		<td>${r.guestNum}</td>
 		<td>${r.status }</td>
+		<td>${today }
+
 		
-		
-		<c:if test="${r.status == '예약요청중' }">
-		<td width="200"><button onclick="location.href='${contextPath}/rsv/cancelRsv.do?rsvNum=${r.rsvNum}'" class="btn btn-outline-danger btn-sm">취소하기</button></td>
+		<fmt:formatDate var="Rday" value="${dd}" pattern="yyyy-MM-dd"/>
+		<fmt:formatDate var="today" value="${now}" pattern="yyyy-MM-dd"/>
+
+		<c:if test="${r.status == '예약요청중'}">
+		<td width="200"><button onclick="location.href='${contextPath}/rsv/cancelRsv.do?rsvNum=${r.rsvNum}'" class="btn btn-outline-secondary btn-sm">취소하기</button></td>
 		</c:if>
 	
-		<c:if test="${r.status == '예약완료' }">
+		<c:if test="${r.status == '예약완료' && Rday <= r.rsvDate}">
 		<td width="200"><button onclick="location.href='${contextPath}/rsv/selectOne.do?rsvNum=${r.rsvNum}'" class="btn btn-outline-success btn-sm">변경하기</button>
-		<button onclick="location.href='${contextPath}/rsv/cancelRsv.do?rsvNum=${r.rsvNum}'" class="btn btn-outline-danger btn-sm">취소하기</button></td>
+		<button onclick="location.href='${contextPath}/rsv/cancelRsv.do?rsvNum=${r.rsvNum}'" class="btn btn-outline-secondary btn-sm">취소하기</button></td>
 		</c:if>
+		
+		<c:if test="${r.status == '예약완료' && today >= r.rsvDate}">
+		<td width="200"><button onclick="location.href='${contextPath}/reviewform.do?resNum=${r.resNum}'" class="btn btn-outline-secondary btn-sm">후기작성</button>
+		</c:if>
+		
 		<c:if test="${r.status == '취소완료' }">
 		</c:if>
 		
