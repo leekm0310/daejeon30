@@ -65,5 +65,12 @@
 	]]>
 	</select>
 	
+	<!-- 아이디별 문의글 검색 -->
+	<select id="searchbyId" parameterType="String" resultMap="boardqResult">
+	<![CDATA[
+	select * from qboard where id = #{id}
+	]]>
+	</select>
+	
 	
 </mapper>

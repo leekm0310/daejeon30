@@ -21,4 +21,7 @@ public interface BoardqDAO{
 	public List<QcommentVO> allcomments(int num) throws Exception;
 	//제목검색
 	public List searchTitle(Map map) throws DataAccessException;
+	
+	//아이디별 문의글 - 마이페이지
+	public List searchbyId(String id)throws DataAccessException;
 }

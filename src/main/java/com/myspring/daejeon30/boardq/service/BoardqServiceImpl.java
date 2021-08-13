@@ -58,4 +58,9 @@ public class BoardqServiceImpl implements BoardqService{
 	public List searchTitle(Map map) throws Exception{
 		return boardqDAO.searchTitle(map);
 	}
+	//아이디별 문의글 - 마이페이지
+	@Override
+	public List searchbyId(String id)throws Exception{
+		return boardqDAO.searchbyId(id);
+	}
 }

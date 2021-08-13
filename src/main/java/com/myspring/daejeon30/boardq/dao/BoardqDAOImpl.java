@@ -60,4 +60,9 @@ public class BoardqDAOImpl implements BoardqDAO{
 	public List searchTitle(Map map) throws DataAccessException{
 		return sqlSession.selectList("mapper.boardq.searchTitle", map);
 	}
+	
+	//아이디별 문의글 - 마이페이지
+	public List searchbyId(String id)throws DataAccessException{
+		return sqlSession.selectList("mapper.boardq.searchbyId", id);
+	}
 }
