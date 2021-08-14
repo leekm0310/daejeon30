@@ -134,10 +134,6 @@ public class HomeController {
 		return "rsvnonView";
 	}
 	
-	@RequestMapping(value="/adminRes.do", method=RequestMethod.GET)
-	public String adminRes(Locale locale, Model model) {
-		return "adminRes";
-	}
 	
 	@RequestMapping(value="/addRes.do", method=RequestMethod.GET)
 	public String addRes(Locale locale, Model model) {
@@ -170,21 +166,12 @@ public class HomeController {
 		return "writeform1";
 	}
 	
-	@RequestMapping(value="/faq.do", method=RequestMethod.GET)
-	public String faq(Locale locale, Model model) {
-		return "faq";
-	}
 	
 	@RequestMapping(value="/viewOne.do", method=RequestMethod.GET)
 	public String viewOne(Locale locale, Model model) {
 		return "viewOne";
 	}
 	
-	@RequestMapping(value="/reviewlist.do", method=RequestMethod.GET)
-	public String reviewlist(Locale locale, Model model) {
-		return "reviewlist";
-	}
-
 	//문의게시판 비밀번호 확인
 	@RequestMapping(value="/passthro.do", method=RequestMethod.GET)
 	public String passthro(Locale locale, Model model) {

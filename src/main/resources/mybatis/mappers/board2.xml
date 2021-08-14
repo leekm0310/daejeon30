@@ -36,10 +36,17 @@
 	 	]]>
 	</insert>
 	
-	<!-- 글번호 -->
+	<!-- 글번호 
 	<select id="selectNewBoardNO" resultType="int">
 	 	<![CDATA[
 	 	select max(rb_num)+1 
+	 	from recboard
+	 	]]>
+	</select>-->
+	
+	<select id="selectNewBoardNO" resultType="int">
+	 	<![CDATA[
+	 	select ifnull(max(rb_num), 0)+1 
 	 	from recboard
 	 	]]>
 	</select>

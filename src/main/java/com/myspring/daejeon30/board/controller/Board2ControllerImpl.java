@@ -274,7 +274,7 @@ public class Board2ControllerImpl implements Board2Controller {
 		return resEnt;
 	}
 	
-	@RequestMapping(value = "/board/listPage.do", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/board/listPage.do", method = RequestMethod.GET)
 	@ResponseBody
 	public ModelAndView getListPage(HttpServletRequest request, HttpServletResponse reponse,
 									@RequestParam("num") int num) throws Exception {
@@ -330,7 +330,7 @@ public class Board2ControllerImpl implements Board2Controller {
 		 
 	
 	}
-	
+	*/
 
 	
 	
