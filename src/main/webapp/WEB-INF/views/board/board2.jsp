@@ -61,23 +61,20 @@
 						<c:choose>
 							<c:when test="${empty board2list}">
 								<tr>
-									<td colspan="5" align="center">데이터가 없습니다</td>
+									<td align="center">작성된 글이 없습니다</td>
 								</tr>
+					
 							</c:when>
+							
 							<c:when test="${!empty board2list}">
 								<c:forEach var="list" items="${board2list}">
 									<tr>
 										<td>${list.rb_num}</td>
 										<td>
-										
-											<a class="nav-link link-light px-2 text-dark" href="${contextPath}/board/view_r.do?
-															boardNO=${list.rb_num}">${list.rb_title}</a>
-										
-										
+										<a class="nav-link link-light px-2 text-dark" href="${contextPath}/board/view_r.do?boardNO=${list.rb_num}">${list.rb_title}</a>
 										</td>
 										<td>${list.id}</td>
-										<td><fmt:formatDate pattern="yyyy-MM-dd"
-												value="${list.rb_date}" /></td>
+										<td><fmt:formatDate pattern="yyyy-MM-dd" value="${list.rb_date}" /></td>
 										<td>${list.rb_views}</td>
 									</tr>
 								</c:forEach>
@@ -85,40 +82,6 @@
 						</c:choose>
 					</tbody>
 				</table>
-				
-
-				
-				<ul class="btn-group pagination">
-    <c:if test="${pageMaker.prev }">
-    <li>
-        <a href='<c:url value="/board2.do?page=${pageMaker.startPage-1 }"/>'><i class="fa fa-chevron-left"></i></a>
-    </li>
-    </c:if>
-    
-    <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="pageNum">
-    <li>
-        <a href='<c:url value="/board2.do?page=${pageNum }"/>'><i class="fa">${pageNum }</i></a>
-    </li>
-    </c:forEach>
-    
-    <c:if test="${pageMaker.next && pageMaker.endPage >0 }">
-    <li>
-     	<a href='<c:url value="/board2.do?page=${pageMaker.endPage+1 }"/>'><i class="fa fa-chevron-right"></i></a>
-       <!--  <a href='<c:url value="/board/boardList?page=${pageMaker.endPage+1 }"/>'><i class="fa fa-chevron-right"></i></a> -->
-    </li>
-    </c:if>
-</ul>
-
-			
-
-===============================================================
-				
-				
-				
-				
-				
-				
-				
 				
 				
 				
@@ -149,12 +112,11 @@
 				
 
 				<!-- 글쓰기 버튼 -->
-				<div class="row justify-content-end ">
-				<button type="button" class="btn btn-danger " style="width: 100px;" 
-					onclick='location.href="javascript:fn_writeform(${isLogOn},'${contextPath}/board/writeform.do','${contextPath}/login.do')"'>글쓰기
+				<div class="row justify-content-end" >
+					<a class="btn btn-danger" style="width:100;"href="javascript:fn_writeform('${isLogOn}','${contextPath}/board/writeform.do','${contextPath}/login.do')">글쓰기</a>
 				</div>
 				
-				<a class="cls1" href="javascript:fn_writeform('${isLogOn}','${contextPath}/board/writeform.do','${contextPath}/login.do')"><p class="cls2">글쓰기</p></a>
+				
 
 
 

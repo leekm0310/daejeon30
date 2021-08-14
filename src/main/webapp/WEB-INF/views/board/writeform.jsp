@@ -82,13 +82,6 @@ request.setCharacterEncoding("UTF-8");
 
 							<div class="col g-0 bg-light position-relative">
 								<div class="input-group">
-
-									<button class="btn btn-danger" type="button"
-										style="float: right;">
-										<a class="nav-link link-light px-2 py-1" type="submit" onClick="backToList(this.form)" align="right">등록하기</a>
-									</button>
-
-
 								</div>
 								<br>
 
@@ -110,12 +103,15 @@ request.setCharacterEncoding("UTF-8");
 								<img id="preview" src="#" width=200 height=200 />
 								<input type="button" value="파일추가" onClick="fn_addFile()" />
 							</div>
-						</div>
-						 <div class="text001">
-							<input type="submit" value="글쓰기" />
-							<input type="button" value="목록보기" onClick="backToList(this.form)" />
+							 <div class="row justify-content-end" >
+							<input class="btn btn-danger" type="submit"  style="width:100;" value="글쓰기" />
+							<input class="btn btn-danger" style="width:100;" value="목록보기" onClick="backToList(this.form)" />
 						</div> 
+						</div>
+						
 					</div>
+					
+					
 					<div class="col-sm-2"></div>
 					<br>
 

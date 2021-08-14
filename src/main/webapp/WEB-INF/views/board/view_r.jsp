@@ -88,7 +88,7 @@
 			<div class="container">
 				<div class="dark border">
 					<!-- 테두리 안 -->
-					<div class="col g-0 bg-light position-relative">
+					<div class="col g-0 position-relative">
 						<!-- 간격조절 -->
 						<div class="col md-0 p-md-4">
 							<!-- 간격조절 -->

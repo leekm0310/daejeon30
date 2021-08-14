@@ -33,7 +33,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		
 		<table class="table table-hover">
 			<thead>
-				<tr>
+				<tr style="color:orange;">
 					<th>번호</th>
 					<th>제목</th>
 					<th>작성자</th>
