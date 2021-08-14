@@ -13,4 +13,5 @@ public interface BoardqController{
 	public ModelAndView qnaList(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public String addQna(@ModelAttribute("boardqVO") BoardqVO boardqVO,HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView adminQna(@RequestParam("num") int num, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public ModelAndView myQna(HttpServletRequest request, HttpServletResponse response) throws Exception;
 }

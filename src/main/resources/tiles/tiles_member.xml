@@ -48,4 +48,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/mymain1.jsp" />
 	</definition>
 	
+	<definition name="myboard" extends="baseLayout">
+		<put-attribute name="title" value="내 게시물 관리" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/myMenubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/myboard1.jsp" />
+	</definition>
+	
 </tiles-definitions>

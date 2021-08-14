@@ -145,7 +145,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 								<a class="dropdown-item" href="${contextPath}/favo/list1.do">찜한 리스트</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="./myboard1.jsp">내 게시판</a>
+								<a class="dropdown-item" href="${contextPath}/mypage/myqna.do">내 게시판</a>
 							</li>
 						</ul>
 					</div>

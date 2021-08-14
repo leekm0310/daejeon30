@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 pageEncoding="utf-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,38 +16,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
   
 <title>내 게시물 관리</title>
 
- <!-- 전체 레이아웃 -->
-	<style type="text/css">
-
-		.html, .body {
-		
-			margin: 0;
-		
-			padding: 0;
-		
-			height: 100%;
-		}	
-		
-		.wrap {
-		min-height: 100%;
-		position: relative;
-		
-		}
-		.main-content {
-		
-			min-height: 100%;
-
-		}	
-		.container {
-		
-			padding:0 0 2% 0;	
-		} 
-		.footer{
-		position:fixed;
-		bottom: 0;
-		width:100%;
-		}
-		</style>
   	
  
  <!-- 체크박스 관련 제이쿼리문 전체선택/전체해제, 삭제경고창-->
@@ -71,38 +45,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
  	<div class="main-content">
 	<div class="container" >
 
-<!-- 로컬네비게이션 -->
-<hr>
-  <div class="btn-group">
-  <button class="btn btn-outline-danger" type="button" id="defaultDropdown" onclick="location.href='./mymain1.jsp'"aria-expanded="false">
-    마이페이지
-  </button>
-</div>
 
-<div class="btn-group">
-  <button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./modify1.jsp'" aria-expanded="false">
-   회원정보수정
-  </button>
-</div>
-
-<div class="btn-group">
-  <button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./res1.jsp'" aria-expanded="false">
-    예약내역
-  </button>
-</div>
-
-<div class="btn-group">
-  <button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./like1.jsp'" aria-expanded="false">
-    찜한리스트
-  </button>
-</div>
-
-<div class="btn-group">
-  <button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./myboard1.jsp'" aria-expanded="false">
-    내 게시판
-  </button>
-</div>
-<hr>
 
 <br>
 <br>
@@ -122,32 +65,26 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	</thead>
 	<tbody>
 	<tr>
-		<td><input type="checkbox" id="chk" name="chk" style="width:20px;height:20px;"/></td>
-		<td>1</td>
-		<td>테스트입니다</td>
-		<td>테스트</td>
-		<td>2021.06.07</td>
+	<c:choose>
+			<c:when test="${!empty myqna }">
+			<c:forEach var="qna" items="${myqna }" varStatus="num">
+			<tr>
+			<td>${num.index+1}</td>
+			<td><a href="${contextPath}/passthro.do?num=${qna.num }">${qna.title }</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+ 			 	<path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+				</svg></td>
+			<td><!--  <a href="${contextPath}/boardq/viewQna.do?num=${qna.num }">-->${qna.name }</a></td>
+			<td>${qna.date }</td>
+			</tr>
+			</c:forEach>
+			</c:when>
+			</c:choose>
+		
+		
 		<td class="button"><a href="#" onclick="location.href='./writeform1.jsp'" class="btnBasic">수정하기</a><br>
 		<a href="#" onclick="del();" class="btnBasic">삭제하기</a></td>
 	</tr>
-		<tr>
-		<td><input type="checkbox" id="chk" name="chk" style="width:20px;height:20px;"/></td>
-		<td>2</td>
-		<td>테스트입니다2</td>
-		<td>테스트</td>
-		<td>2021.06.07</td>
-		<td class="button"><a href="#" onclick="location.href='./writeform1.jsp'" class="btnBasic">수정하기</a><br>
-		<a href="#" onclick="del();" class="btnBasic">삭제하기</a></td>
-	</tr>
-		<tr>
-		<td><input type="checkbox" id="chk" name="chk" style="width:20px;height:20px;"/></td>
-		<td>3</td>
-		<td>테스트입니다3</td>
-		<td>테스트</td>
-		<td>2021.06.07</td>
-		<td class="button"><a href="#" onclick="location.href='./writeform1.jsp'" class="btnBasic">수정하기</a><br>
-		<a href="#" onclick="del();" class="btnBasic">삭제하기</a></td>
-	</tr>
+
 	</tbody>
 </table>
 

@@ -189,7 +189,7 @@ public class BoardqControllerImpl implements BoardqController{
 	}
 	
 	
-	//검색 미완
+	//검색
 	@RequestMapping(value="/boardq/searchTitle.do")
 	public ModelAndView searchTitle(String word1, String sorting1,
 			HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -207,6 +207,19 @@ public class BoardqControllerImpl implements BoardqController{
 		return mav;
 	}
 
-	
+	//아이디별 문의글 - 마이페이지
+	@Override
+	@RequestMapping(value="/mypage/myqna.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView myQna(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		HttpSession session = request.getSession();
+		MemberVO mem= (MemberVO)session.getAttribute("member");
+		String id = mem.getId();
+		List myqna = boardqService.searchbyId(id);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("myqna", myqna);
+		mav.setViewName("myboard");
+		return mav;
+		
+	}
 	
 }
