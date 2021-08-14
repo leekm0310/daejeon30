@@ -48,6 +48,12 @@ public class Bboard2ServiceImpl implements Bboard2Service{
 		return bboard2DAO.selectedReview(resNum);
 	}
 	
+	//아이디별 리뷰검색
+	@Override
+	public List reviewById(String id)throws Exception{
+		return bboard2DAO.reviewById(id);
+	}
+	
 	//페이지 테스트
 		@Override
 		public List<Map<String, Object>> selectReviewList(Criteria cri) throws Exception{

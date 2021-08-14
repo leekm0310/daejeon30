@@ -39,7 +39,7 @@ request.setCharacterEncoding("utf-8");
 			</div>
 			
 			<div class="btn-group">
-			  <button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='./myboard1.jsp'" aria-expanded="false">
+			  <button class="btn btn-outline-danger" type="button" id="dropdownMenuClickableOutside" onclick="location.href='${contextPath}/mypage/myqna.do'" aria-expanded="false">
 			    내 게시판
 			  </button>
 			</div>

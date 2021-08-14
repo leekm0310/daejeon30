@@ -84,6 +84,13 @@
 		select ifnull(max(num), 0)+1 from reviewboard
 	]]>
 	</select>
+	
+	<!-- 아이디별 리뷰 검색 -->
+	<select id="reviewById" parameterType="String" resultType="java.util.Map">
+	<![CDATA[
+		select * from reviewboard where id = #{id}
+	]]>
+	</select>
 
 
 

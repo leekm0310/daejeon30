@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.myspring.daejeon30.bboard2.service.Bboard2Service;
 import com.myspring.daejeon30.boardq.service.BoardqService;
 import com.myspring.daejeon30.boardq.vo.BoardqVO;
 import com.myspring.daejeon30.member.vo.MemberVO;
@@ -36,6 +37,8 @@ public class BoardqControllerImpl implements BoardqController{
 	private BoardqVO boardqVO;
 	@Autowired
 	private QcommentService qcommentService;
+	@Autowired
+	private Bboard2Service bboard2Service;
 	
 	@Override
 	@RequestMapping(value="/boardq/qna.do", method = {RequestMethod.GET, RequestMethod.POST})
@@ -207,7 +210,7 @@ public class BoardqControllerImpl implements BoardqController{
 		return mav;
 	}
 
-	//아이디별 문의글 - 마이페이지
+	//아이디별 문의글 리뷰글 - 마이페이지
 	@Override
 	@RequestMapping(value="/mypage/myqna.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView myQna(HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -215,8 +218,10 @@ public class BoardqControllerImpl implements BoardqController{
 		MemberVO mem= (MemberVO)session.getAttribute("member");
 		String id = mem.getId();
 		List myqna = boardqService.searchbyId(id);
+		List myreview = bboard2Service.reviewById(id);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("myqna", myqna);
+		mav.addObject("myreview", myreview);
 		mav.setViewName("myboard");
 		return mav;
 		

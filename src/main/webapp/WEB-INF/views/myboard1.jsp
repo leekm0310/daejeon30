@@ -55,8 +55,9 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	<table class="table table-hover">
 	<thead>
 	<tr>
-		<th><input type="checkbox" id="checkall" onclick="checkAll();" style="width:20px;height:20px;"/></th>
+		<!-- <th><input type="checkbox" id="checkall" onclick="checkAll();" style="width:20px;height:20px;"/></th> -->
 		<th>번호</th>
+		<th>분류</th>
 		<th>제목</th>
 		<th>작성자</th>
 		<th>날짜</th>
@@ -70,6 +71,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			<c:forEach var="qna" items="${myqna }" varStatus="num">
 			<tr>
 			<td>${num.index+1}</td>
+			<td>문의</td>
 			<td><a href="${contextPath}/passthro.do?num=${qna.num }">${qna.title }</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
  			 	<path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
 				</svg></td>
@@ -79,10 +81,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			</c:forEach>
 			</c:when>
 			</c:choose>
-		
-		
-		<td class="button"><a href="#" onclick="location.href='./writeform1.jsp'" class="btnBasic">수정하기</a><br>
-		<a href="#" onclick="del();" class="btnBasic">삭제하기</a></td>
 	</tr>
 
 	</tbody>
@@ -92,6 +90,33 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <div class="row justify-content-end">
 <button type="button" class="btn btn-danger" style="width:100px;" onclick="del();">삭제하기</button>
 </div>
+
+
+
+
+ <!-- 카드리스트 -->
+<div class="row row-cols-1 row-cols-md-4 g-4">
+<c:choose>
+<c:when test="${!empty myreview }">
+<c:forEach var="review" items="${myreview }">
+ <div class="col">
+    <div class="card h-100">
+      <img src="${contextPath}/downloadreview.do?num=${review.num}&imageFileName=${review.imageFileName}" class="card-img-top" width="310" height="310" alt="${review.imageFileName}">
+      <div class="card-body">
+        <h5 class="card-title">${review.title }</h5>
+        <p class="card-text ellipsis">${review.content }</p>
+     	<button type="button" class="btn btn-danger" onclick="location.href='${contextPath}/bboard2/oneReview.do?num=${review.num}'">읽기</button>
+      </div>
+    </div>
+  </div>
+</c:forEach>
+</c:when>
+</c:choose>
+
+    
+  </div>
+
+
 
 <!-- 페이지번호 -->
 <div class ="row">

@@ -20,4 +20,7 @@ public interface Bboard2DAO{
 	//페이지
 	public List selectReviewList(Criteria cri) throws Exception;
 	public int countReviewList()throws Exception;
+	
+	//아이디별 리뷰검색
+	public List reviewById(String id)throws Exception;
 }

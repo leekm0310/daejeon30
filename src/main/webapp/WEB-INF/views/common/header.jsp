@@ -70,7 +70,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			 	<div class="col-md-12" align=center>
 			 	
 			 	<!-- 메뉴바 -->
-			 	<search class="d-flex justify-content-center py-3">
+			 	<div class="d-flex justify-content-center py-3">
 				<ul class="nav nav-pills">
 					<div class="dropdown">
 						<a class="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">

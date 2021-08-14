@@ -19,5 +19,7 @@ public interface Bboard2Service{
 	//페이지테스트
 	public List selectReviewList(Criteria cri) throws Exception;
 	public int countReviewListTotal() throws Exception;
-
+	
+	//아이디별 리뷰검색
+	public List reviewById(String id)throws Exception;
 }
