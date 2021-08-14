@@ -145,10 +145,10 @@ public class HomeController {
 		return "viewRes";
 	}
 	
-	@RequestMapping(value="/like1.do", method=RequestMethod.GET)
+	/*@RequestMapping(value="/like1.do", method=RequestMethod.GET)
 	public String like1(Locale locale, Model model) {
 		return "like1";
-	}
+	}*/
 	
 	@RequestMapping(value="/adminrsv.do", method=RequestMethod.GET)
 	public String adminrsv(Locale locale, Model model) {
