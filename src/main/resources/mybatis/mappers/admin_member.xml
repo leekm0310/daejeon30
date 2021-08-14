@@ -51,6 +51,15 @@
 	]]>
 	</select>
 	
+	 	
+ 	<!-- 회원검색  -->
+ 	<select id="searchMember" parameterType="java.util.Map" resultType="java.util.Map">
+ 	<![CDATA[
+ 	select * from member where ${sorting} like concat('%',#{word},'%')
+ 	]]>
+ 	</select>
+	
+	
 	
 	
 </mapper>

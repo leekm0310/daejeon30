@@ -68,4 +68,6 @@
 		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/adminMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/admin/adminBoard.jsp" />
 	</definition>
+	
+
 </tiles-definitions>

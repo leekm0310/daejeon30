@@ -1,6 +1,7 @@
 package com.myspring.daejeon30.admin.member.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,11 @@ public class AdminMemberDAOImpl implements AdminMemberDAO{
 	public List selectMemType(String memType)throws DataAccessException{
 		List memTypeList = sqlSession.selectList("mapper.admin.member.selectMemType", memType);
 		return memTypeList;
+	}
+	
+	//회원검색
+	@Override
+	public List searchMember(Map map) throws DataAccessException{
+		return sqlSession.selectList("mapper.admin.member.searchMember", map);
 	}
 }

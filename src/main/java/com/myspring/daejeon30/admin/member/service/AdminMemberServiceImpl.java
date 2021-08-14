@@ -1,6 +1,7 @@
 package com.myspring.daejeon30.admin.member.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,10 @@ public class AdminMemberServiceImpl implements AdminMemberService{
 	public List selectMemType(String memType)throws Exception{
 		List memTypeList = adminMemberDAO.selectMemType(memType);
 		return memTypeList;
+	}
+	//회원검색
+	@Override
+	public List searchMember(Map map) throws Exception{
+		return adminMemberDAO.searchMember(map);
 	}
 }

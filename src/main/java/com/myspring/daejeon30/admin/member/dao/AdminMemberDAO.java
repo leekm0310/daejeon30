@@ -1,6 +1,7 @@
 package com.myspring.daejeon30.admin.member.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.dao.DataAccessException;
 
@@ -12,4 +13,7 @@ public interface AdminMemberDAO {
 	public MemberVO oneMem(String id) throws DataAccessException;
 	public void updateMem(MemberVO mem) throws DataAccessException;
 	public List selectMemType(String memType) throws DataAccessException;
+	
+	//회원검색
+	public List searchMember(Map map) throws DataAccessException;
 }

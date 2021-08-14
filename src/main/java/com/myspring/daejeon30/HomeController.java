@@ -193,6 +193,11 @@ public class HomeController {
 		return "nonrsv";
 	}
 	
+	@RequestMapping(value="/adminMenu.do", method=RequestMethod.GET)
+	public String adminMenu(Locale locale, Model model) {
+		return "adminMenu";
+	}
+	
 
 
 	/**

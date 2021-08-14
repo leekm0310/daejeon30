@@ -38,7 +38,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 
 <!-- 검색바 -->
 <div style="width:250px">
-				<form class="d-flex" action="${contextPath}/boardq/searchTitle.do" method="post">
+				<form class="d-flex" action="${contextPath}/admin/searchMember.do" method="post">
 				<select style="border: 1px solid lightgrey;" name="sorting1">
 				  <option value="id" selected >아이디</option>
 				  <option value="name" >이름</option>

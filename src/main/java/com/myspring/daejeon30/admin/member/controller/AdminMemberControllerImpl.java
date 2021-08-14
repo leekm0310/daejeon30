@@ -1,6 +1,8 @@
 package com.myspring.daejeon30.admin.member.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -76,4 +78,24 @@ public class AdminMemberControllerImpl implements AdminMemberController{
 		return mav;
 		
 	}
+	
+	
+	//회원검색
+	@RequestMapping(value="/admin/searchMember.do")
+	public ModelAndView searchMember(String word1, String sorting1, 
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String word = word1;
+		Map map = new HashMap();
+		map.put("sorting", sorting1);
+		map.put("word", word);
+		System.out.print(map);
+		List search = adminMemberService.searchMember(map);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("memList", search);
+		mav.setViewName("listMem");
+		return mav;
+	
+	}
+	
+	
 }

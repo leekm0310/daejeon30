@@ -18,4 +18,5 @@ public interface AdminMemberController{
 			HttpServletRequest request, HttpServletResponse response)throws Exception;
 	public ModelAndView selectMemType(@RequestParam("memType") String memType, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
+	
 }
