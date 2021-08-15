@@ -25,11 +25,15 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	<div class="main-content">	 
 	
 	<div class="container">
+		
+	<div class="row" style="text-align: center; margin: 50 auto; ">
+		<H3>문의게시판</H3>
+		<br><hr style="width:300; margin:auto;"><br>
+		<p>해당되는 카테고리를 설정 후 문의 부탁드립니다.<br></p>
+		<BR><BR>
+	</div>	
 	
-		<br>
-		<H1>문의게시판</H1>
-		<br>
-		<br>
+	
 		
 		<table class="table table-hover">
 			<thead>

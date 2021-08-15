@@ -12,6 +12,12 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- Bootstrap CSS -->
+	<style>
+	div#form_wrapper{
+	position:absolute;
+	left: 30%;
+	}
+	</style>
 	
 	<title>확인</title>
 </head>
@@ -23,7 +29,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	 
 	<div class="main-content">	 
 	
-	<div class="container">
+	<div id=form_wrapper>
  <form name="passck" action="${contextPath}/boardq/passthro.do?" method="post" >
         <div class="pwbox" style="border:1px solid lightgrey; padding:10px; padding-top: 100px; width:400px; height:300px;">
             <p style="text-align: center; color:grey;">

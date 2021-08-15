@@ -12,6 +12,17 @@ request.setCharacterEncoding("utf-8");
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!-- Bootstrap core CSS -->
+<link href="/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#7952b3">
     
    
 	<title>메인</title>
@@ -38,6 +49,21 @@ request.setCharacterEncoding("utf-8");
 		  -o-transform: scale(1.2);
 		}
 		.img {width:325px; height:280px; overflow:hidden } 
+		
+		
+	   .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
 		
 
 	</style>
@@ -104,7 +130,7 @@ request.setCharacterEncoding("utf-8");
 <br>
 <hr>
 <!-- 상품 카드부분 -->  	
-<p align=center>-- 인기맛집 --</p>			
+<p align=center style="color:grey;">-- 인기맛집 --</p>			
 <div class="row row-cols-1 row-cols-md-4 g-4">
 <c:choose>
 <c:when test="${!empty resList}">
@@ -146,10 +172,46 @@ request.setCharacterEncoding("utf-8");
 <hr>
 
 
+<!--  test  -->
+<!-- Three columns of text below the carousel -->
+<div class="container marketing">
+    <div class="row" style=" margin:auto;">
+      <div class="col-4" style=" display:inline-block;zoom:1;.display:inline;">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">대전관광</text></svg>
+
+        <h2>대전관광</h2>
+        <p>S</p>
+        <p><a class="btn btn-secondary" href="https://www.daejeon.go.kr/tou/index.do">View details &raquo;</a></p>
+        
+      </div><!-- /.col-lg-4 -->
+      <div class="col-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2>H</h2>
+        <p>A</p>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2>H</h2>
+        <p>A</p>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+</div>
+
+
+
+
+
+
+
+
+
+
 <!-- 본문 - 방문후기부 -->
 <p align=center>-- 방문후기 --</p>
-
-
 
 
 <!-- 카드리스트 -->

@@ -78,10 +78,10 @@ pageEncoding="utf-8" isELIgnored="false" %>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 							<li>
-								<a class="dropdown-item" href="./intro.jsp">페이지 소개</a>
+								<a class="dropdown-item" href="${contextPath}/intro.do">페이지 소개</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="./sitemap.jsp">사이트맵</a>
+								<a class="dropdown-item" href="${contextPath}/sitemap.do">사이트맵</a>
 							</li>			 
 						</ul>
 					</div>&nbsp;

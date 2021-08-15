@@ -39,6 +39,14 @@ request.setCharacterEncoding("utf-8");
   
   <div class="main-content">
 	<div class="container">
+	
+	<div class="row" style="text-align: center; margin: 50 auto; ">
+		<H3>리뷰게시판</H3>
+		<br><hr style="width:300; margin:auto;"><br>
+		<p>대슐랭가이드를 통해 방문한 맛집 리뷰를 남기는 공간입니다.<br>
+		매월 소중한 리뷰를 작성해주신 분들 중 추첨을 통해 소정의 사은품을 드립니다!</p>
+		<BR><BR>
+	</div>	
 	<br>
 <br>
 

@@ -43,9 +43,12 @@
 		<div class="main-content">
 			<div class="container">
 
-				
-				<H1>추천 게시판</H1>
-				<BR> <BR>
+	<div class="row" style="text-align: center; margin: 50 auto; ">
+		<H3>추천게시판</H3>
+		<br><hr style="width:300; margin:auto;"><br>
+		<p>대전의 맛집들을 자유롭게 올려주세요.<br></p>
+		<BR><BR>
+	</div>	
 
 				<table class="table table-hover">
 					<thead>

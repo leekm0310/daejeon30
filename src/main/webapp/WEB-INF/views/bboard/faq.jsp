@@ -13,14 +13,17 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	
+	<style>
+
+	</style>
 </head>
 <body>
 
 	
 	<div class="container" style=margin-bottom:300px;>
-	<div style="text-align: center;">
+	<div class="row" style="text-align: center; margin: 50 auto; ">
 		<H2>FAQ</H2>
-		<br>
+		<br><hr style="width:300; margin:auto;"><br>
 		<p>자주 묻는 질문들에 대한 답변을 모아둔 공간입니다.<br>
 		추가로 문의 사항이 있을 경우에는 문의 게시판을 이용해주세요.</p>
 		<BR><BR>
@@ -45,19 +48,9 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		  </c:forEach>
 		</c:when>
 	</c:choose>
-	
-	
-
  
 </div>
-		
-		
 		<br>
-		
-		
-		
-		
-	
 	</div>
 	
 	

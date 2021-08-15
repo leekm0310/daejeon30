@@ -198,6 +198,16 @@ public class HomeController {
 		return "adminMenu";
 	}
 	
+	@RequestMapping(value="/intro.do", method=RequestMethod.GET)
+	public String intro(Locale locale, Model model) {
+		return "intro";
+	}
+	
+	@RequestMapping(value="/sitemap.do", method=RequestMethod.GET)
+	public String sitemap(Locale locale, Model model) {
+		return "sitemap";
+	}
+	
 
 
 	/**

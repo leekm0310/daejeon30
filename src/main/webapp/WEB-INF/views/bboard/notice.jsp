@@ -27,10 +27,12 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	
 	<div class="container">
 	
-		<br>
-		<H1>공지사항</H1>
-		<br>
-		<br>
+	<div class="row" style="text-align: center; margin: 50 auto; ">
+		<H3>공지사항</H3>
+		<br><hr style="width:300; margin:auto;"><br>
+		<p>공지사항입니다.<br></p>
+		<BR><BR>
+	</div>	
 		
 		<table class="table table-hover">
 			<thead>
