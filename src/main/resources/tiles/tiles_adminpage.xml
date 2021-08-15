@@ -5,16 +5,16 @@
 	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
 		<put-attribute name="title" value="" />
 		<put-attribute name="header" value="" />
-		<put-attribute name="localmenu" value="" />
+		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/adminMenu.jsp" />
 		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+		<put-attribute name="footer" value="" />
 	</definition>
 	
 	
 	
 	<definition name="adminMenu" extends="baseLayout">
-		<put-attribute name="title" value="게시판 관리" />
-		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/adminMenu.jsp" />
-		<put-attribute name="body" value="" />
+		<put-attribute name="title" value="게시판 관리" />	
+		
+		<put-attribute name="body" value="/WEB-INF/views/admin/adminBoard.jsp" />
 	</definition>
 </tiles-definitions>
