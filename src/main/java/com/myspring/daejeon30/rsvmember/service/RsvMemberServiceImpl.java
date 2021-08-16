@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Propagation;
 
+import com.myspring.daejeon30.paging.Criteria;
 import com.myspring.daejeon30.rsvmember.dao.RsvMemberDAO;
 import com.myspring.daejeon30.rsvmember.vo.RsvMemberVO;
 
@@ -56,4 +57,17 @@ public class RsvMemberServiceImpl implements RsvMemberService{
 		int result = rsvMemberDAO.countStatus(main);
 		return result;
 	}
+	
+	//페이지 테스트
+			@Override
+			public List<Map<String, Object>> selectRsvList(Map map) throws Exception{
+			    return rsvMemberDAO.selectRsvList(map);
+			}
+			@Override
+			public int countRsvListTotal(Map map) throws Exception{
+				return rsvMemberDAO.countRsvList(map);
+			}
+
+	
+	
 }

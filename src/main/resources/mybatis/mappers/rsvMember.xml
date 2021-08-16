@@ -29,6 +29,24 @@
 	]]>
 	</select>
 	
+	
+	
+	<!-- 페이지 성공 -->
+	<select id="getPage" resultType="java.util.Map" parameterType="java.util.Map">
+	<![CDATA[
+	select * from rsvmember where id=#{id} order by rsvNum desc limit #{pageStart}, #{perPageNum}
+	]]>
+	</select>
+	<select id="countrsvList" resultType="Integer" parameterType="java.util.Map">
+    <![CDATA[
+        SELECT count(*) FROM rsvmember where id=#{id}
+    ]]>
+	</select>
+	
+	
+	
+	
+	
 	<update id="updateRsvCancel" parameterType="String">
 	<![CDATA[
 	update rsvmember set status='취소요청중'

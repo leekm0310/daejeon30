@@ -26,6 +26,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.myspring.daejeon30.favo.service.FavoService;
 import com.myspring.daejeon30.member.vo.MemberVO;
+import com.myspring.daejeon30.paging.Criteria;
+import com.myspring.daejeon30.paging.PageMaker;
 import com.myspring.daejeon30.rsvmember.service.RsvMemberService;
 import com.myspring.daejeon30.rsvmember.vo.RsvMemberVO;
 
@@ -52,23 +54,14 @@ public class RsvMemberControllerImpl implements RsvMemberController {
 		return resEntity;
 	}
 
-	/*
-	 * @Override
-	 * 
-	 * @RequestMapping(value="/rsvMember/result1.do", method= RequestMethod.POST)
-	 * public ModelAndView rsvResultView(@ModelAttribute("rsvMemberVO") RsvMemberVO
-	 * rsvMemberVO, HttpServletRequest request, HttpServletResponse response)throws
-	 * Exception{ request.setCharacterEncoding("utf-8");
-	 * response.setContentType("html/text; charset=utf-8"); ModelAndView mav = new
-	 * ModelAndView("/rsv/result1"); mav.addObject("rsvMemberVO", rsvMemberVO);
-	 * return mav; }
-	 */
+	
 	@RequestMapping(value="/rsvMember/result1.do", method=RequestMethod.POST)
 	public String result1(@ModelAttribute("rsvMemberVO") RsvMemberVO rsvMemberVO, Model model) {
 		model.addAttribute("rsvMemberVO", rsvMemberVO);
 		return "result1";
 	}
 	
+
 	@Override
 	@RequestMapping(value="rsv/res1.do", method = RequestMethod.GET)
 	//public ModelAndView listrsv(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -90,6 +83,39 @@ public class RsvMemberControllerImpl implements RsvMemberController {
 		mav.setViewName("res1");
 		return mav;
 	}
+	
+	/*
+	@RequestMapping(value="rsv/res1.do", method = RequestMethod.GET)
+	public ModelAndView listrsv(Map map, Criteria cri, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		HttpSession session = request.getSession();
+		memberVO = (MemberVO)session.getAttribute("member");
+		String id = memberVO.getId();
+		
+		Date dd = new Date(new Date().getTime()+1000*60*60*24*7);
+		Date now = new Date();
+		//List rsvlist = rsvMemberService.listrsv(id);
+		
+	    map.put("id", id);
+	    map.put("cri", cri);
+	    List rsvlist = rsvMemberService.selectRsvList(map);
+	    PageMaker pageMaker = new PageMaker();
+	    pageMaker.setCri(cri);
+	    pageMaker.setTotalCount(rsvMemberService.countRsvListTotal(map));
+	
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("rsvlist", rsvlist);
+		mav.addObject("now", now);
+		mav.addObject("dd", dd);
+
+		//System.out.print(rsvlist);
+		mav.setViewName("res1");
+		return mav;
+	}*/
+	
+	
+	
+	
+	
 	
 	@Override
 	@RequestMapping(value="rsv/cancelRsv.do", method= RequestMethod.GET)

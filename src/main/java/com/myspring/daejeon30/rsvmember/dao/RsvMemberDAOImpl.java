@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.myspring.daejeon30.paging.Criteria;
 import com.myspring.daejeon30.rsvmember.vo.RsvMemberVO;
 
 @Repository("rsvMemberDAO")
@@ -55,4 +56,18 @@ public class RsvMemberDAOImpl implements RsvMemberDAO{
 		int result = sqlSession.selectOne("mapper.rsvMember.countStatus", main);
 		return result;
 	}
+	
+	
+	//페이지테스트
+			@Override
+			@SuppressWarnings("unchecked")
+			public List selectRsvList(Map map) {
+			    return sqlSession.selectList("mapper.rsvMember.getPage", map);
+			}
+			@Override
+			public int countRsvList(Map map)throws Exception{
+				return (Integer)sqlSession.selectOne("mapper.rsvMember.countrsvList");
+			}
+	
+	
 }

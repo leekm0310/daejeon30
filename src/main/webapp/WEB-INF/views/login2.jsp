@@ -49,7 +49,7 @@
 						<label for="floatingPassword">비밀번호</label>
 					</div>  
 					<br>
-					<button class="w-30 btn btn-lg btn-danger" style="width:300px;" onclick="checklogin()">로그인</button><p></p>
+					<button type="button" class="w-30 btn btn-lg btn-danger" style="width:300px;" onclick="checklogin()">로그인</button><p></p>
 					</form>
 					<button class="w-30 btn btn-lg btn-danger" style="width:300px;" onclick="location.href='${contextPath}/res/rsv3.do'">비회원예약</button>    
 					<div class="container" style="margin-bottom:150px">  

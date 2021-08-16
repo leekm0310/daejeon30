@@ -190,7 +190,7 @@ request.setCharacterEncoding("utf-8");
         
       </div><!-- /.col-lg-4 -->
       <div class="col-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <svg class="bd-placeholder-img rounded-circle" img src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
         <h2>H</h2>
         <p>A</p>
@@ -214,11 +214,11 @@ request.setCharacterEncoding("utf-8");
 
 
 
-
+<hr>
 <!-- 본문 - 방문후기부 -->
 <table style="background-color:white; width:100%;">
-<tr><th style="padding: 1px; text-align:center; color:black; font-size:20px;">방문후기</th></tr>
-<td style="padding: 5px; text-align:center; color:black;">리뷰 통해 나에게 맞는 맛집을 찾아보세요!</td>
+<tr><th style="padding: 1px; padding-top:30; ; text-align:center; color:black; font-size:20px;">방문후기</th></tr>
+<td style="padding: 5px; padding-bottom:30; text-align:center; color:black;">리뷰 통해 나에게 맞는 맛집을 찾아보세요!</td>
 </table>
 
 

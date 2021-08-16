@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.dao.DataAccessException;
 
+import com.myspring.daejeon30.paging.Criteria;
 import com.myspring.daejeon30.rsvmember.vo.RsvMemberVO;
 
 public interface RsvMemberDAO{
@@ -17,5 +18,9 @@ public interface RsvMemberDAO{
 	
 	
 	public int countStatus(Map main)throws DataAccessException;
+	
+	//∆‰¿Ã¡ˆ
+	public List selectRsvList(Map map) throws Exception;
+	public int countRsvList(Map map)throws Exception;
 	
 }

@@ -30,7 +30,7 @@ public class MemberControllerImpl implements MemberController {
 	@Autowired
 	private MemberVO memberVO;
 	
-	@Override //로그인ㅇㄹㅇ
+	@Override //로그인
 	@RequestMapping(value= "/member/login.do", method= RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute("member") MemberVO member, RedirectAttributes rAttr,
 			HttpServletRequest request, HttpServletResponse response)throws Exception{

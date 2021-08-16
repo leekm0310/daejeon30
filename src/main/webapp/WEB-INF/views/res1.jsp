@@ -216,7 +216,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 
 
 
-	<!-- 페이지번호 -->
+	<!-- 페이지번호 
 	<div class ="row">
 		<nav aria-label="Page navigation example">
 			  <ul class="pagination justify-content-center">
@@ -235,7 +235,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			    </li>
 			  </ul>
 		</nav>
-	</div>
+	</div>-->
 </div>
 </div>
 </div>
