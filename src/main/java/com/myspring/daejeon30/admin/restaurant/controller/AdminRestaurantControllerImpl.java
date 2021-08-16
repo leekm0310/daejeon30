@@ -191,11 +191,17 @@ public class AdminRestaurantControllerImpl implements AdminRestaurantController{
 			String value=multipartRequest.getParameter(name);
 			resMap.put(name,value);
 			}
-		
+		String message;
 		ResponseEntity resEnt=null;
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 		adminRestaurantService.modRes(resMap);
+	
+		message = "<script>";
+		message += "alert('상세정보를 수정했습니다.');";
+		message += "location.href='" + multipartRequest.getContextPath() + "/admin/listRes1.do';";
+		message += "</script>";
+		resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 		return resEnt;
 	}
 	

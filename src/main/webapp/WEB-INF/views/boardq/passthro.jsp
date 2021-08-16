@@ -28,9 +28,11 @@ pageEncoding="utf-8" isELIgnored="false" %>
  
 	 
 	<div class="main-content">	 
+
 	
 	<div id=form_wrapper>
  <form name="passck" action="${contextPath}/boardq/passthro.do?" method="post" >
+       <!--  <div class="pwbox" style="border:1px solid lightgrey; padding:10px; padding-top: 100px; width:400px; height:300px;"> -->
         <div class="pwbox" style="border:1px solid lightgrey; padding:10px; padding-top: 100px; width:400px; height:300px;">
             <p style="text-align: center; color:grey;">
 	        이 글은 비밀글입니다. 비밀번호를 입력해 주세요.<br>

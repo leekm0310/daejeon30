@@ -55,8 +55,9 @@ public class BoardqControllerImpl implements BoardqController{
 	public String addQna(@ModelAttribute("boardqVO") BoardqVO boardqVO,
 			HttpServletRequest request, HttpServletResponse response) throws Exception{
 		
-		int result = 0;
-		result = boardqService.addQna(boardqVO);
+		//int result = 0;
+		//result = 
+		boardqService.addQna(boardqVO);
 		return "redirect:/boardq/qna.do";
 	}
 	

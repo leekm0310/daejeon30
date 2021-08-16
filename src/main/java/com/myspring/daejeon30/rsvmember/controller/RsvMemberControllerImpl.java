@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.myspring.daejeon30.favo.service.FavoService;
 import com.myspring.daejeon30.member.vo.MemberVO;
 import com.myspring.daejeon30.rsvmember.service.RsvMemberService;
 import com.myspring.daejeon30.rsvmember.vo.RsvMemberVO;
@@ -38,6 +39,8 @@ public class RsvMemberControllerImpl implements RsvMemberController {
 	RsvMemberVO rsvMemberVO;
 	@Autowired
 	private MemberVO memberVO;
+	@Autowired
+	private FavoService favoService;
 
 	@Override
 	@RequestMapping(value="rsvMember/insertRsvMember.do", method = RequestMethod.POST)
@@ -157,7 +160,9 @@ public class RsvMemberControllerImpl implements RsvMemberController {
 		
 		HttpSession session = request.getSession();
 		memberVO = (MemberVO)session.getAttribute("member");
-		String id = memberVO.getId();  
+		String id = memberVO.getId();
+		
+		int favoCount = favoService.memberfavo(id);
 		
 		Map confirm = new HashMap();
 		confirm.put("status","예약완료");
@@ -184,6 +189,7 @@ public class RsvMemberControllerImpl implements RsvMemberController {
 		int resultRC = rsvMemberService.countStatus(requestC);
 
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("favoCount", favoCount);
 		mav.addObject("confirm", resultConfirm);
 		mav.addObject("cancel", resultCancel);
 		mav.addObject("requestR", resultBC);

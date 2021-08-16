@@ -17,61 +17,19 @@ pageEncoding="utf-8" isELIgnored="false" %>
  
  <!-- 자바스크립트 부분 -->
  <script type="text/javascript">
- $(document.form1).ready(function(){
-	 
-	 $("#modify").on("click",function(){
-		 if($("input[name='password']").val()==''){
-	 			alert("비밀번호를 입력해주세요");
-	 			return false;
-	 }
-		 else{
-			 alert("회원 정보가 수정되었습니다")
-		 		//location.href="${contextPath}/member/modifyMember.do";
-			 document.form1.action="${contextPath}/admin/modifyMem.do";
-		 }
-		 }			 
-	 )	 
- })
- 
- 	function newUpdate(){
- 		var form = form1
- 		
- 		if($("input[name='password']").val()==''){
- 			alert("비밀번호를 입력해주세요");
- 			//$("#password").focus();
- 			location.href ="${contextPath}/modify.do";
- 		} else {
- 		alert("회원 정보가 수정되었습니다")
- 		form.submit();
- 		form.action="${contextPath}/admin/modifyMem.do";
- 	}
- 	}
+
  	
  	
  	
-	function goodbye1(){
-		var form = form1
+
 		
- 		if($("input[name='password']").val()==''){
- 			alert("비밀번호를 입력해주세요");
- 			//$("#password").focus();
- 			//return false;
- 		} //else if ($("input[name='password']").val() != $("input[name='passwordOk']").val()){
- 		 else if ($("input[name='password']").val() != '${member.password}'){
- 			alert("비밀번호가 일치하지 않습니다. 다시한번 확인해주세요");
- 			return false;
- 		} else{
- 		alert("회원 탈퇴가 완료되었습니다")
- 		form.action="${contextPath}/member/removeMember.do";
+	function memdelete(){
+		alert("회원 탈퇴가 완료되었습니다");
+		location.href="${contextPath}/admin/deleteMem.do?id=${mem.id}";
+		}
+	
  	
- 		}
- 	}
- 	
- 	
- 	function no(){
- 		alert("메인 메뉴로 이동합니다")
- 		location.href = "${contextPath}/main.do";
- 	}
+
  </script>
 </head>
 
@@ -93,7 +51,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 				<div class="shadow p-3 mb-5 bg-body rounded">
 				
 				<h3>회원 정보 수정 </h3>
-				<form name="form1" method="post">
+				<form name="form1" method="post" action="${contextPath}/admin/modifyMem.do">
 				
 					<br>
 					 <select name="memType">
@@ -109,10 +67,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 					    <input type="id" class="form-control" id="id" name="id" value="${mem.id}" readonly="readonly">
 		
 					    <label for="inputPassword1" class="form-label">비밀번호</label>
-					    <input type="password" class="form-control" id="password" name="password">
-			
-					    <label for="inputPassword2" class="form-label">비밀번호 확인</label>
-					    <input type="password" class="form-control" id="passwordOk" placeholder="" name="passwordOk">
+					    <input type="password" class="form-control" id="password" name="password" value="${mem.password }">
 		
 					    <label for="inputName1" class="form-label">이름</label>
 					    <input type="text" class="form-control" id="name" value="${mem.name}" readonly="readonly">
@@ -125,9 +80,9 @@ pageEncoding="utf-8" isELIgnored="false" %>
 						<br>
 						<div class="button-group" align=center>
 					    <!--  <button type="button" class="btn btn-danger" onclick="newUpdate()">회원정보수정</button>-->
-					    <button type="submit" class="btn btn-danger" id="modify">수정</button>   
-					    <button type="submit" class="btn btn-secondary" onclick="no()">취소</button>
-					    <button type="submit" class="btn btn-secondary" onclick="goodbye1()">회원탈퇴</button>
+					    <button type="submit" class="btn btn-danger">수정</button>   
+					    <button type="button" class="btn btn-secondary" onclick="location.href='${contextPath }/admin/listMem.do'">취소</button>
+					    <button type="button" class="btn btn-secondary" onclick="memdelete()">회원탈퇴</button>
 					    </form>
 	   				</div>
 	   			</div>

@@ -10,7 +10,7 @@ import com.myspring.daejeon30.qcomment.vo.QcommentVO;
 
 public interface BoardqDAO{
 	public List selectAllQNA() throws DataAccessException;
-	public int addQna(BoardqVO boardqVO) throws DataAccessException;
+	public void addQna(BoardqVO boardqVO) throws DataAccessException;
 	public BoardqVO adminQna(int num)throws DataAccessException;
 	public void updateQna(BoardqVO boardqVO) throws DataAccessException;
 	public void deleteQna(int num) throws DataAccessException;
@@ -24,4 +24,7 @@ public interface BoardqDAO{
 	
 	//아이디별 문의글 - 마이페이지
 	public List searchbyId(String id)throws DataAccessException;
+	
+	//신규문의
+	public int newQna()throws DataAccessException;
 }

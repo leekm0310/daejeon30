@@ -60,6 +60,8 @@
 							
 							<input type="hidden" name="num" value="${review.num}"/>
 							<p class="fs-3" ><input type=title value="${review.title}" name="title" id="title" style="border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px;"/></p>
+							작성자: ${review.id}<br>
+							작성일: ${review.date}
 							<hr>
 							<br>
 							
@@ -115,7 +117,7 @@
 				<br>
 				<div class="row justify-content-end">
 					<button type="button" class="btn btn-danger" style="width: 100px;"
-						onclick="location.href='./review1.jsp'">글목록</button>
+						onclick="location.href='${contextPath}/bboard2/reviewList.do'">글목록</button>
 				</div>
 			</div>
 			<br>

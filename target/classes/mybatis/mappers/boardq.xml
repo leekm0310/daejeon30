@@ -19,15 +19,15 @@
 	
 	<select id="selectAllqna" resultMap="boardqResult">
 	<![CDATA[
-		select * from qboard
+		select * from qboard order by date desc;
 	]]>
 	</select>
 
 	
 	<insert id="addQna" parameterType="boardqVO">
 	<![CDATA[
-		insert into qboard(title, name, id, content, password, sort)
-		values(#{title}, #{name}, #{id}, #{content}, #{password}, #{sort})
+		insert into qboard(title, name, id, content, password, sort, num)
+		values(#{title}, #{name}, #{id}, #{content}, #{password}, #{sort}, #{num})
 	]]>
 	</insert>
 	
@@ -70,6 +70,19 @@
 	<![CDATA[
 	select * from qboard where id = #{id}
 	]]>
+	</select>
+	
+	<!-- 신규 문의글 -->
+	<select id="newQna" resultType="int">
+	<![CDATA[
+	select count(*) from qboard where date_format(date, '%Y-%m-%d') = curdate();
+	]]>
+	</select>
+	
+	<select id="selectNO" resultType="int">
+	 <![CDATA[
+	 	select ifnull(max(num), 0)+1 from qboard
+	 ]]>
 	</select>
 	
 	

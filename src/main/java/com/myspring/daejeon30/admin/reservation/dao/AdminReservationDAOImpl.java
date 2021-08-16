@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
+import com.myspring.daejeon30.paging.Criteria;
+
 @Repository("adminReservationDAO")
 public class AdminReservationDAOImpl implements AdminReservationDAO{
 	@Autowired
@@ -55,4 +57,22 @@ public class AdminReservationDAOImpl implements AdminReservationDAO{
 		List sorted = sqlSession.selectList("mapper.admin.rsv.selectnonStatus", status);
 		return sorted;
 	}
+	
+	//신규예약-회원
+	@Override
+	public int countNewRsvmem()throws DataAccessException{
+		return sqlSession.selectOne("mapper.admin.rsv.countNewRsvmem");
+	}
+	
+	//페이지테스트
+		@Override
+		@SuppressWarnings("unchecked")
+		public List selectMemRList(Criteria cri) {
+		    return sqlSession.selectList("mapper.admin.rsv.getPage", cri);
+		}
+		@Override
+		public int countMemRList()throws Exception{
+			return (Integer)sqlSession.selectOne("mapper.admin.rsv.countMemRList");
+		}
+	
 }

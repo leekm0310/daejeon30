@@ -50,7 +50,12 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <br>
 <br>
 <!-- 본문 내용 -->
-<h3>내 게시물 관리</h3>
+<div class="row" style="text-align: center; margin: 50 auto; ">
+		<H3>내 게시물 관리</H3>
+		<br><hr style="width:300; margin:auto;"><br>
+		<p>${member.name }님이 작성하신 문의 목록 입니다.<br></p>
+		<BR><BR>
+	</div>
 <br>
 	<table class="table table-hover">
 	<thead>
@@ -86,13 +91,13 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	</tbody>
 </table>
 
-<!-- 삭제하기버튼 -->
-<div class="row justify-content-end">
-<button type="button" class="btn btn-danger" style="width:100px;" onclick="del();">삭제하기</button>
-</div>
 
-
-
+	<div class="row" style="text-align: center; margin: 50 auto; ">
+		<H3>내 리뷰 보드</H3>
+		<br><hr style="width:300; margin:auto;"><br>
+		<p>${member.name }님이 작성하신 리뷰 목록 입니다.<br></p>
+		<BR><BR>
+	</div>	
 
  <!-- 카드리스트 -->
 <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -118,25 +123,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 
 
 
-<!-- 페이지번호 -->
-<div class ="row">
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
 </div>
 	</div>
 		</div>

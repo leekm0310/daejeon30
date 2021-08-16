@@ -96,6 +96,8 @@
 							
 							<input type="hidden" name="boardNO" value="${board.rb_num}"/>
 							<p class="fs-3" ><input type=text value="${board.rb_title}" name="rb_title" id="i_title" disabled/></p>
+							작성자: ${board.id}<br>
+							작성일: ${board.rb_date}
 							<hr>
 							
 							
@@ -145,13 +147,13 @@
 							
 							<br>
 
-							<!-- 덧글 요소입니다 -->
+							<!-- 덧글 요소입니다 
 							<div class="card mb-2">
 								<div class="card-header bg-light">댓글</div>
 
 								<div class="card-body">
 
-									<!-- ============================================================================================================ -->
+				
 
 									<table class="table caption-top">
 										<tbody>
@@ -196,7 +198,7 @@
 										</tbody>
 									</table>
 
-									<!-- =================================================================================================== -->
+									
 
 									<br>
 									<p class="fw-bolder">댓글 작성</p>
@@ -205,12 +207,12 @@
 									<br>
 									<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 										<button class="btn btn-danger me-md-2" type="button">등록</button>
-										<!-- 여기서 me-md-2 라는녀석이 띄어쓰기 기능 같습니다 -->
+										여기서 me-md-2 라는녀석이 띄어쓰기 기능 같습니다
 										<button class="btn btn-danger" type="button">삭제</button>
 									</div>
 								</div>
 							</div>
-							<!-- 요기까지 덧글 -->
+						요기까지 덧글 -->
 
 						</div>
 					</div>
@@ -219,7 +221,7 @@
 				<br>
 				<div class="row justify-content-end">
 					<button type="button" class="btn btn-danger" style="width: 100px;"
-						onclick="location.href='./review1.jsp'">글목록</button>
+						onclick="location.href='${contextPath}/board2.do'">글목록</button>
 				</div>
 			</div>
 			<br>

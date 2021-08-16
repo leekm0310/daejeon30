@@ -37,4 +37,9 @@ public class FavoServiceImpl implements FavoService{
 	public void deleteFavo(FavoVO favoVO) throws Exception{
 		favoDAO.deleteFavo(favoVO);
 	}
+	
+	@Override
+	public int memberfavo(String id)throws Exception{
+		return favoDAO.memberfavo(id);
+	}
 }

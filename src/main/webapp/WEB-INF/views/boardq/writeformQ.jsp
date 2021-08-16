@@ -13,8 +13,22 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
-</head>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
+</head>
+<script type="text/javascript">
+function checkqna(){
+	
+	var pw = document.form.password.value;
+	
+	if(pw==""){
+		alert("비밀번호를 입력해주세요");
+	} else {
+	document.form.submit();
+	}
+}
+
+</script>
 <body>
  <!-- 메인코드부 -->
 	 <div class="wrap">
@@ -30,7 +44,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	<!-- 게시판 등록 -->
 	<div class="row">
 		 <div class="col-sm-2"></div>
-	<form action="${contextPath}/boardq/addQna.do" method="post" >
+	<form name = "form" action="${contextPath}/boardq/addQna.do" method="post" >
 	 <div class="col-sm-8">
 	
 		<!-- select box -->
@@ -38,12 +52,12 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			<div class="col g-0 bg-light position-relative">
 			<div class="input-group">
 			  <select name="sort" class="form-select">
-			    <option selected>문의 종류를 선택해주세요.</option>
+			    <option disabled selected hidden>문의 종류를 선택해주세요</option>
 			    <option value="예약문의">예약문의</option>
 			    <option value="취소/환불문의">취소/환불문의</option>
 			    <option value="기타문의">기타문의</option>
 			  </select>
-			  <input type="submit" value="등록하기">
+			<!--   <input type="submit" value="등록하기">-->
 			</div>
 		<br>
 		
@@ -51,7 +65,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			<input class="form-control" name="id" type="hidden" value="${mem.id }">
 			<input class="form-control" name="title" type="text" placeholder="제목을 입력해주세요.">
 			<input class="form-control" name="name" type="text" placeholder="성함을 입력해주세요.">
-			<input class="form-control" name="password" type="text" placeholder="비밀번호를 입력해주세요.">
+			<input class="form-control" name="password" id="password" type="text" placeholder="비밀번호를 입력해주세요.">
 		
 		<!-- 글 작성 -->
 		
@@ -60,6 +74,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	
 				</div>
 					</div>
+					<button type="button" class="btn btn-danger"  onclick="checkqna()">등록</button>
 			</form>		
 						</div>
 					<div class="col-sm-2"></div>

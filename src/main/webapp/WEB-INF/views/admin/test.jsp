@@ -17,31 +17,15 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	
 	
 <title>관리자페이지메인</title>
-
-  		<style>
-		 .information{
-	 	padding: 10px 20px;
-	 	border-radius: 1px;
-	 	background-color: #f3f3f3;
-	 	boarder: solid 1px #000000;
-	 	text-align: center;
-	 	width: 750px;
-	 	height: 100%;
-	 	margin-top:50px
-	 	}
- 		</style>
- 
- 
 </head>
-
 <body>
+ <header>
+        <h2>Responsive Side Bar Site</h2>
+      </header>
+      
+      <article>
 
- <div class="wrap">
-
-	<div class="main-content">
-	<div class="container">
-
-<div class="row">
+      <div class="row">
 <h3>관리자 메인페이지</h3>
 	<br>
 	<br>
@@ -66,16 +50,52 @@ pageEncoding="utf-8" isELIgnored="false" %>
 
       </ul>
      </div>
+     
+     <h3>게시판 관리</h3>
+<br>
+<div class="btn-group" role="group" aria-label="Basic outlined example">
+  <!--  <button type="button" class="btn btn-outline-primary" onclick="location.href='${contextPath}/admin/reviewBoard.do'">리뷰게시판</button>-->
+  <button type="button" class="btn btn-outline-primary" onclick="allreview()">리뷰게시판</button>
+  <button type="button" class="btn btn-outline-dark" onclick="allrec()">추천게시판</button>
+  <button type="button" class="btn btn-outline-dark" onclick="allqna()">문의게시판</button>
+  <button type="button" class="btn btn-outline-dark" onclick="location.href='${contextPath}/admin/noticeBoard.do'">공지사항</button>
 </div>
-<br>
-<br>
-<br>
-<br>
-</div>
-</div>
+ <button type="button" class="btn btn-danger btn-sm" onclick="location.href='${contextPath}/writeform1.do'">관리자글쓰기</button>
 
+<br><br>
+	<table class="table table-hover">
+	<thead>
+	<tr>
+		<th><input type="checkbox" id="checkall" onclick="checkAll();" style="width:20px;height:20px;"/></th>
+		<th>#</th>
+		<th>#</th>
+		<th>#</th>
+		<th>#</th>
+		<th>#</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody id="list">
+	   <c:choose>
+   <c:when test="${!empty result }" >
+   <c:forEach  var="result" items="${result }" >
+	<tr>
 
+		<td><input type="checkbox" id="chk" name="chk" style="width:20px;height:20px;"/></td>
+		<td>#</td>
+		<td>${result.title}</td>
+		<td><fmt:formatDate pattern="yyyy-MM-dd" value="${result.date }" /></td>
+		<td>${result.id }</td>
+		<td width="200"><button class="btn btn-outline-success btn-sm" onclick="location.href='${contextPath}/bboard/oneNo.do?num=${result.num }'">수정</button>
+		<button class="btn btn-outline-secondary btn-sm" value="${result.num }" onclick="deleteNotice(this.value)">삭제</button></td>
+	</c:forEach>
+	</c:when>
+	</c:choose>
 
+	</tr>
+	</tbody>
+</table>
+      </article>
 
 
 </body>

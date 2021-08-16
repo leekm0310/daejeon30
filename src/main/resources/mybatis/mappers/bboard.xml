@@ -17,7 +17,7 @@
 	
 	<select id="selectnboard" resultMap="bboardResult">
 	<![CDATA[
-		select * from bboard where sort='notice'
+		select * from bboard where sort='notice' order by date desc
 	]]>
 	</select>
 	

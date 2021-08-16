@@ -22,8 +22,8 @@ public class BoardqServiceImpl implements BoardqService{
 	}
 	
 	@Override
-	public int addQna(BoardqVO boardqVO) throws Exception{
-		return boardqDAO.addQna(boardqVO);
+	public void addQna(BoardqVO boardqVO) throws Exception{
+		 boardqDAO.addQna(boardqVO);
 	}
 	
 	@Override
@@ -62,5 +62,10 @@ public class BoardqServiceImpl implements BoardqService{
 	@Override
 	public List searchbyId(String id)throws Exception{
 		return boardqDAO.searchbyId(id);
+	}
+	
+	@Override
+	public int newQna()throws Exception{
+		return boardqDAO.newQna();
 	}
 }

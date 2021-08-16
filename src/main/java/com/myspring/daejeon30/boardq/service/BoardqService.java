@@ -10,7 +10,7 @@ import com.myspring.daejeon30.qcomment.vo.QcommentVO;
 
 public interface BoardqService{
 	public List qnaList() throws Exception;
-	public int addQna(BoardqVO boardqVO) throws Exception;
+	public void addQna(BoardqVO boardqVO) throws Exception;
 	public BoardqVO adminQna(int num) throws Exception;
 	public void updateQna(BoardqVO boardqVO) throws Exception;
 	public void deleteQna(int num) throws Exception;
@@ -24,5 +24,9 @@ public interface BoardqService{
 	public List searchTitle(Map map) throws Exception;
 	
 	//아이디별 문의글 - 마이페이지
-		public List searchbyId(String id)throws Exception;
+	public List searchbyId(String id)throws Exception;
+	
+	//신규문의
+	public int newQna()throws Exception;
+	
 }

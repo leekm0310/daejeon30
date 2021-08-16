@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
+import com.myspring.daejeon30.paging.Criteria;
+
 public interface AdminReservationDAO{
 	public List selectAll() throws DataAccessException;
 	public void acceptRes(int rsvNum) throws DataAccessException;
@@ -15,4 +17,10 @@ public interface AdminReservationDAO{
 	public void acceptnonRes(int rsvNum) throws DataAccessException;
 	public void cancelnonRes(int rsvNum) throws DataAccessException;
 	public List selectnonStatus(String status) throws DataAccessException;
+	//신규예약-회원
+	public int countNewRsvmem()throws DataAccessException;
+	
+	//페이지
+		public List selectMemRList(Criteria cri) throws Exception;
+		public int countMemRList()throws Exception;
 }

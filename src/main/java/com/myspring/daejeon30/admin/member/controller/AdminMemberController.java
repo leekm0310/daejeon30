@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.myspring.daejeon30.member.vo.MemberVO;
 
 public interface AdminMemberController{
-	public ModelAndView AllMember(HttpServletRequest request, HttpServletResponse response) throws Exception;
+	//public ModelAndView AllMember(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView deleteMem(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView memDetail(@RequestParam("id") String id,HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public ModelAndView modifyMem(@ModelAttribute("mem") MemberVO mem,

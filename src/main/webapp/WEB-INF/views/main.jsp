@@ -82,7 +82,7 @@ request.setCharacterEncoding("utf-8");
 	<div class="main-content">
 	<div class="container">
 
-<!-- 본문시작, 전환형 사진부 -->
+<!-- 본문시작 -->
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
   	<div class="carousel-indicators">
     	<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -92,8 +92,8 @@ request.setCharacterEncoding("utf-8");
   	
   	<div class="carousel-inner">
 	    <div class="carousel-item active">
-      	<img src="https://www.daejeon.go.kr/FileUpload/FOD/201402/representative_food08_b(1).jpg" class="d-block w-100" alt="..." style=" filter: alpha(opacity=20); opacity: 0.5;">
-	      <div class="carousel-caption text-start">
+      	<img src="https://www.daejeon.go.kr/FileUpload/FOD/201402/representative_food08_b(1).jpg" class="d-block w-100" alt="..." style=" filter: alpha(opacity=20); opacity: 0.7;">
+	      <div class="carousel-caption text-start" >
         	<h1 style="color:black;">대전 맛집 기행</h1>
         	<p style="color:black;">대슐랭가이드와 맛있는 하루 보내세요</p>
         	<p>
@@ -130,7 +130,12 @@ request.setCharacterEncoding("utf-8");
 <br>
 <hr>
 <!-- 상품 카드부분 -->  	
-<p align=center style="color:grey;">-- 인기맛집 --</p>			
+
+<table style="background-color:white; width:100%;">
+<tr><th style="padding: 1px; text-align:center; color:black; font-size:20px;">인기맛집</th></tr>
+<td style="padding: 5px; text-align:center; color:black;">한 주간 가장 인기있었던 맛집을 소개해드립니다!</td>
+</table>
+<br>	
 <div class="row row-cols-1 row-cols-md-4 g-4">
 <c:choose>
 <c:when test="${!empty resList}">
@@ -211,7 +216,10 @@ request.setCharacterEncoding("utf-8");
 
 
 <!-- 본문 - 방문후기부 -->
-<p align=center>-- 방문후기 --</p>
+<table style="background-color:white; width:100%;">
+<tr><th style="padding: 1px; text-align:center; color:black; font-size:20px;">방문후기</th></tr>
+<td style="padding: 5px; text-align:center; color:black;">리뷰 통해 나에게 맞는 맛집을 찾아보세요!</td>
+</table>
 
 
 <!-- 카드리스트 -->

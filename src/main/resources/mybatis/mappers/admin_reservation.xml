@@ -36,6 +36,20 @@
 	]]>
 	</select>
 	
+	<!-- 회원 페이지 -->
+ 	<select id="getPage" resultType="java.util.Map" parameterType="java.util.Map">
+	<![CDATA[
+	select * from rsvmember order by date desc limit #{pageStart}, #{perPageNum}
+	]]>
+	</select>
+	<select id="countMemRList" resultType="Integer">
+    <![CDATA[
+        SELECT count(*) FROM rsvmember
+    ]]>
+	</select>
+	
+	
+	
 	<!-- 비회원 예약건 -->
 	<select id="selectResNon" resultMap="resResult">
 	<![CDATA[
@@ -87,5 +101,13 @@
 		select * from rsvnonmember where status =#{status}
 	]]>
 	</select>
+	
+	<!-- 신규 예약 조회 (회원) -->
+	<select id="countNewRsvmem" resultType="int">
+	<![CDATA[
+	select count(*) from rsvmember where date_format(date, '%Y-%m-%d') = curdate()
+	]]>
+	</select>
+	
 	
 </mapper>

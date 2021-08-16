@@ -80,11 +80,11 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	<thead>
 	<tr>
 		<th><input type="checkbox" id="checkall" onclick="checkAll();" style="width:20px;height:20px;"/></th>
-		<th>등록번호</th>
-		<th>식당분류</th>
-		<th>식당사진</th>
-		<th>식당명</th>
-		<th>식당위치</th>
+		<th style="width:100;">등록번호</th>
+		<!--  <th>식당분류</th>-->
+		<th style="width:100;" >식당사진</th>
+		<th style="width:700;">식당명</th>
+		<th>옵션</th>
 		<th></th>
 	</tr>
 	</thead>
@@ -96,11 +96,11 @@ pageEncoding="utf-8" isELIgnored="false" %>
 
 		<td><input type="checkbox" id="chk" name="chk" style="width:20px;height:20px;"/></td>
 		<td>${res.resNum }</td>
-		<td>${res.resSort }</td>
+	<!--	<td>${res.resSort }</td> -->
 		<th><img src="${contextPath}/download.do?resNum=${res.resNum}&resImageFileName=${res.resImageFileName}" width="100" height="100"></th>
 		<td><a href="${contextPath}/admin/viewRes.do?resNum=${res.resNum}">${res.resName }</td>
 		<!--  <td>${res.resLocation }</td>-->
-		<td class="button"><a href="#" onclick="#" class="btn btn-outline-success">수정하기</a><br>
+		<td class="button"><a href="#" onclick="location.href='${contextPath}/admin/viewRes.do?resNum=${res.resNum}'" class="btn btn-outline-success">수정하기</a><br>
 		<a href="#" class="btn btn-outline-danger" onclick="fn_remove('${contextPath}/admin/removeRes.do', ${res.resNum})">삭제하기</a></td>
 	</c:forEach>
 	</c:when>

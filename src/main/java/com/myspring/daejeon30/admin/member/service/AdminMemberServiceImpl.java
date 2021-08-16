@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.myspring.daejeon30.admin.member.dao.AdminMemberDAO;
 import com.myspring.daejeon30.member.vo.MemberVO;
+import com.myspring.daejeon30.paging.Criteria;
 
 @Service("adminMemberService")
 public class AdminMemberServiceImpl implements AdminMemberService{
@@ -46,4 +47,22 @@ public class AdminMemberServiceImpl implements AdminMemberService{
 	public List searchMember(Map map) throws Exception{
 		return adminMemberDAO.searchMember(map);
 	}
+	
+	//신규회원
+	public int newMember()throws Exception{
+		return adminMemberDAO.newMember();
+	}
+	
+	//페이지 테스트
+			@Override
+			public List<Map<String, Object>> selectMemberList(Criteria cri) throws Exception{
+			    return adminMemberDAO.selectMemberList(cri);
+			}
+			@Override
+			public int countMemberListTotal() throws Exception{
+				return adminMemberDAO.countMemberList();
+			}
+	
+	
+	
 }

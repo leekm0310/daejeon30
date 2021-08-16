@@ -129,7 +129,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
          </div>
      </div>
     
-<!-- 달력부 -->
+<!-- 달력부 
  	<div class='col-8 col-md-2'>
         <div class="form-group">
            <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
@@ -158,7 +158,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
         </div>
      </div>
 </div>
-
+-->
 
 
 <!-- 테이블 -->
@@ -223,27 +223,30 @@ pageEncoding="utf-8" isELIgnored="false" %>
 -->
 
 
+<!-- 페이지네이션 -->
+		
+	<div class="row">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-center">
+						<c:if test="${pageMaker.prev }">
+							<li class="page-item"><a class="page-link" href='<c:url value="/admin/allRsv.do?page=${pageMaker.startPage-1 }"/>'
+								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+							</a></li>
+						</c:if>
+						<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="pageNum">	
+							<li class="page-item"><a class="page-link" href='<c:url value="/admin/allRsv.do?page=${pageNum }"/>'>${pageNum }</a></li>
+						</c:forEach>
+						<c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+							<li class="page-item"><a class="page-link" href='<c:url value="/admin/allRsv.do?page=${pageMaker.endPage+1 }"/>' aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+							</a></li>
+						  </c:if>
+						</ul>
+					</nav>
+				</div>
 
-	<!-- 페이지번호 -->
-	<div class ="row">
-		<nav aria-label="Page navigation example">
-			  <ul class="pagination justify-content-center">
-			    <li class="page-item">
-			      <a class="page-link" href="#" aria-label="Previous">
-			        <span aria-hidden="true">&laquo;</span>
-			      </a>
-			    </li>
-			    <li class="page-item"><a class="page-link" href="#">1</a></li>
-			    <li class="page-item"><a class="page-link" href="#">2</a></li>
-			    <li class="page-item"><a class="page-link" href="#">3</a></li>
-			    <li class="page-item">
-			      <a class="page-link" href="#" aria-label="Next">
-			        <span aria-hidden="true">&raquo;</span>
-			      </a>
-			    </li>
-			  </ul>
-		</nav>
-	</div>
+
+
+
 </div>
 </div>
 </div>

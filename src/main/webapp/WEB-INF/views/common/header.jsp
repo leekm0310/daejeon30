@@ -33,7 +33,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			    <div class="col-md-4" align=right style="height:40px;">
 				<ul class="nav" style="float:right;">
 				<c:if test="${isLogOn==true && member.id =='admin' }">
-					<button type="button" class="btn btn-outline-success btn-sm" onclick='location.href="${contextPath}/adminMain.do"'>관리자</button>
+					<button type="button" class="btn btn-outline-success btn-sm" onclick='location.href="${contextPath}/admin/adminmain.do"'>관리자</button>
 					</c:if>
 					<c:choose>
 					<c:when test="${isLogOn == true && member != null}">

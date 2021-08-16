@@ -22,7 +22,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
   		<style>
   		
 		 .information{
-	 	padding: 10px 20px;
+	 	padding: 50px 20px;
 	 	border-radius: 1px;
 	 	background-color: #f3f3f3;
 	 	boarder: solid 1px #000000;
@@ -56,7 +56,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <br>
 
 	<div class="row">
-      <h6>나의 예약 현황 (최근 <em>3개월</em> 기준)</h6>
+      <h6>나의 예약 현황 <!--(최근 <em>3개월</em> 기준)--></h6>
      
       <ul class="list-group list-group-horizontal" style="font-size:25px">
     	<li class="list-group-item" style="width:50%; height:120%"><p class="text-center" style="margin-top:50px"><strong>예약요청중</strong><br> 
@@ -68,7 +68,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
      	 <li class="list-group-item" style="width:50%; height:120%"><p class="text-center" style="margin-top:50px"><strong>취소</strong><br>
         <a href="${contextPath}/rsv/res1.do" class="count">${cancel }</a></p></li>
      	 <li class="list-group-item" style="width:50%; height:120%"><p class="text-center"  style="margin-top:50px"><strong>찜한곳</strong><br>
-        <a href="./like1.jsp" class="count">0</a></p></li>
+        <a href="${contextPath}/favo/list1.do" class="count">${favoCount }</a></p></li>
       </ul>
      </div>
 </div>

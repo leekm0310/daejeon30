@@ -29,15 +29,18 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <!-- 본문 내용 -->
 <h3>회원 관리</h3>
 <br>
+<div class="row">
+<div class="col-8">
 <div class="btn-group" role="group" aria-label="Basic outlined example">
   <button type="button" class="btn btn-outline-primary" onclick="location.href='${contextPath}/admin/listMem.do'">모든회원보기</button>
   <button type="button" class="btn btn-outline-dark" onclick="location.href='${contextPath}/admin/selectMemType.do?memType=일반회원'">일반회원</button>
   <button type="button" class="btn btn-outline-dark" onclick="location.href='${contextPath}/admin/selectMemType.do?memType=우수회원'">우수회원</button>
   <button type="button" class="btn btn-outline-dark" onclick="location.href='${contextPath}/admin/selectMemType.do?memType=블랙리스트'">블랙리스트</button>
-</div>
+</div></div>
 
 <!-- 검색바 -->
-<div style="width:250px">
+
+<div class="col-4" >
 				<form class="d-flex" action="${contextPath}/admin/searchMember.do" method="post">
 				<select style="border: 1px solid lightgrey;" name="sorting1">
 				  <option value="id" selected >아이디</option>
@@ -51,7 +54,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 					</button>
 				</form>
 			</div>
-
+</div>
 
 <br><br>
 	<table class="table table-hover">
@@ -90,32 +93,27 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	</tbody>
 </table>
 
-<!-- 삭제하기버튼 -->
-<div class="row justify-content-end">
-<button type="button" class="btn btn-danger" style="width:100px;" onclick="location.href='${contextPath}/addRes.do'">등록하기</button>
-<button type="button" class="btn btn-danger" style="width:100px;" onclick="location.href='${contextPath}/admin/removeRes.do?resNum=${res.resNum }'">삭제하기</button>
-</div>
+<!-- 페이지네이션 -->
+		
+	<div class="row">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-center">
+						<c:if test="${pageMaker.prev }">
+							<li class="page-item"><a class="page-link" href='<c:url value="listMem.do?page=${pageMaker.startPage-1 }"/>'
+								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+							</a></li>
+						</c:if>
+						<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="pageNum">	
+							<li class="page-item"><a class="page-link" href='<c:url value="listMem.do?page=${pageNum }"/>'>${pageNum }</a></li>
+						</c:forEach>
+						<c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+							<li class="page-item"><a class="page-link" href='<c:url value="listMem.do?page=${pageMaker.endPage+1 }"/>' aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+							</a></li>
+						  </c:if>
+						</ul>
+					</nav>
+				</div>
 
-<!-- 페이지번호 -->
-<div class ="row">
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-</div>
 	</div>
 		</div>
 	</div>

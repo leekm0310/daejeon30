@@ -13,7 +13,29 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 		
 		
-	<!-- 아이디 비번 틀린경우 -->
+	
+	    
+	<!-- 유효성 검사 -->
+	<script type="text/javascript">
+		function checklogin(){	
+			var id = document.form.id.value;
+			var pw = document.form.password.value;
+			
+		if(id==""){
+		alert('아이디를 입력해주세요.');
+		return false;
+
+		} else if(pw==""){
+		alert('비밀번호를 입력해주세요.');
+		return false;
+	
+		} else{
+		document.form.submit();
+		}
+		}
+	</script>
+	
+<!-- 아이디 비번 틀린경우 -->
 	<c:choose>
 	<c:when test="${param.result=='loginFailed'}">
 	<script>
@@ -23,24 +45,6 @@
 	</script>
 	</c:when>
 	</c:choose>
-	    
-	<!-- 유효성 검사 -->
-	<script type="text/javascript">
-		function checklogin(){	
-		if(id.value==""){
-		alert('아이디를 입력해주세요.');
-		form.id.focus();
-		return false;
-		} else if (password.value==""){
-		alert('비밀번호를 입력해주세요.');
-		form.password.focus();
-		return false;
-		}
-		form.submit();
-		}
-	</script>
-	
-
 	
 </head> 
   
@@ -64,7 +68,7 @@
 		</table>
 		</form>
 			<h3>로그인</h3>
-			<form method="POST" action="${contextPath}/member/login.do">
+			<form name="form" method="POST" action="${contextPath}/member/login.do">
 			<div class="form-floating" style="width:400px;">
 				<input type="id" class="form-control" id="id" placeholder="id" name="id">
 				<label for="floatingInput">아이디</label>
@@ -75,7 +79,7 @@
 				<label for="floatingPassword">비밀번호</label>
 			</div>   
 			<br>
-			<button class="w-30 btn btn-lg btn-danger" style="width:300px;" onclick="checklogin()">로그인</button><p></p>
+			<button type="button" class="w-30 btn btn-lg btn-danger" style="width:300px;" onclick="checklogin()">로그인</button><p></p>
 			
 			<div class="container" style="margin-bottom:150px">  
 				<div class="p-3 bg-white btn btn-link text-dark" onclick="location.href='${contextPath}/find.do'">아이디/비밀번호 찾기</div>    

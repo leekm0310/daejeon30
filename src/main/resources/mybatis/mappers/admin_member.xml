@@ -21,6 +21,19 @@
 		select * from member 	
  	]]>
  	</select>
+ 	
+ 	<!-- 회원 페이지 -->
+ 	<select id="getPage" resultType="java.util.Map" parameterType="java.util.Map">
+	<![CDATA[
+	select * from member order by joindate desc limit #{pageStart}, #{perPageNum}
+	]]>
+	</select>
+	<select id="countMemberList" resultType="Integer">
+    <![CDATA[
+        SELECT count(*) FROM member
+    ]]>
+	</select>
+ 	
 	
 	<!-- 회원정보수정 -->
 	<update id="updateMember" parameterType="memberVO">
@@ -59,7 +72,12 @@
  	]]>
  	</select>
 	
-	
+	<!-- 신규회원 수 조회 -->
+	<select id="newMember" resultType="int">
+	<![CDATA[
+	select count(*) from member where date_format(joindate, '%Y-%m-%d') = curdate()
+	]]>
+	</select>
 	
 	
 </mapper>

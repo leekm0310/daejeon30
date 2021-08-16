@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 <!doctype html>
 <html lang="UTF-8">
 <head>	
@@ -49,8 +54,8 @@
 			<br> 
 			<button class="w-30 btn btn-lg btn-danger" style="width:200px;" onclick="checklogin()">로그인</button> 
 			</form>    
-				<div class="p-3 bg-white btn btn-link text-dark" onclick="location.href='./find1.jsp'">아이디/비밀번호 찾기</div>    
-				<div class="p-3 bg-white btn btn-link text-dark" onclick="location.href='./join1.jsp'">회원 가입</div>
+				<div class="p-3 bg-white btn btn-link text-dark" onclick="location.href='${contextPath}/find.do'">아이디/비밀번호 찾기</div>    
+				<div class="p-3 bg-white btn btn-link text-dark" onclick="location.href='${contextPath}/join.do'">회원 가입</div>
 			
 			<hr>
 		<br>

@@ -57,4 +57,9 @@ public class FavoDAOImpl implements FavoDAO{
 		sqlSession.delete("mapper.favo.deleteFavo", favoVO);
 	}
 	
+	@Override
+	public int memberfavo(String id)throws DataAccessException{
+		return sqlSession.selectOne("mapper.favo.memberfavo", id);
+	}
+	
 }

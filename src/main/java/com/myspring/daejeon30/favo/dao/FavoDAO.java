@@ -16,4 +16,5 @@ public interface FavoDAO{
 //	public List insertFavo(FavoVO favoVO) throws DataAccessException;
 	public List selectFavo(String id) throws DataAccessException;
 	public void deleteFavo(FavoVO favoVO)throws DataAccessException;
+	public int memberfavo(String id)throws DataAccessException;
 }

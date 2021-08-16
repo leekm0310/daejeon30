@@ -18,18 +18,34 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.myspring.daejeon30.admin.member.service.AdminMemberService;
 import com.myspring.daejeon30.member.vo.MemberVO;
+import com.myspring.daejeon30.paging.Criteria;
+import com.myspring.daejeon30.paging.PageMaker;
 
 @Controller("adminMemberController")
 public class AdminMemberControllerImpl implements AdminMemberController{
 	@Autowired
 	private AdminMemberService adminMemberService;
 	
+	/*원래쓰던 멤버리스트
 	@Override
 	@RequestMapping(value="/admin/listMem.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView AllMember(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		List memberList = adminMemberService.Allmember();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("memList", memberList);
+		mav.setViewName("listMem");
+		return mav;
+	}*/
+	
+	@RequestMapping(value="/admin/listMem.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView AllMember(Criteria cri,HttpServletRequest request, HttpServletResponse response) throws Exception{
+		List memberList = adminMemberService.selectMemberList(cri);
+		PageMaker pageMaker = new PageMaker();
+	    pageMaker.setCri(cri);
+	    pageMaker.setTotalCount(adminMemberService.countMemberListTotal());
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("memList", memberList);
+		mav.addObject("pageMaker", pageMaker);
 		mav.setViewName("listMem");
 		return mav;
 	}
@@ -64,6 +80,8 @@ public class AdminMemberControllerImpl implements AdminMemberController{
 		response.setContentType("html/text; charset=utf-8");
 		ModelAndView mav = new ModelAndView();
 		adminMemberService.updateMem(mem);
+		List memberList = adminMemberService.Allmember();
+		mav.addObject("memList", memberList);
 		mav.setViewName("listMem");
 		return mav;
 	}

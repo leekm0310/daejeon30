@@ -23,8 +23,10 @@ public class BoardqDAOImpl implements BoardqDAO{
 	}
 	
 	@Override
-	public int addQna(BoardqVO boardqVO) throws DataAccessException{
-		return sqlSession.insert("mapper.boardq.addQna", boardqVO);	
+	public void addQna(BoardqVO boardqVO) throws DataAccessException{
+		int num = selectNO();
+		boardqVO.setNum(num);
+		sqlSession.insert("mapper.boardq.addQna", boardqVO);
 	}
 	
 	@Override
@@ -64,5 +66,16 @@ public class BoardqDAOImpl implements BoardqDAO{
 	//아이디별 문의글 - 마이페이지
 	public List searchbyId(String id)throws DataAccessException{
 		return sqlSession.selectList("mapper.boardq.searchbyId", id);
+	}
+	
+	//신규문의
+	@Override
+	public int newQna()throws DataAccessException{
+		return sqlSession.selectOne("mapper.boardq.newQna");
+	}
+	
+	//글번호추가
+	private int selectNO() throws DataAccessException{
+		return sqlSession.selectOne("mapper.boardq.selectNO");
 	}
 }

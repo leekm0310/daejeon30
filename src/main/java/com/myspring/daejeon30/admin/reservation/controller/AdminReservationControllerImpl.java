@@ -14,13 +14,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.myspring.daejeon30.admin.member.service.AdminMemberService;
 import com.myspring.daejeon30.admin.reservation.service.AdminReservationService;
+import com.myspring.daejeon30.boardq.service.BoardqService;
+import com.myspring.daejeon30.paging.Criteria;
+import com.myspring.daejeon30.paging.PageMaker;
 
 @Controller("adminReservationController")
 public class AdminReservationControllerImpl implements AdminReservationController{
 	@Autowired
 	private AdminReservationService adminReservationService;
+	@Autowired
+	private AdminMemberService adminMemberService;
+	@Autowired
+	private BoardqService boardqService;
 	
+	// 기존 회원 예약 리스트
 	@Override
 	@RequestMapping(value="/admin/allRsv.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView allRsv(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -31,6 +40,22 @@ public class AdminReservationControllerImpl implements AdminReservationControlle
 		return mav;
 		
 	}
+	
+	/*@RequestMapping(value="/admin/allRsv.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView allRsv(Criteria cri,HttpServletRequest request, HttpServletResponse response) throws Exception {
+		List rsvAll= adminReservationService.selectMemRList(cri);
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setTotalCount(adminReservationService.countMemRListTotal());
+	    pageMaker.setCri(cri);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("rsv1", rsvAll);
+		mav.addObject("pageMaker", pageMaker);
+		mav.setViewName("adminrsv");
+		return mav;
+	}*/
+	
+	
+	
 	
 	@RequestMapping(value="/admin/acceptres.do", method=RequestMethod.GET)
 	public String acceptRes(@RequestParam("rsvNum") int rsvNum, 
@@ -89,6 +114,21 @@ public class AdminReservationControllerImpl implements AdminReservationControlle
 		List ss = adminReservationService.selectnonStatus(status);
 		resEntity = new ResponseEntity(ss, HttpStatus.OK);
 		return resEntity;
+	}
+	
+	//관리자 메인
+	@RequestMapping(value="/admin/adminmain.do")
+	public ModelAndView adminmain(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		int newrm = adminReservationService.countNewRsvmem();
+		int newmem = adminMemberService.newMember();
+		int newqna = boardqService.newQna();
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("newrm", newrm);
+		mav.addObject("newmem", newmem);
+		mav.addObject("newqna", newqna);
+		mav.setViewName("adminMain");
+		return mav;
+		
 	}
 
 }
