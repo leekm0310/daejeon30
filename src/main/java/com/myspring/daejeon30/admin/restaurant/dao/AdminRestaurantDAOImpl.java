@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
+import com.myspring.daejeon30.paging.Criteria;
 import com.myspring.daejeon30.restaurant.vo.ResImageVO;
 import com.myspring.daejeon30.restaurant.vo.RestaurantVO;
 
@@ -98,4 +99,26 @@ public class AdminRestaurantDAOImpl implements AdminRestaurantDAO{
 		int resNum = sqlSession.selectOne("mapper.admin.restaurants.selectResNum", resMap.get("resName"));
 		return resNum;
 	}
+	
+	
+	//검색
+	@Override
+	public List searchRes(String word) throws DataAccessException{
+		List search = sqlSession.selectList("mapper.admin.restaurants.searchRes", word);
+		return search;
+	}
+
+	//페이지테스트
+			@Override
+			@SuppressWarnings("unchecked")
+			public List selectResList(Criteria cri) {
+			    return sqlSession.selectList("mapper.admin.restaurants.getPage", cri);
+			}
+			@Override
+			public int countResList()throws Exception{
+				return (Integer)sqlSession.selectOne("mapper.admin.restaurants.countresList");
+			}
+	
+	
+	
 }

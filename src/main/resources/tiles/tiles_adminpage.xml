@@ -17,53 +17,69 @@
 	
 	<definition name="adminMenu" extends="normalLayout">
 		<put-attribute name="title" value="게시판 관리" />	
+		<put-attribute name="header" value="/WEB-INF/views/localMenu/adminChart.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/admin/test.jsp" />
 		
 	</definition>
 	
 	<definition name="adminRes" extends="normalLayout">
 		<put-attribute name="title" value="식당관리" />
+		<put-attribute name="header" value="/WEB-INF/views/localMenu/adminChart.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/adminRes.jsp" />
 	</definition>
 	
 	<definition name="addRes" extends="normalLayout">
 		<put-attribute name="title" value="식당추가" />
+		<put-attribute name="header" value="/WEB-INF/views/localMenu/adminChart.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/addRes.jsp" />
 	</definition> 
 	
 	<definition name="viewRes" extends="normalLayout">
 		<put-attribute name="title" value="식당상세" />
+		<put-attribute name="header" value="/WEB-INF/views/localMenu/adminChart.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/viewRes.jsp" />
 	</definition>
 	
 	<definition name="listMem" extends="normalLayout">
 		<put-attribute name="title" value="회원관리" />
+		<put-attribute name="header" value="/WEB-INF/views/localMenu/adminChart.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/admin/listMem.jsp" />
 	</definition>
 	
 	<definition name="modifyMem" extends="normalLayout">
 		<put-attribute name="title" value="회원관리상세" />
+		<put-attribute name="header" value="/WEB-INF/views/localMenu/adminChart.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/admin/modifyMem.jsp" />
 	</definition>
 	
 	<definition name="adminrsv" extends="normalLayout">
 		<put-attribute name="title" value="예약관리" />
+		<put-attribute name="header" value="/WEB-INF/views/localMenu/adminChart.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/admin/adminrsv.jsp" />
 	</definition>
 	
 	<definition name="nonrsv" extends="normalLayout">
 		<put-attribute name="title" value="비회원예약관리" />
+		<put-attribute name="header" value="/WEB-INF/views/localMenu/adminChart.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/admin/nonrsv.jsp" />
 	</definition>
 	
 	<definition name="adminBoard" extends="normalLayout">
 		<put-attribute name="title" value="게시판 관리" />
+		<put-attribute name="header" value="/WEB-INF/views/localMenu/adminChart.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/admin/adminBoard.jsp" />
 	</definition>
 	
 	<definition name="writeform" extends="normalLayout">
 		<put-attribute name="title" value="게시판 관리" />
+		<put-attribute name="header" value="/WEB-INF/views/localMenu/adminChart.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/bboard/writeform1.jsp" />
+	</definition>
+	
+	<definition name="viewone" extends="normalLayout">
+		<put-attribute name="title" value="게시판 관리" />
+		<put-attribute name="header" value="/WEB-INF/views/localMenu/adminChart.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/bboard/viewOne.jsp" />
 	</definition>
 	
 </tiles-definitions>

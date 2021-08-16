@@ -26,6 +26,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myspring.daejeon30.admin.restaurant.service.AdminRestaurantService;
+import com.myspring.daejeon30.paging.Criteria;
+import com.myspring.daejeon30.paging.PageMaker;
 import com.myspring.daejeon30.restaurant.vo.ResImageVO;
 import com.myspring.daejeon30.restaurant.vo.RestaurantVO;
 
@@ -49,6 +51,7 @@ public class AdminRestaurantControllerImpl implements AdminRestaurantController{
 	}
 	
 	
+	/* 원래쓰던 리스트 불러오기
 	@Override
 	@RequestMapping(value="/admin/listRes1.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView allRes(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -58,8 +61,20 @@ public class AdminRestaurantControllerImpl implements AdminRestaurantController{
 		mav.setViewName("adminRes");
 		return mav;
 		
+	}*/
+	//페이징포함 리스트 불러오기
+	@RequestMapping(value="/admin/listRes1.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView allRes(Criteria cri, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		List resAll = adminRestaurantService.selectResList(cri);
+		PageMaker pageMaker = new PageMaker();
+	    pageMaker.setCri(cri);
+	    pageMaker.setTotalCount(adminRestaurantService.countResListTotal());
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("resList", resAll);
+		mav.addObject("pageMaker", pageMaker);
+		mav.setViewName("adminRes");
+		return mav;
 	}
-	
 	
 	
 	
@@ -71,6 +86,22 @@ public class AdminRestaurantControllerImpl implements AdminRestaurantController{
 		mav.addObject("resMap", resMap);
 		return mav;
 	}
+	
+	//검색
+	@RequestMapping(value="admin/searchRes.do", method=RequestMethod.POST)
+	public ModelAndView searchRes(String word1, 
+		HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String word = "%"+word1+"%";
+		System.out.print(word);
+		List search = adminRestaurantService.searchRes(word);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("resList", search);
+		mav.setViewName("adminRes");
+		return mav;
+				
+	}
+	
+	
 	
 	
 	@Override
@@ -204,6 +235,7 @@ public class AdminRestaurantControllerImpl implements AdminRestaurantController{
 		resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 		return resEnt;
 	}
+	
 	
 	
 	

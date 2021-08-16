@@ -20,7 +20,18 @@ pageEncoding="utf-8" isELIgnored="false" %>
 </head>
 <body>
  <header>
-        <h2>Responsive Side Bar Site</h2>
+    
+        <ul class="list-group list-group-horizontal" style="font-size:25px">
+    	<li class="list-group-item" style="width:50%; height:120%"><p class="text-center" style="margin-top:50px"><strong>신규예약요청</strong>
+      	<a href="#" class="count">11</a></p></li>
+      	<li class="list-group-item" style="width:50%; height:120%"><p class="text-center" style="margin-top:50px"><strong>신규취소요청</strong>
+      	<a href="#" class="count">#</a></p></li>
+      	<li class="list-group-item" style="width:50%; height:120%"><p class="text-center" style="margin-top:50px"><strong>신규가입회원</strong>
+        <a href="#" class="count">11</a></p></li>
+     	 <li class="list-group-item" style="width:50%; height:120%"><p class="text-center" style="margin-top:50px"><strong>신규문의</strong>
+        <a href="#" class="count">11</a></p></li>
+
+      </ul>
       </header>
       
       <article>

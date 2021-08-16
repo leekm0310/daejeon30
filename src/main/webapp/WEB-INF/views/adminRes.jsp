@@ -68,7 +68,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 
 <!-- 검색바 -->
 	<div class="col-md-4">
-	<form class="d-flex justify-content-center py-3" action="${contextPath}/res/searchRes.do" method="post">
+	<form class="d-flex justify-content-center py-3" action="${contextPath}/admin/searchRes.do" method="post">
 	<input type="text" class="form-control" name="word1" id="word1" placeholder="검색어를 입력하세요" style="text-align:center; width:250px;">
 		&ensp;<input type="submit" class="btn btn-danger" value="검색">
 	</form>
@@ -102,7 +102,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		<td><a href="${contextPath}/admin/viewRes.do?resNum=${res.resNum}">${res.resName }</td>
 		<!--  <td>${res.resLocation }</td>-->
 		<td class="button"><a href="#" onclick="location.href='${contextPath}/admin/viewRes.do?resNum=${res.resNum}'" class="btn btn-outline-success">수정하기</a><br>
-		<a href="#" class="btn btn-outline-danger" onclick="fn_remove('${contextPath}/admin/removeRes.do', ${res.resNum})">삭제하기</a></td>
+	 <a href="#" class="btn btn-outline-danger" onclick="fn_remove('${contextPath}/admin/removeRes.do', ${res.resNum})">삭제하기</a></td>
 	</c:forEach>
 	</c:when>
 	</c:choose>
@@ -114,29 +114,34 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <!-- 삭제하기버튼 -->
 <div class="row justify-content-end">
 <button type="button" class="btn btn-danger" style="width:100px;" onclick="location.href='${contextPath}/addRes.do'">등록하기</button>
-<button type="button" class="btn btn-danger" style="width:100px;" onclick="location.href='${contextPath}/admin/removeRes.do?resNum=${res.resNum }'">삭제하기</button>
+<!-- <button type="button" class="btn btn-danger" style="width:100px;" onclick="location.href='${contextPath}/admin/removeRes.do?resNum=${res.resNum }'">삭제하기</button> -->
 </div>
 
-<!-- 페이지번호 -->
-<div class ="row">
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-</div>
+
+<!-- 페이지네이션 -->
+		
+	<div class="row">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-center">
+						<c:if test="${pageMaker.prev }">
+							<li class="page-item"><a class="page-link" href='<c:url value="/res/rlist1.do?page=${pageMaker.startPage-1 }"/>'
+								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+							</a></li>
+						</c:if>
+						<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="pageNum">	
+							<li class="page-item"><a class="page-link" href='<c:url value="/res/rlist1.do?page=${pageNum }"/>'>${pageNum }</a></li>
+						</c:forEach>
+						<c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+							<li class="page-item"><a class="page-link" href='<c:url value="/res/rlist1.do?page=${pageMaker.endPage+1 }"/>' aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+							</a></li>
+						  </c:if>
+						</ul>
+					</nav>
+				</div>
+
+
+
+
 	</div>
 		</div>
 	</div>

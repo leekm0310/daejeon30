@@ -147,9 +147,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
  
   </script>
 
-
-
-<title>회원관리</title> 
 </head>
 
 <body>
@@ -172,15 +169,16 @@ pageEncoding="utf-8" isELIgnored="false" %>
  <button type="button" class="btn btn-danger btn-sm" onclick="location.href='${contextPath}/admin/writeform.do'">관리자글쓰기</button>
 
 <br><br>
+
 	<table class="table table-hover">
 	<thead>
 	<tr>
-		<th><input type="checkbox" id="checkall" onclick="checkAll();" style="width:20px;height:20px;"/></th>
-		<th>#</th>
-		<th>#</th>
-		<th>#</th>
-		<th>#</th>
-		<th>#</th>
+		<!-- <th><input type="checkbox" id="checkall" onclick="checkAll();" style="width:20px;height:20px;"/></th> -->
+		<th>번호</th>
+		<th>제목</th>
+		<th>일시</th>
+		<th>작성자</th>
+		<th>비고</th>
 		<th></th>
 	</tr>
 	</thead>
@@ -190,12 +188,12 @@ pageEncoding="utf-8" isELIgnored="false" %>
    <c:forEach  var="result" items="${result }" >
 	<tr>
 
-		<td><input type="checkbox" id="chk" name="chk" style="width:20px;height:20px;"/></td>
-		<td>#</td>
+		<!--  <td><input type="checkbox" id="chk" name="chk" style="width:20px;height:20px;"/></td>-->
+		<td>공지</td>
 		<td>${result.title}</td>
 		<td><fmt:formatDate pattern="yyyy-MM-dd" value="${result.date }" /></td>
 		<td>${result.id }</td>
-		<td width="200"><button class="btn btn-outline-success btn-sm" onclick="location.href='${contextPath}/bboard/oneNo.do?num=${result.num }'">수정</button>
+		<td width="200"><button class="btn btn-outline-success btn-sm" onclick="location.href='${contextPath}/admin/oneNo.do?num=${result.num }'">수정</button>
 		<button class="btn btn-outline-secondary btn-sm" value="${result.num }" onclick="deleteNotice(this.value)">삭제</button></td>
 	</c:forEach>
 	</c:when>
@@ -211,7 +209,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <button type="button" class="btn btn-danger" style="width:100px;" onclick="location.href='${contextPath}/admin/removeRes.do?resNum=${res.resNum }'">삭제하기</button>
 </div>
 
-<!-- 페이지번호 -->
+<!-- 페이지번호 
 <div class ="row">
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
@@ -230,7 +228,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
     </li>
   </ul>
 </nav>
-</div>
+</div>-->
 	</div>
 		</div>
 	</div>

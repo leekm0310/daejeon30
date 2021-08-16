@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.myspring.daejeon30.admin.restaurant.dao.AdminRestaurantDAO;
+import com.myspring.daejeon30.paging.Criteria;
 import com.myspring.daejeon30.restaurant.vo.ResImageVO;
 import com.myspring.daejeon30.restaurant.vo.RestaurantVO;
 
@@ -64,6 +65,23 @@ public class AdminRestaurantServiceImpl implements AdminRestaurantService{
 	@Override
 	public void modRes(Map resMap) throws Exception{
 		adminRestaurantDAO.updateRes(resMap);
+	}
+	
+	//검색
+	@Override
+	public List searchRes(String word) throws Exception{
+		List search = adminRestaurantDAO.searchRes(word);
+		return search;
+	}
+	
+	//페이지 테스트
+	@Override
+	public List<Map<String, Object>> selectResList(Criteria cri) throws Exception{
+	    return adminRestaurantDAO.selectResList(cri);
+	}
+	@Override
+	public int countResListTotal() throws Exception{
+		return adminRestaurantDAO.countResList();
 	}
 
 }

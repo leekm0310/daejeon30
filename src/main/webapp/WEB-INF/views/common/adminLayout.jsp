@@ -47,16 +47,14 @@ aside {
 
 header {
   float: left;
-  width: calc(93% - 230px);
-  width: -moz-calc(93% - 230px);
-  width: -webkit-calc(93% - 230px);
+  width:90%;
+ 
   padding-left: calc(230px + 7%);
   padding-left: -moz-calc(230px + 7%);
   padding-left: -webkit-calc(230px + 7%);
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: rgba(247, 247, 247, 0.9);
-  border-bottom: #2b99ff 2px solid;
+  background-color: white;
   position: fixed;
   z-index: 300;
 }

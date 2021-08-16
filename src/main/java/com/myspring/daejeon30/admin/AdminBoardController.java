@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myspring.daejeon30.bboard.service.BboardService;
+import com.myspring.daejeon30.bboard.vo.BboardVO;
 import com.myspring.daejeon30.bboard2.service.Bboard2Service;
 import com.myspring.daejeon30.board.service.Board2Service;
 import com.myspring.daejeon30.boardq.service.BoardqService;
@@ -74,6 +75,16 @@ public class AdminBoardController{
 		resEntity = new ResponseEntity(result, HttpStatus.OK);
 		return resEntity;
 	
+	}
+	
+
+	@RequestMapping(value="/admin/oneNo.do", method=RequestMethod.GET)
+	public ModelAndView selectOne(@RequestParam("num") String num, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		BboardVO bbo = bboardService.oneNo(num);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("bbo", bbo);
+		mav.setViewName("viewone");
+		return mav;
 	}
 	
 

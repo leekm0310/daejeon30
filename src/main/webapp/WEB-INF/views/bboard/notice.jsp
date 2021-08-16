@@ -37,7 +37,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>번호</th>
+					<th>구분</th>
 					<th style="width:700;">제목</th>
 					<th>작성자</th>
 					<th>날짜</th>
@@ -50,7 +50,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			<c:forEach var="notice" items="${noticeList }" varStatus="num">
 			<fmt:formatDate var="ndate" value="${notice.date }" pattern="yyyy-MM-dd"/>
 			<tr>
-			<td style="padding:14px">${num.index+1 }</td>
+			<td style="padding:14px">공지</td>
 			<td><a href="${contextPath}/bboard/oneNo.do?num=${notice.num }">${notice.title }</a></td>
 			<td>${notice.id }</td>
 			<td>${ndate }</td>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -123,11 +124,13 @@ public class AdminReservationControllerImpl implements AdminReservationControlle
 		int newmem = adminMemberService.newMember();
 		int newqna = boardqService.newQna();
 		int newcm = adminReservationService.countCanRsvmem();
+		HttpSession session = request.getSession();
+		session.setAttribute("newcm", newcm);
+		session.setAttribute("newrm", newrm);
+		session.setAttribute("newmem", newmem);
+		session.setAttribute("newqna", newqna);
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("newcm", newcm);
-		mav.addObject("newrm", newrm);
-		mav.addObject("newmem", newmem);
-		mav.addObject("newqna", newqna);
+		
 		mav.setViewName("adminMain");
 		return mav;
 		
