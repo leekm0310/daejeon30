@@ -53,6 +53,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 <body>
 
  <!-- 메인코드부 -->
+  <article>
  <div class="wrap">
  	<div class="main-content">
 	<div class="container" >
@@ -83,7 +84,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		<th style="width:100;">등록번호</th>
 		<!--  <th>식당분류</th>-->
 		<th style="width:100;" >식당사진</th>
-		<th style="width:700;">식당명</th>
+		<th style="width:500;">식당명</th>
 		<th>옵션</th>
 		<th></th>
 	</tr>
@@ -140,6 +141,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		</div>
 	</div>
 
-
+</article>
 </body>
 </html>

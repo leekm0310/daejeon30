@@ -11,6 +11,7 @@
 
 <body>
  <!-- 메인코드부 -->
+ <article>
 	 <div class="wrap">
 
 		<hr>
@@ -61,6 +62,6 @@
 		</div>
 	</div>
 </div>
-
+</article>
 </body>
 </html>

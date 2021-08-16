@@ -20,6 +20,9 @@ public interface AdminReservationDAO{
 	//신규예약-회원
 	public int countNewRsvmem()throws DataAccessException;
 	
+	//회원 취소
+	public int countCanRsvmem() throws DataAccessException;
+	
 	//페이지
 		public List selectMemRList(Criteria cri) throws Exception;
 		public int countMemRList()throws Exception;

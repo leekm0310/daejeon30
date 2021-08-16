@@ -153,7 +153,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 </head>
 
 <body>
-
+<article>
  <!-- 메인코드부 -->
  <div class="wrap">
  	<div class="main-content">
@@ -169,7 +169,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
   <button type="button" class="btn btn-outline-dark" onclick="allqna()">문의게시판</button>
   <button type="button" class="btn btn-outline-dark" onclick="location.href='${contextPath}/admin/noticeBoard.do'">공지사항</button>
 </div>
- <button type="button" class="btn btn-danger btn-sm" onclick="location.href='${contextPath}/writeform1.do'">관리자글쓰기</button>
+ <button type="button" class="btn btn-danger btn-sm" onclick="location.href='${contextPath}/admin/writeform.do'">관리자글쓰기</button>
 
 <br><br>
 	<table class="table table-hover">
@@ -235,6 +235,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		</div>
 	</div>
 
-
+</article>
 </body>
 </html>

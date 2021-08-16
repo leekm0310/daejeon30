@@ -53,11 +53,13 @@ table.type05 td {
    </script>
 </head>
 <body>
+<article>
     <form action="${contextPath}/admin/addNewRes.do" method="post" enctype="multipart/form-data">
 		<h4>식당 등록</h4>
 
 
 	<!-- 내용 들어 가는 곳 -->
+	
 	<div class="tab_container" id="container">
 	
 		<div class="tab_container">
@@ -178,5 +180,6 @@ table.type05 td {
 	</div>
 	<div class="clear"></div>
 
+</article>
 </form>	 
 </body>

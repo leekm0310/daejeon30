@@ -64,6 +64,12 @@ public class AdminReservationServiceImpl implements AdminReservationService{
 		return adminReservationDAO.countNewRsvmem();
 	}
 	
+	//회원 취소 카운트
+	@Override
+	public int countCanRsvmem() throws Exception{
+		return adminReservationDAO.countCanRsvmem();
+	}
+	
 	//페이지 테스트
 	@Override
 	public List<Map<String, Object>> selectMemRList(Criteria cri) throws Exception{

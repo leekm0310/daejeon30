@@ -102,6 +102,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 </script>
 </head>
 <body>
+<article>
  <div class="wrap">
 
 		<div class="main-content">
@@ -229,6 +230,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 </div>
 </div>
 
-
+</article>
 </body>
 </html>

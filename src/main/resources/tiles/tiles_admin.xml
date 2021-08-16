@@ -10,19 +10,22 @@
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 	
+	<!--  
 	<definition name="adminMain" extends="baseLayout">
 		<put-attribute name="title" value="관리자메인" />
 		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/adminMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/admin/adminMain.jsp" />
 	</definition>
+	-->
 	
 	<definition name="login" extends="baseLayout">
 		<put-attribute name="title" value="로그인창" />
 		<put-attribute name="body" value="/WEB-INF/views/member/login.jsp" />
 	</definition>
 	
+	<!-- 
 	<definition name="adminRes" extends="baseLayout">
-		<put-attribute name="title" value="Admin Res" />
+		<put-attribute name="title" value="식당관리" />
 		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/adminMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/adminRes.jsp" />
 	</definition>
@@ -31,19 +34,19 @@
 		<put-attribute name="title" value="식당추가" />
 		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/adminMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/addRes.jsp" />
-	</definition>
+	</definition> 
 	
 	<definition name="viewRes" extends="baseLayout">
 		<put-attribute name="title" value="식당상세" />
 		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/adminMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/viewRes.jsp" />
-	</definition>
+	</definition> 
 	
 	<definition name="listMem" extends="baseLayout">
 		<put-attribute name="title" value="회원관리" />
 		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/adminMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/admin/listMem.jsp" />
-	</definition>
+	</definition> 
 	
 	<definition name="modifyMem" extends="baseLayout">
 		<put-attribute name="title" value="회원관리상세" />
@@ -55,7 +58,7 @@
 		<put-attribute name="title" value="예약관리" />
 		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/adminMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/admin/adminrsv.jsp" />
-	</definition>
+	</definition> 
 	
 	<definition name="nonrsv" extends="baseLayout">
 		<put-attribute name="title" value="비회원예약관리" />
@@ -68,6 +71,6 @@
 		<put-attribute name="localmenu" value="/WEB-INF/views/localMenu/adminMenubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/admin/adminBoard.jsp" />
 	</definition>
-	
+	-->
 
 </tiles-definitions>

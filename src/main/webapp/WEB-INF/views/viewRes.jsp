@@ -47,6 +47,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 </script>
 </head>
 <body>
+<article>
     <form name="frmRes" action="#" method="post" enctype="multipart/form-data">
 		<h6>식당 상세창</h6>
 
@@ -168,5 +169,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	</div>
 	<div class="clear"></div>
 </div>
-</form>	 
+</form>
+</article>	 
 </body>

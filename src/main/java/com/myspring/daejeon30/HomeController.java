@@ -208,6 +208,12 @@ public class HomeController {
 		return "sitemap";
 	}
 	
+	@RequestMapping(value="/admin/writeform.do", method=RequestMethod.GET)
+	public String writeform(Locale locale, Model model) {
+		return "writeform";
+	}
+	
+	
 
 
 	/**

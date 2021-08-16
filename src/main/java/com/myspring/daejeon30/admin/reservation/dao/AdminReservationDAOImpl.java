@@ -64,6 +64,13 @@ public class AdminReservationDAOImpl implements AdminReservationDAO{
 		return sqlSession.selectOne("mapper.admin.rsv.countNewRsvmem");
 	}
 	
+	//회원 취소
+	@Override
+	public int countCanRsvmem() throws DataAccessException{
+		return sqlSession.selectOne("mapper.admin.rsv.countCanRsvmem");
+	}
+	
+	
 	//페이지테스트
 		@Override
 		@SuppressWarnings("unchecked")

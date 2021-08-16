@@ -20,6 +20,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 </head>
 
 <body>
+<article>
 
  <!-- 메인코드부 -->
  <div class="wrap">
@@ -117,7 +118,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	</div>
 		</div>
 	</div>
-
+</article>
 
 </body>
 </html>

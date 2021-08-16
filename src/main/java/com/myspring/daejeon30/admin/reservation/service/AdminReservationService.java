@@ -21,6 +21,9 @@ public interface AdminReservationService{
 	//신규 예약 - 회원
 	public int countNewRsvmem()throws Exception;
 	
+	//회원 - 취소
+	public int countCanRsvmem() throws Exception;
+	
 	//페이지테스트
 	public List selectMemRList(Criteria cri) throws Exception;
 	public int countMemRListTotal() throws Exception;

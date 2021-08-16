@@ -28,6 +28,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
    </script>
 </head>
 <body>
+
     <form action="${contextPath}/admin/modRes.do" method="post" enctype="multipart/form-data">
 		<h4>식당 정보 수정</h4>
 		<hr>
@@ -146,5 +147,6 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	</div>
 	<div class="clear"></div>
 </div>
-</form>	 
+</form>	
+ 
 </body>

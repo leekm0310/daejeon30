@@ -122,7 +122,9 @@ public class AdminReservationControllerImpl implements AdminReservationControlle
 		int newrm = adminReservationService.countNewRsvmem();
 		int newmem = adminMemberService.newMember();
 		int newqna = boardqService.newQna();
+		int newcm = adminReservationService.countCanRsvmem();
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("newcm", newcm);
 		mav.addObject("newrm", newrm);
 		mav.addObject("newmem", newmem);
 		mav.addObject("newqna", newqna);

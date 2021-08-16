@@ -109,5 +109,11 @@
 	]]>
 	</select>
 	
+	<!-- 취소 요청 조회 (회원) -->
+	<select id="countCanRsvmem" resultType="int">
+	<![CDATA[
+	select count(*) from rsvmember where status='취소요청중'
+	]]>
+	</select>
 	
 </mapper>
