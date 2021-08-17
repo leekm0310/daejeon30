@@ -149,7 +149,8 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		<th>식당명</th>
 		<th>인원</th>
 		<th>처리상태</th>
-		<th>선택</th>
+		<th>예약요청일</th>
+		<th>비고</th>
 		
 	</tr>
 	</thead>
