@@ -132,6 +132,7 @@ public class RestaurantControllerImpl implements RestaurantController {
 		
 		List review = bboard2Service.selectedReview(resNum);
 		ModelAndView mav = new ModelAndView();
+	
 		mav.addObject("resMap", resMap);
 		mav.addObject("review", review);
 		mav.setViewName("rlist2");

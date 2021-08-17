@@ -103,7 +103,9 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			</tr>
 			<tr>
 			 <td>상세 설명</td>
-			 <td><input name="detailInfo" type="text" value="${res.detailInfo }"/></td>
+			 <td>
+			  <textarea class="form-control" id="detailInfo" name="detailInfo" rows="5">${res.detailInfo }</textarea>
+			  </td>
 			</tr>
 				</table>	
 			</div>
