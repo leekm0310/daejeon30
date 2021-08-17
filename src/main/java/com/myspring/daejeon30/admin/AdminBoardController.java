@@ -1,7 +1,9 @@
 package com.myspring.daejeon30.admin;
 
 import java.net.http.HttpHeaders;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +23,8 @@ import com.myspring.daejeon30.bboard.vo.BboardVO;
 import com.myspring.daejeon30.bboard2.service.Bboard2Service;
 import com.myspring.daejeon30.board.service.Board2Service;
 import com.myspring.daejeon30.boardq.service.BoardqService;
+import com.myspring.daejeon30.boardq.vo.BoardqVO;
+import com.myspring.daejeon30.qcomment.service.QcommentService;
 
 @Controller
 public class AdminBoardController{
@@ -32,6 +36,8 @@ public class AdminBoardController{
 	Board2Service board2Service;
 	@Autowired
 	private BoardqService boardqService;
+	@Autowired
+	private QcommentService qcommentService;
 	
 	@RequestMapping(value="/admin/noticeBoard.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView nboardList(HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -106,6 +112,21 @@ public class AdminBoardController{
 		return resEntity;
 	}
 	
+	// 문의글보기	
+	@RequestMapping(value="/admin/viewQna.do")
+	public ModelAndView viewQna(@RequestParam("num") int num, 
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		BoardqVO bVO = boardqService.adminQna(num);
+		List qcList = qcommentService.qcomments(num);
+		Map map = new HashMap();
+		map.put("bVO", bVO);
+		map.put("qcList", qcList);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("map",map);
+		mav.setViewName("viewqna");
+		return mav;
+		
+	}
 
 
 	

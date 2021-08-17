@@ -74,7 +74,7 @@
 	restaurants.resPhone, resimage.resImageFileName 
 	from favlist left join restaurants on restaurants.resNum = favlist.resNum
 	join resimage on resimage.resNum = favlist.resNum
-	where id=#{id}
+	where resimage.resImageNum = 1 and id=#{id}
 	
 	]]>
 	</select>

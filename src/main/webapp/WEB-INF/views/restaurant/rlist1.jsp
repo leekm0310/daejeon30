@@ -52,7 +52,7 @@ request.setCharacterEncoding("utf-8");
 				alert("에러가 발생했습니다.");
 			},
 			complete:function(data){
-				alert("성공");
+				alert("찜한 리스트에 추가 되었습니다");
 				
 				}
 			});
@@ -73,7 +73,7 @@ request.setCharacterEncoding("utf-8");
 					alert("에러");
 				} else{
 					console.log(event.currentTarget.firstElementChild);
-					alert("성공");
+					alert("찜한 리스트에 추가 되었습니다");
 					
 				}
 				
@@ -103,7 +103,7 @@ request.setCharacterEncoding("utf-8");
 	<!--  <div class="row row-cols-1 row-cols-md-4 g-6">-->
 	<!--  <div class="d-flex bd-highlight flex-wrap mb-3">-->
 	<div class="d-flex align-content-stretch flex-wrap">
-	
+	<!--
 		<c:choose>
 			<c:when test="${!empty resList}">
 				<c:forEach var="res" items="${resList}">
@@ -114,29 +114,29 @@ request.setCharacterEncoding("utf-8");
 								<div class="card-body">${res.resNum}
 									<h5 class="card-title">${res.resName}</h5>
 									<p class="card-text">${res.resMenu}</p>
-									<hr>
-						<!-- 카드 내부 버튼 -->
+									<hr> -->
+						<!-- 카드 내부 버튼
 						<nav class="navbar navbar-light bg-grey" border=1>
 							<form class="container-fluid justify-content-start">
 								<a href="${contextPath}/res/rlist2.do?resNum=${res.resNum}" class="btn btn-danger" align=left>상세>></a> 
 								&ensp;&ensp;&ensp;&ensp; 
 								<input type="hidden" name="resNum" value="${res.resNum }">
 								
-								
+							
 					<div class="bb">	
 					<div id="likeoff" align=right><button style="width:40px">♥</button>  </div> </div>		
 												</form>
 										
 												
-					<div id="likeon" align=right><button  style="width:40px">♥</button></div>
+					<div id="likeon" align=right><button  style="width:40px">♥</button></div> -->
 
-						<!-- 1 -->
+						<!-- 1
 						<form name="fav" method="post" action="${contextPath}/favo/addfavo.do">
 							<input type="hidden" id="resNum1" name="resNum" value="${res.resNum }"> 
 							<input type="submit" value="찜하기">
-						</form>
+						</form> -->
 
-						<!-- 3 -->
+						<!-- 3 
 						<div>
 						<div class="w3-border w3-center w3-padding">
 						<c:if test="${ member.id == null }">
@@ -148,7 +148,7 @@ request.setCharacterEncoding("utf-8");
 						<!-- <button class="w3-button w3-black w3-round" onclick="javascript:addlike('${res.resNum}')">테스트 -->
 						<!--  <form name="addform" id="addform" method="post">
 						<input type="hidden" name="resNum" id="resNum" value="${res.resNum}">
-						<input type="hidden" name="id" id="id">-->
+						<input type="hidden" name="id" id="id">
 						
 						<button id="likebutton" name="resNum" value="${res.resNum}" onclick="javascript:like(this.value)">♥
 						</button>
@@ -164,9 +164,50 @@ request.setCharacterEncoding("utf-8");
 								</div>
 							</c:forEach>
 						</c:when>
-					</c:choose>
+					</c:choose>-->
 
 				</div>
+
+
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+<c:choose>
+<c:when test="${!empty resList}">
+<c:forEach var="res" items="${resList }">
+ <div class="col">
+    <div class="card h-100">
+      <img src="${contextPath}/download.do?resNum=${res.resNum}&resImageFileName=${res.resImageFileName}" class="card-img-top" width="310" height="310" alt="${review.imageFileName}">
+      <div class="card-body">
+        <h5 class="card-title">${res.resName}</h5>
+        <p class="card-text ellipsis">${res.resMenu}</p>
+     	<button type="button" class="btn btn-danger" onclick="location.href='${contextPath}/res/rlist2.do?resNum=${res.resNum}'">상세보기</button>
+     	
+     		<div class="w3-border w3-center w3-padding">
+						<c:if test="${ member.id == null }">
+						
+						<i class="fa fa-heart" style="font-size: 16px; color: red"></i>
+						<span class="rec_count"></span>
+						</c:if>
+						<c:if test="${ member.id != null }">
+						<!-- <button class="w3-button w3-black w3-round" onclick="javascript:addlike('${res.resNum}')">테스트 -->
+						<!--  <form name="addform" id="addform" method="post">
+						<input type="hidden" name="resNum" id="resNum" value="${res.resNum}">
+						<input type="hidden" name="id" id="id">-->
+						
+						<button id="likebutton" name="resNum" value="${res.resNum}" onclick="javascript:like(this.value)">♥
+						</button>
+					
+						</c:if>
+						</div>
+      </div>
+    </div>
+  </div>
+</c:forEach>
+</c:when>
+</c:choose>
+    
+  </div>
+
 
 
 				<br>

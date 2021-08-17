@@ -82,4 +82,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/bboard/viewOne.jsp" />
 	</definition>
 	
+		<definition name="viewqna" extends="normalLayout">
+		<put-attribute name="title" value="문의글 보기" />
+		<put-attribute name="header" value="/WEB-INF/views/localMenu/adminChart.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/boardq/viewQna1.jsp" />
+	</definition>
+	
 </tiles-definitions>

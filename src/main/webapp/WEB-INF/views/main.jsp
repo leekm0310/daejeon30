@@ -133,7 +133,7 @@ request.setCharacterEncoding("utf-8");
 
 <table style="background-color:white; width:100%;">
 <tr><th style="padding: 1px; text-align:center; color:black; font-size:20px;">인기맛집</th></tr>
-<td style="padding: 5px; text-align:center; color:black;">한 주간 가장 인기있었던 맛집을 소개해드립니다!</td>
+<td style="padding: 5px; text-align:center; color:black;">가장 인기 있는 맛집을 소개해드립니다!</td>
 </table>
 <br>	
 <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -218,7 +218,7 @@ request.setCharacterEncoding("utf-8");
 <!-- 본문 - 방문후기부 -->
 <table style="background-color:white; width:100%;">
 <tr><th style="padding: 1px; padding-top:30; ; text-align:center; color:black; font-size:20px;">방문후기</th></tr>
-<td style="padding: 5px; padding-bottom:30; text-align:center; color:black;">리뷰 통해 나에게 맞는 맛집을 찾아보세요!</td>
+<td style="padding: 5px; padding-bottom:30; text-align:center; color:black;">생생한 후기를 만나보세요!</td>
 </table>
 
 

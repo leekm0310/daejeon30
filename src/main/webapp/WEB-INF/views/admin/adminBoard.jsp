@@ -73,6 +73,10 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		});
 	}
   
+  function readqna(value){
+	  location.href="${contextPath}/admin/viewQna.do?num="+value;
+  }
+  
   	function allreview(){
   		$.ajax({
   			type:"post",
@@ -135,7 +139,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			 		output +="<td>"+result[i].date+"</td>"
 			 		output +="<td>"+result[i].name+"</td>"
 			 		output +="<td width='200'>"
-			 		output +="<button class='btn btn-outline-success btn-sm' value='"+result[i].num+"' onclick='accept(this.value)'>수정</button> "
+			 		output +="<button class='btn btn-outline-success btn-sm' value='"+result[i].num+"' onclick='readqna(this.value)'>수정</button> "
 			 		output +="<button class='btn btn-outline-secondary btn-sm' value='"+result[i].num+"' onclick='deleteQna(this.value)'>삭제</button></td>";
 			 	
 			 	}
