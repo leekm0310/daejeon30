@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class RestaurantVO{
 	private int resNum;
 	private String resName;
-	private int resOpen;
+	private String resOpen;
 	private String resPhone;
 	private String resMenu;
 	private String resLocation;
@@ -30,7 +30,7 @@ public class RestaurantVO{
 	
 	}
 	
-	public RestaurantVO(int resNum, String resName, int resOpen, String resPhone, String resMenu, String resLocation,
+	public RestaurantVO(int resNum, String resName, String resOpen, String resPhone, String resMenu, String resLocation,
 			int resCapacity, String resIngredient, int likeNum, String resCategory, String mapLocation, int openYear,
 			String resImageFileName, int resSort, String detailInfo) {
 		this.resNum=resNum;
@@ -66,11 +66,11 @@ public class RestaurantVO{
 		this.resName = resName;
 	}
 
-	public int getResOpen() {
+	public String getResOpen() {
 		return resOpen;
 	}
 
-	public void setResOpen(int resOpen) {
+	public void setResOpen(String resOpen) {
 		this.resOpen = resOpen;
 	}
 
