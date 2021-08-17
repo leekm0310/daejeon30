@@ -53,12 +53,13 @@ pageEncoding="utf-8" isELIgnored="false" %>
 				<h3>회원 정보 수정 </h3>
 				<form name="form1" method="post" action="${contextPath}/admin/modifyMem.do">
 				
-					<br>
+					<br>회원 구분
 					 <select name="memType">
-				  <option value="일반회원"  >일반회원</option>
+				  <option value="일반회원" selected >일반회원</option>
 				  <option value="우수회원" >우수회원</option>
-				  <option value="블랙리스트" selected>블랙리스트</option>
+				  <option value="블랙리스트">블랙리스트</option>
 					</select>
+					<br>
 				
 						<!--  <label for="inputId1" class="col-sm-2 col-form-label">회원구분</label>
 					    <input type="text" class="form-control" value="${mem.memType}" readonly="readonly">-->

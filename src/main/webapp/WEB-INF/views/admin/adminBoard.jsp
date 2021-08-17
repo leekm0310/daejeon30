@@ -91,7 +91,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			 		output +="<td>"+result[i].date+"</td>"
 			 		output +="<td>"+result[i].id+"</td>"
 			 		output +="<td width='200'>"
-			 		output +="<button class='btn btn-outline-success btn-sm' value='"+result[i].num+"' onclick='accept(this.value)'>수정</button> "
+			 		output +="<button class='btn btn-outline-success btn-sm' value='"+result[i].num+"' onclick='accept(this.value)'>보기</button> "
 				 	output +="<button class='btn btn-outline-secondary btn-sm' value='"+result[i].num+"' onclick='deleteReview(this.value)'>삭제</button></td>";
 			 	}
 			 	output+="</tr>";
@@ -116,7 +116,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			 		output +="<td>"+getTimestampToDate(timestamp)+"</td>"
 			 		output +="<td>"+result[i].id+"</td>"
 			 		output +="<td width='200'>"
-			 		output +="<button class='btn btn-outline-success btn-sm' value='"+result[i].rb_num+"' onclick='accept(this.value)'>수정</button> "
+			 		output +="<button class='btn btn-outline-success btn-sm' value='"+result[i].rb_num+"' onclick='accept(this.value)'>보기</button> "
 				 	output +="<button class='btn btn-outline-secondary btn-sm' value='"+result[i].rb_num+"' onclick='deleteRec(this.value)'>삭제</button></td>";
 			 	}
 			 	output+="</tr>";
@@ -139,7 +139,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			 		output +="<td>"+result[i].date+"</td>"
 			 		output +="<td>"+result[i].name+"</td>"
 			 		output +="<td width='200'>"
-			 		output +="<button class='btn btn-outline-success btn-sm' value='"+result[i].num+"' onclick='readqna(this.value)'>수정</button> "
+			 		output +="<button class='btn btn-outline-success btn-sm' value='"+result[i].num+"' onclick='readqna(this.value)'>보기</button> "
 			 		output +="<button class='btn btn-outline-secondary btn-sm' value='"+result[i].num+"' onclick='deleteQna(this.value)'>삭제</button></td>";
 			 	
 			 	}
