@@ -40,7 +40,7 @@
 		<br>
 		 <div class="col-sm-6" align=center>
 			<h1 class="h3 mb-3 fw-normal">로그인</h1>
-			<form method="POST" action="${contextPath}/daejeon30/member/login.do">
+			<form method="POST" action="${contextPath}/member/login.do">
 			<br>	
 			<div class="form-floating" style="width:300px;">
 				<input type="text" class="form-control" id="id" placeholder="abc123" name="id">
@@ -62,7 +62,7 @@
 		<br>
 			<h1 class="h3 mb-3 fw-normal">비회원 예약 조회</h1>
 			<br>
-			<form id="tracknonForm" action="${contextPath}/daejeon30/rsv/selectOneN.do" method="post">
+			<form id="tracknonForm" action="${contextPath}/rsv/selectOneN.do" method="post">
 			<div class="form-floating" style="width:300px;">
 				<input type="text" class="form-control" id="name" name="name">
 				<label for="floatingInput">예약자명</label>

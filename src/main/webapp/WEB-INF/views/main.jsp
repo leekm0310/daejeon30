@@ -92,20 +92,20 @@ request.setCharacterEncoding("utf-8");
   	
   	<div class="carousel-inner">
 	    <div class="carousel-item active">
-      	<img src="https://www.daejeon.go.kr/FileUpload/FOD/201402/representative_food08_b(1).jpg" class="d-block w-100" alt="..." style=" filter: alpha(opacity=20); opacity: 0.7;">
+      	<img src="https://www.daejeon.go.kr/FileUpload/FOD/201402/representative_food08_b(1).jpg" class="d-block w-100" alt="..." style=" filter: alpha(opacity=20); opacity: 0.6;">
 	      <div class="carousel-caption text-start" >
-        	<h1 style="color:black;">대전 맛집 기행</h1>
-        	<p style="color:black;">대슐랭가이드와 맛있는 하루 보내세요</p>
+        	<h1 style="color:black;"><strong>대전 맛집 예약은?</strong></h1>
+        	<p style="color:black;"><strong>대슐랭가이드와 맛있는 하루 보내세요</strong></p>
         	<p>
-        	<a class="btn btn-lg btn-primary" href="${contextPath}/join.do">회원가입</a>
+        	<a class="btn btn-primary" href="${contextPath}/join.do">회원가입</a>
         	</p>
       	  </div>
     </div>
     	<div class="carousel-item">
       		<img src="https://www.daejeon.go.kr/FileUpload/FOD/201402/representative_food07_b(1).jpg" class="d-block w-100" alt="...">
       		<div class="carousel-caption d-none d-md-block">
-        		<h5>zzz</h5>
-        		<p>zzz</p>
+        		<h5 style="color:black;"><strong>대전 대표 음식</strong></h5>
+        		<p style="color:black;">칼국수</p>
       		</div>
     	</div>
     	<div class="carousel-item">
