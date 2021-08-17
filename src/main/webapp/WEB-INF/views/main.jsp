@@ -102,17 +102,17 @@ request.setCharacterEncoding("utf-8");
       	  </div>
     </div>
     	<div class="carousel-item">
-      		<img src="https://www.daejeon.go.kr/FileUpload/FOD/201402/representative_food07_b(1).jpg" class="d-block w-100" alt="...">
+      		<img src="https://cdn.discordapp.com/attachments/859972059319631874/877207387222724698/representative_food07_b1.jpg" class="d-block w-100" alt="...">
       		<div class="carousel-caption d-none d-md-block">
-        		<h5 style="color:black;"><strong>대전 대표 음식</strong></h5>
-        		<p style="color:black;">칼국수</p>
+        		<h5 style="color:black;"><strong></strong></h5>
+        		<p style="color:black;"></p>
       		</div>
     	</div>
     	<div class="carousel-item">
-      		<img src="https://www.daejeon.go.kr/FileUpload/FOD/201402/representative_food01_b(1).jpg" class="d-block w-100" alt="...">
+      		<img src="https://cdn.discordapp.com/attachments/859972059319631874/877205307405779034/representative_food01_b1.jpg" class="d-block w-100" alt="...">
       		<div class="carousel-caption d-none d-md-block">
-        		<h5></h5>
-        		<p></p>
+        		<h2 style="color:black;"><strong></strong></h2>
+        		<H3 style="color:black;"></H3>
       		</div>
     	</div>
   	</div>
@@ -178,7 +178,7 @@ request.setCharacterEncoding("utf-8");
 
 
 <!--  test  -->
-<!-- Three columns of text below the carousel -->
+<!-- Three columns of text below the carousel
 <div class="container marketing">
     <div class="row" style=" margin:auto;">
       <div class="col-4" style=" display:inline-block;zoom:1;.display:inline;">
@@ -188,23 +188,23 @@ request.setCharacterEncoding("utf-8");
         <p>S</p>
         <p><a class="btn btn-secondary" href="https://www.daejeon.go.kr/tou/index.do">View details &raquo;</a></p>
         
-      </div><!-- /.col-lg-4 -->
+      </div><!-- /.col-lg-4 
       <div class="col-4">
         <svg class="bd-placeholder-img rounded-circle" img src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
         <h2>H</h2>
         <p>A</p>
         <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
+      </div><!-- /.col-lg-4 
       <div class="col-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
         <h2>H</h2>
         <p>A</p>
         <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
-</div>
+      </div><!-- /.col-lg-4
+    </div><!-- /.row 
+</div>-->
 
 
 
