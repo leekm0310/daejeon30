@@ -189,7 +189,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			</tr>
 			<tr>	
 				<td >상세설명</td>
-				<td>${res.detailInfo }${res.mapLocation}</td>
+				<td>${res.detailInfo }</td>
 			</tr>
 			
 			
