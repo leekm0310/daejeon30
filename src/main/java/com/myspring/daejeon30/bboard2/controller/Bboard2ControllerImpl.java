@@ -65,7 +65,23 @@ public class Bboard2ControllerImpl implements Bboard2Controller{
 		
 	}
 	
-	
+	//°Ë»ö
+	@RequestMapping(value="/bboard2/search.do")
+	public ModelAndView searchTitle(String word1, String sorting1,
+			HttpServletRequest request, HttpServletResponse response) throws Exception{			
+		//String word = "%"+word1+"%";
+		String word = word1;
+		Map map = new HashMap();
+		map.put("sorting", sorting1);
+		map.put("word", word);
+		System.out.print(map);
+		List search = bboard2Service.searchTitle(map);
+		System.out.print(search);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("revlist", search);
+		mav.setViewName("reviewlist");
+		return mav;
+	}
 	
 	@Override
 	@RequestMapping(value="/bboard2/oneReview.do", method=RequestMethod.GET)

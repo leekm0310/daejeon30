@@ -20,7 +20,7 @@ public interface BoardqService{
 	//댓글
 	public List<QcommentVO> allcomments(int num) throws Exception;
 	
-	//제목검색
+	//검색
 	public List searchTitle(Map map) throws Exception;
 	
 	//아이디별 문의글 - 마이페이지

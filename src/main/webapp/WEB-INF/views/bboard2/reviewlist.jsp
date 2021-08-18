@@ -85,20 +85,24 @@ request.setCharacterEncoding("utf-8");
 		
 
 
-<!-- 검색바 -->
-<div class="row justify-content-center">
-  <div class="container-fluid" style="width:450px">
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="검색" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">
-      		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-		  		<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-			</svg>
-	  </button>
-    </form>
-  </div>
- </div>
-<br>
+	<!-- 검색바 -->
+		<div class="row justify-content-center">
+			<div class="container-fluid" style="width:450px">
+				<form class="d-flex" action="${contextPath}/bboard2/search.do" method="post">
+				<select style="border: 1px solid lightgrey;" name="sorting1">
+				  <option value="title" selected >제목</option>
+				  <option value="content" >내용</option>
+				</select>
+					<input class="form-control me-2" type="text" name="word1" placeholder="검색어를 입력하세요" aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+							<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+						</svg>
+					</button>
+				</form>
+			</div>
+		</div>
+		<br>
 
 
 <!-- 페이지네이션 -->

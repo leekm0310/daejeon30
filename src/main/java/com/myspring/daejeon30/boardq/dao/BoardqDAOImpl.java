@@ -57,7 +57,7 @@ public class BoardqDAOImpl implements BoardqDAO{
 		return sqlSession.selectList("mapper.qcomment.selectQcomment", num);
 	}
 	
-	//제목검색
+	//검색
 	@Override
 	public List searchTitle(Map map) throws DataAccessException{
 		return sqlSession.selectList("mapper.boardq.searchTitle", map);

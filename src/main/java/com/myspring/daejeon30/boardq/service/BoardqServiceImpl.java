@@ -54,10 +54,11 @@ public class BoardqServiceImpl implements BoardqService{
 		return boardqDAO.allcomments(num);
 	}
 	
-	//제목검색
+	//검색
 	public List searchTitle(Map map) throws Exception{
 		return boardqDAO.searchTitle(map);
 	}
+	
 	//아이디별 문의글 - 마이페이지
 	@Override
 	public List searchbyId(String id)throws Exception{

@@ -24,4 +24,7 @@ public interface Bboard2DAO{
 	
 	//아이디별 리뷰검색
 	public List reviewById(String id)throws Exception;
+	
+	//제목검색
+	public List searchTitle(Map map) throws DataAccessException;
 }

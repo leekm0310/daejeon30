@@ -56,12 +56,17 @@ public class Bboard2DAOImpl implements Bboard2DAO{
 		return sqlSession.selectList("mapper.bboard2.selectedReview", resNum);
 	}
 	
-	//아이디별 리뷰검색
+	//아이디별 리뷰 - 마이페이지
 	@Override
 	public List reviewById(String id)throws Exception{
 		return sqlSession.selectList("mapper.bboard2.reviewById", id);
 	}
 	
+	//검색
+	@Override
+	public List searchTitle(Map map) throws DataAccessException{
+		return sqlSession.selectList("mapper.bboard2.searchTitle", map);
+	}
 	
 	//페이지테스트
 		@Override

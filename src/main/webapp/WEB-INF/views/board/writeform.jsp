@@ -97,7 +97,7 @@ request.setCharacterEncoding("UTF-8");
 								<!--  파일 업로드  -->
 
 								<label for="formFile" class="form-label"></label> 
-								<input class="form-control" type="file" id="formFile" onClick="fn_addFile()"> 
+							<!--  <input class="form-control" type="file" id="formFile" onClick="fn_addFile()"> -->	
 								<p>이미지파일 첨부:</p>
 								<input type="file" name="imageFileName" onchange="readURL(this);" />
 								<img id="preview" src="#" width=200 height=200 />

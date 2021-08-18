@@ -54,6 +54,11 @@ public class Bboard2ServiceImpl implements Bboard2Service{
 		return bboard2DAO.reviewById(id);
 	}
 	
+	//검색
+	public List searchTitle(Map map) throws Exception{
+		return bboard2DAO.searchTitle(map);
+	}
+	
 	//페이지 테스트
 		@Override
 		public List<Map<String, Object>> selectReviewList(Criteria cri) throws Exception{

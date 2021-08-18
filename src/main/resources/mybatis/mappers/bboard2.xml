@@ -75,9 +75,6 @@
 	
 	
 	
-	
-	
-	
 	<!-- 게시물 번호 -->
 	<select id="selectNewNo" resultType="int">
 	<![CDATA[
@@ -85,10 +82,10 @@
 	]]>
 	</select>
 	
-	<!-- 아이디별 리뷰 검색 -->
-	<select id="reviewById" parameterType="String" resultType="java.util.Map">
+	<!-- 검색 -->
+	<select id="searchTitle" parameterType="java.util.Map" resultMap="bboard2Result">
 	<![CDATA[
-		select * from reviewboard where id = #{id}
+	select * from reviewboard where ${sorting} like concat('%',#{word},'%')
 	]]>
 	</select>
 
