@@ -16,7 +16,7 @@
 			  <div class="container">
 			    <div class="row">
 			    	<div class="col-md-2" align=left>
-							<a href="./main1.jsp">
+							<a href="${contextPath}/daejeon30/main.do">
 								<img id="logoImage" src="https://cdn.discordapp.com/attachments/847720300296011812/852774816310362142/bi_4.png" width=150px; >
 							</a>
 						<small class="d-block mb-3 text-muted">
@@ -30,26 +30,26 @@
 			    		<br>
 				    		<h5>인트로</h5>
 							<ul class="list-unstyled text-small">
-								<li><a class="link-secondary" href="./intro.jsp">페이지 소개</a></li>
-								<li><a class="link-secondary" href="./sitemap.jsp">사이트맵</a></li>
+								<li><a class="link-secondary" href="${contextPath}/daejeon30/intro.do">페이지 소개</a></li>
+								<li><a class="link-secondary" href="${contextPath}/daejeon30/sitemap.do">사이트맵</a></li>
 							</ul>
 			    		</div>
 			    		<div class="col-md-1" align=center>
 			    		<br>
 				    		<h5>맛집</h5>
 							<ul class="list-unstyled text-small">
-								<li><a class="link-secondary" href="./rlist1.jsp">지역별 맛집</a></li>
-								<li><a class="link-secondary" href="./rlist1.jsp">분류별 맛집</a></li>
-								<li><a class="link-secondary" href="./rlist1.jsp">ETC</a></li>
+								<li><a class="link-secondary" href="${contextPath}/daejeon30/res/rlist1.do">지역별 맛집</a></li>
+								<li><a class="link-secondary" href="${contextPath}/daejeon30/res/rlist1.do">분류별 맛집</a></li>
+								<li><a class="link-secondary" href="${contextPath}/daejeon30/res/rlist1.do">ETC</a></li>
 							</ul>
 			    		</div>
 			    		<div class="col-md-1" align=center>
 			    		<br>
 				    		<h5>커뮤니티</h5>
 							<ul class="list-unstyled text-small">
-								<li><a class="link-secondary" href="./board2.jsp">공지사항</a></li>
-								<li><a class="link-secondary" href="./review1.jsp">후기공유</a></li>
-								<li><a class="link-secondary" href="./board3.jsp">추천게시판</a></li>
+								<li><a class="link-secondary" href="${contextPath}/daejeon30/bboard/notice.do">공지사항</a></li>
+								<li><a class="link-secondary" href="${contextPath}/daejeon30/bboard2/reviewList.do">리뷰게시판</a></li>
+								<li><a class="link-secondary" href="${contextPath}/daejeon30/board2.do">추천게시판</a></li>
 							</ul>
 			    		</div>
 			    	

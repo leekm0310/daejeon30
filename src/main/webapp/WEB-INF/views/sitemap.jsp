@@ -78,7 +78,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 				<td class="text-dark"> -대덕구</td>
 				</tr>
 				<tr>
-					<th scope="col"><a href="${contextPath}/daejeon30/res/rlist1.do"> 븐류별</a></th>
+					<th scope="col"><a href="${contextPath}/daejeon30/res/rlist1.do"> 분류별</a></th>
 					<td class="text-dark"> -한식</td>
 					<td class="text-dark"> -일식</td>
 					<td class="text-dark"> -중식</td>
