@@ -35,4 +35,6 @@ public class QcommentDAOImpl implements QcommentDAO{
 		sqlSession.delete("mapper.qcomment.deleteQcomment", num);	
 	}
 	
+
+	
 }

@@ -1,6 +1,7 @@
 package com.myspring.daejeon30.favo.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.myspring.daejeon30.favo.service.FavoService;
 import com.myspring.daejeon30.favo.vo.FavoVO;
 import com.myspring.daejeon30.member.vo.MemberVO;
+import com.myspring.daejeon30.paging.Criteria;
+import com.myspring.daejeon30.paging.PageMaker;
 
 @Controller("FavoController")
 public class FavoControllerImpl implements FavoController{
@@ -82,6 +85,14 @@ public class FavoControllerImpl implements FavoController{
 		mav.setViewName("like1");
 		return mav;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping(value="favo/removeFavo.do", method=RequestMethod.POST)
 	public String removeFavo(@ModelAttribute("favoVO") FavoVO favoVO, HttpServletRequest request, HttpServletResponse response) throws Exception{

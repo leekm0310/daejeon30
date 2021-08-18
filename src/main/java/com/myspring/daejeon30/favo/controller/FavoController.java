@@ -14,6 +14,7 @@ import com.myspring.daejeon30.favo.vo.FavoVO;
 public interface FavoController{
 	public ModelAndView addFavo(@ModelAttribute("favoVO") FavoVO favoVO,
 			HttpServletRequest request, HttpServletResponse response) throws Exception;
+	
 	public ModelAndView listFavo(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
 	

@@ -11,4 +11,6 @@ public interface QcommentDAO{
 	public void writeQcomment(QcommentVO qcommentVO) throws DataAccessException;
 	public void updateQcomment(QcommentVO qcommentVO) throws DataAccessException;
 	public void deleteQcomment(int num) throws DataAccessException;
+	
+
 }

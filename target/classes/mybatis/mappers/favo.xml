@@ -68,6 +68,7 @@
 	]]>
 	</select>
 	
+	<!-- 기존 찜한 리스트 불러오기 -->
 	<select id ="selectFavo" parameterType="favoVO" resultMap="favoResult">
 	<![CDATA[
 	select favlist.id, favlist.resNum, restaurants.resName, 
@@ -75,9 +76,38 @@
 	from favlist left join restaurants on restaurants.resNum = favlist.resNum
 	join resimage on resimage.resNum = favlist.resNum
 	where resimage.resImageNum = 1 and id=#{id}
-	
+
 	]]>
 	</select>
+	
+	
+	
+	<!-- 페이지 테스트 성공 -->
+	<select id="getPage" resultType="java.util.Map" parameterType="java.util.Map">
+	<![CDATA[
+	select favlist.id, favlist.resNum, restaurants.resName, 
+	restaurants.resPhone, resimage.resImageFileName 
+	from favlist left join restaurants on restaurants.resNum = favlist.resNum
+	join resimage on resimage.resNum = favlist.resNum
+	where resimage.resImageNum = 1 and id=#{id} limit #{pageStart}, #{perPageNum}
+	]]>
+	</select>
+	<select id="countBoardList" resultType="Integer">
+    <![CDATA[
+        SELECT  count(*) FROM favlist
+    ]]>
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	<select id ="favoCount" parameterType="favoVO" resultType="int">
 	<![CDATA[

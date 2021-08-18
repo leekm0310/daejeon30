@@ -74,6 +74,13 @@
 	</update>
 	
 	
+	<!-- 아이디별 리뷰 검색 -->
+	<select id="reviewById" parameterType="String" resultType="java.util.Map">
+	<![CDATA[
+	select * from reviewboard where id=#{id}
+	]]>
+	</select>
+	
 	
 	<!-- 게시물 번호 -->
 	<select id="selectNewNo" resultType="int">

@@ -36,6 +36,8 @@
 		delete from qnacomment where num = #{num}
 	]]>
 	</delete>
+	
+
 
 
 </mapper>

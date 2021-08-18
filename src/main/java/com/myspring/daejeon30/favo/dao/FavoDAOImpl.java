@@ -1,6 +1,7 @@
 package com.myspring.daejeon30.favo.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.myspring.daejeon30.favo.vo.FavoVO;
+import com.myspring.daejeon30.paging.Criteria;
 import com.myspring.daejeon30.restaurant.vo.RestaurantVO;
 
 @Repository("favoDAO")
@@ -61,5 +63,19 @@ public class FavoDAOImpl implements FavoDAO{
 	public int memberfavo(String id)throws DataAccessException{
 		return sqlSession.selectOne("mapper.favo.memberfavo", id);
 	}
+	
+	
+	
+	//페이지테스트
+		@Override
+		@SuppressWarnings("unchecked")
+		public List selectBoardList(Map map) {
+		    return sqlSession.selectList("mapper.favo.getPage", map);
+		}
+		@Override
+		public int countBoardList()throws Exception{
+			return (Integer)sqlSession.selectOne("mapper.favo.countBoardList");
+		}
+	
 	
 }

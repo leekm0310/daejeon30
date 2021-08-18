@@ -59,6 +59,7 @@ public class BoardqControllerImpl implements BoardqController{
 	public ModelAndView listboard2(Criteria cri, HttpServletRequest request, HttpServletResponse reponse) throws Exception {
 		
 		List allqna = boardqService.selectBoardList(cri);// 모든 글 정보 조회
+		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(boardqService.countBoardListTotal());

@@ -40,7 +40,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 				<form action="${contextPath}/bboard/updateOneNo.do?num=${bbo.num }" method="post">
 					<div class="mb-3">
 					<p class="fs-3">
-					<input name = title value="${bbo.title}" style="border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px;">
+					<input name = title value="${bbo.title}" style="border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px; width:800;">
 					</p></div>
 					<hr>
 					작성자: ${bbo.id}		
