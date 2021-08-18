@@ -45,6 +45,17 @@
 	]]>
 	</select>
 	
+	<!-- 페이지 테스트 성공 -->
+	<select id="getPage" resultType="java.util.Map" parameterType="java.util.Map">
+	<![CDATA[
+	select * from qboard order by num desc limit #{pageStart}, #{perPageNum}
+	]]>
+	</select>
+	<select id="countBoardList" resultType="Integer">
+    <![CDATA[
+        SELECT  count(*) FROM qboard 
+    ]]>
+	</select>
 	
 	<update id="updateQna" parameterType="boardqVO">
 	<![CDATA[

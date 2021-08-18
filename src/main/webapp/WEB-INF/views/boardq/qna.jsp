@@ -49,6 +49,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			<c:choose>
 			<c:when test="${!empty qnaList }">
 			<c:forEach var="qna" items="${qnaList }" varStatus="num">
+			<fmt:formatDate var="ndate" value="${qna.date }" pattern="yyyy-MM-dd"/>
 			<tr>
 			<td style="padding:14px">${qna.num}</td>
 			<td>
@@ -56,7 +57,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
  			 	<path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
 				</svg></td>
 			<td><!--  <a href="${contextPath}/boardq/viewQna.do?num=${qna.num }">-->${qna.name }</a></td>
-			<td>${qna.date }</td>
+			<td>${ndate }</td>
 			<td>
 			</tr>
 			</c:forEach>
@@ -88,7 +89,26 @@ pageEncoding="utf-8" isELIgnored="false" %>
 		</div>
 		<br>
 		
+		<!-- 페이지네이션 -->
 		
+	<div class="row">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-center">
+						<c:if test="${pageMaker.prev }">
+							<li class="page-item"><a class="page-link" href='<c:url value="/boardq/qna.do?page=${pageMaker.startPage-1 }"/>'
+								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+							</a></li>
+						</c:if>
+						<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="pageNum">	
+							<li class="page-item"><a class="page-link" href='<c:url value="/boardq/qna.do?page=${pageNum }"/>'>${pageNum }</a></li>
+						</c:forEach>
+						<c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+							<li class="page-item"><a class="page-link" href='<c:url value="/boardq/qna.do?page=${pageMaker.endPage+1 }"/>' aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+							</a></li>
+						  </c:if>
+						</ul>
+					</nav>
+				</div>
 		
 		
 	

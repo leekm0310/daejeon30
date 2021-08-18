@@ -79,7 +79,7 @@ public class Board2DAOImpl implements Board2DAO {
 		return sqlSession.selectOne("mapper.board2.count");
 	}
 	
-	// 게시물 목록 + 페이징
+	// 게시물 목록 + 페이징 안씀
 	@Override
 	public List<Board2VO> listPage(int displayPost, int postNum) throws Exception {
 	

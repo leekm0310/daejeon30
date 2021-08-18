@@ -9,6 +9,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.myspring.daejeon30.boardq.vo.BoardqVO;
+import com.myspring.daejeon30.paging.Criteria;
 import com.myspring.daejeon30.qcomment.vo.QcommentVO;
 
 @Repository("boardqDAO")
@@ -51,6 +52,17 @@ public class BoardqDAOImpl implements BoardqDAO{
 		return bb;
 	}
 	
+	//페이지테스트
+	@Override
+	@SuppressWarnings("unchecked")
+	public List selectBoardList(Criteria cri) {
+	    return sqlSession.selectList("mapper.boardq.getPage", cri);
+	}
+	@Override
+	public int countBoardList()throws Exception{
+		return (Integer)sqlSession.selectOne("mapper.boardq.countBoardList");
+	}
+		
 	//댓글
 	@Override
 	public List<QcommentVO> allcomments(int num) throws Exception{

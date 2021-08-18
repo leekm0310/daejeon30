@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.dao.DataAccessException;
 
 import com.myspring.daejeon30.boardq.vo.BoardqVO;
+import com.myspring.daejeon30.paging.Criteria;
 import com.myspring.daejeon30.qcomment.vo.QcommentVO;
 
 public interface BoardqService{
@@ -28,5 +29,9 @@ public interface BoardqService{
 	
 	//신규문의
 	public int newQna()throws Exception;
+	
+	//페이지테스트
+	public List selectBoardList(Criteria cri) throws Exception;
+	public int countBoardListTotal() throws Exception;
 	
 }

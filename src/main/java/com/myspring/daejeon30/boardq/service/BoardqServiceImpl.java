@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.myspring.daejeon30.boardq.dao.BoardqDAO;
 import com.myspring.daejeon30.boardq.vo.BoardqVO;
+import com.myspring.daejeon30.paging.Criteria;
 import com.myspring.daejeon30.qcomment.vo.QcommentVO;
 
 @Service("boardqService")
@@ -47,6 +48,17 @@ public class BoardqServiceImpl implements BoardqService{
 		BoardqVO bb = boardqDAO.passthro(boardqVO);
 		return bb;
 	}
+	
+	//페이지 테스트
+	@Override
+	public List<Map<String, Object>> selectBoardList(Criteria cri) throws Exception{
+	    return boardqDAO.selectBoardList(cri);
+	}
+	@Override
+	public int countBoardListTotal() throws Exception{
+		return boardqDAO.countBoardList();
+	}
+		
 	
 	//댓글
 	@Override

@@ -26,6 +26,8 @@ import com.myspring.daejeon30.bboard2.service.Bboard2Service;
 import com.myspring.daejeon30.boardq.service.BoardqService;
 import com.myspring.daejeon30.boardq.vo.BoardqVO;
 import com.myspring.daejeon30.member.vo.MemberVO;
+import com.myspring.daejeon30.paging.Criteria;
+import com.myspring.daejeon30.paging.PageMaker;
 import com.myspring.daejeon30.qcomment.service.QcommentService;
 import com.myspring.daejeon30.qcomment.vo.QcommentVO;
 
@@ -40,6 +42,8 @@ public class BoardqControllerImpl implements BoardqController{
 	@Autowired
 	private Bboard2Service bboard2Service;
 	
+	
+	/*원래쓰던 리스트
 	@Override
 	@RequestMapping(value="/boardq/qna.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView qnaList(HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -48,7 +52,27 @@ public class BoardqControllerImpl implements BoardqController{
 		mav.addObject("qnaList", allqna);
 		mav.setViewName("qna");
 		return mav;
-	}
+	}*/
+	
+	//모든글 조회 페이징 테스트
+	@RequestMapping(value = "/boardq/qna.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView listboard2(Criteria cri, HttpServletRequest request, HttpServletResponse reponse) throws Exception {
+		
+		List allqna = boardqService.selectBoardList(cri);// 모든 글 정보 조회
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(boardqService.countBoardListTotal());
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("qnaList", allqna);
+		mav.addObject("pageMaker", pageMaker);
+		mav.setViewName("qna");
+		return mav;
+		}
+	
+	
+	
+	
 	
 	@Override
 	@RequestMapping(value="/boardq/addQna.do", method=RequestMethod.POST)

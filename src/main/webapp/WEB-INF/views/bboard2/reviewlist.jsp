@@ -74,14 +74,14 @@ request.setCharacterEncoding("utf-8");
 <br>
 
 
-<!-- 글쓰기 버튼 -->
+<!-- 글쓰기 버튼 
 	<c:if test="${isLogOn==true }">
 		<div class="row justify-content-end">
 		<button type="button" class="btn btn-danger" style="width:100px;" onclick="location.href='${contextPath}/reviewform.do'">글쓰기</button>
 		</div>
 	</c:if>
 	<c:if test="${isLogOn==false }">
-	</c:if>
+	</c:if>-->
 		
 
 

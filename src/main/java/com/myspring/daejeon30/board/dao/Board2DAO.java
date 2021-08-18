@@ -24,7 +24,7 @@ public interface Board2DAO {
 	//총 게시판 수
 	public int count() throws Exception;
 	
-	// 게시물 목록 + 페이징
+	// 게시물 목록 + 페이징 안씀
 	public List<Board2VO> listPage(int displayPost, int postNum) throws Exception;
 	
 	//페이지
