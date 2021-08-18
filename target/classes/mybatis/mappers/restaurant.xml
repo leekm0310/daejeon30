@@ -33,9 +33,9 @@
 	<!-- 페이지 성공 -->
 	<select id="getPage" resultType="java.util.Map" parameterType="java.util.Map">
 	<![CDATA[
-	select restaurants.resNum, restaurants.resName, resimage.resImageFileName from restaurants inner join resimage
+	select restaurants.resNum, restaurants.resName, restaurants.likeNum, resimage.resImageFileName from restaurants inner join resimage
 	on restaurants.resNum = resimage.resNum
-	where resimage.resImageNum = 1
+	where resimage.resImageNum = 1 order by likeNum desc
 	limit #{pageStart}, #{perPageNum}
 	]]>
 	</select>
@@ -51,9 +51,9 @@
  	
  	<select id="selectAll" resultMap="resResult">
 	<![CDATA[
-	select restaurants.resNum, restaurants.resName, resimage.resImageFileName from restaurants inner join resimage
+	select restaurants.resNum, restaurants.resName, restaurants.likeNum, resimage.resImageFileName from restaurants inner join resimage
 	on restaurants.resNum = resimage.resNum
-	where resimage.resImageNum = 1;
+	where resimage.resImageNum = 1 order by likeNum desc
 	]]>
 	</select>
  	
