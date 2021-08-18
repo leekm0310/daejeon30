@@ -134,7 +134,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			<thead>
 				<tr>
 					<th scope="col">
-						<a href="${contextPath}/daejeon30/bboard/faq.do" class="text-dark">-FAO</a>
+						<a href="${contextPath}/daejeon30/bboard/faq.do" class="text-dark">-FAQ</a>
 					</th>
 				</tr>
 				<tr>

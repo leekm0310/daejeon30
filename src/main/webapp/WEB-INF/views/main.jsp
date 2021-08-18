@@ -148,23 +148,7 @@ request.setCharacterEncoding("utf-8");
         <p class="card-text ellipsis">${res.resMenu}</p>
      	<button type="button" class="btn btn-danger" onclick="location.href='${contextPath}/res/rlist2.do?resNum=${res.resNum}'">상세보기</button>
      	
-     		<div class="w3-border w3-center w3-padding">
-						<c:if test="${ member.id == null }">
-						
-						<i class="fa fa-heart" style="font-size: 16px; color: red"></i>
-						<span class="rec_count"></span>
-						</c:if>
-						<c:if test="${ member.id != null }">
-						<!-- <button class="w3-button w3-black w3-round" onclick="javascript:addlike('${res.resNum}')">테스트 -->
-						<!--  <form name="addform" id="addform" method="post">
-						<input type="hidden" name="resNum" id="resNum" value="${res.resNum}">
-						<input type="hidden" name="id" id="id">-->
-						
-						<button id="likebutton" name="resNum" value="${res.resNum}" onclick="javascript:like(this.value)">♥
-						</button>
-					
-						</c:if>
-						</div>
+ 
       </div>
     </div>
   </div>

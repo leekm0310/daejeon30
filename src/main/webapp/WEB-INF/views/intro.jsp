@@ -22,24 +22,33 @@
 			<!-- 본문 내용 -->
 			<div class="row g-0 bg-light position-relative">
 			  <div class="col-md-6 mb-md-0 p-md-4">
-			    <img src="https://www.daejeon.go.kr/images/tou/2017images/main/visual05.jpg" class="w-100" alt="..."width="100" height="400">
+			    <img src="https://cdn.pixabay.com/photo/2017/08/08/09/44/food-photography-2610863_960_720.jpg" class="w-100" alt="..."width="100" height="400">
 			  </div>
 			  <div class="col-md-6 p-4 ps-md-0">
-			    <h5 class="mt-0">대전 광역시 야경</h5>
-			    <p>대전광역시(大田廣域市)는 대한민국의 중앙부에 있는 광역시이다. 경부고속철도, 경부선, 호남선 철도가 분기하고, 경부고속도로와 호남고속도로지선, 당진영덕고속도로 등 주요 고속도로가 연결되는 교통의 중심이다. 1997년 정부대전청사가 설립되어 중앙행정기관이 입주해 있으며, 한국철도공사, 한국조폐공사, 한국수자원공사 등 공기업 본사도 소재한다. 대덕연구개발특구가 조성되어 한국과학기술원(KAIST), 한국원자력연구원(KAERI), 한국전자통신연구원(ETRI), 한국항공우주연구원, 한국화학연구원, 한국과학기술정보연구원 등 정부출연연구기관과 전력연구원 등 공공 및 민간 연구소가 밀집한 과학·연구도시이다. 1993년 세계 박람회를 성공적으로 개최하여 과학도시로서 위상을 확립하였고, 2011년 국제과학비즈니스벨트 거점도시로 지정되었다. 시청은 서구 둔산동에 있고, 행정구역은 5구 177법정동 78행정동이다.</p>
-			    <a href="#" class="stretched-link">링크삽입예정</a>
+			    <h3 class="mt-0" style="color: orange;">대슐랭가이드</h3>
+			    <p><br><br><br>
+			
+			    믿을만한 맛집을 소개하고 추천하는 서비스<br>
+			    대전의 맛을 알릴 순 없을까? 라는 고민으로 시작된 대슐랭 가이드.<br>
+			    솔직한 리뷰와 정확한 정보를 바탕으로 맛집을 추천하는 서비스가 되고자 합니다.</p>
+			    <a href="#" class="stretched-link"></a>
 			  </div>
 			</div>
 			<br>
 			<br>
-			<div class="row g-0 bg-light position-relative">
+				<div class="row g-0 bg-light position-relative">
 			  <div class="col-md-6 mb-md-0 p-md-4">
-			    <h5 class="mt-0">꿈돌이</h5>
-			    <p>대전 엑스포 '93 공식 마스코트인 '꿈돌이'는 과학 기술, 산업의 발전을 통한 인류의 평화와 공존 공영의 미래상을 제시하고 젊은이에게 꿈과 희망을 줄 수 있는 우주 아기 요정의 모습을 하고 있다.[1] 우주인처럼 생겼으며, 몸 색깔이 노랑색 (여자 캐릭터는 분홍색)이고 고리처럼 생긴 것이 몸을 둘러싸고 있다. 꿈돌이랜드의 공식 캐릭터이다. 만화에서는 팔과 입이 있는 모습으로 등장하였으나, 대전엑스포 비디오 오프닝, 한빛탑과 엑스포과학공원 앞의 조형물로는 팔과 입이 없는 단순한 모습으로 나온다. </p>
-			    <a href="#" class="stretched-link">링크삽입예정</a>
+			    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvVGxXLhM5Y-o16id7Jp-lPaSWZcf5bsSlEQ&usqp=CAU" class="w-100" alt="..."width="100" height="400">
 			  </div>
-			  <div class="col-md-6 mb-md-0 p-md-4">
-			    <img src="https://www.daejeon.go.kr/images/drh/sub06/character_main.png" class="w-100" alt="..."width="100" height="400">
+			  <div class="col-md-6 p-4 ps-md-0">
+			    <h3 class="mt-0" style="color: orange;">온통대전</h3>
+			    <p><br><br>온통(On 通)대전은 <br>
+			    '모두, 전부'를 뜻하는 순 우리말 ‘온’<br>
+			    '소통, 통용'을 뜻하는 ‘통(通)’<br>
+			    그리고 큰돈을 의미하는 대전(大錢)을 결합해 만들어진 말입니다.<br>
+			    결제시 10% 포인트 적립까지!<br>
+			    온통대전 + 대슐랭 가이드와 맛있는 하루 보내세요! </p>
+			    <a href="https://www.ontongdaejeon.kr/main.do" class="stretched-link">온통대전 바로가기</a>
 			  </div>
 			</div>
 			<br>
@@ -50,19 +59,7 @@
 			</div>
 			<br>
 			<br>
-			<div class="row g-0 bg-light position-relative">
-			  <div class="col-md-6 mb-md-0 p-md-4">
-			    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvVGxXLhM5Y-o16id7Jp-lPaSWZcf5bsSlEQ&usqp=CAU" class="w-100" alt="..."width="100" height="400">
-			  </div>
-			  <div class="col-md-6 p-4 ps-md-0">
-			    <h5 class="mt-0">온통대전</h5>
-			    <p>온통(On 通)대전은 NICE정보통신에서 제공하는 서비스입니다.
-			    '모두, 전부'를 뜻하는 순 우리말 ‘온’
-			    '소통, 통용'을 뜻하는 ‘통(通)’
-			    그리고 큰돈을 의미하는 대전(大錢)을 결합해 만들어진 말입니다. </p>
-			    <a href="#" class="stretched-link">링크삽입예정</a>
-			  </div>
-			</div>
+		
 			
 			</div>
 </div>
