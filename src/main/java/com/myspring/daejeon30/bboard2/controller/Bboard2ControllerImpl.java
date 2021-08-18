@@ -161,7 +161,7 @@ public class Bboard2ControllerImpl implements Bboard2Controller{
 	
 			message = "<script>";
 			message += " alert('새글을 추가했습니다.');";
-			message += " location.href='"+multipartRequest.getContextPath()+"/board/listArticles.do'; ";
+			message += " location.href='"+multipartRequest.getContextPath()+"/bboard2/reviewList.do'; ";
 			message +=" </script>";
 		    resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 		}catch(Exception e) {
@@ -170,7 +170,7 @@ public class Bboard2ControllerImpl implements Bboard2Controller{
 			
 			message = " <script>";
 			message +=" alert('오류가 발생했습니다. 다시 시도해 주세요');');";
-			message +=" location.href='"+multipartRequest.getContextPath()+"/board/articleForm.do'; ";
+			message +=" location.href='"+multipartRequest.getContextPath()+"/bboard2/reviewList.do'; ";
 			message +=" </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 			e.printStackTrace();

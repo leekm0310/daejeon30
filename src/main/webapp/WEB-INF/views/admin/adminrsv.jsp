@@ -169,7 +169,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	<thead>
 	<tr>
 		<th>예약번호</th>
-		<th>날짜</th>
+		<th>예약일</th>
 		<th>식당명</th>
 		<th>이름</th>
 		<th>인원</th>

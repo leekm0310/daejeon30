@@ -15,6 +15,11 @@ pageEncoding="utf-8" isELIgnored="false" %>
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	      <link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	      
 	    
 	<style>
 	<!-- 버튼 -->
@@ -80,6 +85,31 @@ pageEncoding="utf-8" isELIgnored="false" %>
 			function like(){
 				alert("찜한 리스트에 추가 되었습니다.")
 				}
+			
+			
+			 function like(value){
+			    	$.ajax({
+			    		url:"${contextPath}/favo/addfavo.do",
+						type:"POST",
+						data:
+							{
+							resNum: value
+							},
+						dataType:"text",
+						success:function(result){
+							if(result==0){
+								alert("에러");
+							} else{
+								console.log(event.currentTarget.firstElementChild);
+								alert("찜한 리스트에 추가 되었습니다");
+								
+							}
+							
+							
+						}
+						
+			    	});
+			    }
 		</script>
 	
 	<title>상품리스트</title>
@@ -116,9 +146,24 @@ pageEncoding="utf-8" isELIgnored="false" %>
 								<header class="navbar navbar-expand-sm justify-content-center">
 								     <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="button" data-action="recommend" data-size="large" data-share="true" align=center>
 								       </div>
-										  <div id="btn_group" align=right> &ensp; &ensp; 
-										  	<button id="test_btn2" style="width:40px; height:40px;" onclick="like()" align=right>♥</button>
-								 		 </div>
+										
+											<div class="w3-border w3-center w3-padding">
+						<c:if test="${ member.id == null }">
+						
+						<i class="fa fa-heart" style="font-size: 16px; color: red"></i>
+						<span class="rec_count"></span>
+						</c:if>
+						<c:if test="${ member.id != null }">
+						<!-- <button class="w3-button w3-black w3-round" onclick="javascript:addlike('${res.resNum}')">테스트 -->
+						<!--  <form name="addform" id="addform" method="post">
+						<input type="hidden" name="resNum" id="resNum" value="${res.resNum}">
+						<input type="hidden" name="id" id="id">-->
+						
+						<button id="likebutton" name="resNum" value="${res.resNum}" onclick="javascript:like(this.value)">♥
+						</button>
+					
+						</c:if>
+						</div>
 								 </header> 
 							</div>
 
