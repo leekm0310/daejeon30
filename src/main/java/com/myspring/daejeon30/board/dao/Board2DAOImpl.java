@@ -101,6 +101,12 @@ public class Board2DAOImpl implements Board2DAO {
 	public int countBoardList()throws Exception{
 		return (Integer)sqlSession.selectOne("mapper.board2.countBoardList");
 	}
+	
+	//°Ë»ö
+	@Override
+	public List searchTitle(Map map) throws DataAccessException{
+		return sqlSession.selectList("mapper.board2.searchBysort", map);
+	}
 
 
 

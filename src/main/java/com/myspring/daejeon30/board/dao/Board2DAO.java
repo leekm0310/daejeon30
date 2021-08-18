@@ -30,5 +30,8 @@ public interface Board2DAO {
 	//페이지
 	public List selectBoardList(Criteria cri) throws Exception;
 	public int countBoardList()throws Exception;
+	
+	//검색
+	public List searchTitle(Map map) throws DataAccessException;
 
 }

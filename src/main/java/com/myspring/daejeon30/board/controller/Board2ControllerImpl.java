@@ -80,6 +80,27 @@ public class Board2ControllerImpl implements Board2Controller {
 		return mav;
 	}
 	
+	
+	
+	//검색
+		@RequestMapping(value="/board/searchTitle.do")
+		public ModelAndView searchTitle(String word1, String sorting1,
+				HttpServletRequest request, HttpServletResponse response) throws Exception{
+			//String word = "%"+word1+"%";
+			String word = word1;
+			Map map = new HashMap();
+			map.put("sorting", sorting1);
+			map.put("word", word);
+			System.out.print(map);
+			List board2list = board2Service.searchTitle(map);
+			System.out.print(board2list);
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("board2list", board2list);
+			mav.setViewName("board2");
+			return mav;
+	}
+	
+	
 
 	// 로그인과 연계해서 하려면 2_3의 500페이지 언저리를 뒤져보면 그거 세팅하는거 나옴
 	// 한 개 이미지 글쓰기

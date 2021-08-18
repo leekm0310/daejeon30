@@ -58,10 +58,16 @@ public class Board2ServiceImpl implements Board2Service {
 		return board2DAO.count();
 	}
 		
-	//게시물 목록 + 페이징
+	//게시물 목록 + 페이징 - 안쓰는것
 	@Override
 	public List listPage(int displayPost, int postNum) throws Exception {
 		return board2DAO.listPage(displayPost, postNum);
+	}
+	
+	
+	//제목검색
+	public List searchTitle(Map map) throws Exception{
+		return board2DAO.searchTitle(map);
 	}
 	
 	
@@ -82,4 +88,8 @@ public class Board2ServiceImpl implements Board2Service {
 		board2DAO.deleteBoard(boardNO);
 		
 	}
+	
+	
+
+	
 }

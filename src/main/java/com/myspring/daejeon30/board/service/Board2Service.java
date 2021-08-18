@@ -22,6 +22,9 @@ public interface Board2Service {
 	//페이지테스트
 	public List selectBoardList(Criteria cri) throws Exception;
 	public int countBoardListTotal() throws Exception;
+	
+	//검색
+	public List searchTitle(Map map) throws Exception;
 
 
 }

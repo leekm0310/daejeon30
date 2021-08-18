@@ -120,6 +120,13 @@
 	 	where rb_num = #{rb_num}
 	 	]]>
 	</select>
+	
+	<!-- 검색 -->
+	<select id="searchBysort" parameterType="java.util.Map" resultMap="board2Result">
+	<![CDATA[
+	select * from recboard where ${sorting} like concat('%',#{word},'%')
+	]]>
+	</select>
 
 
 <!-- 게시물의 총 갯수 
