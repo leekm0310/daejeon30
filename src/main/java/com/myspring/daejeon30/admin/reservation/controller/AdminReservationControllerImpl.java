@@ -120,11 +120,13 @@ public class AdminReservationControllerImpl implements AdminReservationControlle
 	//관리자 메인
 	@RequestMapping(value="/admin/adminmain.do")
 	public ModelAndView adminmain(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		int newrm = adminReservationService.countNewRsvmem();
+		//int newrm = adminReservationService.countNewRsvmem();
+		int newrm = adminReservationService.countNewRsvAll();
 		int newmem = adminMemberService.newMember();
 		int newqna = boardqService.newQna();
 		int newcm = adminReservationService.countCanRsvmem();
 		HttpSession session = request.getSession();
+	
 		session.setAttribute("newcm", newcm);
 		session.setAttribute("newrm", newrm);
 		session.setAttribute("newmem", newmem);

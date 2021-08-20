@@ -19,9 +19,13 @@ public interface AdminReservationDAO{
 	public List selectnonStatus(String status) throws DataAccessException;
 	//신규예약-회원
 	public int countNewRsvmem()throws DataAccessException;
-	
 	//회원 취소
 	public int countCanRsvmem() throws DataAccessException;
+	
+	//예약 한번에 세기 테스트
+	public int countNewRsvAll() throws DataAccessException;
+	
+	
 	
 	//페이지
 		public List selectMemRList(Criteria cri) throws Exception;

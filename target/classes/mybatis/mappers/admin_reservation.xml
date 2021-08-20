@@ -116,4 +116,14 @@
 	]]>
 	</select>
 	
+	<!-- 전체 회원 예약 상태카운트 비회원+회원 -->
+	<select id="countNewRsvAll" resultType="int">
+	<![CDATA[
+	select sum(cnt) from
+	(select count(*) as cnt from rsvnonmember where status='예약요청중'
+	union all
+	select count(*) as cnt from rsvmember where status='예약요청중')c;
+	]]>
+	</select>
+	
 </mapper>
