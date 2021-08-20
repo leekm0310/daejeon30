@@ -147,7 +147,7 @@
 							
 							<br>
 
-							<!-- 덧글 요소입니다 
+							<!-- 덧글  
 							<div class="card mb-2">
 								<div class="card-header bg-light">댓글</div>
 

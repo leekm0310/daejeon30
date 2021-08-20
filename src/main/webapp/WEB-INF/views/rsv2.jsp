@@ -30,14 +30,13 @@
 <script type="text/javascript">
 
      $(function() {
-    	 //읽기전용 (프라이머리키)
+    
      	$("#id").attr("readonly",true);
     	$("#name").attr("readonly",true);
     	$("#phone").attr("readonly",true);
     	$("#resName").attr("readonly",true);
     
-    	
-    	// 경미님이 세션에 넣어놓은 로그인회원정보 가져와서 세팅
+
     	$("#id").val("${member.id}");
     	$("#name").val("${member.name}");
     	$("#phone").val("${member.phone}");

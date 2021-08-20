@@ -23,14 +23,13 @@
 <title>추천 게시판</title>
 
 <script>
-	function fn_writeform(isLogOn,writeform,login){//3개의 값들도 관련된 것과 연결해야하는것 같은데, 나중에 합칠때 수정하자
+	function fn_writeform(isLogOn,writeform,login){
 		if(isLogOn != '' && isLogOn != 'false'){
-			location.href = writeform; //로그인 상태이면 글쓰기 창으로 이동
+			location.href = writeform; 
 		} else {
 			alert("로그인 후 글쓰기가 가능합니다.")
 			location.href = login + '?action=/board/writeform.do';
-			//로그아웃 상태이면 action 값으로 다음에 수행할 url인 board/writeForm.do 를 전달하면서 
-			//로그인 창으로 이동 이건 views에 넣어놨다. 나중에 수정하자.
+		
 		}
 	}
 </script>
