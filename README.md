@@ -1,4 +1,11 @@
 # 대슐랭가이드 - 식당예약사이트
+## 기획의도
+* '대슐랭가이드'는 쇼핑몰과 커뮤니티를 결합한 웹쇼핑몰 프로젝트 입니다
+
+<img src="https://user-images.githubusercontent.com/87681380/130398528-952447be-775a-49e0-9a65-195d346b8cb9.JPG" width="800">
+
+
+
 ## 프로젝트 개요
 1. 개발기간: 2021. 06. 10 ~ 2021. 08. 17
 2. 개발환경
@@ -10,8 +17,7 @@
   - Database: MySQL Server 8.0.19
   
 * FrontEnd
-  - Language: HTML5, CSS3, JavaScript ES8, bootstrap 5.0.1
-  - Framework: Jquery 3.3.1, Ajax, Json
+  - HTML5, CSS3, JavaScript, bootstrap 5.0.1, Jquery 3.3.1, Ajax, Json
   
 * BackEnd
   - Language: Java 1.6, JSP 
@@ -28,18 +34,48 @@
  * 사용자
    - 식당 관련: 식당 검색, 식당 예약, 식당 찜하기
    - 예약 관련: 예약취소 요청, 예약 변경
-   - 게시판 관련: 추천게시판 글 등록, 수정, 삭제
+   - 게시판 관련: 추천게시판/리뷰게시판 글 등록, 수정, 삭제
    - 마이페이지 관련: 나의 현황 요약, 내 게시물 관리, 예약내역 조회, 회원정보 수정(및 탈퇴), 찜한 리스트 확인
 
 
 ## 화면설명
 
-<img src="https://user-images.githubusercontent.com/87681380/130386881-e0f6dbac-f059-48c8-931f-1d48e19f6fae.JPG" width="700">
+### 사용자화면: 식당 분류별 보기, 식당 검색
+- 식당을 지역, 음식 종류, 기타 분류에 따라 출력
+- 식당 이름 키워드 검색
+<img src="https://user-images.githubusercontent.com/87681380/130397114-6c622eb8-ca29-4b80-82aa-aa013e962c32.gif" width="600">
 
-- 메인화면: 식당 분류별 보기, 검색
-![main](https://user-images.githubusercontent.com/87681380/130397114-6c622eb8-ca29-4b80-82aa-aa013e962c32.gif)
+* * *
 
-- 관리자화면: 각각 화면 전환
-![adminmain](https://user-images.githubusercontent.com/87681380/130397125-42bef17e-1734-4652-b817-62075e2dca7a.gif)
+### 사용자화면: 식당 상세보기, 찜하기 및 예약
+- 식당 예약 기능 (회원/비회원 구분)
+- 예약 내역 조회, 변경, 취소 기능
 
+* * *
+
+### 사용자화면: 마이페이지
+- 나의 현황 요약, 내 게시물 관리, 예약내역 조회, 회원정보 수정(및 탈퇴), 찜한 리스트 확인/삭제 기능
+
+* * *
+
+### 관리자화면: 각각 메뉴 확인
+- 관리자 메인 화면에서는 예약현황, 문의현황 및 회원 등록 현황을 확인할 수 있게 함, 숫자 클릭시 해당 메뉴 이동
+- 사이드 메뉴 통해서 이동 가능
+<img src="https://user-images.githubusercontent.com/87681380/130397125-42bef17e-1734-4652-b817-62075e2dca7a.gif" width="600">
+
+* * *
+
+### 관리자화면: 게시판 글쓰기, 수정, 삭제 - 공지사항, FAQ
+- 관리자 게시판(공지사항, FAQ) 글쓰기, 수정, 삭제 기능 구현
+- 관리자 게시판 메뉴 중 문의 게시판 글 읽기/삭제 및 댓글 등록/삭제 가능
+<img src="https://user-images.githubusercontent.com/87681380/130401097-6c815c8d-130a-4239-b7f9-86be8f4385de.gif" width="600">
+
+* * *
+
+### 관리자계정: 문의게시판 글 읽기, 댓글 등록/삭제
+- 관리자화면 아닌 일반 메인 화면에서도 문의게시판 글 읽기/삭제, 댓글 등록/삭제 모두 가능
+<img src="https://user-images.githubusercontent.com/87681380/130401600-dc600416-e2f1-422f-84c2-17df29b2c09c.gif" width="600">
+
+
+* * *
 
