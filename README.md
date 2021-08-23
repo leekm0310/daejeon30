@@ -36,3 +36,10 @@
 
 <img src="https://user-images.githubusercontent.com/87681380/130386881-e0f6dbac-f059-48c8-931f-1d48e19f6fae.JPG" width="700">
 
+- 메인화면: 식당 분류별 보기, 검색
+![main](https://user-images.githubusercontent.com/87681380/130397114-6c622eb8-ca29-4b80-82aa-aa013e962c32.gif)
+
+- 관리자화면: 각각 화면 전환
+![adminmain](https://user-images.githubusercontent.com/87681380/130397125-42bef17e-1734-4652-b817-62075e2dca7a.gif)
+
+
