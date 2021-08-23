@@ -33,3 +33,6 @@
 
 
 ## 화면설명
+
+![adminmain](https://user-images.githubusercontent.com/87681380/130386881-e0f6dbac-f059-48c8-931f-1d48e19f6fae.JPG)
+
