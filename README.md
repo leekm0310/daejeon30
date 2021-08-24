@@ -92,6 +92,17 @@
 - 관리자화면 아닌 일반 메인 화면에서도 문의게시판 글 읽기/삭제, 댓글 등록/삭제 모두 가능
 <img src="https://user-images.githubusercontent.com/87681380/130401600-dc600416-e2f1-422f-84c2-17df29b2c09c.gif" width="600">
 
+* * *
+
+### 관리자계정: 식당관리
+- 식당 등록, 수정, 삭제 기능
+<img src="https://user-images.githubusercontent.com/87681380/130569452-1f543ef7-4292-473d-a8c7-c8d087e1705b.gif" width="600">
 
 * * *
 
+### 관리자계정: 회원관리(회원정보수정, 회원등급수정, 탈퇴)
+- 손쉬운 회원관리를 위해 회원등급수정 기능 - 고객이 원할시 회원등급에 관리자 추가하여 관리자 아이디 여러개 생성 및 관리 가능
+- 회원 상세 정보 수정 및 탈퇴 기능
+<img src="https://user-images.githubusercontent.com/87681380/130569982-82b3e797-3e4f-47e4-88e4-1e5cd170a76f.gif" width="600">
+
+* * *
