@@ -64,7 +64,7 @@
 ### 사용자화면: 커뮤니티, 고객센터
 - 추천게시판, 문의게시판 글 작성, 수정, 삭제 가능
 - 리뷰게시판은 예약완료한 식당들에 한해서만 마이페이지 내에서 작성가능
-<img arc="https://user-images.githubusercontent.com/87681380/130567318-9053eaba-0f78-4e79-a14b-466a253797d7.gif" width="600">
+<img src="https://user-images.githubusercontent.com/87681380/130567318-9053eaba-0f78-4e79-a14b-466a253797d7.gif" width="600">
 
 * * *
 
