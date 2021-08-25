@@ -10,7 +10,7 @@ pageEncoding="utf-8" isELIgnored="false" %>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-	<title>예약/결제 페이지</title>
+	<title>예약/결제 페이지 TESTTEST</title>
 <style>
 	.container{
  	width: 1050px;
